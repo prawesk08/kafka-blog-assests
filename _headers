@@ -1,0 +1,9 @@
+/*
+  Access-Control-Allow-Origin: https://www.kafka.blog
+  X-Content-Type-Options: nosniff
+
+/*.css
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/*.js
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
