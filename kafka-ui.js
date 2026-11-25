@@ -340,7 +340,7 @@ try{(function(){
  /* v180: lists page with Previous / Next — 5 per page in the footer, 10 on collection and series pages */
  var NE=document.documentElement.lang==='ne';
  function items(list){return [].filter.call(list.children,function(c){return c.tagName==='LI'||c.classList.contains('kser-row')})}
- function perFor(list){if(list.closest('.three,.kfoot'))return 5;if(list.closest('.related'))return window.innerWidth<700?4:99;return 10}
+ function perFor(list){if(list.closest('.three,.kfoot'))return window.innerWidth<701?5:10;if(list.closest('.related'))return window.innerWidth<700?4:99;return 10}
  function setup(list){
   if(list.closest('.kpager')||list.parentNode.querySelector(':scope > .kpager:not(.kpg2)'))return;
   var its=items(list),per=perFor(list),st=list.__kpg||(list.__kpg={page:0});
