@@ -337,20 +337,27 @@
 /* v156-157 phone tabs, collapse, pin descriptions */
 (function(){function go(){try{(function(){if(!matchMedia('(max-width:700px)').matches)return;var t=document.querySelector('.three');if(!t||t.querySelector('.ktabs3'))return;var cols=[].slice.call(t.children).filter(function(c){return c.classList.contains('col')});if(cols.length<3)return;t.classList.add('ktabbed');var order=[[cols[0],'Recent posts'],[cols[2],'Most read'],[cols[1],'Archive & Series']];var bar=document.createElement('div');bar.className='ktabs3';bar.setAttribute('role','tablist');order.forEach(function(o,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent=o[1];b.setAttribute('aria-selected',i?'false':'true');if(!i)o[0].classList.add('kon');b.onclick=function(){order.forEach(function(p,j){p[0].classList.toggle('kon',j===i);bar.children[j].setAttribute('aria-selected',j===i?'true':'false')})};bar.appendChild(b)});t.insertBefore(bar,t.firstChild);})();}catch(e){}
 try{(function(){
- if(!window.matchMedia||!matchMedia('(max-width:700px)').matches)return;
- function count(box){var l=box.querySelector('ol,ul,.kserlist');return l?[].filter.call(l.children,function(c){return c.tagName==='LI'||c.classList.contains('kser-row')}).length:0}
- function setup(box){
-  var n=count(box);var btn=box.querySelector(':scope > .kcl-btn');
-  if(n<=5){if(btn)btn.remove();box.classList.remove('kcl');return}
-  box.classList.add('kcl');
-  var list=box.querySelector('ol,ul,.kserlist');
-  if(!btn){btn=document.createElement('button');btn.type='button';btn.className='kcl-btn';btn.onclick=function(){box.classList.toggle('kopen');label()};}
-  if(btn.parentNode!==box||btn.previousElementSibling!==list&&list.parentNode===box){list.parentNode===box?list.insertAdjacentElement('afterend',btn):box.appendChild(btn)}
-  function label(){var k=count(box);btn.textContent=box.classList.contains('kopen')?'Show fewer ▴':'Show all '+k+' ▾'}
-  label();
+ /* v180: lists page with Previous / Next — 5 per page in the footer, 10 on collection and series pages */
+ var NE=document.documentElement.lang==='ne';
+ function items(list){return [].filter.call(list.children,function(c){return c.tagName==='LI'||c.classList.contains('kser-row')})}
+ function perFor(list){if(list.closest('.three,.kfoot'))return 5;if(list.closest('.related'))return window.innerWidth<700?4:99;return 10}
+ function setup(list){
+  if(list.closest('.kpager')||list.parentNode.querySelector(':scope > .kpager:not(.kpg2)'))return;
+  var its=items(list),per=perFor(list),st=list.__kpg||(list.__kpg={page:0});
+  var nav=st.nav;
+  if(its.length<=per){its.forEach(function(x){x.classList.remove('kpg-off')});if(nav&&nav.parentNode)nav.parentNode.removeChild(nav);return}
+  var pages=Math.ceil(its.length/per);if(st.page>pages-1)st.page=pages-1;
+  if(!nav){nav=st.nav=document.createElement('div');nav.className='kpager kpg2';
+   nav.innerHTML='<div class="nav"><button type="button" data-go="-1">‹ '+(NE?'अघिल्लो':'Previous')+'</button><button type="button" data-go="1">'+(NE?'अर्को':'Next')+' ›</button></div><span class="count"></span>';
+   [].forEach.call(nav.querySelectorAll('button'),function(b){b.onclick=function(){var p2=Math.ceil(items(list).length/per);st.page=Math.max(0,Math.min(p2-1,st.page+ +b.getAttribute('data-go')));draw();var r=list.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.6)list.scrollIntoView({block:'start',behavior:'smooth'})}});
+  }
+  if(nav.previousElementSibling!==list)list.insertAdjacentElement('afterend',nav);
+  function draw(){var its2=items(list),from=st.page*per;its2.forEach(function(x,k){x.classList.toggle('kpg-off',k<from||k>=from+per)});var bs=nav.querySelectorAll('button');bs[0].disabled=st.page===0;bs[1].disabled=from+per>=its2.length;nav.querySelector('.count').textContent=(from+1)+'–'+Math.min(from+per,its2.length)+(NE?' / ':' of ')+its2.length}
+  draw();
  }
- function scan(){[].forEach.call(document.querySelectorAll('.three>.col>[id], .three .half, .static-page .kser-tabs>div, .static-page .prose, .related'),function(b){if(b.querySelector('ol,ul,.kserlist'))setup(b)})}
- scan();var mo=new MutationObserver(function(){clearTimeout(mo.t);mo.t=setTimeout(scan,120)});mo.observe(document.body,{childList:true,subtree:true});setTimeout(function(){mo.disconnect()},20000);
+ function scan(){[].forEach.call(document.querySelectorAll('.three .kserlist, .three .half ol, .three .half ul, .static-page ol.kser-items, .static-page .kserlist, .related ol, .related ul'),function(l){if(!l.closest('nav'))setup(l)})}
+ [].forEach.call(document.querySelectorAll('.kcl-btn'),function(b){b.remove()});
+ scan();var mo=new MutationObserver(function(){clearTimeout(mo.t);mo.t=setTimeout(scan,150)});mo.observe(document.body,{childList:true,subtree:true});setTimeout(function(){mo.disconnect()},25000);
 })();}catch(e){}
 try{(function(){var D={'bhag-1':'सन् १७९९ मा बिफर दरबारभित्र पस्यो। रणबहादुरले बिफर लागेका बच्चालाई परिवारसहित उपत्यकाबाट लखेटे, र त्यो पीडा शीतला माजु भजनमा बाँच्यो।','bhag-2':'शीतला माजु को हुन्, बिफर जाडोमै किन फर्किन्थ्यो, खोप ढोकामा हुँदा राजा गिर्वाण कसरी बिते, र नेपालले बिफर कसरी हटायो।'};var n=0;function t(){n++;var lis=document.querySelectorAll('.kps-parts>li');if(lis.length){[].forEach.call(lis,function(li){if(li.querySelector('.kps-d'))return;var a=li.querySelector('.tt');var k=/bhag-1/.test(a.href)?'bhag-1':(/bhag-2/.test(a.href)?'bhag-2':'');if(!D[k])return;var p=document.createElement('p');p.className='kps-d';p.textContent=D[k];a.insertAdjacentElement('afterend',p)});return}if(n<40)setTimeout(t,500)}t();})();}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
 ;
