@@ -484,8 +484,8 @@ try{(function(){
           var a=x.li.querySelector('h2 a, a[href]');var href=a?a.getAttribute('href'):'';var title=a?a.textContent.trim():'';
           var acts=document.createElement('div');acts.className='kser-acts';
           var h='';
-          var hasRec=!!(MAN[x.p]||REC[x.p]);
-          if(hasRec)h+='<a class="ka-ico ka-listen" href="'+esc(href)+'#klisten" aria-label="'+(x.o&&x.o.ne?'सुन्नुहोस्: ':'Listen: ')+esc(title)+'" title="'+(x.o&&x.o.ne?'सुन्नुहोस्':'Listen')+'">'+ICO.listen+'</a>';
+          /* v180: always offer listening (recording, or the browser voice until it is recorded) */
+          h+='<a class="ka-ico ka-listen" href="'+esc(href)+'#klisten" aria-label="'+(x.o&&x.o.ne?'सुन्नुहोस्: ':'Listen: ')+esc(title)+'" title="'+(x.o&&x.o.ne?'सुन्नुहोस्':'Listen')+'">'+ICO.listen+'</a>';
           if(x.tr&&x.tr.p&&x.tr.p!==x.p){var toNe=x.tr.ne;h+='<a class="ka-ico ka-tr" href="'+esc(x.tr.p)+'" hreflang="'+(toNe?'ne':'en')+'" aria-label="'+(toNe?'नेपालीमा पढ्नुहोस्':'Read in English')+'" title="'+(toNe?'नेपालीमा पढ्नुहोस्':'Read in English')+'">'+ICO.tr+'<b>'+(toNe?'ने':'EN')+'</b></a>'}
           h+='<button type="button" class="ka-ico kact-share" data-url="'+esc(href)+'" data-title="'+esc(title)+'" aria-label="Share: '+esc(title)+'" title="Share">'+ICO.share+'</button>';
           acts.innerHTML=h;x.li.appendChild(acts);
