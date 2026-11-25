@@ -477,7 +477,7 @@ window.KAFKA_RECORDINGS = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.h
    first, nothing running on the reader's phone. If a browser will not stream
    from Drive, Drive's own small player takes its place. Pieces not yet
    recorded fall back to the voice made in the browser. */
-window.KAFKA_AUDIO_BASE = 'https://pub-94a378e079764538bb5859f872f65c67.r2.dev';
+window.KAFKA_AUDIO_BASE = 'https://audio.kafka.blog';
 window.KAFKA_GET_MANIFEST = function () {
   if (!window._KAFKA_MANIFEST_P) {
     window._KAFKA_MANIFEST_P = fetch(window.KAFKA_AUDIO_BASE + '/manifest.json', { cache: 'default' })
