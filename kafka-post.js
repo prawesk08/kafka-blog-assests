@@ -99,6 +99,8 @@
   }
   function upThumb(u){
     if(!u)return '';
+    /* v180: Drive-style covers (lh3/d/<id>=w1600...) get one clean size instead of a stacked suffix */
+    if(/googleusercontent\.com\/d\//.test(u))return u.replace(/^http:\/\//,'https://').replace(/(\/d\/[^=\/?#]+)(=[^\/?#]*)?$/,'$1=w400-h250-c-rw');
     return u.replace(/\/s\d+(-c)?\//,'/w480-h300-c/').replace(/=s\d+(-c)?/,'=w480-h300-c').replace(/^http:\/\//,'https://');
   }
   function stripHtml(h){
@@ -383,9 +385,9 @@
 
       /* Hydrate real post thumbnails & excerpts from Blogger feed */
       try{
-        fetch('/feeds/posts/default?alt=json&max-results=150').then(function(r){return r.json();}).then(function(d){
-          var entries=(d&&d.feed&&d.feed.entry)||[];
-          var changed=false;
+        /* v180: summary list first; open single posts only for the few cards that still lack a picture */
+        var hydrate=function(entries,full){
+          var changed=false,need=[];
           entries.forEach(function(e){
             var lnk=((e.link||[]).filter(function(x){return x.rel==='alternate';})[0]||{}).href||'';
             var np=normPath(lnk);
@@ -396,6 +398,7 @@
               if(mi)thumb=upThumb(mi[1]);
             }
             if(thumb){metaByPath[np].img=thumb;changed=true;}
+            else if(!full&&e.id&&e.id.$t){need.push(e.id.$t.split('post-')[1]);}
             if(!metaByPath[np].desc){
               var rawBody=(e.summary&&e.summary.$t)||(e.content&&e.content.$t)||'';
               var ex=stripHtml(rawBody);
@@ -403,6 +406,14 @@
             }
           });
           if(changed)renderCards();
+          return need;
+        };
+        fetch('/feeds/posts/summary?alt=json&max-results=500&fields=feed/entry(id,title,link,summary,media:thumbnail)').then(function(r){return r.json();}).then(function(d){
+          var need=hydrate((d&&d.feed&&d.feed.entry)||[],false);
+          need.slice(0,12).forEach(function(pid){
+            if(!pid)return;
+            fetch('/feeds/posts/default/'+pid+'?alt=json&fields=id,link,content').then(function(r){return r.json();}).then(function(x){if(x&&x.entry)hydrate([x.entry],true);}).catch(function(){});
+          });
         }).catch(function(){});
       }catch(e){}
     }
@@ -722,6 +733,7 @@
   function normP(p){return (p||'').replace(/^https?:\/\/[^\/]+/,'').split('?')[0].split('#')[0].replace(/\/+$/,'');}
   function upT(u){
     if(!u)return '';
+    if(/googleusercontent\.com\/d\//.test(u))return u.replace(/^http:\/\//,'https://').replace(/(\/d\/[^=\/?#]+)(=[^\/?#]*)?$/,'$1=w480-rw');
     return u.replace(/\/[sw]\d+[^\/]*\//,'/w480/').replace(/=[sw]\d+[^&"'\s]*/,'=w480').replace(/^http:\/\//,'https://');
   }
   function initListThumbs(){
@@ -783,14 +795,19 @@
       return applyThumbs();
     }
     applyThumbs();
+    /* v180: no full-text feed; list items still missing a picture open their own post only */
+    var idByPath={};
     fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.json();}).then(function(d){
+      ((d&&d.feed&&d.feed.entry)||[]).forEach(function(e){var l=((e.link||[]).filter(function(x){return x.rel==='alternate';})[0]||{}).href||'';if(e.id&&e.id.$t)idByPath[normP(l)]=e.id.$t.split('post-')[1];});
       var rem=ingest(d);
       if(rem>0){
-        fetch('/feeds/posts/default?alt=json&max-results=150').then(function(r){return r.json();}).then(ingest).catch(function(){});
+        var todo=[];
+        Array.prototype.forEach.call(items,function(li){if(li.querySelector('.kser-li-thumb:not(.is-art)'))return;var a=li.querySelector('h2 a, a');var id=a&&idByPath[normP(a.getAttribute('href'))];if(id)todo.push(id);});
+        todo.slice(0,40).forEach(function(id){
+          fetch('/feeds/posts/default/'+id+'?alt=json&fields=id,title,link,content').then(function(r){return r.json();}).then(function(x){if(x&&x.entry)ingest({feed:{entry:[x.entry]}});}).catch(function(){});
+        });
       }
-    }).catch(function(){
-      fetch('/feeds/posts/default?alt=json&max-results=150').then(function(r){return r.json();}).then(ingest).catch(function(){});
-    });
+    }).catch(function(){});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initListThumbs);
   else initListThumbs();

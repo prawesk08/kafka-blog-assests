@@ -14,15 +14,64 @@
       +'<span class="kd-rhs"><span class="kd-pill">'+pill+'</span><span class="kd-chev" aria-hidden="true">'+CHEV+'</span></span>';
   }
   function normT(s){return String(s||'').replace(/[\s\u00a0]+/g,' ').trim()}
+  /* v180: one card for every kind of piece — poems, letters, stories, essays — authored line or automatic */
+  var KMORE={
+    poems:{en:'More poems by Basava',ne:'बासभका अरू कविता',allEn:'All poems',allNe:'सबै कविता',label:'Poetry'},
+    letters:{en:'More letters by Basava',ne:'बासभका अरू चिठी',allEn:'All letters',allNe:'सबै चिठी',label:'Letters'},
+    stories:{en:'More stories by Basava',ne:'बासभका अरू कथा',allEn:'All stories',allNe:'सबै कथा',label:'Stories'},
+    essays:{en:'More essays by Basava',ne:'बासभका अरू लेख',allEn:'All essays',allNe:'सबै लेख',label:'Articles'}
+  };
+  function kmoreKind(txt){
+    var t=String(txt||'').toLowerCase();
+    if(/letter|चिठी|पत्र/.test(t))return 'letters';
+    if(/stor|कथा/.test(t))return 'stories';
+    if(/essay|article|piece|लेख|निबन्ध/.test(t))return 'essays';
+    return 'poems';
+  }
+  function kmoreCard(kind,isNe,items,allLink,logoUrl){
+    var K=KMORE[kind]||KMORE.poems;
+    var card=document.createElement('section');card.className='kmore-poems kmore-'+kind;
+    if(isNe)card.setAttribute('lang','ne');
+    var head=document.createElement('div');head.className='kmore-head';
+    var kick=document.createElement('span');kick.className='kmore-kicker';
+    if(logoUrl){var li=document.createElement('img');li.className='kd-logo';li.alt='';li.src=logoUrl;li.width=22;li.height=22;kick.appendChild(li);}
+    var kt=document.createElement('span');kt.textContent=isNe?K.ne:K.en;kick.appendChild(kt);
+    head.appendChild(kick);
+    if(allLink&&allLink.href){
+      var al=document.createElement('a');al.className='kmore-all';al.href=allLink.href;
+      al.textContent=(allLink.text||(isNe?K.allNe:K.allEn)).replace(/[›>]\s*$/,'').trim()+' ›';
+      head.appendChild(al);
+    }
+    card.appendChild(head);
+    var grid=document.createElement('div');grid.className='kmore-grid';
+    items.forEach(function(it){
+      var a=document.createElement('a');a.className='kmore-link';a.href=it.href;
+      var sp=document.createElement('span');sp.textContent=it.text;
+      if(/[ऀ-ॿ]/.test(it.text))sp.setAttribute('lang','ne');
+      var ar=document.createElement('span');ar.className='kmore-arr';ar.setAttribute('aria-hidden','true');ar.textContent='→';
+      a.appendChild(sp);a.appendChild(ar);grid.appendChild(a);
+    });
+    card.appendChild(grid);
+    return card;
+  }
+  function placeKmore(prose,card){
+    var row=prose.querySelector('.poem-row');
+    var end=prose.querySelector(':scope > .end-doodle');
+    if(row&&row.parentNode){row.parentNode.insertBefore(card,row.nextSibling)}
+    else if(end){prose.insertBefore(card,end)}
+    else{prose.appendChild(card)}
+  }
   function upgradeMorePoems(prose,logoUrl){
     if(!prose||document.querySelector('.kmore-poems'))return;
-    var reMP=/^(More\s+poems\s+by\s+Basava|More\s+poems|Related\s+poems|Other\s+poems|\u092c\u093e\u0938\u092d\u0915\u093e\s+(?:\u0905\u0930\u0942|\u0905\u0930\u0941|\u0925\u092a|\u0905\u0928\u094d\u092f)\s+\u0915\u0935\u093f\u0924\u093e|(?:\u0905\u0930\u0942|\u0905\u0930\u0941|\u0925\u092a|\u0905\u0928\u094d\u092f|\u0938\u092e\u094d\u092c\u0928\u094d\u0927\u093f\u0924)\s+\u0915\u0935\u093f\u0924\u093e(?:\u0939\u0930\u0942|\u0939\u0930\u0941)?)/i;
+    var reMP=/^(?:More\s+(?:poems|letters|stories|essays|articles|pieces)(?:\s+by\s+Basava)?|(?:Related|Other)\s+(?:poems|letters|stories|essays)|(?:बासभका\s+)?(?:अरू|अरु|थप|अन्य|सम्बन्धित)\s+(?:कविता|चिठी|पत्र|कथा|निबन्ध|लेख)(?:हरू|हरु)?)/i;
+    var reAll=/^(all\s+(poems|letters|stories|essays|articles|pieces)|सबै\s+)/i;
     var ps=Array.prototype.slice.call(prose.querySelectorAll('p, div, h2, h3, h4'));
     for(var i=ps.length-1;i>=0;i--){
       var el=ps[i];
       if(el.querySelector('p, div'))continue;
       var txt=normT(el.textContent);
-      if(!reMP.test(txt))continue;
+      var mm=txt.match(reMP);
+      if(!mm)continue;
       var links=Array.prototype.slice.call(el.querySelectorAll('a[href]'));
       var extraList=null;
       if(!links.length){
@@ -37,38 +86,60 @@
       var allLink=null,items=[];
       links.forEach(function(a){
         var t=normT(a.textContent);
-        if(/^(all\s+poems|\u0938\u092c\u0948\s+\u0915\u0935\u093f\u0924\u093e)/i.test(t)){allLink={href:a.getAttribute('href'),text:t}}
+        if(reAll.test(t)){allLink={href:a.getAttribute('href'),text:t}}
         else if(t){items.push({href:a.getAttribute('href'),text:t})}
       });
       if(!items.length)continue;
-      var card=document.createElement('section');card.className='kmore-poems';
-      var head=document.createElement('div');head.className='kmore-head';
-      var kick=document.createElement('span');kick.className='kmore-kicker';
-      if(logoUrl){var li=document.createElement('img');li.className='kd-logo';li.alt='';li.src=logoUrl;li.style.width='22px';li.style.height='22px';kick.appendChild(li);}
-      var kt=document.createElement('span');kt.textContent=/[\u0900-\u097f]/.test(txt)?'\u092c\u093e\u0938\u092d\u0915\u093e \u0905\u0930\u0942 \u0915\u0935\u093f\u0924\u093e':'More poems by Basava';kick.appendChild(kt);
-      head.appendChild(kick);
-      if(allLink){
-        var al=document.createElement('a');al.className='kmore-all';al.href=allLink.href;
-        al.textContent=allLink.text.replace(/[\u203a>]$/,'').trim()+' \u203a';
-        head.appendChild(al);
-      }
-      card.appendChild(head);
-      var grid=document.createElement('div');grid.className='kmore-grid';
-      items.forEach(function(it){
-        var a=document.createElement('a');a.className='kmore-link';a.href=it.href;
-        var sp=document.createElement('span');sp.textContent=it.text;
-        var ar=document.createElement('span');ar.className='kmore-arr';ar.textContent='\u2192';
-        a.appendChild(sp);a.appendChild(ar);grid.appendChild(a);
-      });
-      card.appendChild(grid);
+      var card=kmoreCard(kmoreKind(mm[0]),/[ऀ-ॿ]/.test(mm[0]),items,allLink,logoUrl);
       if(el.parentNode)el.parentNode.removeChild(el);
       if(extraList&&extraList.parentNode)extraList.parentNode.removeChild(extraList);
-      var row=prose.querySelector('.poem-row');
-      if(row&&row.parentNode){row.parentNode.insertBefore(card,row.nextSibling)}
-      else{prose.appendChild(card)}
+      placeKmore(prose,card);
       trimPoemArtOverflow(prose);
-      break;
+      return;
     }
+    autoMore(prose,logoUrl);
+  }
+  /* v180: posts without a hand-written line get the card from the post list (same kind, same language first) */
+  var autoMoreBusy=false;
+  function autoMore(prose,logoUrl){
+    if(autoMoreBusy||!window.fetch)return;
+    var labs=Array.prototype.map.call(document.querySelectorAll('.post-labels a[data-label]'),function(a){return a.getAttribute('data-label')});
+    if(!labs.length)return;
+    var kind=labs.indexOf('Letters')>-1?'letters':labs.indexOf('Poetry')>-1?'poems':labs.indexOf('Stories')>-1?'stories':labs.indexOf('Articles')>-1?'essays':'';
+    if(!kind)return;
+    var K=KMORE[kind];
+    var isNe=labs.indexOf('lang-ne')>-1||(document.documentElement.lang==='ne');
+    var pair=labs.filter(function(l){return /^pair-/.test(l)})[0]||'';
+    var ser=labs.filter(function(l){return /^series-/.test(l)})[0]||'';
+    var topic=labs.indexOf('History')>-1?'History':labs.indexOf('Science')>-1?'Science':'';
+    var here=location.pathname.replace(/\/+$/,'');
+    autoMoreBusy=true;
+    fetch('/feeds/posts/summary?alt=json&max-results=500&fields=feed/entry(id,title,link,published,category,media:thumbnail)')
+      .then(function(r){return r.json()}).then(function(j){
+        if(document.querySelector('.kmore-poems'))return;
+        var hereDate=0,list=[];
+        (j.feed.entry||[]).forEach(function(e){
+          var u=((e.link||[]).filter(function(l){return l.rel==='alternate'})[0]||{}).href||'';
+          var p=u.replace(/^https?:\/\/[^\/]+/,'').split('?')[0].replace(/\/+$/,'');
+          var L=(e.category||[]).map(function(c){return c.term});
+          var d=new Date((e.published||{}).$t||0).getTime();
+          if(p===here){hereDate=d;return}
+          if(L.indexOf(K.label)<0)return;
+          if(pair&&L.indexOf(pair)>-1)return;
+          if(ser&&L.indexOf(ser)>-1)return;
+          list.push({href:p,text:normT((e.title||{}).$t),ne:L.indexOf('lang-ne')>-1,topic:topic&&L.indexOf(topic)>-1,d:d});
+        });
+        if(!hereDate)hereDate=Date.now();
+        list.forEach(function(x){x.score=Math.abs(x.d-hereDate)/864e5+(x.ne===isNe?0:4000)-(x.topic?300:0)});
+        list.sort(function(a,b){return a.score-b.score});
+        var pick=list.filter(function(x){return x.text}).slice(0,3);
+        if(!pick.length)return;
+        var allHref={letters:'/p/letters.html',poems:isNe?'/p/nepali-kavita.html':'/p/nepali-kavita.html#poems-in-english',stories:'/p/stories.html',essays:topic==='History'?'/p/history.html':topic==='Science'?'/p/science.html':'/search/label/Articles'}[kind];
+        var card=kmoreCard(kind,isNe,pick,{href:allHref},logoUrl);
+        card.classList.add('is-auto');
+        placeKmore(prose,card);
+        trimPoemArtOverflow(prose);
+      }).catch(function(){}).then(function(){autoMoreBusy=false});
   }
   function collapseLooseSummaries(prose,logoUrl){
     var reSum=/^(in short|key takeaways|at a glance|summary|tl;?dr|\u091b\u094b\u091f\u0915\u0930\u0940\u092e\u093e|\u0938\u0902\u0915\u094d\u0937\u0947\u092a\u092e\u093e|\u092e\u0941\u0916\u094d\u092f\s+\u092c\u0941\u0901\u0926\u093e)[\s:\u2014-]*$/i;
