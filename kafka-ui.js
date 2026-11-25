@@ -455,6 +455,7 @@ try{(function(){
       var TR=window.KAFKA_TRANSLATIONS||{},REC=window.KAFKA_RECORDINGS||{},MAN=res[1]||{};
       function mateOf(o){
         if(!o)return null;
+        var pp=(window.KAFKA_PATH_PAIRS||{})[o.p];if(pp&&byPath[pp])return byPath[pp];
         if(o.pair&&pairs[o.pair]){var m=pairs[o.pair].filter(function(x){return x!==o})[0];if(m)return m}
         var tw=TR[o.t];if(tw&&byTitle[tw.other])return byTitle[tw.other];
         return null;
