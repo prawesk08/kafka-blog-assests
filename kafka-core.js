@@ -567,7 +567,12 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-play svg{width:9px!important;height:9px!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice{gap:3px!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button{width:22px!important;height:21px!important;font-size:12px!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{width:24px!important;height:21px!important;font-size:10.5px!important;font-weight:700!important;background:#7B2D26!important;color:#fff!important;border-radius:999px!important}';
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{width:24px!important;height:21px!important;font-size:10.5px!important;font-weight:700!important;background:#7B2D26!important;color:#fff!important;border-radius:999px!important}' +
+      /* v201: the docked player shows one centred voice symbol; tap it to switch */
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice{background:transparent!important;border:0!important;box-shadow:none!important;overflow:visible!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button:not(.on){display:none!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button.on{display:flex!important;align-items:center!important;justify-content:center!important;width:24px!important;height:24px!important;border-radius:50%!important;font-size:15px!important;line-height:1!important;background:#7B2D26!important;color:#fff!important;text-shadow:none!important;padding:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button::before,html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button::after{content:none!important;display:none!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
@@ -1107,4 +1112,14 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     [].forEach.call(document.querySelectorAll('.share.kshare .lbl'), function (l) { var t = ne ? '\u0936\u0947\u092f\u0930 \u0917\u0930\u094d\u0928\u0941\u0939\u094b\u0938\u094d' : 'Share this'; if (l.textContent !== t) l.textContent = t; });
   }
   [0, 600, 2000, 5000].forEach(function (t) { setTimeout(fix, t); });
+})();
+/* v201: tapping the single voice symbol in the docked player switches female/male */
+(function () {
+  var busy = false;
+  document.addEventListener('click', function (e) {
+    if (busy) return;
+    var v = e.target && e.target.closest && e.target.closest('.kdock .kl-voice'); if (!v) return;
+    var o = v.querySelector('button:not(.on)'); if (!o) return;
+    busy = true; try { o.click(); } finally { busy = false; }
+  });
 })();
