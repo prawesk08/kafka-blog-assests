@@ -130,7 +130,10 @@
     function listen(){
       var li=document.querySelector(".post-head .klisten.top-of-post")||document.querySelector(".post-head .kl-ph");
       if(document.querySelector(".kfollow"))return true;if(!li)return false;
-      var row=document.createElement("div");row.className="klrow";var od=getComputedStyle(li).order;
+      var row=document.createElement("div");row.className="klrow";
+      /* the theme orders .post-head children with CSS order; read the Listen panel's order from a stand-in (the real panel may already be in the dock) */
+      var pr=document.createElement("div");pr.className="klisten top-of-post";pr.style.cssText="position:absolute;visibility:hidden;height:0;overflow:hidden";
+      li.parentNode.insertBefore(pr,li);var od=getComputedStyle(pr).order;pr.remove();
       li.parentNode.insertBefore(row,li);row.appendChild(li);row.style.order=od;
       var box=document.createElement("div");box.className="kfollow";box.setAttribute("role","group");box.setAttribute("aria-label","Follow बासभ @naharchowck");
       var top=document.createElement("div");top.className="kf-top";
