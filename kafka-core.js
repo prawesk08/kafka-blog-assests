@@ -1733,3 +1733,25 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .prose .dinkus img' + N + '{height:22px!important;width:auto!important;display:block!important;margin:0 auto!important}';
   var s = document.createElement('style'); s.id = 'k227-fix'; s.textContent = css; document.head.appendChild(s);
 })();
+
+/* v227: series lists start with the oldest piece (home series cards and the four series pages) */
+(function () {
+  var PAGES = ['/p/sumer.html', '/p/roman-britannia.html', '/p/organisms.html', '/p/biology-and-cancer.html'];
+  function flip(list, renumber) {
+    if (!list || list.getAttribute('data-k227o')) return;
+    var kids = [].slice.call(list.children); if (kids.length < 2) return;
+    list.setAttribute('data-k227o', '1');
+    kids.reverse().forEach(function (k) { list.appendChild(k); });
+    if (renumber) [].forEach.call(list.children, function (li, i) { var n = li.querySelector('.kser-n'); if (n) n.textContent = i + 1; });
+  }
+  function all() {
+    [].forEach.call(document.querySelectorAll('.scol .slist'), function (l) { flip(l, false); });
+    if (PAGES.indexOf(location.pathname) > -1) [].forEach.call(document.querySelectorAll('ol.kser-items'), function (l) { if (l.children.length) flip(l, true); });
+  }
+  all(); [400, 1200, 2800, 6000].forEach(function (d) { setTimeout(all, d); });
+  if (window.MutationObserver) {
+    var t = 0, mo = new MutationObserver(function () { if (t) return; t = setTimeout(function () { t = 0; all(); }, 250); });
+    var go = function () { mo.observe(document.body, { childList: true, subtree: true }); setTimeout(function () { mo.disconnect(); }, 30000); };
+    if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
+  }
+})();
