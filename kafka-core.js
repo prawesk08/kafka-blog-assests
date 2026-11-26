@@ -1606,6 +1606,24 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   var s = document.createElement('style'); s.id = 'k224-menu'; s.textContent = css; document.head.appendChild(s);
   var EX = [['Poetry', '/p/nepali-kavita.html'], ['Photos', '/p/photos.html'], ['Sumer', '/p/sumer.html'], ['Britain', '/p/roman-britannia.html'], ['Organisms', '/p/organisms.html'], ['Cancer', '/p/biology-and-cancer.html']];
   /* after the first five items come the real series, then the rest of the menu */
+  /* desktop: whatever does not fit goes behind a "More" button */
+  function fitDesk(it) {
+    var old = it.querySelector('.kn-more'); if (old) old.parentNode.removeChild(old);
+    [].forEach.call(it.children, function (c) { c.style.display = ''; });
+    if (window.innerWidth <= 700 || it.scrollWidth <= it.clientWidth + 1) return;
+    var more = document.createElement('button'); more.type = 'button'; more.className = 'kn-more'; more.textContent = 'More \u25BE'; it.appendChild(more);
+    var hidden = [], kids = [].slice.call(it.children).filter(function (c) { return c !== more; });
+    while (it.scrollWidth > it.clientWidth + 1 && kids.length > 5) { var k = kids.pop(); k.style.display = 'none'; hidden.unshift(k); }
+    more.onclick = function (e) {
+      e.stopPropagation(); var m = document.querySelector('.kn-menu.kx-more');
+      if (m) { m.parentNode.removeChild(m); return; }
+      m = document.createElement('div'); m.className = 'kn-menu kx-more is-open';
+      hidden.forEach(function (h) { var a = document.createElement('a'); a.href = h.getAttribute('href'); a.textContent = h.textContent; m.appendChild(a); });
+      var r = more.getBoundingClientRect(); m.style.top = (r.bottom + 4) + 'px'; m.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 180)) + 'px'; document.body.appendChild(m);
+    };
+  }
+  document.addEventListener('click', function () { var m = document.querySelector('.kn-menu.kx-more'); if (m) m.parentNode.removeChild(m); });
+  window.addEventListener('resize', function () { var it = document.querySelector('.knav-sticky .tabs-items'); if (it && it.querySelector('.kx-extra')) fitDesk(it); });
   function extras() {
     var it = document.querySelector('.knav-sticky .tabs-items'); if (!it || !it.closest('[data-k209]') || it.querySelector('.kx-extra')) return;
     var lit = it.querySelector('a[data-k="Literature"]'); if (!lit) return;
@@ -1616,7 +1634,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
       try { if (location.pathname === e[1]) a.className += ' on'; } catch (x) {}
       it.insertBefore(a, at);
     });
-    if (window.innerWidth > 700) { var m = it.querySelector('.kn-more'); if (m) m.parentNode.removeChild(m); [].forEach.call(it.children, function (c) { c.style.display = ''; }); window.dispatchEvent(new Event('resize')); }
+    if (window.innerWidth > 700) fitDesk(it);
   }
   [200, 700, 1600, 3600].forEach(function (d) { setTimeout(extras, d); });
 })();
