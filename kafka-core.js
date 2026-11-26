@@ -1473,11 +1473,16 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
 /* v223: bottom listen + share bars are 75% fainter (canvas and buttons together) and only show while you are inside the post's text */
 (function () {
   var css =
-    'html body .kdock:not(#kq),html body aside.kshare-float:not(#kq){opacity:.45!important;transition:opacity .3s ease!important}' +
-    'html body .kdock:not(#kq):hover,html body .kdock:not(#kq):focus-within,html body aside.kshare-float:not(#kq):hover,html body aside.kshare-float:not(#kq):focus-within{opacity:.9!important}' +
+    'html body .kdock:not(#kq),html body aside.kshare-float.kshare-float:not(#kq){opacity:.45!important;transition:opacity .3s ease!important}' +
+    'html body .kdock:not(#kq):hover,html body .kdock:not(#kq):focus-within,html body aside.kshare-float.kshare-float:not(#kq):hover,html body aside.kshare-float.kshare-float:not(#kq):focus-within{opacity:.9!important}' +
     'html.k-endhide body .kdock:not(#kq):not(#kq2),html.k-endhide body aside.kshare-float:not(#kq):not(#kq2),html.k-prehide body .kdock:not(#kq):not(#kq2),html.k-prehide body aside.kshare-float:not(#kq):not(#kq2){opacity:0!important;pointer-events:none!important}';
   /* desktop: two small pills, listen bottom-left, share bottom-right */
   var N = ':not(#d1):not(#d2):not(#d3):not(#d4):not(#d5):not(#d6):not(#d7):not(#d8):not(#d9):not(#d10)', D = 'html body .kdock' + N, S = 'html body aside.kshare-float' + N;
+  /* phones: both bars the same height and the same quiet glass, a little lower; the listen bar's inner pill is no longer opaque; share icons scroll inside their half */
+  css += D + ' .kd-half{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}' +
+    '@media (max-width:899px){' + D + ',' + S + '{height:calc(40px + env(safe-area-inset-bottom)*.5)!important;padding-bottom:calc(env(safe-area-inset-bottom)*.5)!important;border-radius:0!important;bottom:0!important}' +
+    S + '{overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important;scrollbar-width:none!important;border-left:1px solid rgba(123,45,38,.2)!important}' +
+    S + '::-webkit-scrollbar{display:none!important}}';
   css += '@media (min-width:900px){' +
     D + '{left:max(20px,env(safe-area-inset-left))!important;right:auto!important;bottom:calc(12px + env(safe-area-inset-bottom))!important;width:250px!important;max-width:250px!important;height:32px!important;padding:0 8px!important;border:1px solid rgba(123,45,38,.25)!important;border-radius:999px!important}' +
     S + '{left:auto!important;right:max(20px,env(safe-area-inset-right))!important;bottom:calc(12px + env(safe-area-inset-bottom))!important;width:auto!important;max-width:none!important;height:32px!important;padding:0 10px!important;gap:2px!important;border:1px solid rgba(123,45,38,.25)!important;border-radius:999px!important;justify-content:center!important}' +
@@ -1534,4 +1539,30 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   var t = 0; window.addEventListener('scroll', function () { if (t) return; t = 1; requestAnimationFrame(function () { t = 0; pre(); }); }, { passive: true });
   window.addEventListener('resize', pre);
   [100, 600, 1500, 3500].forEach(function (d) { setTimeout(pre, d); });
+})();
+
+/* v223: long dashes (em dashes) are shown as short dashes everywhere, in old and new posts alike. word-word gets spaces so it stays readable. */
+(function () {
+  var SKIP = { SCRIPT: 1, STYLE: 1, TEXTAREA: 1, CODE: 1, PRE: 1, INPUT: 1, NOSCRIPT: 1 };
+  function fix(s) { return s.replace(/(\s?)—(\s?)/g, function (m, a, b) { return (a || b) ? (a ? ' ' : '') + '-' + (b ? ' ' : '') : ' - '; }); }
+  function walk(root) {
+    if (!root || root.nodeType === 8) return;
+    if (root.nodeType === 3) { if (root.nodeValue.indexOf('—') > -1) root.nodeValue = fix(root.nodeValue); return; }
+    if (root.nodeType !== 1 || SKIP[root.tagName]) return;
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: function (n) { var p = n.parentNode; return (p && SKIP[p.tagName]) ? NodeFilter.FILTER_REJECT : (n.nodeValue.indexOf('—') > -1 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP); } }), n, list = [];
+    while ((n = w.nextNode())) list.push(n);
+    list.forEach(function (x) { x.nodeValue = fix(x.nodeValue); });
+  }
+  function all() { walk(document.body); if (document.title.indexOf('—') > -1) document.title = fix(document.title); }
+  function start() {
+    all(); [300, 1200, 3000].forEach(function (d) { setTimeout(all, d); });
+    if (!window.MutationObserver) return;
+    var t = 0, q = [];
+    new MutationObserver(function (ms) {
+      ms.forEach(function (m) { [].forEach.call(m.addedNodes, function (n) { q.push(n); }); });
+      if (t || !q.length) return;
+      t = setTimeout(function () { t = 0; var a = q; q = []; a.forEach(walk); }, 150);
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
