@@ -135,6 +135,7 @@
       b.setAttribute("aria-label","Podcast RSS");b.title=L()?"पोडकास्ट RSS फिड":"Podcast RSS feed";
       b.addEventListener("click",function(e){e.stopPropagation();open(b,L()?"ne":"en")});
       g.appendChild(b);row.appendChild(g);sr.parentNode.insertBefore(row,sr.nextSibling);
+      var od=function(){row.style.order=getComputedStyle(sr).order};od();
       /* match the share icons' on-screen size */
       function fit(){
         var sh=[].filter.call(sr.querySelectorAll(".ks"),function(e){return e.getBoundingClientRect().width>0})[0],me=g.querySelector("a");if(!sh||!me)return;
@@ -143,7 +144,7 @@
         var w=30*rs.width/rm.width,hh=24*rs.height/rm.height;
         g.style.setProperty("--kfw",w+"px");g.style.setProperty("--kfh",hh+"px");g.style.setProperty("--kfr",(hh*.42)+"px");
       }
-      fit();setTimeout(fit,1500);window.addEventListener("resize",function(){clearTimeout(fit.t);fit.t=setTimeout(fit,150)});
+      fit();setTimeout(function(){od();fit()},1500);window.addEventListener("resize",function(){clearTimeout(fit.t);fit.t=setTimeout(function(){od();fit()},150)});
       return true;
     }
     var n=0,t=setInterval(function(){n++;var f=footer(),l=listen();if((f&&l)||n>40)clearInterval(t)},250);
