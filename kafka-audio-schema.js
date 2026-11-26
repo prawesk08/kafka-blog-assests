@@ -129,7 +129,7 @@
       function fit(){
         var sh=document.querySelector(".share.kshare.top a.ks,.share.kshare.top .ks");if(!sh)return;
         var r=sh.getBoundingClientRect();if(!r.width)return;
-        var z=parseFloat(getComputedStyle(panel).zoom)||1,w=r.width/z,h=r.height/z;
+        var z=1,p=panel;while(p&&p.nodeType===1){z*=parseFloat(getComputedStyle(p).zoom)||1;p=p.parentElement}var w=r.width/z,h=r.height/z;
         g.style.setProperty("--kfw",w+"px");g.style.setProperty("--kfh",h+"px");g.style.setProperty("--kfr",(h*.42)+"px");
       }
       fit();addEventListener("resize",fit);return true;
