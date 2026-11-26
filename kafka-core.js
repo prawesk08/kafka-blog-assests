@@ -1397,7 +1397,8 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     '.static-page .kser-tabs.klit #kt-poetry:checked~.kt-poetry,.static-page .kser-tabs.klit #kt-letters:checked~.kt-letters,.static-page .kser-tabs.klit #kt-stories:checked~.kt-stories,.static-page .kser-tabs.klit #kt-ramblings:checked~.kt-ramblings{display:block}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
   /* v226: two more tabs - Nepali poems and English poems */
-  var XT = [['nepoetry', '\u0928\u0947\u092A\u093E\u0932\u0940 \u0915\u0935\u093F\u0924\u093E', 'Nepali Poetry'], ['enpoetry', 'English Poems', 'English Poetry']];
+  var XT = [['nepoetry', '\u0928\u0947\u092A\u093E\u0932\u0940 \u0915\u0935\u093F\u0924\u093E', 'Poetry', 'ne'], ['enpoetry', 'English Poems', 'Poetry', 'en']];
+  /* v229: the two poem tabs list every post labelled Poetry, split by its lang-ne / lang-en label (the 'Nepali Poetry' / 'English Poetry' labels miss 8 poems) */
   css += XT.map(function (x) { return '.static-page .kser-tabs.klit #kt-' + x[0] + ':checked~.kt-' + x[0] + '{display:block}'; }).join('');
   st.textContent = css;
   function addTabs() {
@@ -1410,7 +1411,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
       var l = document.createElement('label'); l.setAttribute('for', i.id); l.innerHTML = x[1] + ' <span></span>';
       if (x[0] === 'nepoetry') i.checked = true;
       if (before) { box.insertBefore(i, before); box.insertBefore(l, before); } else { box.appendChild(i); box.appendChild(l); }
-      var sec = document.createElement('section'); sec.className = 'kt-panel kt-' + x[0]; sec.setAttribute('data-label', x[2]); sec.setAttribute('data-tab', i.id); sec.id = x[0];
+      var sec = document.createElement('section'); sec.className = 'kt-panel kt-' + x[0]; sec.setAttribute('data-label', x[2]); if (x[3]) sec.setAttribute('data-lang', x[3]); sec.setAttribute('data-tab', i.id); sec.id = x[0];
       sec.innerHTML = '<h2 class="kt-h">' + x[1] + '</h2><ol class="kser-items"></ol>';
       if (pan) box.insertBefore(sec, pan); else box.appendChild(sec);
     });
@@ -1421,7 +1422,8 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     var label = panel.getAttribute('data-label'), ol = panel.querySelector('ol.kser-items'); if (!label || !ol || ol.getAttribute('data-done')) return;
     ol.setAttribute('data-done', '1');
     fetch('/feeds/posts/summary/-/' + encodeURIComponent(label) + '?alt=json&max-results=500').then(function (r) { return r.json(); }).then(function (j) {
-      var es = (j.feed && j.feed.entry) || [], html = '';
+      var es = (j.feed && j.feed.entry) || [], html = '', lg = panel.getAttribute('data-lang');
+      if (lg) es = es.filter(function (e) { var c = (e.category || []).map(function (x) { return x.term; }); if (c.indexOf('lang-ne') > -1 || c.indexOf('lang-en') > -1) return c.indexOf('lang-' + lg) > -1; return /[\u0900-\u097F]/.test(e.title.$t || '') === (lg === 'ne'); });
       es.forEach(function (e, i) {
         var l = ((e.link || []).filter(function (x) { return x.rel === 'alternate'; })[0] || {}).href || '#', t = e.title.$t || '';
         var sm = String((e.summary && e.summary.$t) || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(); if (sm.length > 200) sm = sm.slice(0, 200).replace(/\s+\S*$/, '') + '…';
@@ -1719,7 +1721,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   function about() {
     var a = document.querySelector('.knav-sticky .kn-about'); if (!a || a.querySelector('img.kn-av')) return;
     var t = a.textContent; a.textContent = '';
-    var im = document.createElement('img'); im.className = 'kn-av'; im.alt = ''; im.src = 'https://lh3.googleusercontent.com/d/1eiA44lcYri0rPrbvph2yEvKT9HRhUpiD=w96-c';
+    var im = document.createElement('img'); im.className = 'kn-av'; im.alt = ''; im.src = 'https://assets.kafka.blog/basava-priest-king-400.jpg';
     var sp = document.createElement('span'); sp.className = 'kn-at'; sp.textContent = t || 'About';
     a.appendChild(im); a.appendChild(sp); a.setAttribute('aria-label', 'About');
     window.dispatchEvent(new Event('resize'));
@@ -1798,4 +1800,17 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     }).catch(function () {}).then(function () { busy = false; });
   }
   [200, 900, 2200, 4500].forEach(function (d) { setTimeout(run, d); });
+})();
+
+/* v229: the poetry page's count line follows its two tabs ("49 Nepali poems · 11 in English"); it used to take the total before the tabs were counted */
+(function () {
+  if (!/\/p\/nepali-kavita\.html$/.test(location.pathname)) return;
+  function sync() {
+    var m = document.querySelector('.page-meta'), t = document.querySelectorAll('.kser-tabs > label span');
+    if (!m || t.length !== 2 || !t[0].textContent || !t[1].textContent) return;
+    var s = t[0].textContent + ' Nepali poems · ' + t[1].textContent + ' in English';
+    if (m.textContent !== s) m.textContent = s;
+  }
+  function go() { sync(); var b = document.querySelector('.kser-tabs'); if (b && window.MutationObserver) new MutationObserver(sync).observe(b, { subtree: true, characterData: true, childList: true }); setTimeout(sync, 1500); setTimeout(sync, 4000); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
