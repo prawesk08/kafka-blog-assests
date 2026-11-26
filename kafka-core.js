@@ -1288,6 +1288,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .knav-sticky .tabs-items{flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important;gap:2px 12px!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}' +
     'html body .knav-sticky .tabs-items::-webkit-scrollbar{display:none}' +
     'html body .knav-sticky .tabs a,html body .knav-sticky .tabs button.kn-more,html body .knav-sticky .tabs button.kn-lit{font:500 12.5px/1.2 var(--sans,system-ui)!important;padding:6px 1px!important;white-space:nowrap!important;flex:0 0 auto;background:transparent!important;border:0!important;cursor:pointer;color:inherit}' +
+    'html body .knav-sticky .tabs-items>a:not(#kz):not(#kz2),html body .knav-sticky .tabs-items>button:not(#kz):not(#kz2){font:500 12.5px/1.2 var(--sans,system-ui)!important;padding:5px 11px!important}' +
     'html body .knav-sticky .kn-about{flex:0 0 auto;font:500 12.5px/1.2 var(--sans,system-ui)!important;padding:6px 4px!important;white-space:nowrap}' +
     'html body .knav-sticky .ksearch-btn{flex:0 0 auto!important;position:static!important;margin:0!important;right:auto!important;top:auto!important;transform:none!important;order:3!important}' +
     'html body .knav-sticky .kn-home{order:0!important}html body .knav-sticky nav.tabs{order:1!important}html body .knav-sticky .kn-about{order:2!important}' +
@@ -1343,8 +1344,15 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     var sb = inner.querySelector('.ksearch-btn'), about = document.createElement('a'); about.className = 'kn-about'; about.href = '/p/about.html'; about.textContent = 'About';
     if (here('/p/about.html')) about.className += ' on';
     inner.insertBefore(about, sb);
-    fitMore(items);
+    fitMore(items); pillCopy(items); setTimeout(function () { pillCopy(items); }, 600); setTimeout(function () { pillCopy(items); }, 2500);
     return true;
+  }
+  function pillCopy(items) {
+    var a = items.querySelector('a:not(.on)') || items.querySelector('a'); if (!a) return; var cs = getComputedStyle(a);
+    [].forEach.call(items.querySelectorAll('button.kn-lit,button.kn-more'), function (b) {
+      b.style.setProperty('background', cs.backgroundColor, 'important'); b.style.setProperty('border-radius', cs.borderRadius, 'important');
+      b.style.setProperty('box-shadow', cs.boxShadow, 'important'); b.style.setProperty('color', cs.color, 'important'); b.style.setProperty('border', '0', 'important');
+    });
   }
   function fitMore(items) {
     var old = items.querySelector('.kn-more'); if (old) old.parentNode.removeChild(old);
