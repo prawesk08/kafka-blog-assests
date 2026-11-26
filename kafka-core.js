@@ -624,6 +624,7 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-voice{order:0!important}' +
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-speed{order:1!important;width:30px!important;height:19px!important;font-size:10px!important}' +
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-voice button.on{width:20px!important;height:20px!important;background-size:13px 13px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-label,html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-mid .kl-time{writing-mode:horizontal-tb!important;transform:none!important}' +
       '@media (max-width:340px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-label{display:none!important}}';
     document.head.appendChild(st);
   }
