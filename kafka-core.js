@@ -610,7 +610,21 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4) .klisten .kl-speed{width:36px!important;height:30px!important;font-size:11px!important}' +
       'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4){width:calc(50vw - 15px)!important;max-width:420px!important;height:44px!important;padding:0 10px!important;gap:3px!important}' +
       'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-btn,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-cmt{flex:0 0 30px!important;width:30px!important;height:30px!important;min-width:30px!important}' +
-      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-btn svg,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-cmt svg{width:24px!important;height:24px!important}';
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-btn svg,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-cmt svg{width:24px!important;height:24px!important}' +
+      /* v206: Listen and the elapsed time are back, over the progress bar; voice and speed stack in a column so nothing overlaps */
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5){padding:0 8px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten{gap:8px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-play{width:30px!important;height:30px!important;min-width:30px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-mid{display:grid!important;grid-template-columns:1fr auto!important;align-items:center!important;row-gap:5px!important;column-gap:4px!important;min-width:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-label{display:block!important;grid-column:1!important;grid-row:1!important;font:700 10px/1 system-ui,sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:#7B2D26!important;margin:0!important;white-space:nowrap!important;overflow:hidden!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-mid .kl-time{display:block!important;grid-column:2!important;grid-row:1!important;font-size:0!important;margin:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-mid .kl-time::after{content:attr(data-cur);font:600 10px/1 ui-monospace,Menlo,monospace;color:#6D6A65}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-mid .kl-track{grid-column:1 / -1!important;grid-row:2!important;height:5px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-right{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;flex:0 0 30px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-voice{order:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-speed{order:1!important;width:30px!important;height:19px!important;font-size:10px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-voice button.on{width:20px!important;height:20px!important;background-size:13px 13px!important}' +
+      '@media (max-width:340px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-label{display:none!important}}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
@@ -683,6 +697,7 @@ window.KAFKA_RECPLAYER = function (rec) {
       track = bar.querySelector('.kl-track'), mTrack = mini.querySelector('.kl-track'),
       timeEl = bar.querySelector('.kl-time'), mTimeEl = mini.querySelector('.kl-time'),
       noteEl = bar.querySelector('.kl-note');
+  timeEl.setAttribute('data-cur', '0:00');
 
   var SRCS = buildSrcs(), sx = 0, SRC = SRCS[0];
   var au = new Audio(), started = false, failed = false, topVisible = true, dragging = false;
@@ -796,6 +811,7 @@ window.KAFKA_RECPLAYER = function (rec) {
     if (dragging) return;
     if (d) { setProg(au.currentTime / d * 100); followContent(au.currentTime / d); }
     var ts = mmss(au.currentTime) + ' / ' + mmss(d);
+    timeEl.setAttribute('data-cur', mmss(au.currentTime));
     timeEl.textContent = ts; mTimeEl.textContent = ts;
   });
   au.addEventListener('play', ui); au.addEventListener('pause', ui);
@@ -837,7 +853,7 @@ window.KAFKA_RECPLAYER = function (rec) {
   function fracAt(el, x, y) { var r = el.getBoundingClientRect(); if (r.height > r.width) return r.height ? Math.max(0, Math.min(1, (y - r.top) / r.height)) : 0; return r.width ? Math.max(0, Math.min(1, (x - r.left) / r.width)) : 0; }
   function showScrub(f) {
     var d = au.duration || curDur(), ts = mmss(f * d) + ' / ' + mmss(d);
-    setProg(f * 100); timeEl.textContent = ts; mTimeEl.textContent = ts;
+    setProg(f * 100); timeEl.setAttribute('data-cur', mmss(f * d)); timeEl.textContent = ts; mTimeEl.textContent = ts;
   }
   function bindScrub(el) {
     el.addEventListener('pointerdown', function (e) {
