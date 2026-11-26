@@ -520,7 +520,7 @@ window.KAFKA_RECPLAYER = function (rec) {
       '.kvprog b{position:absolute;left:50%;top:var(--p,0%);width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#7B2D26;box-shadow:0 0 0 2px #FFFDF9}' +
       /* v190: share is one horizontal pill; tap Share to open the row of icons */
       'html body aside.kshare-float:not(#kz):not(#kz2){flex-direction:row!important;align-items:center!important;top:auto!important;bottom:74px!important;right:12px!important;left:auto!important;width:auto!important;height:auto!important;max-width:calc(100vw - 24px)!important;overflow-x:auto!important;gap:6px!important;padding:5px 10px!important;border-radius:999px!important}' +
-      'html body aside.kshare-float:not(#kz):not(#kz2) .kf-lbl{writing-mode:horizontal-tb!important;transform:none!important;margin:0!important;cursor:pointer;color:#2B2A28!important;font:700 12px/1 system-ui,sans-serif!important;letter-spacing:.02em;white-space:nowrap}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2) .kf-lbl{display:inline-block!important;writing-mode:horizontal-tb!important;transform:none!important;margin:0!important;cursor:pointer;color:#2B2A28!important;font:700 12px/1 system-ui,sans-serif!important;letter-spacing:.02em;white-space:nowrap}' +
       'html body aside.kshare-float:not(#kz):not(#kz2):not(.kf-open) .kf-btn{display:none!important}';
     document.head.appendChild(st);
   }
