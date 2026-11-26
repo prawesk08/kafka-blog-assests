@@ -1682,3 +1682,45 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     '@media (max-width:700px){html body .kser-items li p' + N + '{text-align:left!important;text-align-last:left!important;word-spacing:normal!important}}';
   var s = document.createElement('style'); s.id = 'k227-align'; s.textContent = css; document.head.appendChild(s);
 })();
+
+/* v227: story lists - the row reads "date · By author" and the listen / share icons sit right after it; menu - About carries the author's picture and the desktop menu uses the full width */
+(function () {
+  var N = ':not(#r1):not(#r2):not(#r3):not(#r4):not(#r5):not(#r6)';
+  var css = 'html body .kser-items li .kser-date' + N + '{grid-column:2 / -1!important;display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:4px 10px!important;margin:0!important}' +
+    'html body .kser-items li .kser-date .kser-acts' + N + '{display:inline-flex!important;margin:0!important;justify-self:auto!important;gap:6px!important}' +
+    'html body .kser-items li .kser-date .kx-by' + N + '{white-space:nowrap}' +
+    /* About with the author's picture */
+    'html body .knav-sticky .kn-about' + N + '{display:inline-flex!important;align-items:center!important;gap:6px!important}' +
+    'html body .knav-sticky .kn-about img.kn-av' + N + '{width:24px!important;height:24px!important;border-radius:50%!important;object-fit:cover!important;border:1px solid rgba(123,45,38,.35)!important;flex:0 0 auto}' +
+    '@media (max-width:700px){html body .knav-sticky .kn-about' + N + '{width:28px!important;min-width:28px!important;padding:0!important}html body .knav-sticky .kn-about img.kn-av' + N + '{width:28px!important;height:28px!important}html body .knav-sticky .kn-about span.kn-at' + N + '{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important}}' +
+    /* desktop: use the room the old Search button used to need */
+    '@media (min-width:701px){html body .knav-sticky nav.tabs' + N + '{padding-right:0!important}html body .knav-sticky .tabs-items' + N + '{padding-right:0!important}}';
+  var s = document.createElement('style'); s.id = 'k227-rows'; s.textContent = css; document.head.appendChild(s);
+  function who() { try { return (window.KAFKA_CFG && window.KAFKA_CFG.author) || 'बासभ'; } catch (e) { return 'बासभ'; } }
+  function rows() {
+    [].forEach.call(document.querySelectorAll('.kser-items li'), function (li) {
+      var d = li.querySelector('.kser-date'); if (!d || d.getAttribute('data-k227')) return;
+      var a = li.querySelector('.kser-acts');
+      d.setAttribute('data-k227', '1');
+      var t = d.firstChild && d.firstChild.nodeType === 3 ? d.firstChild.nodeValue : d.textContent;
+      d.textContent = ''; var sp = document.createElement('span'); sp.textContent = t; d.appendChild(sp);
+      var by = document.createElement('span'); by.className = 'kx-by'; by.textContent = 'By ' + who(); d.appendChild(by);
+      if (a) d.appendChild(a);
+    });
+  }
+  function about() {
+    var a = document.querySelector('.knav-sticky .kn-about'); if (!a || a.querySelector('img.kn-av')) return;
+    var t = a.textContent; a.textContent = '';
+    var im = document.createElement('img'); im.className = 'kn-av'; im.alt = ''; im.src = 'https://lh3.googleusercontent.com/d/1eiA44lcYri0rPrbvph2yEvKT9HRhUpiD=w96-c';
+    var sp = document.createElement('span'); sp.className = 'kn-at'; sp.textContent = t || 'About';
+    a.appendChild(im); a.appendChild(sp); a.setAttribute('aria-label', 'About');
+    window.dispatchEvent(new Event('resize'));
+  }
+  function all() { rows(); about(); }
+  all(); [300, 1000, 2500, 5000].forEach(function (d) { setTimeout(all, d); });
+  if (window.MutationObserver) {
+    var t = 0, mo = new MutationObserver(function () { if (t) return; t = setTimeout(function () { t = 0; all(); }, 200); });
+    var go = function () { mo.observe(document.body, { childList: true, subtree: true }); setTimeout(function () { mo.disconnect(); }, 30000); };
+    if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
+  }
+})();
