@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a4a"/><stop offset="1" stop-color="#1c1426"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#e3a1c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M70 360 v-90 l35 -30 l35 30 v90 M150 360 v-130 l40 -35 l40 35 v130 M240 360 v-70 l30 -26 l30 26 v70"/><path d="M60 360 h280"/><path d="M200 90 c40 0 40 50 0 50 c-30 0 -30 -35 0 -35 c20 0 20 22 0 22"/><circle cx="110" cy="110" r="5"/><circle cx="300" cy="140" r="5"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#f1e7f5" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="455" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="48" font-weight="700" fill="#f1e7f5">पागल बस्ती</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#f1e7f5" fill-opacity=".8">Pagal Basti</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#e3a1c6" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#f1e7f5" fill-opacity=".85">SARUBHAKTA</text>
+</svg>

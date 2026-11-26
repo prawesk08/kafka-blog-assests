@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8e2f2a"/><stop offset="1" stop-color="#4a1714"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#f2c46b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="200" cy="190" r="95"/><circle cx="200" cy="190" r="60" stroke-dasharray="4 10"/><path d="M200 95 v-30 M200 285 v30 M105 190 h-30 M295 190 h30 M133 123 l-21 -21 M267 257 l21 21 M267 123 l21 -21 M133 257 l-21 21"/><path d="M175 190 q25 -30 50 0 q-25 30 -50 0"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#fbeee2" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="455" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="48" font-weight="700" fill="#fbeee2">आज रमिता छ</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#fbeee2" fill-opacity=".8">Aaja Ramita Chha</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#f2c46b" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#fbeee2" fill-opacity=".85">INDRA BAHADUR RAI</text>
+</svg>
