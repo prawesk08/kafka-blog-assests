@@ -29,8 +29,8 @@
   try{
     /* Add platform links here once each show is live, e.g. ["Apple Podcasts","https://podcasts.apple.com/..."] */
     var SHOWS=[
-      {lang:"en",name:"English",links:[["RSS feed","https://audio.kafka.blog/podcast-en.xml",1]]},
-      {lang:"ne",name:"नेपाली",links:[["RSS feed","https://audio.kafka.blog/podcast-ne.xml",1]]}
+      {lang:"en",name:"English",feed:"https://audio.kafka.blog/podcast-en.xml",links:[]},
+      {lang:"ne",name:"नेपाली",feed:"https://audio.kafka.blog/podcast-ne.xml",links:[]}
     ];
     var css=".kpod-btn{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;margin-left:16px}"+
       ".kpod-btn:hover{text-decoration:underline}"+
@@ -39,12 +39,13 @@
       ".kpod-show{margin:8px 0 0}.kpod-show b{display:block;font-weight:600;margin-bottom:2px}"+
       ".kpod-show a{display:block;color:#5e584f;text-decoration:none;padding:3px 0}.kpod-show a:hover{color:#7b2d26}"+
       ".kpod-note{margin:10px 0 0;font-size:12px;color:#8a8378}"+
+      ".kpod-url{display:block;width:100%;box-sizing:border-box;margin:4px 0 2px;padding:4px 6px;border:1px solid #e6dfd3;border-radius:6px;background:#f7f3ec;color:#5e584f;font:12px/1.3 ui-monospace,Menlo,monospace}"+
       "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-label{font-size:19px!important;line-height:1.15!important;align-self:end}"+
       "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-mid .kl-time{font-size:17px!important;line-height:1.15!important;font-variant-numeric:tabular-nums;align-self:end}"+
       "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-mid{row-gap:4px}"+
       ".kfol{display:flex;align-items:center;gap:8px;margin-left:14px;padding-left:14px;border-left:1px solid rgba(25,25,24,.14);flex:none}"+
-      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol a,html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol button{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:43px!important;height:34px!important;min-width:43px!important;flex:none!important;border-radius:14px!important;border:0!important;padding:0!important;margin:0!important;cursor:pointer;color:#fff!important;text-decoration:none;font-size:0!important}"+
-      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol svg{width:22px!important;height:22px!important;display:block!important}"+
+      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol a,html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol button{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:var(--kfw,30px)!important;height:var(--kfh,24px)!important;min-width:var(--kfw,30px)!important;flex:none!important;border-radius:var(--kfr,10px)!important;border:0!important;padding:0!important;margin:0!important;cursor:pointer;color:#fff!important;text-decoration:none;font-size:0!important}"+
+      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol svg{width:calc(var(--kfh,24px)*.64)!important;height:calc(var(--kfh,24px)*.64)!important;display:block!important}"+
       ".kf-x{background:#191918}.kf-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kf-tt{background:#191918}"+
       ".kf-ap{background:linear-gradient(180deg,#d56dfb,#872ec4)}.kf-sp{background:#1db954}.kf-rss{background:#f08a24}"+
       "@media (max-width:640px){html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12){flex-wrap:wrap!important;border-radius:22px!important;row-gap:8px}"+
@@ -64,18 +65,23 @@
       list.forEach(function(s){
         var d=document.createElement("div");d.className="kpod-show";
         var b=document.createElement("b");b.textContent=s.name;if(s.lang==="ne")b.lang="ne";d.appendChild(b);
-        s.links.forEach(function(l){
-          var a=document.createElement("a");a.href=l[1];a.textContent=l[0];
-          if(l[2]){a.title="Copy the feed link";a.addEventListener("click",function(e){
-            if(e.metaKey||e.ctrlKey||!navigator.clipboard)return;e.preventDefault();
-            navigator.clipboard.writeText(l[1]).then(function(){var t=a.textContent;a.textContent=L()?"लिंक कपी भयो":"Link copied";setTimeout(function(){a.textContent=t},1800)},function(){location.href=l[1]});
-          })}else{a.target="_blank";a.rel="noopener"}
-          d.appendChild(a);
+        var T=L()?{ap:"Apple Podcasts मा सदस्यता",cp:"फिड लिंक कपी",op:"फिड खोल्नुहोस्",ok:"कपी भयो ✓"}:{ap:"Subscribe in Apple Podcasts",cp:"Copy feed link",op:"Open feed",ok:"Copied ✓"};
+        function item(txt,href,blank){var a=document.createElement("a");a.href=href;a.textContent=txt;if(blank){a.target="_blank";a.rel="noopener"}d.appendChild(a);return a}
+        s.links.forEach(function(l){item(l[0],l[1],1)});
+        item(T.ap,s.feed.replace(/^https:/,"podcast:"));
+        var cp=item(T.cp,s.feed);
+        cp.addEventListener("click",function(e){
+          if(e.metaKey||e.ctrlKey)return;e.preventDefault();
+          var done=function(){cp.textContent=T.ok;setTimeout(function(){cp.textContent=T.cp},1800)};
+          if(navigator.clipboard)navigator.clipboard.writeText(s.feed).then(done,function(){u.select()});else u.select();
         });
+        item(T.op,s.feed,1);
+        var u=document.createElement("input");u.className="kpod-url";u.readOnly=true;u.value=s.feed;
+        u.addEventListener("focus",function(){u.select()});d.appendChild(u);
         pop.appendChild(d);
       });
       var n=document.createElement("p");n.className="kpod-note";
-      n.textContent=L()?"फिड लिंक कपी गरेर आफ्नो पोडकास्ट एपमा टाँस्नुहोस्।":"Copy a feed link and paste it into your podcast app.";pop.appendChild(n);
+      n.textContent=L()?"अर्को एप? फिड लिंक कपी गरेर त्यहाँ \"Add by URL\" मा टाँस्नुहोस्।":"Other app? Copy the feed link and paste it under \"Add by URL\".";pop.appendChild(n);
       document.body.appendChild(pop);
       var r=anchor.getBoundingClientRect(),w=pop.offsetWidth,hh=pop.offsetHeight;
       var x=Math.min(Math.max(8,r.right-w),innerWidth-w-8),y=r.top-hh-8;if(y<8)y=r.bottom+8;
@@ -118,7 +124,15 @@
       var b=document.createElement("button");b.type="button";b.className="kf-rss kpod-ic";b.innerHTML=I.rss;
       b.setAttribute("aria-label",L()?"पोडकास्ट RSS":"Podcast RSS");b.title=b.getAttribute("aria-label");
       b.addEventListener("click",function(e){e.stopPropagation();open(b,L()?"ne":"en")});
-      g.appendChild(b);panel.appendChild(g);return true;
+      g.appendChild(b);panel.appendChild(g);
+      /* match the share icons' on-screen size; .klisten is drawn with a CSS zoom that changes with the window */
+      function fit(){
+        var sh=document.querySelector(".share.kshare.top a.ks,.share.kshare.top .ks");if(!sh)return;
+        var r=sh.getBoundingClientRect();if(!r.width)return;
+        var z=parseFloat(getComputedStyle(panel).zoom)||1,w=r.width/z,h=r.height/z;
+        g.style.setProperty("--kfw",w+"px");g.style.setProperty("--kfh",h+"px");g.style.setProperty("--kfr",(h*.42)+"px");
+      }
+      fit();addEventListener("resize",fit);return true;
     }
     var n=0,t=setInterval(function(){n++;var f=footer(),l=listen();if((f&&l)||n>40)clearInterval(t)},250);
   }catch(x){}
