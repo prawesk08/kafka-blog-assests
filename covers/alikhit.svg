@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9b48a"/><stop offset="1" stop-color="#8c7650"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#5b4426" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="110" y="90" width="180" height="250" rx="4"/><path d="M135 140 h130 M135 175 h130 M135 210 h90" stroke-dasharray="2 12"/><path d="M60 370 q70 -25 140 0 t140 0"/><path d="M240 250 l50 -60 l12 10 l-50 60 z"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#2a2115" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="455" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="60" font-weight="700" fill="#2a2115">अलिखित</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#2a2115" fill-opacity=".8">Alikhit</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#5b4426" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#2a2115" fill-opacity=".85">DHRUBA CHANDRA GAUTAM</text>
+</svg>

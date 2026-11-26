@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f4a2a"/><stop offset="1" stop-color="#16251a"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#e8c26a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M200 330 c-70 -40 -90 -120 -40 -190 M200 330 c70 -40 90 -120 40 -190"/><circle cx="200" cy="160" r="22"/><path d="M110 150 q-30 -30 -10 -60 M290 150 q30 -30 10 -60"/><path d="M150 90 l10 -20 l10 20 M230 90 l10 -20 l10 20"/><path d="M90 360 h220"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#f4ecd6" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="455" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="60" font-weight="700" fill="#f4ecd6">शाकुन्तल</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#f4ecd6" fill-opacity=".8">Shakuntal</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#e8c26a" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#f4ecd6" fill-opacity=".85">LAXMI PRASAD DEVKOTA</text>
+</svg>

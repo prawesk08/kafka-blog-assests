@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9d8c4"/><stop offset="1" stop-color="#c9a98a"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#a24b3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M200 100 c-55 0 -75 60 -55 110 c15 40 40 60 55 60 c15 0 40 -20 55 -60 c20 -50 0 -110 -55 -110 z"/><circle cx="200" cy="165" r="7" fill="#a24b3a"/><path d="M120 340 q80 -50 160 0"/><path d="M90 120 c20 -10 30 -30 25 -50 M310 120 c-20 -10 -30 -30 -25 -50"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#3a2418" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="455" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="60" font-weight="700" fill="#3a2418">गौरी</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#3a2418" fill-opacity=".8">Gauri</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#a24b3a" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#3a2418" fill-opacity=".85">MADHAV PRASAD GHIMIRE</text>
+</svg>

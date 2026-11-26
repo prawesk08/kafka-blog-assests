@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a4632"/><stop offset="1" stop-color="#2c2219"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#d9a95b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M60 330 L340 330"/><path d="M110 330 c0-40 10-70 28-70 c18 0 22 30 22 70"/><circle cx="138" cy="245" r="12"/><path d="M160 290 l30 -12 l6 52"/><path d="M230 330 c0-34 8-58 22-58 c14 0 18 26 18 58"/><circle cx="252" cy="258" r="10"/><path d="M60 120 q70 -40 140 0 t140 0" stroke-dasharray="6 10"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#f3e9d6" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="455" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="60" font-weight="700" fill="#f3e9d6">शरणार्थी</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#f3e9d6" fill-opacity=".8">Sharanarthi</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#d9a95b" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#f3e9d6" fill-opacity=".85">KRISHNA DHARABASI</text>
+</svg>
