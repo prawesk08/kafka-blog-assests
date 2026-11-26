@@ -724,7 +724,7 @@ window.KAFKA_RECPLAYER = function (rec) {
     if (!started) { dk.style.removeProperty('--ky'); return; }
     var pr = document.querySelector('.prose'); if (!pr) return;
     var y = pr.getBoundingClientRect().top + (lastF || 0) * pr.offsetHeight;
-    y = Math.max(100, Math.min(window.innerHeight - 100, y));
+    y = Math.max(165, Math.min(window.innerHeight - 110, y));
     dk.style.setProperty('--ky', y + 'px');
   }
   function followContent(f) { placeDock(f); }
