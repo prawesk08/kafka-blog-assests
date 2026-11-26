@@ -1604,6 +1604,9 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .kser-tabs' + N + '>label{gap:3px!important;padding:6px 5px!important;font-size:10px!important;white-space:nowrap!important}' +
     'html body .kser-tabs' + N + '>label span{font-size:8.5px!important;padding:1px 4px!important;min-width:0!important}' +
     'html body .kser-tabs.klit' + N + '>label span{display:none!important}' +
+    'html body .kser-tabs.klit:not(#s5):not(#s6)' + N + '{column-gap:1px!important}' +
+    'html body .kser-tabs.klit:not(#s5):not(#s6)' + N + '>label{font-size:9.5px!important;padding:6px 3px!important;gap:2px!important;letter-spacing:-.01em!important}' +
+    'html body .kser-tabs.klit:not(#s5):not(#s6)' + N + '>input[type=radio]{position:absolute!important;margin:0!important;width:0!important;height:0!important;opacity:0!important}' +
     P + ' .kn-about' + N + '{font-size:11.5px!important;padding:6px 2px!important}' +
     P + ' .ksearch-btn' + N + '{padding-left:6px!important;padding-right:6px!important}' +
   '}';
