@@ -675,8 +675,8 @@ window.KAFKA_RECPLAYER = function (rec) {
       .concat(['https://drive.usercontent.google.com/download?id=' + rec.id + '&export=download&confirm=t']);
   }
 
-  var SPEEDS = [0.75, 1, 1.1, 1.25, 1.5, 1.75, 2], SP_KEY = 'kafka-speed-' + (ne ? 'ne' : 'en'), si = SPEEDS.indexOf(ne ? 1.1 : 1);
-  /* v187: Nepali narrations start at 1.075x, English at 1x; a speed the reader picks is remembered per language */
+  var SPEEDS = [0.75, 0.85, 0.9, 1, 1.1, 1.2, 1.5], SP_KEY = 'kafka-speed2-' + (ne ? 'ne' : 'en'), si = SPEEDS.indexOf(1);
+  /* v228: every narration starts at 1x; steps 0.75-1.5; a speed the reader picks is remembered per language (new key, so earlier saved speeds reset to 1x once) */
   try { var savedSp = parseFloat(localStorage.getItem(SP_KEY)); if (SPEEDS.indexOf(savedSp) > -1) si = SPEEDS.indexOf(savedSp); } catch (e) {}
   var voiceHTML = isDual
     ? '<span class="kl-voice" role="group" aria-label="Narrator voice">' +
@@ -930,7 +930,7 @@ window.KAFKA_LISTEN = function () {
   var PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>';
   var PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5.5" width="3.6" height="13" rx="1" fill="currentColor"/><rect x="13.4" y="5.5" width="3.6" height="13" rx="1" fill="currentColor"/></svg>';
   var STOP = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5" fill="currentColor"/></svg>';
-  var SPEEDS = [0.85, 1, 1.15, 1.3, 1.5];
+  var SPEEDS = [0.75, 0.85, 0.9, 1, 1.1, 1.2, 1.5];
   bar.innerHTML = '<button class="kl-play" type="button" aria-label="Listen">' + PLAY + '</button>' +
     '<div class="kl-mid"><span class="kl-label">' + (ne ? '\u0938\u0941\u0928\u094d\u0928\u0941\u0939\u094b\u0938\u094d \u00b7 Listen' : 'Listen to this piece') + '</span>' +
     '<span class="kl-note"></span><div class="kl-track"><span class="kl-fill"></span></div></div>' +
@@ -989,7 +989,7 @@ window.KAFKA_LISTEN = function () {
     }
   }
 
-  var state = 'idle', qi = 0, rate = 1, si = 1, mode = '', run = 0;
+  var state = 'idle', qi = 0, rate = 1, si = 3, mode = '', run = 0;
   /* v99: each voice has its own natural pace (Nepali female 1.15x, Nepali male 0.85x) */
   function voiceRate() {
     rate = (VOICE && VOICE.rate) || 1;
