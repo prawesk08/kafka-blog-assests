@@ -1436,7 +1436,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   var st = document.createElement('style');
   st.textContent = 'html body .k-labrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}' +
     'html body .k-labrow .chip,html body .k-labrow .k-label{margin:0!important}' +
-    'html body .k-labrow .kcard-acts{zoom:.5;opacity:.55;margin:0!important;padding:0!important;transition:opacity .2s}' +
+    'html body .k-labrow .kcard-acts{zoom:.5;opacity:.3;margin:0!important;padding:0!important;transition:opacity .2s}' +
     'html body .k-labrow .kcard-acts:hover,html body .k-labrow .kcard-acts:focus-within{opacity:1}';
   document.head.appendChild(st);
   function move() {
