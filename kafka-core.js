@@ -1501,6 +1501,16 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .share.kshare.top' + T + ' .btns{gap:3px!important}' +
     'html body .share.kshare.top' + T + ' .ks,html body .share.kshare.top' + T + ' .ks svg{width:24px!important;height:24px!important}' +
     'html body .klisten.top-of-post:not(.kd-half .klisten)' + T + '{zoom:.7;opacity:.6}';
+  /* post titles: heavy display serif, the subtitle on its own quieter line (not for Devanagari titles) */
+  css += 'html body.is-post .post-head h1' + T + ':not(.k-dev){font-family:Fraunces,Georgia,serif!important;font-variation-settings:"opsz" 144!important;font-weight:900!important;letter-spacing:-.025em!important;word-spacing:.06em!important;line-height:1.04!important;font-size:clamp(38px,5.6vw,62px)!important}' +
+    'html body.is-post .post-head h1' + T + ' .h1-sub{display:block!important;font-family:Spectral,Martel,Georgia,serif!important;font-variation-settings:normal!important;font-weight:400!important;letter-spacing:0!important;word-spacing:0!important;line-height:1.4!important;font-size:clamp(17px,2.2vw,22px)!important;color:#4a4642!important;margin-top:12px!important}';
+  function titles() {
+    [].forEach.call(document.querySelectorAll('.post-head h1'), function (h) {
+      if (/[\u0900-\u097F]/.test(h.textContent)) h.classList.add('k-dev');
+      var sp = h.querySelector('.h1-sub'); if (sp && /^\s*[:\uFF1A]/.test(sp.textContent)) sp.textContent = sp.textContent.replace(/^\s*[:\uFF1A]\s*/, '');
+    });
+  }
+  titles(); [100, 600, 1500, 3500].forEach(function (d) { setTimeout(titles, d); });
   var s = document.createElement('style'); s.id = 'k223-css'; s.textContent = css; document.head.appendChild(s);
   function pre() {
     var b = document.querySelector('article .prose, .prose'); if (!b) return;
