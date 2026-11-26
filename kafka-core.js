@@ -1689,6 +1689,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   var css = 'html body .kser-items li .kser-date' + N + '{grid-column:2 / -1!important;display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:4px 10px!important;margin:0!important}' +
     'html body .kser-items li .kser-date .kser-acts' + N + '{display:inline-flex!important;margin:0!important;justify-self:auto!important;gap:6px!important}' +
     'html body .kser-items li .kser-date .kx-by' + N + '{white-space:nowrap}' +
+    'html body .kser-items li span.kx-ne' + N + '{display:block!important;margin-top:6px!important;font-size:.94em!important;color:#6D6A65!important;text-align:left!important}' +
     /* About with the author's picture */
     'html body .knav-sticky .kn-about' + N + '{display:inline-flex!important;align-items:center!important;gap:6px!important}' +
     'html body .knav-sticky .kn-about img.kn-av' + N + '{width:24px!important;height:24px!important;border-radius:50%!important;object-fit:cover!important;border:1px solid rgba(123,45,38,.35)!important;flex:0 0 auto}' +
@@ -1699,6 +1700,13 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   function who() { try { return (window.KAFKA_CFG && window.KAFKA_CFG.author) || 'बासभ'; } catch (e) { return 'बासभ'; } }
   function rows() {
     [].forEach.call(document.querySelectorAll('.kser-items li'), function (li) {
+      /* the Nepali line used to share the excerpt's grid cell and print on top of it: it now sits under the excerpt */
+      var ne = li.querySelector(':scope > p.kser-ne'), ds = ne && ne.previousElementSibling;
+      if (ne && ds && ds.tagName === 'P' && !ne.getAttribute('data-k227')) {
+        ne.setAttribute('data-k227', '1');
+        var sp = document.createElement('span'); sp.className = 'kser-ne kx-ne'; sp.setAttribute('lang', 'ne'); sp.innerHTML = ne.innerHTML;
+        ds.appendChild(sp); li.removeChild(ne);
+      }
       var d = li.querySelector('.kser-date'); if (!d || d.getAttribute('data-k227')) return;
       var a = li.querySelector('.kser-acts');
       d.setAttribute('data-k227', '1');
