@@ -33,13 +33,22 @@
     ];
     var css=".kpod-btn{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;margin-left:16px}"+
       ".kpod-btn:hover{text-decoration:underline}"+
-      ".kpod-ic{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:999px;border:0;background:#fff;color:#7b2d26;cursor:pointer;padding:0;flex:none}"+
-      ".kpod-ic svg{width:15px;height:15px}"+
       ".kpod-pop{position:fixed;z-index:2147483000;min-width:230px;max-width:300px;background:#fffdf9;color:#191918;border:1px solid #e6dfd3;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);padding:12px 14px;font:14px/1.4 Inter,system-ui,sans-serif}"+
       ".kpod-pop h4{margin:0 0 8px;font:600 13px/1.3 Inter,system-ui,sans-serif;color:#7b2d26;letter-spacing:.02em}"+
       ".kpod-show{margin:8px 0 0}.kpod-show b{display:block;font-weight:600;margin-bottom:2px}"+
       ".kpod-show a{display:block;color:#5e584f;text-decoration:none;padding:3px 0}.kpod-show a:hover{color:#7b2d26}"+
-      ".kpod-note{margin:10px 0 0;font-size:12px;color:#8a8378}";
+      ".kpod-note{margin:10px 0 0;font-size:12px;color:#8a8378}"+
+      "html body .klisten.top-of-post .kl-label{font-size:15px!important;line-height:1.15!important;align-self:end}"+
+      "html body .klisten.top-of-post .kl-time{font-size:13px!important;line-height:1.15!important;font-variant-numeric:tabular-nums;align-self:end}"+
+      "html body .klisten.top-of-post .kl-mid{row-gap:4px}"+
+      ".kfol{display:flex;align-items:center;gap:6px;margin-left:10px;padding-left:10px;border-left:1px solid rgba(25,25,24,.14);flex:none}"+
+      ".kfol a,.kfol button{display:inline-flex;align-items:center;justify-content:center;width:30px;height:24px;border-radius:10px;border:0;padding:0;cursor:pointer;color:#fff;text-decoration:none;opacity:.9}"+
+      ".kfol a:hover,.kfol button:hover{opacity:1}"+
+      ".kfol svg{width:15px;height:15px}"+
+      ".kf-x{background:#191918}.kf-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kf-tt{background:#191918}"+
+      ".kf-ap{background:linear-gradient(180deg,#d56dfb,#872ec4)}.kf-sp{background:#1db954}.kf-rss{background:#f08a24}"+
+      "@media (max-width:640px){html body .klisten.top-of-post{flex-wrap:wrap!important;border-radius:22px!important;row-gap:8px}"+
+      ".kfol{order:9;flex-basis:100%;justify-content:center;margin:0;padding:8px 0 2px;border-left:0;border-top:1px solid rgba(25,25,24,.1)}}";
     var st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
     function L(){return (document.documentElement.lang||"").indexOf("ne")===0}
     var pop=null;
@@ -82,14 +91,34 @@
       b.addEventListener("click",function(){open(b,L()?"ne":"en")});
       rss.parentNode.insertBefore(b,rss.nextSibling);return true;
     }
-    var ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="11" r="2.2" fill="currentColor"/><path d="M8.2 14.8a5.4 5.4 0 1 1 7.6 0M5.4 17.6a9.4 9.4 0 1 1 13.2 0M12 14v7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    var I={
+      x:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>',
+      ig:'<svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>',
+      tt:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 3c.4 2.4 1.8 3.9 4.1 4.1v3.1c-1.5 0-2.9-.5-4.1-1.3v6.4a6.2 6.2 0 1 1-6.2-6.2c.3 0 .6 0 .9.1v3.2a3.1 3.1 0 1 0 2.2 3V3z"/></svg>',
+      ap:'<svg viewBox="0 0 24 24"><circle cx="12" cy="10.5" r="2.3" fill="currentColor"/><path d="M8.4 14.6a5.2 5.2 0 1 1 7.2 0M5.7 17.3a9 9 0 1 1 12.6 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M12 14.2v6.3" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>',
+      sp:'<svg viewBox="0 0 24 24"><path d="M5.5 9.2c4.5-1.4 9.4-1 13.2 1.1M6.3 12.7c3.7-1.1 7.6-.7 10.8.9M7.2 15.9c2.9-.8 5.8-.5 8.3.7" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>',
+      rss:'<svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2" fill="currentColor"/><path d="M4 11a9 9 0 0 1 9 9M4 4.5A15.5 15.5 0 0 1 19.5 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'
+    };
+    /* Follow links. Apple: show page goes live after review. Spotify: search until the show link is known. */
+    var FOLLOW=[
+      ["x","X","https://x.com/naharchowck"],
+      ["ig","Instagram","https://www.instagram.com/naharchowck/"],
+      ["tt","TikTok","https://www.tiktok.com/@naharchowck"],
+      ["ap","Apple Podcasts","https://podcasts.apple.com/us/podcast/kafkaintherun/id6839536736"],
+      ["sp","Spotify","https://open.spotify.com/search/Kafkaintherun/podcasts"]
+    ];
     function listen(){
-      var right=document.querySelector(".klisten.top-of-post .kl-right");
-      if(!right)return false;if(right.querySelector(".kpod-ic"))return true;
-      var b=document.createElement("button");b.type="button";b.className="kpod-ic";b.innerHTML=ICON;
-      b.setAttribute("aria-label",L()?"पोडकास्टमा सदस्यता लिनुहोस्":"Subscribe to the podcast");b.title=b.getAttribute("aria-label");
+      var panel=document.querySelector(".klisten.top-of-post");
+      if(!panel)return false;if(panel.querySelector(".kfol"))return true;
+      var g=document.createElement("span");g.className="kfol";g.setAttribute("role","group");g.setAttribute("aria-label",L()?"फलो गर्नुहोस्":"Follow");
+      FOLLOW.forEach(function(f){
+        var a=document.createElement("a");a.className="kf-"+f[0];a.href=f[2];a.target="_blank";a.rel="noopener";
+        a.setAttribute("aria-label",f[1]);a.title=f[1];a.innerHTML=I[f[0]];g.appendChild(a);
+      });
+      var b=document.createElement("button");b.type="button";b.className="kf-rss kpod-ic";b.innerHTML=I.rss;
+      b.setAttribute("aria-label",L()?"पोडकास्ट RSS":"Podcast RSS");b.title=b.getAttribute("aria-label");
       b.addEventListener("click",function(e){e.stopPropagation();open(b,L()?"ne":"en")});
-      right.appendChild(b);return true;
+      g.appendChild(b);panel.appendChild(g);return true;
     }
     var n=0,t=setInterval(function(){n++;var f=footer(),l=listen();if((f&&l)||n>40)clearInterval(t)},250);
   }catch(x){}
