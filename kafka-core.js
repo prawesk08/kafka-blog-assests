@@ -1469,3 +1469,19 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
   }
 })();
+
+/* v223: bottom listen + share bars are 75% fainter (canvas and buttons together) and only show while you are inside the post's text */
+(function () {
+  var css =
+    'html body .kdock:not(#kq),html body aside.kshare-float:not(#kq){opacity:.25!important;transition:opacity .3s ease!important}' +
+    'html body .kdock:not(#kq):hover,html body .kdock:not(#kq):focus-within,html body aside.kshare-float:not(#kq):hover,html body aside.kshare-float:not(#kq):focus-within{opacity:.9!important}' +
+    'html.k-endhide body .kdock:not(#kq):not(#kq2),html.k-endhide body aside.kshare-float:not(#kq):not(#kq2),html.k-prehide body .kdock:not(#kq):not(#kq2),html.k-prehide body aside.kshare-float:not(#kq):not(#kq2){opacity:0!important;pointer-events:none!important}';
+  var s = document.createElement('style'); s.id = 'k223-css'; s.textContent = css; document.head.appendChild(s);
+  function pre() {
+    var b = document.querySelector('article .prose, .prose'); if (!b) return;
+    document.documentElement.classList.toggle('k-prehide', b.getBoundingClientRect().top > window.innerHeight - 160);
+  }
+  var t = 0; window.addEventListener('scroll', function () { if (t) return; t = 1; requestAnimationFrame(function () { t = 0; pre(); }); }, { passive: true });
+  window.addEventListener('resize', pre);
+  [100, 600, 1500, 3500].forEach(function (d) { setTimeout(pre, d); });
+})();
