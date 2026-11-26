@@ -1724,3 +1724,12 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
   }
 })();
+
+/* v227: the "Start from Part 1" pills in the home series cards stay small and whole (they were being squeezed flat), and the ornament dividers inside posts have much less space above and below */
+(function () {
+  var N = ':not(#v1):not(#v2):not(#v3):not(#v4):not(#v5):not(#v6)';
+  var css = 'html body .scol a.kp1' + N + ',html body .scol a.kp1-named' + N + '{display:block!important;width:fit-content!important;max-width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;flex:0 0 auto!important;align-self:flex-start!important;padding:4px 12px!important;font-size:11px!important;line-height:1.3!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;text-align:left!important;margin:6px 0 8px!important}' +
+    'html body .prose .dinkus' + N + '{margin:-8px 0 4px!important;line-height:0!important;height:auto!important}' +
+    'html body .prose .dinkus img' + N + '{height:22px!important;width:auto!important;display:block!important;margin:0 auto!important}';
+  var s = document.createElement('style'); s.id = 'k227-fix'; s.textContent = css; document.head.appendChild(s);
+})();
