@@ -578,7 +578,10 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button.on{font-size:0!important;color:transparent!important;background-color:#7B2D26!important;background-position:center!important;background-repeat:no-repeat!important;background-size:15px 15px!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button.on[data-v="f"]{background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22white%22%20stroke-width=%222.2%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Ccircle%20cx=%2212%22%20cy=%229%22%20r=%224.6%22/%3E%3Cpath%20d=%22M12%2013.6V21M8.6%2017.6h6.8%22/%3E%3C/svg%3E)!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button.on[data-v="m"]{background-image:url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22white%22%20stroke-width=%222.2%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%3E%3Ccircle%20cx=%2210%22%20cy=%2214%22%20r=%224.6%22/%3E%3Cpath%20d=%22M13.4%2010.6L19.6%204.4M14.4%204.4h5.2v5.2%22/%3E%3C/svg%3E)!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{width:26px!important;font-size:8.5px!important;letter-spacing:-.02em!important;white-space:nowrap!important;padding:0!important;overflow:hidden!important}';
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{width:26px!important;font-size:8.5px!important;letter-spacing:-.02em!important;white-space:nowrap!important;padding:0!important;overflow:hidden!important}' +
+      /* v203: listen player on the left edge, share bar at the bottom right */
+      'html body .kdock:not(#kz):not(#kz2){left:max(8px,env(safe-area-inset-left))!important;right:auto!important}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2){left:auto!important;right:max(10px,env(safe-area-inset-right))!important;transform:none!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
