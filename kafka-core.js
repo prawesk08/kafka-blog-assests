@@ -1315,14 +1315,15 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     ['Literature', '/p/literature.html', [['Poetry', '/p/literature.html#poetry'], ['Letters', '/p/literature.html#letters'], ['Stories', '/p/literature.html#stories'], ['Ramblings', '/p/literature.html#ramblings']]],
     ['Books', '/p/books.html'], ['Movies', '/p/movies.html'], ['Songs', '/p/songs.html'], ['Series', '/p/series.html'], ['Photos', '/p/photos.html'], ['Archive', '/search']];
   var menu = null;
-  function openMenu(anchor, list) {
-    if (!menu) { menu = document.createElement('div'); menu.className = 'kn-menu'; document.body.appendChild(menu); }
-    if (menu.classList.contains('is-open') && menu._for === anchor) { menu.classList.remove('is-open'); return; }
+  function hoverClose() { clearTimeout(hoverClose.t); hoverClose.t = setTimeout(function () { if (menu && !menu.matches(':hover')) menu.classList.remove('is-open'); }, 350); }
+  function openMenu(anchor, list, force) {
+    if (!menu) { menu = document.createElement('div'); menu.className = 'kn-menu'; document.body.appendChild(menu); menu.addEventListener('mouseleave', hoverClose); }
+    if (menu.classList.contains('is-open') && menu._for === anchor) { if (!force) menu.classList.remove('is-open'); return; }
     menu.innerHTML = ''; list.forEach(function (it) { var a = document.createElement('a'); a.href = it[1]; a.textContent = it[0]; menu.appendChild(a); });
     var r = anchor.getBoundingClientRect(); menu.style.top = (r.bottom + 4) + 'px'; menu.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 170)) + 'px';
     menu._for = anchor; menu.classList.add('is-open');
   }
-  document.addEventListener('click', function (e) { if (menu && menu.classList.contains('is-open') && !(e.target.closest && (e.target.closest('.kn-menu') || e.target.closest('.kn-lit') || e.target.closest('.kn-more')))) menu.classList.remove('is-open'); });
+  document.addEventListener('click', function (e) { if (menu && menu.classList.contains('is-open') && !(e.target.closest && (e.target.closest('.kn-menu') || e.target.closest('.kn-more')))) menu.classList.remove('is-open'); });
   function here(href) { try { return new URL(href, location.origin).pathname === location.pathname; } catch (e) { return false; } }
   function buildNav() {
     var inner = document.querySelector('.knav-sticky .knav-inner'); if (!inner || inner.getAttribute('data-k209')) return false;
@@ -1336,7 +1337,9 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     items.innerHTML = '';
     ITEMS.forEach(function (it) {
       var el;
-      if (it[2]) { el = document.createElement('button'); el.type = 'button'; el.className = 'kn-lit'; el.textContent = it[0] + ' ▾'; el.addEventListener('click', function () { openMenu(el, it[2]); }); }
+      if (it[2]) { el = document.createElement('a'); el.href = it[1]; el.textContent = it[0]; if (here(it[1])) el.className = 'on'; el.setAttribute('data-sub', '1');
+        el.addEventListener('mouseenter', function () { if (window.innerWidth >= 900) openMenu(el, it[2], true); });
+        el.addEventListener('mouseleave', function () { hoverClose(); }); }
       else { el = document.createElement('a'); el.href = it[1]; el.textContent = it[0]; if (here(it[1])) el.className = 'on'; }
       el.setAttribute('data-k', it[0]); items.appendChild(el);
     });
@@ -1362,7 +1365,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     var hidden = [], kids = [].slice.call(items.children).filter(function (c) { return c !== more; });
     while (items.scrollWidth > items.clientWidth + 1 && kids.length > 5) { var k = kids.pop(); k.style.display = 'none'; hidden.unshift(k); }
     more.addEventListener('click', function () {
-      var list = hidden.map(function (k) { return k.className === 'kn-lit' ? ['Literature', '/p/literature.html'] : [k.textContent, k.getAttribute('href')]; });
+      var list = hidden.map(function (k) { return [k.textContent, k.getAttribute('href')]; });
       openMenu(more, list);
     });
   }
