@@ -1510,6 +1510,10 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   css += 'html body.is-post .post-head h1' + T + ':not(.k-dev){font-family:Fraunces,Georgia,serif!important;font-variation-settings:"opsz" 144!important;font-weight:900!important;letter-spacing:-.025em!important;word-spacing:.06em!important;line-height:1.04!important;font-size:clamp(38px,5.6vw,62px)!important}' +
     'html body.is-post .post-head h1' + T + ' .h1-sub{display:block!important;font-family:Spectral,Martel,Georgia,serif!important;font-variation-settings:normal!important;font-weight:400!important;letter-spacing:0!important;word-spacing:0!important;line-height:1.4!important;font-size:clamp(17px,2.2vw,22px)!important;color:#4a4642!important;margin-top:12px!important}';
   css += 'html body.is-post .post-head .k-kicker' + T + '{font:700 12px/1.2 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7B2D26;margin:0 0 8px}';
+  css += '@media (max-width:899px){html body .share.kshare.top' + T + '{flex-wrap:nowrap!important;gap:4px!important;padding:2px 6px 2px 3px!important}' +
+    'html body .share.kshare.top' + T + ' .lbl{font-size:8px!important;padding:3px 7px!important;letter-spacing:.08em!important;flex:0 0 auto!important}' +
+    'html body .share.kshare.top' + T + ' .btns{flex-wrap:nowrap!important;gap:1px!important;min-width:0!important;overflow-x:auto!important;scrollbar-width:none!important}' +
+    'html body .share.kshare.top' + T + ' .ks,html body .share.kshare.top' + T + ' .ks svg{width:17px!important;height:17px!important;flex:0 0 17px!important}}';
   var MAIN = ['Science', 'History', 'Books', 'Movies', 'Songs', 'Photos', 'Poetry', 'Letters', 'Stories', 'Ramblings', 'Music'];
   function titles() {
     [].forEach.call(document.querySelectorAll('.post-head h1'), function (h) {
@@ -1534,7 +1538,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   var s = document.createElement('style'); s.id = 'k223-css'; s.textContent = css; document.head.appendChild(s);
   function pre() {
     var b = document.querySelector('article .prose, .prose'); if (!b) return;
-    document.documentElement.classList.toggle('k-prehide', b.getBoundingClientRect().top > window.innerHeight - 160);
+    document.documentElement.classList.toggle('k-prehide', b.getBoundingClientRect().top > window.innerHeight * 0.45);
   }
   var t = 0; window.addEventListener('scroll', function () { if (t) return; t = 1; requestAnimationFrame(function () { t = 0; pre(); }); }, { passive: true });
   window.addEventListener('resize', pre);
@@ -1565,4 +1569,53 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     }).observe(document.body, { childList: true, subtree: true });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+
+/* v224: phone menu - exactly five items fit between the pinned logo and About/Search, the rest scroll and snap so nothing is cut; Poetry, Letters, Stories and Ramblings follow Archive */
+(function () {
+  var N = ':not(#m1):not(#m2):not(#m3):not(#m4)', P = 'html body .knav-sticky';
+  var css = '@media (max-width:700px){' +
+    P + ' .knav-inner' + N + '{gap:4px!important;padding-left:6px!important;padding-right:6px!important}' +
+    P + ' .kn-home' + N + '{padding:2px 2px!important}' +
+    P + ' .kn-home img' + N + '{height:28px!important;width:28px!important}' +
+    P + ' nav.tabs' + N + '{padding:0!important;gap:0!important}' +
+    P + ' .tabs-items' + N + '{padding:0!important;gap:2px!important;scroll-snap-type:x mandatory!important;scroll-padding-left:0!important}' +
+    P + ' .tabs-items>a' + N + ':not(#m5),' + P + ' .tabs-items>button' + N + ':not(#m5){flex:0 0 calc((100% - 8px)/5)!important;box-sizing:border-box!important;padding:5px 0!important;text-align:center!important;font-size:9.5px!important;letter-spacing:-.01em!important;scroll-snap-align:start!important;overflow:hidden!important;text-overflow:ellipsis!important}' +
+    'html body .kser-tabs' + N + '{gap:4px!important}' +
+    'html body .kser-tabs' + N + '>label{gap:3px!important;padding:6px 5px!important;font-size:10px!important;white-space:nowrap!important}' +
+    'html body .kser-tabs' + N + '>label span{font-size:8.5px!important;padding:1px 4px!important;min-width:0!important}' +
+    P + ' .kn-about' + N + '{font-size:11.5px!important;padding:6px 2px!important}' +
+    P + ' .ksearch-btn' + N + '{padding-left:6px!important;padding-right:6px!important}' +
+  '}';
+  var s = document.createElement('style'); s.id = 'k224-menu'; s.textContent = css; document.head.appendChild(s);
+  var EX = [['Poetry', '/p/nepali-kavita.html'], ['Photos', '/p/photos.html'], ['Sumer', '/p/sumer.html'], ['Britain', '/p/roman-britannia.html'], ['Organisms', '/p/organisms.html'], ['Cancer', '/p/biology-and-cancer.html']];
+  /* after the first five items come the real series, then the rest of the menu */
+  function extras() {
+    if (window.innerWidth > 700) return;
+    var it = document.querySelector('.knav-sticky .tabs-items'); if (!it || !it.closest('[data-k209]') || it.querySelector('.kx-extra')) return;
+    var lit = it.querySelector('a[data-k="Literature"]'); if (!lit) return;
+    var ph = it.querySelector('a[data-k="Photos"]'); if (ph && ph.parentNode) ph.parentNode.removeChild(ph);
+    var at = lit.nextSibling;
+    EX.forEach(function (e) {
+      var a = document.createElement('a'); a.href = e[1]; a.textContent = e[0]; a.className = 'kx-extra'; a.setAttribute('data-k', e[0]);
+      try { if (location.pathname === e[1]) a.className += ' on'; } catch (x) {}
+      it.insertBefore(a, at);
+    });
+  }
+  [200, 700, 1600, 3600].forEach(function (d) { setTimeout(extras, d); });
+})();
+
+/* v224: on phones the share buttons that open another site no longer depend on pop-ups (many in-app browsers, like the one inside X, block them): open in a new tab, and if that is blocked, go there in the same tab */
+(function () {
+  var orig = window.open;
+  window.open = function (u, t, f) {
+    try {
+      if (window.innerWidth <= 900 && typeof u === 'string' && /^https?:\/\/([a-z]+\.)?(facebook|x|twitter|reddit|tumblr|snapchat|substack|medium)\.com\//i.test(u)) {
+        var w = orig.call(window, u, '_blank');
+        if (!w) location.href = u;
+        return w;
+      }
+    } catch (e) {}
+    return orig.apply(this, arguments);
+  };
 })();
