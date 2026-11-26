@@ -1289,7 +1289,9 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .knav-sticky .tabs-items::-webkit-scrollbar{display:none}' +
     'html body .knav-sticky .tabs a,html body .knav-sticky .tabs button.kn-more,html body .knav-sticky .tabs button.kn-lit{font:500 12.5px/1.2 var(--sans,system-ui)!important;padding:6px 1px!important;white-space:nowrap!important;flex:0 0 auto;background:transparent!important;border:0!important;cursor:pointer;color:inherit}' +
     'html body .knav-sticky .kn-about{flex:0 0 auto;font:500 12.5px/1.2 var(--sans,system-ui)!important;padding:6px 4px!important;white-space:nowrap}' +
-    'html body .knav-sticky .ksearch-btn{flex:0 0 auto!important}' +
+    'html body .knav-sticky .ksearch-btn{flex:0 0 auto!important;position:static!important;margin:0!important;right:auto!important;top:auto!important;transform:none!important;order:3!important}' +
+    'html body .knav-sticky .kn-home{order:0!important}html body .knav-sticky nav.tabs{order:1!important}html body .knav-sticky .kn-about{order:2!important}' +
+    'html body .ksearch-pop input,html body .ksearch-bot input{font-size:16px!important}' +
     '@media (max-width:700px){html body .knav-sticky .ksearch-btn .ks-txt{display:none!important}}' +
     '.kn-menu{position:fixed;z-index:130;min-width:150px;background:rgba(255,253,249,.97);border:1px solid rgba(123,45,38,.35);border-radius:10px;box-shadow:0 10px 28px rgba(26,26,24,.18);padding:6px;display:none}' +
     '.kn-menu.is-open{display:block}' +
@@ -1363,7 +1365,13 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   }
   var tk = 0; window.addEventListener('scroll', function () { if (tk) return; tk = 1; requestAnimationFrame(function () { tk = 0; endCheck(); measure(); }); }, { passive: true });
   window.addEventListener('resize', function () { var it = document.querySelector('.knav-sticky .tabs-items'); if (it && it.closest('[data-k209]')) fitMore(it); measure(); });
-  var sb0 = document.getElementById('ksearch-btn'); if (sb0) sb0.addEventListener('click', function () { setTimeout(measure, 0); });
+  var sb0 = document.getElementById('ksearch-btn'), sp0 = document.getElementById('ksearch-pop');
+  if (sb0 && sp0) {
+    function setOpen(o) { sp0.classList.toggle('is-open', o); sb0.setAttribute('aria-expanded', o ? 'true' : 'false'); if (o) { measure(); var i = sp0.querySelector('input'); if (i) setTimeout(function () { try { i.focus({ preventScroll: true }); } catch (e) { i.focus(); } }, 30); } }
+    sb0.addEventListener('click', function (e) { e.stopImmediatePropagation(); e.preventDefault(); setOpen(!sp0.classList.contains('is-open')); }, true);
+    document.addEventListener('click', function (e) { if (sp0.classList.contains('is-open') && !sp0.contains(e.target) && !sb0.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  }
   [100, 600, 1500, 3500].forEach(function (t) { setTimeout(function () { buildNav(); measure(); endCheck(); }, t); });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { buildNav(); measure(); });
 })();
