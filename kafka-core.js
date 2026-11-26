@@ -1430,3 +1430,28 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
   }
 })();
+
+/* v215: the listen / share / translate / read buttons sit beside the card's label, half size and half opacity */
+(function () {
+  var st = document.createElement('style');
+  st.textContent = 'html body .k-labrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}' +
+    'html body .k-labrow .chip,html body .k-labrow .k-label{margin:0!important}' +
+    'html body .k-labrow .kcard-acts{zoom:.5;opacity:.55;margin:0!important;padding:0!important;transition:opacity .2s}' +
+    'html body .k-labrow .kcard-acts:hover,html body .k-labrow .kcard-acts:focus-within{opacity:1}';
+  document.head.appendChild(st);
+  function move() {
+    [].forEach.call(document.querySelectorAll('.kcard-acts'), function (acts) {
+      if (acts.parentNode && acts.parentNode.classList.contains('k-labrow')) return;
+      var card = acts.closest('.txt, article, li, .kps-pt, .kps-row'); if (!card) return;
+      var lab = card.querySelector('a.chip, .k-label, .chip'); if (!lab || lab.parentNode.classList.contains('k-labrow') || lab.contains(acts)) return;
+      var row = document.createElement('div'); row.className = 'k-labrow';
+      lab.parentNode.insertBefore(row, lab); row.appendChild(lab); row.appendChild(acts);
+    });
+  }
+  move();
+  if (window.MutationObserver) {
+    var t = 0, mo = new MutationObserver(function () { if (t) return; t = setTimeout(function () { t = 0; move(); }, 200); });
+    var go = function () { mo.observe(document.body, { childList: true, subtree: true }); setTimeout(function () { mo.disconnect(); }, 25000); };
+    if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
+  }
+})();
