@@ -134,7 +134,7 @@
         var w=30*rs.width/rm.width,h=24*rs.height/rm.height;
         g.style.setProperty("--kfw",w+"px");g.style.setProperty("--kfh",h+"px");g.style.setProperty("--kfr",(h*.42)+"px");
       }
-      fit();addEventListener("resize",fit);return true;
+      fit();setTimeout(fit,1500);window.addEventListener("resize",function(){clearTimeout(fit.t);fit.t=setTimeout(fit,150)});return true;
     }
     var n=0,t=setInterval(function(){n++;var f=footer(),l=listen();if((f&&l)||n>40)clearInterval(t)},250);
   }catch(x){}
