@@ -1291,7 +1291,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .knav-sticky .kn-about{flex:0 0 auto;font:500 12.5px/1.2 var(--sans,system-ui)!important;padding:6px 4px!important;white-space:nowrap}' +
     'html body .knav-sticky .ksearch-btn{flex:0 0 auto!important;position:static!important;margin:0!important;right:auto!important;top:auto!important;transform:none!important;order:3!important}' +
     'html body .knav-sticky .kn-home{order:0!important}html body .knav-sticky nav.tabs{order:1!important}html body .knav-sticky .kn-about{order:2!important}' +
-    'html body .ksearch-pop input,html body .ksearch-bot input{font-size:16px!important}' +
+    'html body .ksearch-pop input{font-size:16px!important}' +
     '@media (max-width:700px){html body .knav-sticky .ksearch-btn .ks-txt{display:none!important}}' +
     '.kn-menu{position:fixed;z-index:130;min-width:150px;background:rgba(255,253,249,.97);border:1px solid rgba(123,45,38,.35);border-radius:10px;box-shadow:0 10px 28px rgba(26,26,24,.18);padding:6px;display:none}' +
     '.kn-menu.is-open{display:block}' +
