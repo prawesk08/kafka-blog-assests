@@ -1283,7 +1283,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     /* menu bar: one horizontal plane, logo left, About + Search pinned right, smaller text */
     'html body .knav-sticky .knav-inner{display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:nowrap!important}' +
     'html body .knav-sticky .kn-home{flex:0 0 auto;display:flex;align-items:center;padding:2px 4px}' +
-    'html body .knav-sticky .kn-home img{height:30px;width:auto;display:block}' +
+    'html body .knav-sticky .kn-home img{height:30px;width:30px;display:block;border-radius:7px;object-fit:cover}' +
     'html body .knav-sticky nav.tabs{flex:1 1 auto!important;min-width:0!important;width:auto!important;justify-content:flex-start!important}' +
     'html body .knav-sticky .tabs-items{flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important;gap:2px 12px!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}' +
     'html body .knav-sticky .tabs-items::-webkit-scrollbar{display:none}' +
@@ -1306,6 +1306,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6):not(#kz7):not(#kz8){right:0!important;left:auto!important;bottom:0!important;width:50%!important;max-width:none!important;height:calc(48px + env(safe-area-inset-bottom))!important;padding:0 10px env(safe-area-inset-bottom) 10px!important;border-radius:0!important;border:0!important;border-top:1px solid rgba(123,45,38,.25)!important;box-shadow:none!important;box-sizing:border-box!important}' +
     'html.k-endhide .kdock,html.k-endhide aside.kshare-float{opacity:0!important;pointer-events:none!important;transition:opacity .3s ease!important}' +
     /* v213: the red 'Start from Part 1' bars in the series cards become small pills instead of full-width bars */
+    'html body a[href*="roman-britannia-bhag-4-lamo-bidai"] img{object-fit:contain!important;object-position:center!important;background:#fff}' +
     'html body .scol a.kp1,html body .scol a.kp1-named{display:inline-block!important;width:auto!important;max-width:100%!important;box-sizing:border-box;padding:4px 12px!important;font-size:11px!important;line-height:1.3!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top}';
   function style() { if (document.getElementById('k209-css')) return; var s = document.createElement('style'); s.id = 'k209-css'; s.textContent = css; document.head.appendChild(s); }
   style();
@@ -1329,9 +1330,9 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     var inner = document.querySelector('.knav-sticky .knav-inner'); if (!inner || inner.getAttribute('data-k209')) return false;
     var tabs = inner.querySelector('nav.tabs'), items = tabs && tabs.querySelector('.tabs-items'); if (!items) return false;
     inner.setAttribute('data-k209', '1');
-    var logo = document.querySelector('.site-header .logo img'), home = document.createElement('a');
+    var home = document.createElement('a');
     home.className = 'kn-home'; home.href = '/'; home.setAttribute('aria-label', 'Kafkaintherun home');
-    home.innerHTML = logo && logo.src ? '<img alt="Kafkaintherun" src="' + logo.src + '"/>' : '<strong style="font:700 15px Georgia,serif;color:#7B2D26">Kafkaintherun</strong>';
+    home.innerHTML = '<img alt="Kafkaintherun" src="https://lh3.googleusercontent.com/d/13BZNy4hE52ijgDktiC3RfZ3fC62pxgye=w96"/>';
     inner.insertBefore(home, tabs);
     var old = items.querySelector('.knav-brand'); if (old && old.parentNode) old.parentNode.removeChild(old);
     items.innerHTML = '';
