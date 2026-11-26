@@ -511,7 +511,17 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .klisten.top-of-post.on:not(#kz){flex-wrap:wrap!important;border-radius:22px!important;row-gap:12px!important;padding:6px 12px 14px 6px!important}' +
       'html body .klisten.top-of-post.on:not(#kz) .kl-mid{order:9;flex:0 0 100%!important}' +
       'html body .klisten.top-of-post.on:not(#kz) .kl-label{display:none}' +
-      'html body .klisten.top-of-post.on:not(#kz) .kl-time{margin-right:auto}';
+      'html body .klisten.top-of-post.on:not(#kz) .kl-time{margin-right:auto}' +
+      /* v190: small vertical progress bar on the right edge while a piece is narrated */
+      '.kvprog{position:fixed;right:11px;top:50%;transform:translateY(-50%);width:6px;height:96px;border-radius:99px;background:rgba(25,25,24,.16);z-index:9985;opacity:0;pointer-events:none;transition:opacity .25s;touch-action:none}' +
+      '.kvprog.show{opacity:1;pointer-events:auto}' +
+      '.kvprog::before{content:"";position:absolute;left:-14px;right:-14px;top:-8px;bottom:-8px}' +
+      '.kvprog i{position:absolute;left:0;top:0;width:100%;height:var(--p,0%);border-radius:99px;background:#7B2D26}' +
+      '.kvprog b{position:absolute;left:50%;top:var(--p,0%);width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#7B2D26;box-shadow:0 0 0 2px #FFFDF9}' +
+      /* v190: share is one horizontal pill; tap Share to open the row of icons */
+      'html body aside.kshare-float:not(#kz):not(#kz2){flex-direction:row!important;align-items:center!important;top:auto!important;bottom:74px!important;right:12px!important;left:auto!important;width:auto!important;height:auto!important;max-width:calc(100vw - 24px)!important;overflow-x:auto!important;gap:6px!important;padding:5px 10px!important;border-radius:999px!important}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2) .kf-lbl{writing-mode:horizontal-tb!important;transform:none!important;margin:0!important;cursor:pointer;color:#2B2A28!important;font:700 12px/1 system-ui,sans-serif!important;letter-spacing:.02em;white-space:nowrap}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(.kf-open) .kf-btn{display:none!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
@@ -585,7 +595,9 @@ window.KAFKA_RECPLAYER = function (rec) {
   au.preload = 'none';
   try { au.preservesPitch = true; au.webkitPreservesPitch = true; } catch (e) {}
   var thumbs = [track, mTrack].map(function (t) { var th = document.createElement('span'); th.className = 'kl-thumb'; t.appendChild(th); return th; });
+  var vp = document.createElement('div'); vp.className = 'kvprog'; vp.setAttribute('role', 'slider'); vp.setAttribute('aria-label', 'Narration position'); vp.innerHTML = '<i></i><b></b>'; document.body.appendChild(vp);
   function setProg(p) {
+    vp.style.setProperty('--p', p + '%');
     fill.style.width = p + '%'; mFill.style.width = p + '%';
     thumbs[0].style.left = p + '%'; thumbs[1].style.left = p + '%';
     track.setAttribute('aria-valuenow', Math.round(p));
@@ -612,6 +624,7 @@ window.KAFKA_RECPLAYER = function (rec) {
     mPb.setAttribute('aria-label', playing ? 'Pause' : 'Listen');
     bar.classList.toggle('on', playing || (started && au.currentTime > 0));
     stopB.hidden = !(started && (playing || au.currentTime > 0));
+    vp.classList.toggle('show', started && (playing || au.currentTime > 0));
     syncMini();
   }
 
@@ -734,6 +747,17 @@ window.KAFKA_RECPLAYER = function (rec) {
     el.addEventListener('pointercancel', function () { dragging = false; });
   }
   bindScrub(track); bindScrub(mTrack);
+  (function () {
+    function fy(e) { var r = vp.getBoundingClientRect(); return r.height ? Math.max(0, Math.min(1, (e.clientY - r.top) / r.height)) : 0; }
+    vp.addEventListener('pointerdown', function (e) {
+      if (!started || !(au.duration || curDur())) return;
+      dragging = true; try { vp.setPointerCapture(e.pointerId); } catch (x) {}
+      showScrub(fy(e)); e.preventDefault();
+    });
+    vp.addEventListener('pointermove', function (e) { if (dragging) showScrub(fy(e)); });
+    vp.addEventListener('pointerup', function (e) { if (!dragging) return; dragging = false; var d = au.duration || curDur(); if (d) au.currentTime = fy(e) * d; });
+    vp.addEventListener('pointercancel', function () { dragging = false; });
+  })();
   track.onkeydown = function (e) {
     if (!started) return;
     if (e.key === 'ArrowRight') au.currentTime = Math.min((au.duration || curDur()), au.currentTime + 15);
@@ -1023,3 +1047,5 @@ window.KAFKA_XLINK=[["naharchowck.substack.com/p/the-story-of-roman-britannia-pa
 window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/label/\u0938\u092e\u092f\u0915\u094b \u0909\u0924\u094d\u0916\u0928\u0928":"/p/sumer.html","/search?q=Kushim":"/2026/11/kushim-sukkalgir-first-names.html","/search?q=\u0915\u0941\u0938\u093f\u092e":"/2026/11/kushim-sukkalgir-pahila-naam.html"};
 (function(){var kv=document.getElementById("kview");if(!kv||(kv.getAttribute("data-view")||"")!=="post")return;function key(h){try{var u=new URL(h,location.href);if(!/(^|\.)kafka\.blog$/.test(u.hostname)&&u.hostname!==location.hostname)return"";return decodeURIComponent(u.pathname+u.search).replace(/\+/g," ")}catch(e){return""}}function run(){Array.prototype.forEach.call(document.querySelectorAll(".prose a[href], .post-foot a[href]"),(function(a){var to=window.KAFKA_LINKFIX[key(a.getAttribute("href"))];if(to&&to!==location.pathname)a.setAttribute("href",to)}))}run();if(document.readyState!=="complete")window.addEventListener("load",run);setTimeout(run,1500)})();
 (function(){function add(){var h=document.querySelector(".col-stack .half.kseries");if(!h||h.querySelector(".kser-more"))return;var d=document.createElement("div");d.className="kser-more";d.innerHTML='<a href="/search">All pieces \u203a</a>';h.appendChild(d)}add();if(document.readyState!=="complete")window.addEventListener("load",add);setTimeout(add,2e3)})();
+/* v190: tap Share to open or close the row of share icons */
+document.addEventListener('click', function (e) { var l = e.target && e.target.closest && e.target.closest('.kshare-float .kf-lbl'); if (l) l.closest('.kshare-float').classList.toggle('kf-open'); });
