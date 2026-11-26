@@ -1814,3 +1814,96 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   function go() { sync(); var b = document.querySelector('.kser-tabs'); if (b && window.MutationObserver) new MutationObserver(sync).observe(b, { subtree: true, characterData: true, childList: true }); setTimeout(sync, 1500); setTimeout(sync, 4000); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
+
+/* v229: sidebar Lists with icons and a line each (fills the box), Archive years with a count bar, About "Elsewhere" card, Kafka quote on one line */
+(function () {
+  var N = ':not(#v1):not(#v2):not(#v3):not(#v4):not(#v5):not(#v6):not(#v7):not(#v8)';
+  var S = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+  var IC = {
+    books: '<svg viewBox="0 0 24 24" ' + S + '><path d="M3 5.5c3-1.3 6-1.3 9 .5v13c-3-1.8-6-1.8-9-.5z"/><path d="M21 5.5c-3-1.3-6-1.3-9 .5v13c3-1.8 6-1.8 9-.5z"/></svg>',
+    movies: '<svg viewBox="0 0 24 24" ' + S + '><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M3 8l3-4h15l-3 4M8 4l-2 4M13 4l-2 4M18 4l-2 4"/></svg>',
+    photos: '<svg viewBox="0 0 24 24" ' + S + '><path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>',
+    series: '<svg viewBox="0 0 24 24" ' + S + '><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 21h8M9 2.5l3 3.5 3-3.5"/></svg>',
+    songs: '<svg viewBox="0 0 24 24" ' + S + '><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>',
+    x: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>',
+    ig: '<svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>',
+    tt: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 3c.4 2.4 1.8 3.9 4.1 4.1v3.1c-1.5 0-2.9-.5-4.1-1.3v6.4a6.2 6.2 0 1 1-6.2-6.2c.3 0 .6 0 .9.1v3.2a3.1 3.1 0 1 0 2.2 3V3z"/></svg>',
+    ss: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 3h16v2.6H4zM4 7.7h16v2.6H4zM4 12.4h16V21l-8-4.4L4 21z"/></svg>',
+    pod: '<svg viewBox="0 0 24 24"><circle cx="12" cy="10.5" r="2.3" fill="currentColor"/><path d="M8.4 14.6a5.2 5.2 0 1 1 7.2 0M5.7 17.3a9 9 0 1 1 12.6 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M12 14.2v6.3" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>'
+  };
+  var SUB = { books: 'Books I keep', movies: 'Films', photos: 'Through my lens', series: 'TV series', songs: 'On repeat' };
+  var css =
+    /* Lists */
+    'html body nav.box.lists' + N + '{display:flex!important;flex-direction:column!important}' +
+    'html body nav.box.lists' + N + ' > a{flex:1 1 auto!important;display:grid!important;grid-template-columns:30px 1fr auto!important;grid-template-rows:auto auto!important;align-items:center!important;column-gap:12px!important;row-gap:1px!important;padding:10px 0!important}' +
+    'html body nav.box.lists' + N + ' > a .kl-ic{grid-row:1 / span 2;width:30px;height:30px;border-radius:50%;background:rgba(123,45,38,.08);color:#7B2D26;display:flex;align-items:center;justify-content:center}' +
+    'html body nav.box.lists' + N + ' > a .kl-ic svg{width:17px;height:17px}' +
+    'html body nav.box.lists' + N + ' > a .kl-t{grid-column:2;line-height:1.15}' +
+    'html body nav.box.lists' + N + ' > a .kl-s{grid-column:2;font:400 11.5px/1.2 Inter,system-ui,sans-serif;color:#8a8378}' +
+    'html body nav.box.lists' + N + ' > a::after{grid-column:3;grid-row:1 / span 2}' +
+    /* Archive */
+    'html body .karchive' + N + ' .ka-y{display:flex!important;align-items:center!important;gap:12px!important}' +
+    'html body .karchive' + N + ' .ka-y .ka-bar{flex:1 1 auto;height:6px;border-radius:99px;background:rgba(123,45,38,.08);position:relative;overflow:hidden;align-self:center}' +
+    'html body .karchive' + N + ' .ka-y .ka-bar i{position:absolute;left:0;top:0;bottom:0;width:var(--p,0%);border-radius:99px;background:linear-gradient(90deg,rgba(123,45,38,.55),rgba(184,144,74,.65))}' +
+    'html body .karchive' + N + ' .ka-y > span{flex:none;margin-left:0!important}' +
+    /* About: Elsewhere */
+    'html body .kafka-about' + N + ' .kel{margin:14px 0 6px;padding:16px 18px;border:1px solid rgba(26,26,24,.12);border-left:3px solid #7B2D26;border-radius:14px;background:rgba(255,253,249,.7)}' +
+    'html body .kafka-about' + N + ' .kel h3{margin:0 0 8px!important;font:700 11px/1 Inter,system-ui,sans-serif!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#7B2D26!important}' +
+    'html body .kafka-about' + N + ' .kel .kel-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}' +
+    'html body .kafka-about' + N + ' .kel .kel-row:last-child{margin-bottom:0}' +
+    'html body .kafka-about' + N + ' .kel .kel-pub{font:600 13px/1 Inter,system-ui,sans-serif;padding:7px 12px;border-radius:999px;background:#f1ebe2;color:#3d3a35}' +
+    'html body .kafka-about' + N + ' .kel a.kel-so{display:inline-flex;align-items:center;gap:7px;font:600 13px/1 Inter,system-ui,sans-serif;padding:6px 12px 6px 6px;border-radius:999px;border:1px solid rgba(26,26,24,.14);color:#191918!important;text-decoration:none!important;background:#fff}' +
+    'html body .kafka-about' + N + ' .kel a.kel-so:hover{border-color:#7B2D26}' +
+    'html body .kafka-about' + N + ' .kel a.kel-so i{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}' +
+    'html body .kafka-about' + N + ' .kel a.kel-so i svg{width:13px;height:13px}' +
+    '.kel .c-x{background:#191918}.kel .c-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kel .c-tt{background:#191918}.kel .c-ss{background:#ff6719}.kel .c-pod{background:linear-gradient(180deg,#d56dfb,#872ec4)}' +
+    'html body .kafka-about' + N + ' .kel .kel-h{font:600 14px/1 Inter,system-ui,sans-serif;color:#5e584f;margin:0 0 10px}' +
+    /* quote */
+    'html body .kbio .kq q' + N + '{white-space:nowrap!important}';
+  var st = document.createElement('style'); st.id = 'k229-extras'; st.textContent = css; document.head.appendChild(st);
+
+  function lists() {
+    [].forEach.call(document.querySelectorAll('nav.box.lists > a'), function (a) {
+      if (a.querySelector('.kl-ic')) return;
+      var k = (a.getAttribute('href') || '').replace(/^.*\/p\/|\.html.*$/g, '');
+      if (!IC[k]) return;
+      var t = a.textContent; a.textContent = '';
+      var i = document.createElement('span'); i.className = 'kl-ic'; i.innerHTML = IC[k]; a.appendChild(i);
+      var tt = document.createElement('span'); tt.className = 'kl-t'; tt.textContent = t; a.appendChild(tt);
+      var s = document.createElement('span'); s.className = 'kl-s'; s.textContent = SUB[k]; a.appendChild(s);
+    });
+  }
+  function archive() {
+    var ys = [].slice.call(document.querySelectorAll('.karchive .ka-y'));
+    var n = ys.map(function (a) { var s = a.querySelector(':scope > span'); return s ? parseInt(s.textContent, 10) || 0 : 0; });
+    var mx = Math.max.apply(null, n.concat([1]));
+    ys.forEach(function (a, k) {
+      if (a.querySelector('.ka-bar')) return; var s = a.querySelector(':scope > span'); if (!s) return;
+      var b = document.createElement('span'); b.className = 'ka-bar'; b.setAttribute('aria-hidden', 'true');
+      var i = document.createElement('i'); i.style.setProperty('--p', Math.max(4, Math.round(n[k] / mx * 100)) + '%'); b.appendChild(i);
+      a.insertBefore(b, s);
+    });
+  }
+  function about() {
+    var box = document.querySelector('.kafka-about'); if (!box || box.querySelector('.kel')) return;
+    var h = [].filter.call(box.querySelectorAll('h2'), function (x) { return /Elsewhere/.test(x.textContent); })[0]; if (!h) return;
+    var p = h.nextElementSibling; if (!p || p.tagName !== 'P') return;
+    var so = [['c-x', 'x', 'X', 'https://x.com/naharchowck'], ['c-ig', 'ig', 'Instagram', 'https://www.instagram.com/naharchowck/'], ['c-tt', 'tt', 'TikTok', 'https://www.tiktok.com/@naharchowck'], ['c-ss', 'ss', 'Substack', 'https://naharchowck.substack.com/'], ['c-pod', 'pod', 'Podcast', 'https://audio.kafka.blog/podcast-en.xml']];
+    [].forEach.call(p.querySelectorAll('a[href]'), function (a) { so.forEach(function (x) { if (a.href.replace(/\/$/, '') === x[3].replace(/\/$/, '')) x[3] = a.href; }); });
+    var c = document.createElement('div'); c.className = 'kel';
+    var html = '<h3>Published in</h3><div class="kel-row">' + ['Onlinekhabar', 'Shilapatra', 'Ukaalo', 'Nepali Post'].map(function (x) { return '<span class="kel-pub">' + x + '</span>'; }).join('') + '</div>' +
+      '<h3>Find me</h3><p class="kel-h">@naharchowck</p><div class="kel-row">' + so.map(function (x) { return '<a class="kel-so" href="' + x[3] + '" target="_blank" rel="noopener"><i class="' + x[0] + '">' + IC[x[1]] + '</i>' + x[2] + '</a>'; }).join('') + '</div>';
+    c.innerHTML = html; p.insertAdjacentElement('afterend', c);
+  }
+  function quote() {
+    [].forEach.call(document.querySelectorAll('.kbio .kq q'), function (q) {
+      var sp = q.parentElement; if (!sp || !sp.getBoundingClientRect().width) return;
+      q.style.fontSize = ''; var fs = parseFloat(getComputedStyle(q).fontSize), k = 0;
+      while (q.scrollWidth > sp.clientWidth + 1 && fs > 12 && k++ < 20) { fs -= .5; q.style.setProperty('font-size', fs + 'px', 'important'); }
+    });
+  }
+  function go() { lists(); archive(); about(); quote(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+  setTimeout(go, 1500); setTimeout(go, 4000);
+  window.addEventListener('resize', function () { clearTimeout(quote.t); quote.t = setTimeout(quote, 200); });
+})();
