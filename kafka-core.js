@@ -549,7 +549,14 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-thumb{left:50%!important;top:var(--p,0%)!important;width:7px!important;height:7px!important;margin:-3px 0 0 -3px!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice{display:flex!important;flex-direction:column!important;margin:0!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button{width:15px!important;height:14px!important;min-width:0!important;padding:0!important;font-size:8px!important;line-height:1!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{display:inline-flex!important;align-items:center;justify-content:center;min-width:0!important;width:19px!important;height:14px!important;padding:0!important;font-size:7.5px!important;line-height:1!important}';
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{display:inline-flex!important;align-items:center;justify-content:center;min-width:0!important;width:19px!important;height:14px!important;padding:0!important;font-size:7.5px!important;line-height:1!important}' +
+      /* v198: decorated vertical player; text runs top to bottom; fixed at the centre right */
+      'html body .kdock:not(#kz):not(#kz2){padding:8px 3px!important;border:1px solid #7B2D26!important;background:linear-gradient(180deg,#FFFDF9 0%,#F4ECDD 100%)!important;box-shadow:inset 0 0 0 2px #EBD489,0 6px 18px rgba(26,26,24,.18)!important;top:50%!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid{order:0!important;flex-direction:column!important;align-items:center!important;gap:6px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice{order:1!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{order:2!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-label{display:block!important;writing-mode:vertical-rl!important;transform:rotate(180deg)!important;font:700 9px/1 system-ui,sans-serif!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#7B2D26!important;margin:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid .kl-time{display:block!important;writing-mode:vertical-rl!important;transform:rotate(180deg)!important;font:600 9px/1 ui-monospace,Menlo,monospace!important;color:#6D6A65!important;margin:0!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
@@ -721,7 +728,7 @@ window.KAFKA_RECPLAYER = function (rec) {
   function placeDock(f) {
     if (typeof f === 'number') lastF = f;
     var dk = document.querySelector('.kdock'); if (!dk) return;
-    if (!started) { dk.style.removeProperty('--ky'); return; }
+    dk.style.removeProperty('--ky'); return; /* v198: fixed at the centre right; no sliding */
     var pr = document.querySelector('.prose'); if (!pr) return;
     var y = pr.getBoundingClientRect().top + (lastF || 0) * pr.offsetHeight;
     y = Math.max(165, Math.min(window.innerHeight - 110, y));
