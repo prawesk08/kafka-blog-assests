@@ -70,15 +70,16 @@
       list.forEach(function(s){
         var d=document.createElement("div");d.className="kpod-show";
         var b=document.createElement("b");b.textContent=s.name;if(s.lang==="ne")b.lang="ne";d.appendChild(b);
-        var T=L()?{ap:"Apple Podcasts मा सदस्यता",cp:"फिड लिंक कपी",op:"फिड खोल्नुहोस्",ok:"कपी भयो ✓"}:{ap:"Subscribe in Apple Podcasts",cp:"Copy feed link",op:"Open feed",ok:"Copied ✓"};
+        var T=L()?{ap:"Apple Podcasts मा सदस्यता",cp:"फिड लिंक कपी",op:"फिड खोल्नुहोस्",ok:"कपी भयो ✓",sel:"लिंक छानियो - कपी गर्नुहोस्"}:{ap:"Subscribe in Apple Podcasts",cp:"Copy feed link",op:"Open feed",ok:"Copied ✓",sel:"Link selected - press Ctrl/⌘+C"};
         function item(txt,href,blank){var a=document.createElement("a");a.href=href;a.textContent=txt;if(blank){a.target="_blank";a.rel="noopener"}d.appendChild(a);return a}
         s.links.forEach(function(l){item(l[0],l[1],1)});
         item(T.ap,s.feed.replace(/^https:/,"podcast:"));
         var cp=item(T.cp,s.feed);
         cp.addEventListener("click",function(e){
           if(e.metaKey||e.ctrlKey)return;e.preventDefault();
-          var done=function(){cp.textContent=T.ok;setTimeout(function(){cp.textContent=T.cp},1800)};
-          if(navigator.clipboard)navigator.clipboard.writeText(s.feed).then(done,function(){u.select()});else u.select();
+          var show=function(t){cp.textContent=t;setTimeout(function(){cp.textContent=T.cp},2200)};
+          var legacy=function(){u.focus();u.select();var ok=false;try{ok=document.execCommand("copy")}catch(x){}show(ok?T.ok:T.sel)};
+          if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(s.feed).then(function(){show(T.ok)},legacy);else legacy();
         });
         item(T.op,s.feed,1);
         var u=document.createElement("input");u.className="kpod-url";u.readOnly=true;u.value=s.feed;
