@@ -1504,10 +1504,25 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   /* post titles: heavy display serif, the subtitle on its own quieter line (not for Devanagari titles) */
   css += 'html body.is-post .post-head h1' + T + ':not(.k-dev){font-family:Fraunces,Georgia,serif!important;font-variation-settings:"opsz" 144!important;font-weight:900!important;letter-spacing:-.025em!important;word-spacing:.06em!important;line-height:1.04!important;font-size:clamp(38px,5.6vw,62px)!important}' +
     'html body.is-post .post-head h1' + T + ' .h1-sub{display:block!important;font-family:Spectral,Martel,Georgia,serif!important;font-variation-settings:normal!important;font-weight:400!important;letter-spacing:0!important;word-spacing:0!important;line-height:1.4!important;font-size:clamp(17px,2.2vw,22px)!important;color:#4a4642!important;margin-top:12px!important}';
+  css += 'html body.is-post .post-head .k-kicker' + T + '{font:700 12px/1.2 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7B2D26;margin:0 0 8px}';
+  var MAIN = ['Science', 'History', 'Books', 'Movies', 'Songs', 'Photos', 'Poetry', 'Letters', 'Stories', 'Ramblings', 'Music'];
   function titles() {
     [].forEach.call(document.querySelectorAll('.post-head h1'), function (h) {
-      if (/[\u0900-\u097F]/.test(h.textContent)) h.classList.add('k-dev');
+      var ne = /[\u0900-\u097F]/.test(h.textContent);
+      if (ne) h.classList.add('k-dev');
       var sp = h.querySelector('.h1-sub'); if (sp && /^\s*[:\uFF1A]/.test(sp.textContent)) sp.textContent = sp.textContent.replace(/^\s*[:\uFF1A]\s*/, '');
+      if (h.getAttribute('data-k224')) return;
+      var head = h.parentNode, labs = [].map.call(head.querySelectorAll('.chip'), function (c) { return c.getAttribute('data-label') || c.textContent.trim(); });
+      if (!labs.length) return; h.setAttribute('data-k224', '1');
+      var cat = ''; for (var i = 0; i < MAIN.length; i++) if (labs.indexOf(MAIN[i]) > -1) { cat = MAIN[i]; break; }
+      var part = '', n0 = h.firstChild;
+      if (n0 && n0.nodeType === 3) {
+        var m = n0.nodeValue.match(/^(.*?)[,\s\u2013-]*\b(Part\s+[IVXLC\d]+)\s*$/i);
+        if (!ne && m && m[1].trim()) { n0.nodeValue = m[1].trim(); part = m[2]; }
+        else { var m2 = n0.nodeValue.match(/(भाग\s*[\u0966-\u096F\d]+)/); if (m2) part = m2[1]; }
+      }
+      var txt = [cat, part].filter(Boolean).join(' \u00B7 ');
+      if (txt && !head.querySelector('.k-kicker')) { var k = document.createElement('div'); k.className = 'k-kicker'; k.textContent = txt; head.insertBefore(k, h); }
     });
   }
   titles(); [100, 600, 1500, 3500].forEach(function (d) { setTimeout(titles, d); });
