@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6d4a32"/><stop offset="1" stop-color="#35231a"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#e2b98a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="140" y="140" width="120" height="120" rx="8"/><path d="M140 175 h120 M200 140 v120"/><path d="M175 140 c0 -30 50 -30 50 0"/><path d="M90 340 h220"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#f6e9da" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="445" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="60" font-weight="700" fill="#f6e9da">नासो</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#f6e9da" fill-opacity=".8">Naso</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#e2b98a" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#f6e9da" fill-opacity=".85">GURU PRASAD MAINALI</text>
+</svg>

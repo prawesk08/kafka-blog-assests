@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e0a23a"/><stop offset="1" stop-color="#a0601a"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#fff3d6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="200" cy="140" r="50"/><path d="M200 70 v-20 M200 210 v20 M130 140 h-20 M270 140 h20 M150 90 l-14 -14 M250 190 l14 14 M250 90 l14 -14 M150 190 l-14 14"/><path d="M130 320 c0 -20 20 -30 26 -10 c6 20 -26 30 -26 10 z M220 290 c0 -20 20 -30 26 -10 c6 20 -26 30 -26 10 z M170 350 c0 -20 20 -30 26 -10 c6 20 -26 30 -26 10 z"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#2f1d08" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="445" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="38" font-weight="700" fill="#2f1d08">घामका पाइलाहरू</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#2f1d08" fill-opacity=".8">Ghamka Pailaharu</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#fff3d6" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#2f1d08" fill-opacity=".85">DHA. CHA. GOTAME</text>
+</svg>
