@@ -556,7 +556,18 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice{order:1!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{order:2!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-label{display:block!important;writing-mode:vertical-rl!important;transform:rotate(180deg)!important;font:700 9px/1 system-ui,sans-serif!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#7B2D26!important;margin:0!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid .kl-time{display:block!important;writing-mode:vertical-rl!important;transform:rotate(180deg)!important;font:600 9px/1 ui-monospace,Menlo,monospace!important;color:#6D6A65!important;margin:0!important}';
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid .kl-time{display:block!important;writing-mode:vertical-rl!important;transform:rotate(180deg)!important;font:600 9px/1 ui-monospace,Menlo,monospace!important;color:#6D6A65!important;margin:0!important}' +
+      /* v200: Listen squeezed beside the progress bar; bigger speed and voice buttons; no gold ring */
+      'html body .kdock:not(#kz):not(#kz2){box-shadow:0 6px 18px rgba(26,26,24,.2)!important;padding:9px 3px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid{display:grid!important;grid-template-columns:auto 4px!important;grid-template-rows:auto auto!important;column-gap:4px!important;row-gap:4px!important;align-items:stretch!important;justify-items:center!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-label{grid-column:1!important;grid-row:1!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid .kl-time{grid-column:1!important;grid-row:2!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid .kl-track{grid-column:2!important;grid-row:1 / span 2!important;height:auto!important;width:4px!important;min-height:84px!important;margin:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-play{width:20px!important;height:20px!important;min-width:20px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-play svg{width:9px!important;height:9px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice{gap:3px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button{width:22px!important;height:21px!important;font-size:12px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{width:24px!important;height:21px!important;font-size:10.5px!important;font-weight:700!important;background:#7B2D26!important;color:#fff!important;border-radius:999px!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
