@@ -521,6 +521,8 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-track{grid-column:1/-1!important;margin:0!important}' +
       'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-speed{min-width:34px!important;height:26px!important}' +
       '.share.kshare.top:not(#kz),.share.kshare .btns:not(#kz){justify-content:center!important}' +
+      'html body .share.kshare.top:not(#kz):not(#kz2){flex-direction:column!important;align-items:center!important;gap:7px!important}' +
+      'html body .share.kshare.top:not(#kz):not(#kz2) .lbl{display:block!important;font:700 12px/1 system-ui,sans-serif!important;letter-spacing:.1em;text-transform:uppercase;color:#6D6A65!important;margin:0!important}' +
       'html body .translation-link:not(#kz){padding-top:10px!important;padding-bottom:10px!important}' +
       'html body a.tr-cta:not(#kz){font-size:17px!important;font-weight:700!important}' +
       'html body .tr-badge:not(#kz){font-size:13.5px!important;padding:5px 11px!important}' +
@@ -1067,3 +1069,11 @@ window.KAFKA_XLINK=[["naharchowck.substack.com/p/the-story-of-roman-britannia-pa
 window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/label/\u0938\u092e\u092f\u0915\u094b \u0909\u0924\u094d\u0916\u0928\u0928":"/p/sumer.html","/search?q=Kushim":"/2026/11/kushim-sukkalgir-first-names.html","/search?q=\u0915\u0941\u0938\u093f\u092e":"/2026/11/kushim-sukkalgir-pahila-naam.html"};
 (function(){var kv=document.getElementById("kview");if(!kv||(kv.getAttribute("data-view")||"")!=="post")return;function key(h){try{var u=new URL(h,location.href);if(!/(^|\.)kafka\.blog$/.test(u.hostname)&&u.hostname!==location.hostname)return"";return decodeURIComponent(u.pathname+u.search).replace(/\+/g," ")}catch(e){return""}}function run(){Array.prototype.forEach.call(document.querySelectorAll(".prose a[href], .post-foot a[href]"),(function(a){var to=window.KAFKA_LINKFIX[key(a.getAttribute("href"))];if(to&&to!==location.pathname)a.setAttribute("href",to)}))}run();if(document.readyState!=="complete")window.addEventListener("load",run);setTimeout(run,1500)})();
 (function(){function add(){var h=document.querySelector(".col-stack .half.kseries");if(!h||h.querySelector(".kser-more"))return;var d=document.createElement("div");d.className="kser-more";d.innerHTML='<a href="/search">All pieces \u203a</a>';h.appendChild(d)}add();if(document.readyState!=="complete")window.addEventListener("load",add);setTimeout(add,2e3)})();
+/* v193: the share row says "Share this" (Nepali: शेयर गर्नुहोस्) */
+(function () {
+  function fix() {
+    var ne = document.documentElement.lang === 'ne' || /[\u0900-\u097f]/.test((document.querySelector('.post-head h1') || {}).textContent || '');
+    [].forEach.call(document.querySelectorAll('.share.kshare .lbl'), function (l) { var t = ne ? '\u0936\u0947\u092f\u0930 \u0917\u0930\u094d\u0928\u0941\u0939\u094b\u0938\u094d' : 'Share this'; if (l.textContent !== t) l.textContent = t; });
+  }
+  [0, 600, 2000, 5000].forEach(function (t) { setTimeout(fix, t); });
+})();
