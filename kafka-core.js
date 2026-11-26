@@ -639,7 +639,9 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-voice{order:1!important}' +
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-voice button.on{width:28px!important;height:28px!important;background-size:17px 17px!important}' +
       '@media (max-width:520px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-label{display:none!important}}' +
-      '@media (max-width:360px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-mid .kl-time{display:none!important}}';
+      '@media (max-width:360px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-mid .kl-time{display:none!important}}' +
+      /* v208: both bottom bars translucent, with a soft blur behind */
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6):not(#kz7),html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6):not(#kz7){background:rgba(251,250,247,.5)!important;-webkit-backdrop-filter:blur(12px) saturate(1.2)!important;backdrop-filter:blur(12px) saturate(1.2)!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
