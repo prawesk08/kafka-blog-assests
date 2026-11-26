@@ -23,6 +23,7 @@
   }catch(x){}
 })();
 
+/* Note: the theme renders .klisten at zoom .7, so sizes inside it are 1/0.7 of the on-screen size. */
 /* Podcast subscribe menu: footer "Podcast" link (every page) and a small button in the post's Listen panel. */
 (function(){
   try{
@@ -38,12 +39,12 @@
       ".kpod-show{margin:8px 0 0}.kpod-show b{display:block;font-weight:600;margin-bottom:2px}"+
       ".kpod-show a{display:block;color:#5e584f;text-decoration:none;padding:3px 0}.kpod-show a:hover{color:#7b2d26}"+
       ".kpod-note{margin:10px 0 0;font-size:12px;color:#8a8378}"+
-      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-label{font-size:15px!important;line-height:1.15!important;align-self:end}"+
-      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-mid .kl-time{font-size:13px!important;line-height:1.15!important;font-variant-numeric:tabular-nums;align-self:end}"+
+      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-label{font-size:19px!important;line-height:1.15!important;align-self:end}"+
+      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-mid .kl-time{font-size:17px!important;line-height:1.15!important;font-variant-numeric:tabular-nums;align-self:end}"+
       "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-mid{row-gap:4px}"+
-      ".kfol{display:flex;align-items:center;gap:6px;margin-left:10px;padding-left:10px;border-left:1px solid rgba(25,25,24,.14);flex:none}"+
-      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol a,html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol button{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:30px!important;height:24px!important;min-width:30px!important;flex:none!important;border-radius:10px!important;border:0!important;padding:0!important;margin:0!important;cursor:pointer;color:#fff!important;text-decoration:none;font-size:0!important}"+
-      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol svg{width:16px!important;height:16px!important;display:block!important}"+
+      ".kfol{display:flex;align-items:center;gap:8px;margin-left:14px;padding-left:14px;border-left:1px solid rgba(25,25,24,.14);flex:none}"+
+      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol a,html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol button{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:43px!important;height:34px!important;min-width:43px!important;flex:none!important;border-radius:14px!important;border:0!important;padding:0!important;margin:0!important;cursor:pointer;color:#fff!important;text-decoration:none;font-size:0!important}"+
+      "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kfol svg{width:22px!important;height:22px!important;display:block!important}"+
       ".kf-x{background:#191918}.kf-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kf-tt{background:#191918}"+
       ".kf-ap{background:linear-gradient(180deg,#d56dfb,#872ec4)}.kf-sp{background:#1db954}.kf-rss{background:#f08a24}"+
       "@media (max-width:640px){html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12){flex-wrap:wrap!important;border-radius:22px!important;row-gap:8px}"+
