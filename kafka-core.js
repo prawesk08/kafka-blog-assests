@@ -581,7 +581,24 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{width:26px!important;font-size:8.5px!important;letter-spacing:-.02em!important;white-space:nowrap!important;padding:0!important;overflow:hidden!important}' +
       /* v203: listen player on the left edge, share bar at the bottom right */
       'html body .kdock:not(#kz):not(#kz2){left:max(8px,env(safe-area-inset-left))!important;right:auto!important}' +
-      'html body aside.kshare-float:not(#kz):not(#kz2){left:auto!important;right:max(10px,env(safe-area-inset-right))!important;transform:none!important}';
+      'html body aside.kshare-float:not(#kz):not(#kz2){left:auto!important;right:max(10px,env(safe-area-inset-right))!important;transform:none!important}' +
+      /* v204: bottom row - Listen pill on the left, share bar on the right; share fits as many icons as the width allows */
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3){left:max(10px,env(safe-area-inset-left))!important;right:auto!important;top:auto!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;transform:none!important;transition:none!important;width:160px!important;height:34px!important;padding:0 8px 0 6px!important;border-radius:999px!important;background:rgba(251,250,247,.97)!important;border:1px solid #7B2D26!important;box-shadow:0 4px 12px rgba(26,26,24,.16)!important;display:flex!important;align-items:center!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .kd-half{display:flex!important;flex:1 1 auto!important;width:100%!important;padding:0!important;border:0!important;align-items:center!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten{display:flex!important;flex-direction:row!important;align-items:center!important;gap:6px!important;width:100%!important;height:auto!important;padding:0!important;margin:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-label,html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-note,html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-time,html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-mid .kl-time,html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-stop{display:none!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-mid{display:block!important;flex:1 1 auto!important;order:0!important;min-width:0!important;margin:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-mid .kl-track,html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-track{display:block!important;position:relative!important;width:100%!important;height:4px!important;min-height:0!important;margin:0!important;grid-column:auto!important;grid-row:auto!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-fill{position:absolute!important;left:0!important;top:0!important;width:var(--p,0%)!important;height:100%!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-thumb{top:50%!important;left:var(--p,0%)!important;width:9px!important;height:9px!important;margin:-4.5px 0 0 -4.5px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-play{order:-1!important;width:22px!important;height:22px!important;min-width:22px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-voice{order:1!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3) .klisten .kl-speed{order:2!important}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3){left:auto!important;right:max(10px,env(safe-area-inset-right))!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;transform:none!important;width:auto!important;max-width:calc(100vw - 190px)!important;height:34px!important;overflow-x:auto!important;overflow-y:hidden!important;justify-content:flex-start!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3)::-webkit-scrollbar{display:none}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3) .kf-btn,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3) .kf-cmt{flex:0 0 22px!important;width:22px!important;height:22px!important;min-width:22px!important}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3) .kf-btn svg,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3) .kf-cmt svg{width:18px!important;height:18px!important}' +
+      '.feedbox.feed-small .feedslot{display:none!important}.feedbox.feed-small{padding-top:8px!important;padding-bottom:8px!important;min-height:0!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
@@ -1131,4 +1148,83 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     var o = v.querySelector('button:not(.on)'); if (!o) return;
     busy = true; try { o.click(); } finally { busy = false; }
   });
+})();
+
+/* v204: share buttons - one set, one order, top bar and floating bar alike */
+(function () {
+  var ORDER = ['copy', 'facebook', 'x', 'reddit', 'substack', 'email', 'sms', 'instagram', 'snapchat', 'tiktok', 'medium', 'tumblr'];
+  var LABEL = { reddit: 'Share on Reddit', substack: 'Share on Substack', email: 'Share by email', sms: 'Share by text message', medium: 'Share on Medium' };
+  var ICON = {
+    reddit: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#FF4500"/><ellipse cx="12" cy="14" rx="6" ry="4.2" fill="#fff"/><circle cx="9.6" cy="13.6" r="1.1" fill="#FF4500"/><circle cx="14.4" cy="13.6" r="1.1" fill="#FF4500"/><path d="M9.6 16.2c1.4.9 3.4.9 4.8 0" stroke="#FF4500" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="17.2" cy="8.4" r="1.2" fill="#fff"/><path d="M12 9.8l.9-3.6 3.4.9" stroke="#fff" stroke-width="1.1" fill="none"/></svg>',
+    substack: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#FF6719"/><path d="M6.5 6.5h11M6.5 10h11M6.5 13.5V18.5l5.5-3 5.5 3v-5z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>',
+    email: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#4A4540"/><rect x="5" y="7.5" width="14" height="9.5" rx="1.6" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M5.6 8.6l6.4 5 6.4-5" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>',
+    sms: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#34C759"/><path d="M6.5 7.5h11a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5H11l-3.5 2.5V15.5h-1A1.5 1.5 0 0 1 5 14V9a1.5 1.5 0 0 1 1.5-1.5z" fill="#fff"/></svg>',
+    medium: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#111"/><ellipse cx="8.3" cy="12" rx="3.3" ry="4.2" fill="#fff"/><ellipse cx="14.6" cy="12" rx="1.9" ry="4.2" fill="#fff"/><ellipse cx="18.6" cy="12" rx=".9" ry="3.6" fill="#fff"/></svg>'
+  };
+  function pageInfo() {
+    var h = document.querySelector('.post-head h1');
+    return { url: location.href.split('#')[0].split('?')[0], title: (h && h.textContent.trim()) || document.title };
+  }
+  function toast(box, msg) {
+    var t = box && box.querySelector('.ks-toast'); if (!t) return;
+    t.textContent = msg; t.classList.add('on'); clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove('on'); }, 2400);
+  }
+  function copyThen(box, msg) {
+    var u = pageInfo().url;
+    return (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function () { toast(box, msg); }, function () { toast(box, u); });
+  }
+  var NEWNET = {
+    reddit: function () { var p = pageInfo(); window.open('https://www.reddit.com/submit?url=' + encodeURIComponent(p.url) + '&title=' + encodeURIComponent(p.title), '_blank', 'noopener,width=620,height=640'); },
+    email: function () { var p = pageInfo(); location.href = 'mailto:?subject=' + encodeURIComponent(p.title) + '&body=' + encodeURIComponent(p.url); },
+    sms: function () { var p = pageInfo(); location.href = 'sms:?&body=' + encodeURIComponent(p.title + ' ' + p.url); },
+    substack: function (box) { var p = pageInfo(); copyThen(box, 'Link copied — paste it into a Substack Note'); window.open('https://substack.com/notes?action=compose&message=' + encodeURIComponent(p.title + ' ' + p.url), '_blank', 'noopener'); },
+    medium: function (box) { copyThen(box, 'Link copied — paste it into Medium'); window.open('https://medium.com/new-story', '_blank', 'noopener'); }
+  };
+  document.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest && e.target.closest('.kshare button.ks'); if (!b) return;
+    var fn = NEWNET[b.getAttribute('data-net')]; if (!fn) return;
+    e.preventDefault(); e.stopPropagation(); fn(b.closest('.kshare'));
+  }, true);
+  function arrange(box) {
+    var wrap = box.querySelector('.btns'); if (!wrap) return;
+    var have = {};
+    [].forEach.call(wrap.querySelectorAll('button[data-net]'), function (b) { have[b.getAttribute('data-net')] = b; });
+    ORDER.forEach(function (net) {
+      var b = have[net];
+      if (!b && ICON[net]) {
+        b = document.createElement('button'); b.type = 'button'; b.className = 'ks ks-' + net; b.setAttribute('data-net', net);
+        b.setAttribute('aria-label', LABEL[net]); b.title = LABEL[net]; b.innerHTML = ICON[net];
+      }
+      if (b) wrap.appendChild(b);
+    });
+    Object.keys(have).forEach(function (net) { if (ORDER.indexOf(net) < 0 && have[net].parentNode) have[net].parentNode.removeChild(have[net]); });
+  }
+  function syncFloat() {
+    var fl = document.querySelector('.kshare-float'), top = document.querySelector('.share.kshare.top .btns');
+    if (!fl || !top) return;
+    var sep = fl.querySelector('.kf-sep') || fl.querySelector('.kf-cmt');
+    [].forEach.call(fl.querySelectorAll('.kf-btn'), function (b) { b.parentNode.removeChild(b); });
+    [].forEach.call(top.querySelectorAll('button[data-net]'), function (orig) {
+      var net = orig.getAttribute('data-net'), btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'kf-btn kf-' + net;
+      btn.setAttribute('aria-label', orig.getAttribute('aria-label') || ('Share ' + net)); btn.title = orig.getAttribute('title') || ('Share ' + net);
+      btn.innerHTML = orig.innerHTML; btn.addEventListener('click', function () { orig.click(); });
+      fl.insertBefore(btn, sep || null);
+    });
+  }
+  function run() { [].forEach.call(document.querySelectorAll('.share.kshare'), arrange); syncFloat(); }
+  [300, 1200, 2500, 4500, 7000].forEach(function (t) { setTimeout(run, t); });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+})();
+
+/* v204: X and TikTok boxes that could not load shrink to their heading and handle link */
+(function () {
+  function check() {
+    [].forEach.call(document.querySelectorAll('.feedbox[data-feed="x"], .feedbox[data-feed="tiktok"]'), function (b) {
+      var slot = b.querySelector('.feedslot');
+      if (slot && !slot.querySelector('iframe') && !/Loading/.test(slot.textContent || '')) b.classList.add('feed-small');
+      if (slot && !slot.querySelector('iframe') && /Loading/.test(slot.textContent || '') && b.getBoundingClientRect().height > 0) b.classList.add('feed-small');
+    });
+  }
+  [9000, 15000].forEach(function (t) { setTimeout(check, t); });
 })();
