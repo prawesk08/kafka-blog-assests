@@ -1510,6 +1510,10 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   css += 'html body.is-post .post-head h1' + T + ':not(.k-dev){font-family:Fraunces,Georgia,serif!important;font-variation-settings:"opsz" 144!important;font-weight:900!important;letter-spacing:-.025em!important;word-spacing:.06em!important;line-height:1.04!important;font-size:clamp(38px,5.6vw,62px)!important}' +
     'html body.is-post .post-head h1' + T + ' .h1-sub{display:block!important;font-family:Spectral,Martel,Georgia,serif!important;font-variation-settings:normal!important;font-weight:400!important;letter-spacing:0!important;word-spacing:0!important;line-height:1.4!important;font-size:clamp(17px,2.2vw,22px)!important;color:#4a4642!important;margin-top:12px!important}';
   css += 'html body.is-post .post-head .k-kicker' + T + '{font:700 12px/1.2 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7B2D26;margin:0 0 8px}';
+  css += '@media (max-width:899px){html body .share.kshare.top' + T + '{flex-wrap:nowrap!important;gap:4px!important;padding:2px 6px 2px 3px!important}' +
+    'html body .share.kshare.top' + T + ' .lbl{font-size:8px!important;padding:3px 7px!important;letter-spacing:.08em!important;flex:0 0 auto!important}' +
+    'html body .share.kshare.top' + T + ' .btns{flex-wrap:nowrap!important;gap:1px!important;min-width:0!important;overflow-x:auto!important;scrollbar-width:none!important}' +
+    'html body .share.kshare.top' + T + ' .ks,html body .share.kshare.top' + T + ' .ks svg{width:17px!important;height:17px!important;flex:0 0 17px!important}}';
   var MAIN = ['Science', 'History', 'Books', 'Movies', 'Songs', 'Photos', 'Poetry', 'Letters', 'Stories', 'Ramblings', 'Music'];
   function titles() {
     [].forEach.call(document.querySelectorAll('.post-head h1'), function (h) {
@@ -1534,7 +1538,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   var s = document.createElement('style'); s.id = 'k223-css'; s.textContent = css; document.head.appendChild(s);
   function pre() {
     var b = document.querySelector('article .prose, .prose'); if (!b) return;
-    document.documentElement.classList.toggle('k-prehide', b.getBoundingClientRect().top > window.innerHeight - 160);
+    document.documentElement.classList.toggle('k-prehide', b.getBoundingClientRect().top > window.innerHeight * 0.45);
   }
   var t = 0; window.addEventListener('scroll', function () { if (t) return; t = 1; requestAnimationFrame(function () { t = 0; pre(); }); }, { passive: true });
   window.addEventListener('resize', pre);
