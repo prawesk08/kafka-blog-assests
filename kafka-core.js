@@ -598,7 +598,19 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3)::-webkit-scrollbar{display:none}' +
       'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3) .kf-btn,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3) .kf-cmt{flex:0 0 22px!important;width:22px!important;height:22px!important;min-width:22px!important}' +
       'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3) .kf-btn svg,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3) .kf-cmt svg{width:18px!important;height:18px!important}' +
-      '.feedbox.feed-small .feedslot{display:none!important}.feedbox.feed-small{padding-top:8px!important;padding-bottom:8px!important;min-height:0!important}';
+      '.feedbox.feed-small .feedslot{display:none!important}.feedbox.feed-small{padding-top:8px!important;padding-bottom:8px!important;min-height:0!important}' +
+      /* v205: Listen pill and share bar are the same size: half the width each, 44px tall, bigger controls */
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4){width:calc(50vw - 15px)!important;max-width:420px!important;height:44px!important;padding:0 10px 0 8px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4) .klisten{gap:8px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4) .klisten .kl-play{width:32px!important;height:32px!important;min-width:32px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4) .klisten .kl-play svg{width:13px!important;height:13px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4) .klisten .kl-track{height:5px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4) .klisten .kl-thumb{width:12px!important;height:12px!important;margin:-6px 0 0 -6px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4) .klisten .kl-voice button.on{width:30px!important;height:30px!important;background-size:19px 19px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4) .klisten .kl-speed{width:36px!important;height:30px!important;font-size:11px!important}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4){width:calc(50vw - 15px)!important;max-width:420px!important;height:44px!important;padding:0 10px!important;gap:3px!important}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-btn,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-cmt{flex:0 0 30px!important;width:30px!important;height:30px!important;min-width:30px!important}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-btn svg,html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4) .kf-cmt svg{width:24px!important;height:24px!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
