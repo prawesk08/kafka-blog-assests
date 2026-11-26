@@ -1763,3 +1763,39 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
   }
 })();
+
+/* v227: a quiet one-line "More poems" strip between the poem's header and its first line: three poems in the same language, nearest in date */
+(function () {
+  if (!/^\/\d{4}\/\d{2}\//.test(location.pathname)) return;
+  var N = ':not(#q1):not(#q2):not(#q3):not(#q4)';
+  var css = 'html body .kx-more' + N + '{display:flex;align-items:baseline;gap:4px 14px;margin:0 0 16px;padding:0;font:400 12px/1.5 Inter,system-ui,sans-serif;color:#8d8880;white-space:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;opacity:.85}' +
+    'html body .kx-more' + N + '::-webkit-scrollbar{display:none}' +
+    'html body .kx-more' + N + ' b{flex:0 0 auto;font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#a39d95}' +
+    'html body .kx-more' + N + ' a{flex:0 1 auto;min-width:0;max-width:26ch;overflow:hidden;text-overflow:ellipsis;color:inherit;text-decoration:none;border:0}' +
+    'html body .kx-more' + N + ' a:hover,html body .kx-more' + N + ' a:focus{color:#7B2D26;text-decoration:underline}';
+  var st = document.createElement('style'); st.id = 'k227-more'; st.textContent = css; document.head.appendChild(st);
+  var busy = false;
+  function run() {
+    if (busy || document.querySelector('.kx-more')) return;
+    var head = document.querySelector('.post-head'), prose = document.querySelector('article .prose, .prose'); if (!head || !prose) return;
+    var labs = [].map.call(head.querySelectorAll('.chip'), function (c) { return c.getAttribute('data-label') || c.textContent.trim(); });
+    var pool = labs.indexOf('Nepali Poetry') > -1 ? 'Nepali Poetry' : labs.indexOf('English Poetry') > -1 ? 'English Poetry' : labs.indexOf('Poetry') > -1 ? 'Poetry' : ''; if (!pool) return;
+    busy = true;
+    var here = location.pathname, h1 = head.querySelector('h1'), ne = /[ऀ-ॿ]/.test(h1 ? h1.textContent : '');
+    fetch('/feeds/posts/summary/-/' + encodeURIComponent(pool) + '?alt=json&max-results=500').then(function (r) { return r.json(); }).then(function (j) {
+      var es = ((j.feed && j.feed.entry) || []).map(function (e) {
+        var l = ((e.link || []).filter(function (x) { return x.rel === 'alternate'; })[0] || {}).href || ''; var u; try { u = new URL(l).pathname; } catch (x) { u = ''; }
+        return { t: e.title.$t || '', u: u, d: +new Date(e.published.$t) };
+      }).filter(function (e) { return e.u && e.u !== here && (/[ऀ-ॿ]/.test(e.t) === ne); });
+      var me = null; (j.feed.entry || []).forEach(function (e) { var l = ((e.link || []).filter(function (x) { return x.rel === 'alternate'; })[0] || {}).href || ''; try { if (new URL(l).pathname === here) me = +new Date(e.published.$t); } catch (x) {} });
+      if (me === null) me = Date.now();
+      es.sort(function (a, b) { return Math.abs(a.d - me) - Math.abs(b.d - me); });
+      var pick = es.slice(0, 3); if (!pick.length || document.querySelector('.kx-more')) return;
+      var nav = document.createElement('nav'); nav.className = 'kx-more'; nav.setAttribute('aria-label', 'More poems');
+      var b = document.createElement('b'); b.textContent = ne ? 'थप कविता' : 'More poems'; nav.appendChild(b);
+      pick.forEach(function (e, i) { var a = document.createElement('a'); a.href = e.u; a.textContent = e.t.replace(/\s+/g, ' ').replace(/[.।]+$/, ''); a.title = e.t; nav.appendChild(a); });
+      prose.parentNode.insertBefore(nav, prose);
+    }).catch(function () {}).then(function () { busy = false; });
+  }
+  [200, 900, 2200, 4500].forEach(function (d) { setTimeout(run, d); });
+})();
