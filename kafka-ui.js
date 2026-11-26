@@ -496,3 +496,39 @@ try{(function(){
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(run,60)});else setTimeout(run,60);
 })();
+
+/* v188: the post's own picture behind the current part in the series box, and behind each "More essays" card */
+(function(){
+  var KEY='kafka-thumbs-v2',map=null,pending=null;
+  function norm(u){try{return new URL(u,location.href).pathname.replace(/\/+$/,'')}catch(e){return u}}
+  function css(){
+    if(document.getElementById('kbg-css'))return;
+    var s=document.createElement('style');s.id='kbg-css';
+    s.textContent=
+      'html body .kser-hero li.is-cur>span.has-kbg{background-image:linear-gradient(180deg,rgba(25,25,24,.45) 0%,rgba(25,25,24,.85) 100%),var(--kbg)!important;background-size:cover!important;background-position:center!important}'+
+      'html body .kmore-link.has-kbg{position:relative;min-height:150px;overflow:hidden;background-image:linear-gradient(180deg,rgba(25,25,24,.5) 0%,rgba(25,25,24,.9) 100%),var(--kbg)!important;background-size:cover!important;background-position:center!important;border-color:transparent!important}'+
+      'html body .kmore-link.has-kbg>span:first-child{color:#fff!important;text-shadow:0 1px 8px rgba(0,0,0,.6)}'+
+      'html body .kmore-link.has-kbg .kmore-arr{color:#fff!important}';
+    document.head.appendChild(s);
+  }
+  function loadMap(){
+    if(map)return Promise.resolve(map);
+    try{var c=JSON.parse(sessionStorage.getItem(KEY)||'null');if(c&&c.m&&Date.now()-c.t<36e5){map=c.m;return Promise.resolve(map)}}catch(e){}
+    if(pending)return pending;
+    var m={};
+    function page(si){return fetch('/feeds/posts/summary?alt=json&max-results=150&start-index='+si).then(function(r){return r.json()}).then(function(j){var es=(j.feed&&j.feed.entry)||[];es.forEach(function(e){var l=((e.link||[]).filter(function(x){return x.rel==='alternate'})[0]||{}).href;if(l&&e.media$thumbnail)m[norm(l)]=e.media$thumbnail.url.replace(/=s72(-w\d+)?(-h\d+)?(-c)?$/,'=w400').replace(/\/s72(-w\d+)?(-h\d+)?(-c)?\//,'/s400/')});return {n:es.length,total:+((j.feed.openSearch$totalResults||{}).$t||0)}})}
+    function all(si){return page(si).then(function(r){var nx=si+r.n;return(r.n&&nx<=r.total&&nx<400)?all(nx):0})}
+    pending=all(1).then(function(){map=m;try{sessionStorage.setItem(KEY,JSON.stringify({t:Date.now(),m:m}))}catch(e){}return m}).catch(function(){return m});
+    return pending;
+  }
+  function paint(el,url){el.style.setProperty('--kbg','url("'+String(url).replace(/"/g,'%22')+'")');el.classList.add('has-kbg')}
+  function run(){
+    var cur=document.querySelector('.kser-hero li.is-cur>span:not(.has-kbg)');
+    var og=document.querySelector('meta[property="og:image"]');
+    if(cur&&og&&og.content){css();paint(cur,og.content.replace(/=w\d+(-[a-z0-9-]+)?$/,'=w600'))}
+    var links=[].slice.call(document.querySelectorAll('.kmore-link:not(.has-kbg)'));
+    if(links.length){css();loadMap().then(function(m){links.forEach(function(a){var u=m[norm(a.getAttribute('href'))];if(u)paint(a,u)})})}
+  }
+  function start(){run();if(!window.MutationObserver)return;var t=0,mo=new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;run()},200)});mo.observe(document.body,{childList:true,subtree:true});setTimeout(function(){mo.disconnect()},20000)}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();
