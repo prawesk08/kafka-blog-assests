@@ -268,11 +268,11 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       var next=idx<total-1?matched.items[idx+1]:null;
       var isNe=matched.lang==='ne';
       var cntShort=(idx+1)+' / '+total;
-      var cntLabel=isNe?('\u092d\u093e\u0917 '+(idx+1)+' / '+total):('Part '+(idx+1)+' of '+total);
+      var neD=function(v){return String(v).replace(/[0-9]/g,function(d){return String.fromCharCode(0x0966+Number(d));});};var cntLabel=isNe?('\u092d\u093e\u0917 '+neD(idx+1)+' / '+neD(total)):('Part '+(idx+1)+' of '+total);
       var prevTxt=isNe?'\u2039 \u0905\u0918\u093f\u0932\u094d\u0932\u094b':'\u2039 Prev';
       var nextTxt=isNe?'\u0905\u0930\u094d\u0915\u094b \u203a':'Next \u203a';
       var serTag=isNe?'\u0936\u094d\u0930\u0943\u0919\u094d\u0916\u0932\u093e':'Series';
-      var allBtnTxt=isNe?('\u0938\u092c\u0948 '+total+' \u092d\u093e\u0917'):('All '+total+' parts');
+      var allBtnTxt=isNe?('\u0938\u092c\u0948 '+neD(total)+' \u092d\u093e\u0917'):('All '+total+' parts');
       var allTxt=isNe?'\u092a\u0942\u0930\u093e \u0936\u094d\u0930\u0943\u0919\u094d\u0916\u0932\u093e \u0939\u0947\u0930\u094d\u0928\u0941\u0939\u094b\u0938\u094d \u2192':'View full series page \u2192';
       var serArt=artUrl(matched.art||'header-home',480);
 
@@ -367,7 +367,7 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
           var np=normPath(it.p);
           var m=metaByPath[np]||{img:serArt,desc:''};
           var isCur=(k===idx);
-          var badge=isNe?('\u092d\u093e\u0917 '+(k+1)+(isCur?' \u00b7 \u092a\u0922\u094d\u0926\u0948':'')):('Part '+(k+1)+(isCur?' \u00b7 Reading':''));
+          var badge=isNe?('\u092d\u093e\u0917 '+neD(k+1)+(isCur?' \u00b7 \u092a\u0922\u094d\u0926\u0948':'')):('Part '+(k+1)+(isCur?' \u00b7 Reading':''));
           var tagOpen=isCur?'<div class="kser-card is-cur">':'<a class="kser-card" href="'+esc(it.p)+'">';
           var tagClose=isCur?'</div>':'</a>';
           html+=tagOpen

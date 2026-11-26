@@ -1378,7 +1378,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     document.documentElement.classList.toggle('k-endhide', end.getBoundingClientRect().top < window.innerHeight - 40);
   }
   var tk = 0; window.addEventListener('scroll', function () { if (tk) return; tk = 1; requestAnimationFrame(function () { tk = 0; endCheck(); measure(); }); }, { passive: true });
-  window.addEventListener('resize', function () { var it = document.querySelector('.knav-sticky .tabs-items'); if (it && it.closest('[data-k209]')) fitMore(it); measure(); });
+  window.addEventListener('resize', function () { var it = document.querySelector('.knav-sticky .tabs-items'); if (it && it.closest('[data-k209]') && !it.querySelector('.kx-extra')) fitMore(it); measure(); });
   var sb0 = document.getElementById('ksearch-btn'), sp0 = document.getElementById('ksearch-pop');
   if (sb0 && sp0) {
     function setOpen(o) { sp0.classList.toggle('is-open', o); sb0.setAttribute('aria-expanded', o ? 'true' : 'false'); if (o) { measure(); var i = sp0.querySelector('input'); if (i) setTimeout(function () { try { i.focus({ preventScroll: true }); } catch (e) { i.focus(); } }, 30); } }
@@ -1624,14 +1624,14 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     var hidden = [], kids = [].slice.call(it.children).filter(function (c) { return c !== more; });
     while (it.scrollWidth > it.clientWidth + 1 && kids.length > 5) { var k = kids.pop(); k.style.display = 'none'; hidden.unshift(k); }
     more.onclick = function (e) {
-      e.stopPropagation(); var m = document.querySelector('.kn-menu.kx-more');
+      e.stopPropagation(); var m = document.querySelector('.kn-menu.kx-nav-more');
       if (m) { m.parentNode.removeChild(m); return; }
-      m = document.createElement('div'); m.className = 'kn-menu kx-more is-open';
+      m = document.createElement('div'); m.className = 'kn-menu kx-nav-more is-open';
       hidden.forEach(function (h) { var a = document.createElement('a'); a.href = h.getAttribute('href'); a.textContent = h.textContent; m.appendChild(a); });
       var r = more.getBoundingClientRect(); m.style.top = (r.bottom + 4) + 'px'; m.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 180)) + 'px'; document.body.appendChild(m);
     };
   }
-  document.addEventListener('click', function () { var m = document.querySelector('.kn-menu.kx-more'); if (m) m.parentNode.removeChild(m); });
+  document.addEventListener('click', function () { var m = document.querySelector('.kn-menu.kx-nav-more'); if (m) m.parentNode.removeChild(m); });
   window.addEventListener('resize', function () { var it = document.querySelector('.knav-sticky .tabs-items'); if (it && it.querySelector('.kx-extra')) fitDesk(it); });
   function extras() {
     var it = document.querySelector('.knav-sticky .tabs-items'); if (!it || !it.closest('[data-k209]') || it.querySelector('.kx-extra')) return;
@@ -1936,4 +1936,60 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   }
   function go(map) { apply(map); setTimeout(function () { apply(map); }, 1500); setTimeout(function () { apply(map); }, 4000); }
   fetch('https://assets.kafka.blog/kafka-thumbs.json?v=1').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j[kind]) go(j[kind]); }).catch(function () {});
+})();
+
+
+/* v230: fix Listen pill time overlap, More dropdown collision, duplicate sidebar bio, Devanagari series numerals, and Nepali translate trigger */
+(function () {
+  var N = ':not(#v1):not(#v2):not(#v3):not(#v4):not(#v5):not(#v6):not(#v7)';
+  var css =
+    /* 1. Floating Listen pill: show single clean timestamp, remove duplicate ::after overlay */
+    'html body .kdock' + N + ' .klisten .kl-mid .kl-time{display:block!important;grid-column:2!important;grid-row:1!important;font:600 9px/1 ui-monospace,Menlo,monospace!important;color:#6D6A65!important;margin:0!important;white-space:nowrap!important;letter-spacing:0!important}' +
+    'html body .kdock' + N + ' .klisten .kl-mid .kl-time::after{content:none!important;display:none!important}' +
+    /* 2. More dropdown menu: keep fixed above sticky nav and isolated from .kx-more poems strip */
+    'html body .kn-menu.kx-nav-more.is-open' + N + '{display:block!important;position:fixed!important;z-index:220!important;min-width:156px!important;background:rgba(255,253,249,.98)!important;border:1px solid rgba(123,45,38,.35)!important;border-radius:10px!important;box-shadow:0 10px 28px rgba(26,26,24,.18)!important;padding:6px!important;margin:0!important;overflow:visible!important;opacity:1!important}' +
+    'html body .kn-menu.kx-nav-more.is-open' + N + ' a{display:block!important;padding:8px 12px!important;font:500 13px/1.2 var(--sans,system-ui)!important;color:#1A1A18!important;text-decoration:none!important;border-radius:7px!important;white-space:nowrap!important;max-width:none!important}' +
+    'html body .kn-menu.kx-nav-more.is-open' + N + ' a:hover{background:#F1EBE2!important;color:#7B2D26!important}' +
+    /* 3. Duplicate author bio: hide sidebar .box.sbio when full-width .hero bio is present */
+    'html body .side .box.sbio' + N + '{display:none!important}';
+  var st = document.createElement('style');
+  st.id = 'k230-fixes';
+  st.textContent = css;
+  document.head.appendChild(st);
+
+  /* 4. Devanagari numerals on Nepali series badges and counters */
+  function toNeDigits(str) {
+    return String(str).replace(/[0-9]/g, function (d) {
+      return String.fromCharCode(0x0966 + Number(d));
+    });
+  }
+  function fixNeNums() {
+    var nodes = document.querySelectorAll('.kser-count, .kser-badge, .kser-all, .kser-mini .kser-pill, .kser-mini .kser-of');
+    [].forEach.call(nodes, function (el) {
+      var t = el.textContent || '';
+      if (/[\u0900-\u097F]/.test(t) && /[0-9]/.test(t)) {
+        el.textContent = toNeDigits(t);
+      }
+    });
+  }
+
+  /* 5. Suppress Chrome/Safari auto-translate bar on Nepali posts/pages */
+  function fixNeLang() {
+    var h1 = document.querySelector('.post-head h1, main h1');
+    var isNe = (h1 && /[\u0900-\u097F]/.test(h1.textContent || '')) ||
+               /^\/search\/label\/Nepali/i.test(location.pathname);
+    if (!isNe) return;
+    document.documentElement.setAttribute('lang', 'ne');
+    if (!document.querySelector('meta[name="google"][content="notranslate"]')) {
+      var m = document.createElement('meta');
+      m.name = 'google';
+      m.content = 'notranslate';
+      document.head.appendChild(m);
+    }
+  }
+
+  function runV230() { fixNeNums(); fixNeLang(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', runV230);
+  else runV230();
+  [300, 1200, 3000].forEach(function (d) { setTimeout(runV230, d); });
 })();
