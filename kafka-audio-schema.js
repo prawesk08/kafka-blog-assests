@@ -7,7 +7,7 @@
       var e=m&&m[p];if(!e)return;
       function iso(s){s=Math.round(s);var h=Math.floor(s/3600),mi=Math.floor(s%3600/60),se=s%60;
         return"PT"+(h?h+"H":"")+(mi?mi+"M":"")+(se||!(h||mi)?se+"S":"")}
-      var h1=document.querySelector("h1"),title=(h1&&h1.textContent||document.title).trim();
+      var title=document.title.replace(/\s*\|[^|]*$/,"").trim();
       var url=location.origin+p,lang=e.l==="ne"?"ne":"en",out=[];
       [["f","sf","female"],["m","sm","male"]].forEach(function(k){
         if(!e[k[0]]||!e[k[1]])return;
