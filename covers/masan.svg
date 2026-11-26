@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2b2b"/><stop offset="1" stop-color="#111"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#e07a3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M200 330 c-40 -40 -10 -80 0 -120 c10 40 50 60 0 120"/><path d="M200 300 c-15 -15 -5 -35 0 -50 c5 15 20 25 0 50" fill="#e07a3c" fill-opacity=".35"/><path d="M110 340 h180"/><circle cx="300" cy="110" r="22"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#f0ece4" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="397" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="40" font-weight="700" fill="#f0ece4">मसान ·</text><text x="200" y="445" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="40" font-weight="700" fill="#f0ece4">आमाको सपना</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#f0ece4" fill-opacity=".8">Masan · Aamako Sapana</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#e07a3c" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#f0ece4" fill-opacity=".85">GOPAL PRASAD RIMAL</text>
+</svg>

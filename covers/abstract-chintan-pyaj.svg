@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b2f4a"/><stop offset="1" stop-color="#331524"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#e8a3c0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M200 100 c-90 60 -90 190 0 230 c90 -40 90 -170 0 -230 z"/><path d="M200 130 c-60 50 -60 150 0 180 c60 -30 60 -130 0 -180 z"/><path d="M200 165 c-30 35 -30 95 0 115 c30 -20 30 -80 0 -115 z"/><path d="M200 100 v-30"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#fbe9f0" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="397" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="40" font-weight="700" fill="#fbe9f0">एब्स्ट्र्याक्ट</text><text x="200" y="445" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="40" font-weight="700" fill="#fbe9f0">चिन्तन: प्याज</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#fbe9f0" fill-opacity=".8">Abstract Chintan: Pyaj</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#e8a3c0" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#fbe9f0" fill-opacity=".85">SHANKAR LAMICHHANE</text>
+</svg>

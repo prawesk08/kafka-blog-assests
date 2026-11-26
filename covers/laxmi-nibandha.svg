@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b8873f"/><stop offset="1" stop-color="#6e4d1e"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#fff1d0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M120 330 q80 -40 160 0"/><path d="M200 330 V110"/><path d="M200 110 q-60 20 -70 90 M200 110 q60 20 70 90"/><path d="M150 160 l-20 -10 M250 160 l20 -10"/><path d="M200 330 c-30 0 -50 20 -50 20 M200 330 c30 0 50 20 50 20"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#fff6e6" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="397" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="40" font-weight="700" fill="#fff6e6">लक्ष्मी</text><text x="200" y="445" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="40" font-weight="700" fill="#fff6e6">निबन्धसङ्ग्रह</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#fff6e6" fill-opacity=".8">Laxmi Nibandha Sangraha</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#fff1d0" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#fff6e6" fill-opacity=".85">LAXMI PRASAD DEVKOTA</text>
+</svg>

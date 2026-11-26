@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c96a4a"/><stop offset="1" stop-color="#7a3424"/></linearGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter></defs>
+<rect width="400" height="600" fill="url(#g)"/>
+<g fill="none" stroke="#ffd9c2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M80 250 q30 -60 60 0 t60 0 t60 0 t60 0"/><path d="M80 300 q30 -40 60 0 t60 0 t60 0 t60 0" stroke-opacity=".6"/><circle cx="200" cy="140" r="34"/><path d="M200 106 v-26 M200 174 v26"/></g>
+<rect width="400" height="600" filter="url(#n)"/>
+<rect x="16" y="16" width="368" height="568" fill="none" stroke="#fff1e8" stroke-opacity=".35" stroke-width="1.5"/>
+<text x="200" y="397" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="40" font-weight="700" fill="#fff1e8">यो जिन्दगी</text><text x="200" y="445" text-anchor="middle" font-family="'Kohinoor Devanagari','Noto Serif Devanagari','Mukta','Mangal',serif" font-size="40" font-weight="700" fill="#fff1e8">खै के जिन्दगी</text>
+<text x="200" y="496" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="20" fill="#fff1e8" fill-opacity=".8">Yo Jindagi Khai Ke Jindagi</text>
+<line x1="170" y1="520" x2="230" y2="520" stroke="#ffd9c2" stroke-width="2"/>
+<text x="200" y="552" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" letter-spacing="3" fill="#fff1e8" fill-opacity=".85">HARIBHAKTA KATUWAL</text>
+</svg>
