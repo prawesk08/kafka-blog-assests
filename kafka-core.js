@@ -551,7 +551,7 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button{width:15px!important;height:14px!important;min-width:0!important;padding:0!important;font-size:8px!important;line-height:1!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{display:inline-flex!important;align-items:center;justify-content:center;min-width:0!important;width:19px!important;height:14px!important;padding:0!important;font-size:7.5px!important;line-height:1!important}' +
       /* v198: decorated vertical player; text runs top to bottom; fixed at the centre right */
-      'html body .kdock:not(#kz):not(#kz2){padding:8px 3px!important;border:1px solid #7B2D26!important;background:linear-gradient(180deg,#FFFDF9 0%,#F4ECDD 100%)!important;box-shadow:inset 0 0 0 2px #EBD489,0 6px 18px rgba(26,26,24,.18)!important;top:50%!important}' +
+      'html body .kdock:not(#kz):not(#kz2){padding:8px 3px!important;border:1px solid #7B2D26!important;background:linear-gradient(180deg,#FFFDF9 0%,#F4ECDD 100%)!important;box-shadow:inset 0 0 0 2px #EBD489,0 6px 18px rgba(26,26,24,.18)!important;top:var(--ky,50%)!important;transition:top .9s ease!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid{order:0!important;flex-direction:column!important;align-items:center!important;gap:6px!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice{order:1!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{order:2!important}' +
@@ -728,11 +728,11 @@ window.KAFKA_RECPLAYER = function (rec) {
   function placeDock(f) {
     if (typeof f === 'number') lastF = f;
     var dk = document.querySelector('.kdock'); if (!dk) return;
-    dk.style.removeProperty('--ky'); return; /* v198: fixed at the centre right; no sliding */
-    var pr = document.querySelector('.prose'); if (!pr) return;
-    var y = pr.getBoundingClientRect().top + (lastF || 0) * pr.offsetHeight;
-    y = Math.max(165, Math.min(window.innerHeight - 110, y));
-    dk.style.setProperty('--ky', y + 'px');
+    if (!started) { dk.style.removeProperty('--ky'); return; }
+    /* v199: the player steps down the right edge five times over the piece (every 20%), then stays put until the next step */
+    var idx = Math.min(4, Math.floor((lastF || 0) * 5)), vh = window.innerHeight;
+    var y = Math.max(165, Math.min(vh - 110, vh * (0.3 + idx * 0.1)));
+    dk.style.setProperty('--ky', Math.round(y) + 'px');
   }
   function followContent(f) { placeDock(f); }
   window.addEventListener('scroll', function () { if (tick) return; tick = 1; requestAnimationFrame(function () { tick = 0; placeDock(); }); }, { passive: true });
