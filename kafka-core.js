@@ -1403,9 +1403,12 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   function addTabs() {
     var box = document.querySelector('.kser-tabs.klit'); if (!box || box.getAttribute('data-k226')) return; box.setAttribute('data-k226', '1');
     var before = box.querySelector('#kt-letters'), pan = box.querySelector('.kt-panel.kt-letters') || box.querySelector('.kt-panel:nth-of-type(2)');
+    /* the all-poetry tab goes: the Nepali and English tabs replace it */
+    [].forEach.call(box.querySelectorAll('#kt-poetry, label[for="kt-poetry"], .kt-panel.kt-poetry'), function (n) { n.parentNode.removeChild(n); });
     XT.forEach(function (x) {
       var i = document.createElement('input'); i.type = 'radio'; i.name = 'klit'; i.id = 'kt-' + x[0];
       var l = document.createElement('label'); l.setAttribute('for', i.id); l.innerHTML = x[1] + ' <span></span>';
+      if (x[0] === 'nepoetry') i.checked = true;
       if (before) { box.insertBefore(i, before); box.insertBefore(l, before); } else { box.appendChild(i); box.appendChild(l); }
       var sec = document.createElement('section'); sec.className = 'kt-panel kt-' + x[0]; sec.setAttribute('data-label', x[2]); sec.setAttribute('data-tab', i.id); sec.id = x[0];
       sec.innerHTML = '<h2 class="kt-h">' + x[1] + '</h2><ol class="kser-items"></ol>';
@@ -1432,7 +1435,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
       var tab = document.querySelector('label[for="' + (panel.getAttribute('data-tab') || 'kt-' + label.toLowerCase()) + '"] span'); if (tab) tab.textContent = es.length;
     }).catch(function () {});
   }
-  function hash() { var h = (location.hash || '').replace('#', '').toLowerCase(), r = h && document.getElementById('kt-' + h); if (r) r.checked = true; }
+  function hash() { var h = (location.hash || '').replace('#', '').toLowerCase(); if (h === 'poetry') h = 'nepoetry'; var r = h && document.getElementById('kt-' + h); if (r) r.checked = true; }
   function go() { addTabs(); [].forEach.call(document.querySelectorAll('.kser-tabs.klit .kt-panel[data-label]'), fill); hash(); }
   window.addEventListener('hashchange', hash);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
@@ -1600,6 +1603,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .kser-tabs' + N + '{gap:4px!important}' +
     'html body .kser-tabs' + N + '>label{gap:3px!important;padding:6px 5px!important;font-size:10px!important;white-space:nowrap!important}' +
     'html body .kser-tabs' + N + '>label span{font-size:8.5px!important;padding:1px 4px!important;min-width:0!important}' +
+    'html body .kser-tabs.klit' + N + '>label span{display:none!important}' +
     P + ' .kn-about' + N + '{font-size:11.5px!important;padding:6px 2px!important}' +
     P + ' .ksearch-btn' + N + '{padding-left:6px!important;padding-right:6px!important}' +
   '}';
