@@ -520,9 +520,13 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-time{display:block!important;margin:0!important;font-size:11px!important;line-height:1!important}' +
       'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-track{grid-column:1/-1!important;margin:0!important}' +
       'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-speed{min-width:34px!important;height:26px!important}' +
+      '.kl-left,.kl-right{display:contents}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-left{display:flex!important;flex:1 1 0!important;justify-content:flex-start!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-right{display:flex!important;flex:1 1 0!important;justify-content:flex-end!important;align-items:center!important;gap:8px!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-mid{flex:0 0 44%!important}' +
       '.share.kshare.top:not(#kz),.share.kshare .btns:not(#kz){justify-content:center!important}' +
-      'html body .share.kshare.top:not(#kz):not(#kz2){flex-direction:column!important;align-items:center!important;gap:7px!important}' +
-      'html body .share.kshare.top:not(#kz):not(#kz2) .lbl{display:block!important;font:700 12px/1 system-ui,sans-serif!important;letter-spacing:.1em;text-transform:uppercase;color:#6D6A65!important;margin:0!important}' +
+      'html body .share.kshare.top:not(#kz):not(#kz2){flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;padding:6px 10px 6px 6px!important;border:1px solid rgba(26,26,24,.2)!important;border-radius:999px!important;background:rgba(255,255,255,.35)!important}' +
+      'html body .share.kshare.top:not(#kz):not(#kz2) .lbl{display:block!important;background:#7B2D26!important;color:#fff!important;padding:9px 14px!important;border-radius:999px!important;font:700 12px/1 system-ui,sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase;white-space:nowrap!important;margin:0!important}' +
       'html body .translation-link:not(#kz){padding-top:10px!important;padding-bottom:10px!important}' +
       'html body a.tr-cta:not(#kz){font-size:17px!important;font-weight:700!important}' +
       'html body .tr-badge:not(#kz){font-size:13.5px!important;padding:5px 11px!important}' +
@@ -596,7 +600,11 @@ window.KAFKA_RECPLAYER = function (rec) {
     voiceHTML +
     '<button class="kl-speed" type="button" aria-label="Playback speed">' + SPEEDS[si] + '\u00d7</button>';
 
-  (function () { var mid = bar.querySelector('.kl-mid'), tm = bar.querySelector('.kl-time'), tk = bar.querySelector('.kl-track'); if (mid && tm && tk) mid.insertBefore(tm, tk); })();
+  (function () { var mid = bar.querySelector('.kl-mid'), tm = bar.querySelector('.kl-time'), tk = bar.querySelector('.kl-track'); if (mid && tm && tk) mid.insertBefore(tm, tk);
+    var left = document.createElement('span'), right = document.createElement('span'); left.className = 'kl-left'; right.className = 'kl-right';
+    var pl = bar.querySelector('.kl-play'); if (mid && pl) { bar.insertBefore(left, mid); left.appendChild(pl); }
+    ['.kl-voice', '.kl-speed'].forEach(function (sel) { var e = bar.querySelector(sel); if (e) right.appendChild(e); });
+    bar.appendChild(right); })();
   var mini = document.createElement('div');
   mini.className = 'klisten-mini';
   mini.setAttribute('role', 'region');
