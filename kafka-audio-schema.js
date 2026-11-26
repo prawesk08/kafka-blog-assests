@@ -128,7 +128,7 @@
       /* match the share icons' on-screen size; .klisten is drawn with a CSS zoom that changes with the window */
       function fit(){
         /* measure a share icon and one of ours the same way, so CSS zoom (which browsers report differently) cancels out */
-        var sh=document.querySelector(".share.kshare.top a.ks,.share.kshare.top .ks"),me=g.firstChild;if(!sh||!me)return;
+        var sh=[].filter.call(document.querySelectorAll(".share.kshare.top .ks"),function(e){return e.getBoundingClientRect().width>0})[0],me=g.firstChild;if(!sh||!me)return;
         g.style.setProperty("--kfw","30px");g.style.setProperty("--kfh","24px");
         var rs=sh.getBoundingClientRect(),rm=me.getBoundingClientRect();if(!rs.width||!rm.width)return;
         var w=30*rs.width/rm.width,h=24*rs.height/rm.height;
