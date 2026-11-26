@@ -43,18 +43,21 @@
       "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-label{font-size:19px!important;line-height:1.15!important;align-self:end}"+
       "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-mid .kl-time{font-size:17px!important;line-height:1.15!important;font-variant-numeric:tabular-nums;align-self:end}"+
       "html body .klisten.top-of-post:not(#kp1):not(#kp2):not(#kp3):not(#kp4):not(#kp5):not(#kp6):not(#kp7):not(#kp8):not(#kp9):not(#kp10):not(#kp11):not(#kp12) .kl-mid{row-gap:4px}"+
-      ".kfollow{display:flex;align-items:center;gap:8px;margin:8px 0 0;padding:2px 8px 2px 3px;height:30px;box-sizing:border-box;border:1px solid rgba(26,26,24,.2);border-radius:999px;opacity:.6;transition:opacity .2s}"+
+      /* one line: Listen panel 75% | Follow block 25% (two stacked rows). The theme dock swaps the panel for a .kl-ph placeholder, which keeps the 75%. */
+      "html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12){display:flex;align-items:stretch;gap:8px;margin:16px 0 0;width:100%}"+
+      "html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .klisten,html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .kl-ph{flex:0 0 calc(75% - 6px)!important;width:auto!important;max-width:none!important;min-width:0!important;margin:0!important;box-sizing:border-box}"+
+      ".kfollow{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:3px 10px;box-sizing:border-box;border:1px solid rgba(25,25,24,.14);border-radius:18px;opacity:.6;transition:opacity .2s}"+
       ".kfollow:hover,.kfollow:focus-within{opacity:1}"+
-      ".kfollow .kf-lbl{flex:none;font:700 9px/1 system-ui,sans-serif;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#7b2d26;padding:4px 9px;border-radius:999px;white-space:nowrap}"+
-      ".kfollow .kf-lbl span{text-transform:none;letter-spacing:0;font-size:10.5px}"+
-      ".kfollow .kf-h{flex:none;font:500 11px/1 Inter,system-ui,sans-serif;color:#5e584f;text-decoration:none;white-space:nowrap}.kfollow .kf-h:hover{color:#7b2d26}"+
-      ".kfollow .kf-ics{display:flex;align-items:center;gap:5px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}.kfollow .kf-ics::-webkit-scrollbar{display:none}"+
-      ".kfollow .kf-ics a,.kfollow .kf-ics button{display:inline-flex;align-items:center;justify-content:center;flex:none;width:var(--kfw,30px);height:var(--kfh,24px);border-radius:var(--kfr,10px);border:0;padding:0;margin:0;cursor:pointer;color:#fff;text-decoration:none}"+
-      ".kfollow .kf-ics svg{width:calc(var(--kfh,24px)*.62);height:calc(var(--kfh,24px)*.62);display:block}"+
-      ".kfollow .kf-gap{flex:none;width:1px;height:16px;background:rgba(26,26,24,.18);margin:0 2px}"+
+      ".kfollow .kf-top{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap;overflow:hidden}"+
+      ".kfollow .kf-lbl{flex:none;font:700 var(--kff,9px)/1 system-ui,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#fff;background:#7b2d26;padding:2px 7px;border-radius:999px}"+
+      ".kfollow .kf-lbl span{text-transform:none;letter-spacing:0}"+
+      ".kfollow .kf-h{min-width:0;overflow:hidden;text-overflow:ellipsis;font:500 var(--kff,9px)/1 Inter,system-ui,sans-serif;color:#5e584f;text-decoration:none}.kfollow .kf-h:hover{color:#7b2d26}"+
+      ".kfollow .kf-ics{display:flex;align-items:center;justify-content:space-between;gap:3px;min-width:0}"+
+      ".kfollow .kf-ics a,.kfollow .kf-ics button{display:inline-flex;align-items:center;justify-content:center;flex:0 1 auto;width:var(--kfw,20px);height:var(--kfh,16px);border-radius:var(--kfr,6px);border:0;padding:0;margin:0;cursor:pointer;color:#fff;text-decoration:none}"+
+      ".kfollow .kf-ics svg{width:calc(var(--kfh,16px)*.68);height:calc(var(--kfh,16px)*.68);display:block}"+
       ".kf-ap{background:linear-gradient(180deg,#d56dfb,#872ec4)}.kf-sp{background:#1db954}.kf-rss{background:#f08a24}"+
       ".kf-x{background:#191918}.kf-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kf-tt{background:#191918}"+
-      "@media (max-width:520px){.kfollow .kf-h{display:none}}"+
+      "@media (max-width:640px){html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12){flex-wrap:wrap}html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .klisten,html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .kl-ph{flex-basis:100%!important}.kfollow{flex-basis:100%;flex-direction:row;align-items:center;justify-content:space-between;border-radius:999px;padding:4px 10px}.kfollow .kf-ics{gap:5px}}"+
       /* sidebar bio card: centre the cubist face of the header art (face sits ~67% across the 16:9 art) */
       "html body .box.sbio:not(#kb1):not(#kb2):not(#kb3):not(#kb4):not(#kb5):not(#kb6):not(#kb7):not(#kb8):not(#kb9):not(#kb10):not(#kb11):not(#kb12){background-position:0 0,76% 30%!important}"+
       /* tighter paragraph rhythm: text-to-text gap ~18px (was ~48px: 16px padding top+bottom plus 16px margin) */
@@ -125,32 +128,34 @@
       ["sp","Spotify","https://open.spotify.com/search/Kafkaintherun/podcasts"]
     ];
     function listen(){
-      var sr=document.querySelector(".post-head .share.kshare.top");
-      if(!sr)return false;if(document.querySelector(".kfollow"))return true;
-      var row=document.createElement("div");row.className="kfollow";row.setAttribute("role","group");
-      row.setAttribute("aria-label","Follow बासभ @naharchowck");
-      var lb=document.createElement("span");lb.className="kf-lbl";lb.innerHTML='Follow <span lang="ne">बासभ</span>';row.appendChild(lb);
-      var h=document.createElement("a");h.className="kf-h";h.href="https://x.com/naharchowck";h.target="_blank";h.rel="noopener";h.textContent="@naharchowck";row.appendChild(h);
-      var g=document.createElement("span");g.className="kf-ics";
-      FOLLOW.forEach(function(f,k){
-        if(k===3){var sp=document.createElement("span");sp.className="kf-gap";g.appendChild(sp)}
+      var li=document.querySelector(".post-head .klisten.top-of-post")||document.querySelector(".post-head .kl-ph");
+      if(document.querySelector(".kfollow"))return true;if(!li)return false;
+      var row=document.createElement("div");row.className="klrow";var od=getComputedStyle(li).order;
+      li.parentNode.insertBefore(row,li);row.appendChild(li);row.style.order=od;
+      var box=document.createElement("div");box.className="kfollow";box.setAttribute("role","group");box.setAttribute("aria-label","Follow बासभ @naharchowck");
+      var top=document.createElement("div");top.className="kf-top";
+      var lb=document.createElement("span");lb.className="kf-lbl";lb.innerHTML='Follow <span lang="ne">बासभ</span>';top.appendChild(lb);
+      var h=document.createElement("a");h.className="kf-h";h.href="https://x.com/naharchowck";h.target="_blank";h.rel="noopener";h.textContent="@naharchowck";top.appendChild(h);
+      box.appendChild(top);
+      var g=document.createElement("div");g.className="kf-ics";
+      FOLLOW.forEach(function(f){
         var a=document.createElement("a");a.className="kf-"+f[0];a.href=f[2];a.target="_blank";a.rel="noopener";
         a.setAttribute("aria-label",f[1]);a.title=f[1];a.innerHTML=I[f[0]];g.appendChild(a);
       });
       var b=document.createElement("button");b.type="button";b.className="kf-rss kpod-ic";b.innerHTML=I.rss;
       b.setAttribute("aria-label","Podcast RSS");b.title=L()?"पोडकास्ट RSS फिड":"Podcast RSS feed";
       b.addEventListener("click",function(e){e.stopPropagation();open(b,L()?"ne":"en")});
-      g.appendChild(b);row.appendChild(g);sr.parentNode.insertBefore(row,sr.nextSibling);
-      var od=function(){row.style.order=getComputedStyle(sr).order};od();
-      /* match the share icons' on-screen size */
+      g.appendChild(b);box.appendChild(g);row.appendChild(box);
+      /* size the two rows from the block's own height, so it matches the Listen panel's thickness */
       function fit(){
-        var sh=[].filter.call(sr.querySelectorAll(".ks"),function(e){return e.getBoundingClientRect().width>0})[0],me=g.querySelector("a");if(!sh||!me)return;
-        g.style.setProperty("--kfw","30px");g.style.setProperty("--kfh","24px");
-        var rs=sh.getBoundingClientRect(),rm=me.getBoundingClientRect();if(!rs.width||!rm.width)return;
-        var w=.8*30*rs.width/rm.width,hh=.8*24*rs.height/rm.height;
-        g.style.setProperty("--kfw",w+"px");g.style.setProperty("--kfh",hh+"px");g.style.setProperty("--kfr",(hh*.42)+"px");
+        var r=box.getBoundingClientRect();if(!r.height)return;
+        var wide=getComputedStyle(box).flexDirection==="column";
+        var inner=box.clientHeight-6,hh=wide?Math.max(10,Math.min(22,(inner-3)/2)):Math.max(14,Math.min(22,inner-2));
+        var n=g.children.length,avail=g.clientWidth,ww=Math.min(hh*1.3,(avail-(n-1)*3)/n);
+        box.style.setProperty("--kfh",hh+"px");box.style.setProperty("--kfw",Math.max(ww,hh)+"px");box.style.setProperty("--kfr",(hh*.35)+"px");box.style.setProperty("--kff",Math.max(8,Math.min(11,hh*.6))+"px");
       }
-      fit();setTimeout(function(){od();fit()},1500);window.addEventListener("resize",function(){clearTimeout(fit.t);fit.t=setTimeout(function(){od();fit()},150)});
+      fit();setTimeout(fit,1500);
+      if(window.ResizeObserver)new ResizeObserver(function(){fit()}).observe(box);else window.addEventListener("resize",fit);
       return true;
     }
     var n=0,t=setInterval(function(){n++;var f=footer(),l=listen();if((f&&l)||n>40)clearInterval(t)},250);
