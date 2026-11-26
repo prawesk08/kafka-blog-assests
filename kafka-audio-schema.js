@@ -56,7 +56,10 @@
       ".kf-x{background:#191918}.kf-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kf-tt{background:#191918}"+
       "@media (max-width:520px){.kfollow .kf-h{display:none}}"+
       /* sidebar bio card: centre the cubist face of the header art (face sits ~67% across the 16:9 art) */
-      "html body .box.sbio:not(#kb1):not(#kb2):not(#kb3):not(#kb4):not(#kb5):not(#kb6):not(#kb7):not(#kb8):not(#kb9):not(#kb10):not(#kb11):not(#kb12){background-position:0 0,76% 30%!important}";
+      "html body .box.sbio:not(#kb1):not(#kb2):not(#kb3):not(#kb4):not(#kb5):not(#kb6):not(#kb7):not(#kb8):not(#kb9):not(#kb10):not(#kb11):not(#kb12){background-position:0 0,76% 30%!important}"+
+      /* tighter paragraph rhythm: text-to-text gap ~18px (was ~48px: 16px padding top+bottom plus 16px margin) */
+      "html body .prose:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12) > p{padding-top:3px!important;padding-bottom:3px!important;margin-bottom:12px!important}"+
+      "html body .prose:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12) .kshort-drop{margin-top:12px!important;margin-bottom:12px!important}";
     var st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
     function L(){return (document.documentElement.lang||"").indexOf("ne")===0}
     var pop=null;
