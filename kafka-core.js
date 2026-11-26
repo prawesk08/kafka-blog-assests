@@ -1674,3 +1674,11 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   '}';
   var s = document.createElement('style'); s.id = 'k225-menu'; s.textContent = css; document.head.appendChild(s);
 })();
+
+/* v227: no stretched word gaps in the story lists - titles are always left aligned, and the short excerpts are left aligned on phones */
+(function () {
+  var N = ':not(#j1):not(#j2):not(#j3):not(#j4):not(#j5):not(#j6)';
+  var css = 'html body .kser-items li h2' + N + ',html body .kser-items li h2 a' + N + '{text-align:left!important;text-align-last:left!important;word-spacing:normal!important}' +
+    '@media (max-width:700px){html body .kser-items li p' + N + '{text-align:left!important;text-align-last:left!important;word-spacing:normal!important}}';
+  var s = document.createElement('style'); s.id = 'k227-align'; s.textContent = css; document.head.appendChild(s);
+})();
