@@ -1859,7 +1859,8 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     '.kel .c-x{background:#191918}.kel .c-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kel .c-tt{background:#191918}.kel .c-ss{background:#ff6719}.kel .c-pod{background:linear-gradient(180deg,#d56dfb,#872ec4)}' +
     'html body .kafka-about' + N + ' .kel .kel-h{font:600 14px/1 Inter,system-ui,sans-serif;color:#5e584f;margin:0 0 10px}' +
     /* quote */
-    'html body .kbio .kq q' + N + '{white-space:nowrap!important}';
+    'html body .kbio .kq q' + N + '{white-space:nowrap!important}' +
+    'html body .bio .kbio p' + N + ',html body .sbio .kbio p' + N + '{hyphens:manual!important;-webkit-hyphens:manual!important}';
   var st = document.createElement('style'); st.id = 'k229-extras'; st.textContent = css; document.head.appendChild(st);
 
   function lists() {
