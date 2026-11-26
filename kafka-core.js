@@ -1723,7 +1723,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     var t = a.textContent; a.textContent = '';
     var im = document.createElement('img'); im.className = 'kn-av'; im.alt = ''; im.src = 'https://assets.kafka.blog/basava-priest-king-400.jpg';
     var sp = document.createElement('span'); sp.className = 'kn-at'; sp.textContent = t || 'About';
-    a.appendChild(im); a.appendChild(sp); a.setAttribute('aria-label', 'About');
+    a.appendChild(im); a.appendChild(sp); a.setAttribute('aria-label', 'About'); a.setAttribute('title', 'About');
     window.dispatchEvent(new Event('resize'));
   }
   function all() { rows(); about(); }
@@ -1859,6 +1859,11 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     '.kel .c-x{background:#191918}.kel .c-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kel .c-tt{background:#191918}.kel .c-ss{background:#ff6719}.kel .c-pod{background:linear-gradient(180deg,#d56dfb,#872ec4)}' +
     'html body .kafka-about' + N + ' .kel .kel-h{font:600 14px/1 Inter,system-ui,sans-serif;color:#5e584f;margin:0 0 10px}' +
     /* quote */
+    /* menu: About is just the round priest-king picture (text kept for screen readers) */
+    'html body .knav-sticky .kn-about' + N + '{width:32px!important;min-width:32px!important;height:32px!important;padding:0!important;justify-content:center!important;border-radius:50%!important;text-decoration:none!important}' +
+    'html body .knav-sticky .kn-about img.kn-av' + N + '{width:30px!important;height:30px!important;border:1.5px solid rgba(184,144,74,.8)!important;box-shadow:0 1px 3px rgba(0,0,0,.15)}' +
+    'html body .knav-sticky .kn-about:hover img.kn-av' + N + '{border-color:#7B2D26!important}' +
+    'html body .knav-sticky .kn-about span.kn-at' + N + '{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}' +
     'html body .kbio .kq q' + N + '{white-space:nowrap!important}' +
     'html body .bio .kbio p' + N + ',html body .sbio .kbio p' + N + '{hyphens:manual!important;-webkit-hyphens:manual!important}';
   var st = document.createElement('style'); st.id = 'k229-extras'; st.textContent = css; document.head.appendChild(st);
