@@ -513,13 +513,13 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .klisten.top-of-post.on:not(#kz) .kl-label{display:none}' +
       'html body .klisten.top-of-post:not(#kz) .kl-time{margin-right:auto}' +
       /* v192: one slim Listen panel: play, then Listen and time over the progress bar, then voice and speed */
-      'html body .klisten.top-of-post:not(#kz):not(#kz2){flex-wrap:nowrap!important;align-items:center!important;gap:10px!important;border-radius:999px!important;padding:6px 10px 6px 6px!important;row-gap:0!important}' +
-      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-play{width:38px!important;height:38px!important;min-width:38px!important}' +
-      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-mid{order:0!important;flex:1 1 auto!important;min-width:0!important;display:grid!important;grid-template-columns:1fr auto!important;align-items:center!important;row-gap:4px!important}' +
-      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-label{display:block!important;font-size:12.5px!important;line-height:1!important;margin:0!important}' +
-      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-time{display:block!important;margin:0!important;font-size:11px!important;line-height:1!important}' +
-      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-track{grid-column:1/-1!important;margin:0!important}' +
-      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-speed{min-width:34px!important;height:26px!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2){flex-wrap:nowrap!important;align-items:center!important;gap:10px!important;border-radius:999px!important;padding:6px 10px 6px 6px!important;row-gap:0!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-play{width:38px!important;height:38px!important;min-width:38px!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-mid{order:0!important;flex:1 1 auto!important;min-width:0!important;display:grid!important;grid-template-columns:1fr auto!important;align-items:center!important;row-gap:4px!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-label{display:block!important;font-size:12.5px!important;line-height:1!important;margin:0!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-time{display:block!important;margin:0!important;font-size:11px!important;line-height:1!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-track{grid-column:1/-1!important;margin:0!important}' +
+      'html body :not(.kd-listen)>.klisten.top-of-post:not(#kz):not(#kz2) .kl-speed{min-width:34px!important;height:26px!important}' +
       '.share.kshare.top:not(#kz),.share.kshare .btns:not(#kz){justify-content:center!important}' +
       'html body .translation-link:not(#kz){padding-top:10px!important;padding-bottom:10px!important}' +
       'html body a.tr-cta:not(#kz){font-size:17px!important;font-weight:700!important}' +
