@@ -1410,3 +1410,23 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
   [800, 2500].forEach(function (t) { setTimeout(go, t); });
 })();
+
+/* v214: the "Read the full piece" button sits in the row with the listen / share / translate icons */
+(function () {
+  var st = document.createElement('style');
+  st.textContent = 'html body .kcard-acts{flex-wrap:wrap;align-items:center}' +
+    'html body .kcard-acts a.read-btn{display:inline-flex!important;align-items:center;gap:6px;margin:0 0 0 6px!important;padding:0 14px!important;height:30px;font:600 12px/1 var(--sans,system-ui)!important;border-radius:999px!important;box-shadow:none!important;white-space:nowrap}' +
+    'html body .kcard-acts a.read-btn svg{width:13px!important;height:13px!important}';
+  document.head.appendChild(st);
+  function move() {
+    [].forEach.call(document.querySelectorAll('.txt > a.read-btn'), function (b) {
+      var acts = b.parentNode.querySelector('.kcard-acts'); if (acts) acts.appendChild(b);
+    });
+  }
+  move();
+  if (window.MutationObserver) {
+    var t = 0, mo = new MutationObserver(function () { if (t) return; t = setTimeout(function () { t = 0; move(); }, 150); });
+    var go = function () { mo.observe(document.body, { childList: true, subtree: true }); setTimeout(function () { mo.disconnect(); }, 25000); };
+    if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
+  }
+})();
