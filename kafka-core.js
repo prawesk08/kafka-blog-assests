@@ -537,7 +537,7 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body aside.kshare-float:not(#kz):not(#kz2) .kf-btn svg,html body aside.kshare-float:not(#kz):not(#kz2) .kf-cmt svg{width:17px!important;height:17px!important}' +
       'html body aside.kshare-float:not(#kz):not(#kz2) .kf-sep{width:1px!important;height:14px!important;margin:0 2px!important;flex:0 0 1px!important}' +
       'html body .klisten-mini:not(#kz){display:none!important}' +
-      'html body .kdock:not(#kz):not(#kz2){left:auto!important;right:max(8px,env(safe-area-inset-right))!important;bottom:auto!important;top:50%!important;width:auto!important;min-width:0!important;height:auto!important;transform:translateY(-50%)!important;padding:4px 2px!important;border:1px solid #1A1A18!important;border-radius:999px!important}' +
+      'html body .kdock:not(#kz):not(#kz2){left:auto!important;right:max(8px,env(safe-area-inset-right))!important;bottom:auto!important;top:var(--ky,50%)!important;transition:top .25s linear;width:auto!important;min-width:0!important;height:auto!important;transform:translateY(-50%)!important;padding:4px 2px!important;border:1px solid #1A1A18!important;border-radius:999px!important}' +
       'html body .kdock:not(#kz):not(#kz2) .kd-half{flex:none!important;width:auto!important;padding:0!important;border:0!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten{display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;width:auto!important;max-width:none!important;max-height:none!important;height:auto!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important;box-shadow:none!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-label,html body .kdock:not(#kz):not(#kz2) .klisten .kl-note,html body .kdock:not(#kz):not(#kz2) .klisten .kl-time,html body .kdock:not(#kz):not(#kz2) .klisten .kl-stop{display:none!important}' +
@@ -657,6 +657,7 @@ window.KAFKA_RECPLAYER = function (rec) {
     bar.classList.toggle('on', playing || (started && au.currentTime > 0));
     stopB.hidden = !(started && (playing || au.currentTime > 0));
     syncMini();
+    if (typeof placeDock === 'function') placeDock();
   }
 
   function setVoice(nextV) {
@@ -715,16 +716,20 @@ window.KAFKA_RECPLAYER = function (rec) {
     drivePlayer();
   });
 
-  var follow = true, lastFollow = 0;
-  ['wheel', 'touchstart', 'keydown'].forEach(function (ev) { window.addEventListener(ev, function () { follow = false; }, { passive: true }); });
-  au.addEventListener('play', function () { follow = true; });
-  function followContent(f) {
-    var now = Date.now(); if (!follow || au.paused || now - lastFollow < 350) return; lastFollow = now;
+  /* v196: the page stays where the reader put it; the small vertical player slides down the screen to where the narration is (share of audio played mapped onto the article body) */
+  var lastF = 0, tick = 0;
+  function placeDock(f) {
+    if (typeof f === 'number') lastF = f;
+    var dk = document.querySelector('.kdock'); if (!dk) return;
+    if (!started) { dk.style.removeProperty('--ky'); return; }
     var pr = document.querySelector('.prose'); if (!pr) return;
-    var top0 = pr.getBoundingClientRect().top + (window.pageYOffset || 0);
-    var ty = top0 + f * pr.offsetHeight - window.innerHeight * 0.35;
-    if (Math.abs(ty - (window.pageYOffset || 0)) > 6) window.scrollTo(0, Math.max(0, ty));
+    var y = pr.getBoundingClientRect().top + (lastF || 0) * pr.offsetHeight;
+    y = Math.max(100, Math.min(window.innerHeight - 100, y));
+    dk.style.setProperty('--ky', y + 'px');
   }
+  function followContent(f) { placeDock(f); }
+  window.addEventListener('scroll', function () { if (tick) return; tick = 1; requestAnimationFrame(function () { tick = 0; placeDock(); }); }, { passive: true });
+  window.addEventListener('resize', function () { placeDock(); });
   au.addEventListener('timeupdate', function () {
     var d = au.duration || curDur() || 0;
     if (dragging) return;
@@ -783,7 +788,7 @@ window.KAFKA_RECPLAYER = function (rec) {
     el.addEventListener('pointermove', function (e) { if (dragging) showScrub(fracAt(el, e.clientX, e.clientY)); });
     el.addEventListener('pointerup', function (e) {
       if (!dragging) return; dragging = false;
-      var d = au.duration || curDur(); if (d) { au.currentTime = fracAt(el, e.clientX, e.clientY) * d; follow = true; }
+      var d = au.duration || curDur(); if (d) { au.currentTime = fracAt(el, e.clientX, e.clientY) * d; }
     });
     el.addEventListener('pointercancel', function () { dragging = false; });
   }
