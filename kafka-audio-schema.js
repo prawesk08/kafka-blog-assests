@@ -49,7 +49,7 @@
       ".kfollow{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:3px 10px;box-sizing:border-box;border:1px solid rgba(25,25,24,.14);border-radius:18px;opacity:.6;transition:opacity .2s}"+
       ".kfollow:hover,.kfollow:focus-within{opacity:1}"+
       ".kfollow .kf-top{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap;overflow:hidden}"+
-      ".kfollow .kf-lbl{flex:none;font:700 var(--kff,9px)/1 system-ui,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#fff;background:#7b2d26;padding:2px 7px;border-radius:999px}"+
+      ".kfollow .kf-lbl{flex:none;font:700 calc(var(--kff,9px) + 1.5px)/1.15 system-ui,sans-serif;letter-spacing:0;color:#fff;background:#7b2d26;padding:1px 8px 2px;border-radius:999px}"+
       ".kfollow .kf-lbl span{text-transform:none;letter-spacing:0}"+
       ".kfollow .kf-h{min-width:0;overflow:hidden;text-overflow:ellipsis;font:500 var(--kff,9px)/1 Inter,system-ui,sans-serif;color:#5e584f;text-decoration:none}.kfollow .kf-h:hover{color:#7b2d26}"+
       ".kfollow .kf-ics{display:flex;align-items:center;justify-content:space-between;gap:3px;min-width:0}"+
@@ -57,7 +57,7 @@
       ".kfollow .kf-ics svg{width:calc(var(--kfh,16px)*.68);height:calc(var(--kfh,16px)*.68);display:block}"+
       ".kf-ap{background:linear-gradient(180deg,#d56dfb,#872ec4)}.kf-sp{background:#1db954}.kf-rss{background:#f08a24}"+
       ".kf-x{background:#191918}.kf-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kf-tt{background:#191918}"+
-      "@media (max-width:640px){html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12){flex-wrap:wrap}html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .klisten,html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .kl-ph{flex-basis:100%!important}.kfollow{flex-basis:100%;flex-direction:row;align-items:center;justify-content:space-between;border-radius:999px;padding:4px 10px}.kfollow .kf-ics{gap:5px}}"+
+      "@media (max-width:640px){html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12){flex-wrap:wrap}html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .klisten,html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .kl-ph{flex-basis:100%!important}.kfollow{flex-basis:100%;align-items:center;padding:5px 12px;border-radius:16px}.kfollow .kf-top{justify-content:center}.kfollow .kf-ics{gap:6px;justify-content:center}}"+
       /* sidebar bio card: centre the cubist face of the header art (face sits ~67% across the 16:9 art) */
       "html body .box.sbio:not(#kb1):not(#kb2):not(#kb3):not(#kb4):not(#kb5):not(#kb6):not(#kb7):not(#kb8):not(#kb9):not(#kb10):not(#kb11):not(#kb12){background-position:0 0,76% 30%!important}"+
       /* tighter paragraph rhythm: text-to-text gap ~18px (was ~48px: 16px padding top+bottom plus 16px margin) */
@@ -137,7 +137,7 @@
       li.parentNode.insertBefore(row,li);row.appendChild(li);row.style.order=od;
       var box=document.createElement("div");box.className="kfollow";box.setAttribute("role","group");box.setAttribute("aria-label","Follow बासभ @naharchowck");
       var top=document.createElement("div");top.className="kf-top";
-      var lb=document.createElement("span");lb.className="kf-lbl";lb.innerHTML='Follow <span lang="ne">बासभ</span>';top.appendChild(lb);
+      var lb=document.createElement("span");lb.className="kf-lbl";lb.lang="ne";lb.textContent="बासभ";top.appendChild(lb);
       var h=document.createElement("a");h.className="kf-h";h.href="https://x.com/naharchowck";h.target="_blank";h.rel="noopener";h.textContent="@naharchowck";top.appendChild(h);
       box.appendChild(top);
       var g=document.createElement("div");g.className="kf-ics";
@@ -152,8 +152,8 @@
       /* size the two rows from the block's own height, so it matches the Listen panel's thickness */
       function fit(){
         var r=box.getBoundingClientRect();if(!r.height)return;
-        var wide=getComputedStyle(box).flexDirection==="column";
-        var inner=box.clientHeight-6,hh=wide?Math.max(10,Math.min(22,(inner-3)/2)):Math.max(14,Math.min(22,inner-2));
+        var phone=box.getBoundingClientRect().width>innerWidth*.6;
+        var inner=box.clientHeight-6,hh=phone?20:Math.max(10,Math.min(22,(inner-3)/2));
         var n=g.children.length,avail=g.clientWidth,ww=Math.min(hh*1.3,(avail-(n-1)*3)/n);
         box.style.setProperty("--kfh",hh+"px");box.style.setProperty("--kfw",Math.max(ww,hh)+"px");box.style.setProperty("--kfr",(hh*.35)+"px");box.style.setProperty("--kff",Math.max(8,Math.min(11,hh*.6))+"px");
       }
