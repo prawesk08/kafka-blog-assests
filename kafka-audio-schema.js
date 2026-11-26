@@ -57,7 +57,7 @@
       ".kfollow .kf-ics svg{width:calc(var(--kfh,16px)*.68);height:calc(var(--kfh,16px)*.68);display:block}"+
       ".kf-ap{background:linear-gradient(180deg,#d56dfb,#872ec4)}.kf-sp{background:#1db954}.kf-rss{background:#f08a24}"+
       ".kf-x{background:#191918}.kf-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kf-tt{background:#191918}"+
-      "@media (max-width:640px){html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12){flex-wrap:wrap}html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .klisten,html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .kl-ph{flex-basis:100%!important}.kfollow{flex-basis:100%;align-items:center;padding:5px 12px;border-radius:16px}.kfollow .kf-top{justify-content:center}.kfollow .kf-ics{gap:6px;justify-content:center}}"+
+      "@media (max-width:640px){html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12){gap:6px;flex-wrap:nowrap!important}html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .klisten,html body .klrow:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12) > .kl-ph{flex:0 0 calc(64% - 4px)!important}.kfollow{flex:1 1 auto!important;flex-basis:auto!important;flex-direction:column!important;align-items:stretch!important;padding:2px 7px;border-radius:14px}.kfollow .kf-top{justify-content:flex-start}.kfollow .kf-ics{justify-content:space-between}.kfollow .kf-top{gap:4px}.kfollow .kf-lbl{padding:1px 6px 2px}.kfollow .kf-ics{gap:2px}}"+
       /* sidebar bio card: centre the cubist face of the header art (face sits ~67% across the 16:9 art) */
       "html body .box.sbio:not(#kb1):not(#kb2):not(#kb3):not(#kb4):not(#kb5):not(#kb6):not(#kb7):not(#kb8):not(#kb9):not(#kb10):not(#kb11):not(#kb12){background-position:0 0,76% 30%!important}"+
       /* tighter paragraph rhythm: text-to-text gap ~18px (was ~48px: 16px padding top+bottom plus 16px margin) */
@@ -152,9 +152,8 @@
       /* size the two rows from the block's own height, so it matches the Listen panel's thickness */
       function fit(){
         var r=box.getBoundingClientRect();if(!r.height)return;
-        var phone=box.getBoundingClientRect().width>innerWidth*.6;
-        var inner=box.clientHeight-6,hh=phone?20:Math.max(10,Math.min(22,(inner-3)/2));
-        var n=g.children.length,avail=g.clientWidth,ww=Math.min(hh*1.3,(avail-(n-1)*3)/n);
+        var inner=box.clientHeight-6,hh=Math.max(10,Math.min(22,(inner-3)/2));
+        var n=g.children.length,avail=g.clientWidth,ww=Math.min(hh*1.3,(avail-(n-1)*2)/n);hh=Math.min(hh,ww);
         box.style.setProperty("--kfh",hh+"px");box.style.setProperty("--kfw",Math.max(ww,hh)+"px");box.style.setProperty("--kfr",(hh*.35)+"px");box.style.setProperty("--kff",Math.max(8,Math.min(11,hh*.6))+"px");
       }
       fit();setTimeout(fit,1500);
