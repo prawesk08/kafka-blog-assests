@@ -625,7 +625,21 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-speed{order:1!important;width:30px!important;height:19px!important;font-size:10px!important}' +
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-voice button.on{width:20px!important;height:20px!important;background-size:13px 13px!important}' +
       'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-label,html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-mid .kl-time{writing-mode:horizontal-tb!important;transform:none!important}' +
-      '@media (max-width:340px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-label{display:none!important}}';
+      '@media (max-width:340px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5) .klisten .kl-label{display:none!important}}' +
+      /* v207: one row - play, Listen + small timestamp over the progress bar, speed, voice; exactly half the width each, no overlap */
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6){box-sizing:border-box!important;padding:0 8px!important;width:calc(50% - 15px)!important;max-width:420px!important}' +
+      'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6){width:calc(50% - 15px)!important;max-width:420px!important;box-sizing:border-box!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten{gap:6px!important;flex-wrap:nowrap!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-play{width:30px!important;height:30px!important;min-width:30px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-mid{flex:1 1 auto!important;min-width:0!important;row-gap:4px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-label{font-size:8px!important;letter-spacing:.06em!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-mid .kl-time::after{font-size:8.5px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-right{display:flex!important;flex-direction:row!important;align-items:center!important;gap:5px!important;flex:0 0 auto!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-speed{order:0!important;width:34px!important;height:28px!important;font-size:11px!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-voice{order:1!important}' +
+      'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-voice button.on{width:28px!important;height:28px!important;background-size:17px 17px!important}' +
+      '@media (max-width:520px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-label{display:none!important}}' +
+      '@media (max-width:360px){html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6) .klisten .kl-mid .kl-time{display:none!important}}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
