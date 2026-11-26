@@ -519,19 +519,19 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body aside.kshare-float:not(#kz):not(#kz2) .kf-btn svg,html body aside.kshare-float:not(#kz):not(#kz2) .kf-cmt svg{width:24px!important;height:24px!important}' +
       'html body aside.kshare-float:not(#kz):not(#kz2) .kf-sep{width:1px!important;height:20px!important;margin:0 2px!important;flex:0 0 1px!important}' +
       'html body .klisten-mini:not(#kz){display:none!important}' +
-      'html body .kdock:not(#kz):not(#kz2){left:auto!important;right:max(8px,env(safe-area-inset-right))!important;bottom:auto!important;top:50%!important;width:auto!important;min-width:0!important;height:auto!important;transform:translateY(-50%)!important;padding:6px 4px!important;border-radius:999px!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .kd-half{flex:none!important;width:auto!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten{display:flex!important;flex-direction:column!important;align-items:center!important;gap:7px!important;width:auto!important;max-width:none!important;max-height:none!important;height:auto!important;padding:2px!important;margin:0!important;border:0!important;background:transparent!important;box-shadow:none!important}' +
+      'html body .kdock:not(#kz):not(#kz2){left:auto!important;right:max(8px,env(safe-area-inset-right))!important;bottom:auto!important;top:50%!important;width:auto!important;min-width:0!important;height:auto!important;transform:translateY(-50%)!important;padding:4px 2px!important;border:1px solid #1A1A18!important;border-radius:999px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .kd-half{flex:none!important;width:auto!important;padding:0!important;border:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten{display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;width:auto!important;max-width:none!important;max-height:none!important;height:auto!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important;box-shadow:none!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-label,html body .kdock:not(#kz):not(#kz2) .klisten .kl-note,html body .kdock:not(#kz):not(#kz2) .klisten .kl-time,html body .kdock:not(#kz):not(#kz2) .klisten .kl-stop{display:none!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-mid{display:flex!important;flex:none!important;width:auto!important;min-width:0!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-play{width:17px!important;height:17px!important;min-width:17px!important;padding:0!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-play svg{width:8px!important;height:8px!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-track{display:block!important;position:relative!important;width:3px!important;height:88px!important;margin:3px 0!important;overflow:visible!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-play{width:15px!important;height:15px!important;min-width:15px!important;padding:0!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-play svg{width:7px!important;height:7px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-track{display:block!important;position:relative!important;width:2px!important;height:84px!important;margin:3px 0!important;overflow:visible!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-fill{position:absolute!important;left:0!important;top:0!important;width:100%!important;height:var(--p,0%)!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-thumb{left:50%!important;top:var(--p,0%)!important;width:9px!important;height:9px!important;margin:-4px 0 0 -4px!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-thumb{left:50%!important;top:var(--p,0%)!important;width:7px!important;height:7px!important;margin:-3px 0 0 -3px!important}' +
       'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice{display:flex!important;flex-direction:column!important;margin:0!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button{width:17px!important;height:15px!important;min-width:0!important;padding:0!important;font-size:9px!important;line-height:1!important}' +
-      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{display:inline-flex!important;align-items:center;justify-content:center;min-width:0!important;width:22px!important;height:16px!important;padding:0!important;font-size:8.5px!important;line-height:1!important}';
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-voice button{width:15px!important;height:14px!important;min-width:0!important;padding:0!important;font-size:8px!important;line-height:1!important}' +
+      'html body .kdock:not(#kz):not(#kz2) .klisten .kl-speed{display:inline-flex!important;align-items:center;justify-content:center;min-width:0!important;width:19px!important;height:14px!important;padding:0!important;font-size:7.5px!important;line-height:1!important}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
