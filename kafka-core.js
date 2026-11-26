@@ -1396,6 +1396,22 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   var css = '.static-page .kser-tabs.klit .kt-panel{display:none}' +
     '.static-page .kser-tabs.klit #kt-poetry:checked~.kt-poetry,.static-page .kser-tabs.klit #kt-letters:checked~.kt-letters,.static-page .kser-tabs.klit #kt-stories:checked~.kt-stories,.static-page .kser-tabs.klit #kt-ramblings:checked~.kt-ramblings{display:block}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+  /* v226: two more tabs - Nepali poems and English poems */
+  var XT = [['nepoetry', '\u0928\u0947\u092A\u093E\u0932\u0940 \u0915\u0935\u093F\u0924\u093E', 'Nepali Poetry'], ['enpoetry', 'English Poems', 'English Poetry']];
+  css += XT.map(function (x) { return '.static-page .kser-tabs.klit #kt-' + x[0] + ':checked~.kt-' + x[0] + '{display:block}'; }).join('');
+  st.textContent = css;
+  function addTabs() {
+    var box = document.querySelector('.kser-tabs.klit'); if (!box || box.getAttribute('data-k226')) return; box.setAttribute('data-k226', '1');
+    var before = box.querySelector('#kt-letters'), pan = box.querySelector('.kt-panel.kt-letters') || box.querySelector('.kt-panel:nth-of-type(2)');
+    XT.forEach(function (x) {
+      var i = document.createElement('input'); i.type = 'radio'; i.name = 'klit'; i.id = 'kt-' + x[0];
+      var l = document.createElement('label'); l.setAttribute('for', i.id); l.innerHTML = x[1] + ' <span></span>';
+      if (before) { box.insertBefore(i, before); box.insertBefore(l, before); } else { box.appendChild(i); box.appendChild(l); }
+      var sec = document.createElement('section'); sec.className = 'kt-panel kt-' + x[0]; sec.setAttribute('data-label', x[2]); sec.setAttribute('data-tab', i.id); sec.id = x[0];
+      sec.innerHTML = '<h2 class="kt-h">' + x[1] + '</h2><ol class="kser-items"></ol>';
+      if (pan) box.insertBefore(sec, pan); else box.appendChild(sec);
+    });
+  }
   function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
   var MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   function fill(panel) {
@@ -1413,11 +1429,11 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
           '<h2><a href="' + esc(l) + '">' + esc(t) + '</a></h2>' + (sm ? '<p>' + esc(sm) + '</p>' : '') + '<p class="kser-date">' + ds + '</p></li>';
       });
       ol.innerHTML = html;
-      var tab = document.querySelector('label[for="kt-' + label.toLowerCase() + '"] span'); if (tab) tab.textContent = es.length;
+      var tab = document.querySelector('label[for="' + (panel.getAttribute('data-tab') || 'kt-' + label.toLowerCase()) + '"] span'); if (tab) tab.textContent = es.length;
     }).catch(function () {});
   }
   function hash() { var h = (location.hash || '').replace('#', '').toLowerCase(), r = h && document.getElementById('kt-' + h); if (r) r.checked = true; }
-  function go() { [].forEach.call(document.querySelectorAll('.kser-tabs.klit .kt-panel[data-label]'), fill); hash(); }
+  function go() { addTabs(); [].forEach.call(document.querySelectorAll('.kser-tabs.klit .kt-panel[data-label]'), fill); hash(); }
   window.addEventListener('hashchange', hash);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
   [800, 2500].forEach(function (t) { setTimeout(go, t); });
@@ -1591,16 +1607,16 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   var EX = [['Poetry', '/p/nepali-kavita.html'], ['Photos', '/p/photos.html'], ['Sumer', '/p/sumer.html'], ['Britain', '/p/roman-britannia.html'], ['Organisms', '/p/organisms.html'], ['Cancer', '/p/biology-and-cancer.html']];
   /* after the first five items come the real series, then the rest of the menu */
   function extras() {
-    if (window.innerWidth > 700) return;
     var it = document.querySelector('.knav-sticky .tabs-items'); if (!it || !it.closest('[data-k209]') || it.querySelector('.kx-extra')) return;
     var lit = it.querySelector('a[data-k="Literature"]'); if (!lit) return;
     var ph = it.querySelector('a[data-k="Photos"]'); if (ph && ph.parentNode) ph.parentNode.removeChild(ph);
     var at = lit.nextSibling;
     EX.forEach(function (e) {
-      var a = document.createElement('a'); a.href = e[1]; a.textContent = e[0]; a.className = 'kx-extra'; a.setAttribute('data-k', e[0]);
+      var a = document.createElement('a'); a.href = e[1]; a.textContent = (e[0] === 'Britain' && window.innerWidth > 700) ? 'Roman Britain' : e[0]; a.className = 'kx-extra'; a.setAttribute('data-k', e[0]);
       try { if (location.pathname === e[1]) a.className += ' on'; } catch (x) {}
       it.insertBefore(a, at);
     });
+    if (window.innerWidth > 700) { var m = it.querySelector('.kn-more'); if (m) m.parentNode.removeChild(m); [].forEach.call(it.children, function (c) { c.style.display = ''; }); window.dispatchEvent(new Event('resize')); }
   }
   [200, 700, 1600, 3600].forEach(function (d) { setTimeout(extras, d); });
 })();
