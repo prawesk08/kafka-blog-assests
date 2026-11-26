@@ -1397,17 +1397,21 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     '.static-page .kser-tabs.klit #kt-poetry:checked~.kt-poetry,.static-page .kser-tabs.klit #kt-letters:checked~.kt-letters,.static-page .kser-tabs.klit #kt-stories:checked~.kt-stories,.static-page .kser-tabs.klit #kt-ramblings:checked~.kt-ramblings{display:block}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
   /* v226: two more tabs - Nepali poems and English poems */
-  var XT = [['nepoetry', '\u0928\u0947\u092A\u093E\u0932\u0940 \u0915\u0935\u093F\u0924\u093E', 'Nepali Poetry'], ['enpoetry', 'English Poems', 'English Poetry']];
+  var XT = [['nepoetry', '\u0928\u0947\u092A\u093E\u0932\u0940 \u0915\u0935\u093F\u0924\u093E', 'Poetry', 'ne'], ['enpoetry', 'English Poems', 'Poetry', 'en']];
+  /* v229: the two poem tabs list every post labelled Poetry, split by its lang-ne / lang-en label (the 'Nepali Poetry' / 'English Poetry' labels miss 8 poems) */
   css += XT.map(function (x) { return '.static-page .kser-tabs.klit #kt-' + x[0] + ':checked~.kt-' + x[0] + '{display:block}'; }).join('');
   st.textContent = css;
   function addTabs() {
     var box = document.querySelector('.kser-tabs.klit'); if (!box || box.getAttribute('data-k226')) return; box.setAttribute('data-k226', '1');
     var before = box.querySelector('#kt-letters'), pan = box.querySelector('.kt-panel.kt-letters') || box.querySelector('.kt-panel:nth-of-type(2)');
+    /* the all-poetry tab goes: the Nepali and English tabs replace it */
+    [].forEach.call(box.querySelectorAll('#kt-poetry, label[for="kt-poetry"], .kt-panel.kt-poetry'), function (n) { n.parentNode.removeChild(n); });
     XT.forEach(function (x) {
       var i = document.createElement('input'); i.type = 'radio'; i.name = 'klit'; i.id = 'kt-' + x[0];
       var l = document.createElement('label'); l.setAttribute('for', i.id); l.innerHTML = x[1] + ' <span></span>';
+      if (x[0] === 'nepoetry') i.checked = true;
       if (before) { box.insertBefore(i, before); box.insertBefore(l, before); } else { box.appendChild(i); box.appendChild(l); }
-      var sec = document.createElement('section'); sec.className = 'kt-panel kt-' + x[0]; sec.setAttribute('data-label', x[2]); sec.setAttribute('data-tab', i.id); sec.id = x[0];
+      var sec = document.createElement('section'); sec.className = 'kt-panel kt-' + x[0]; sec.setAttribute('data-label', x[2]); if (x[3]) sec.setAttribute('data-lang', x[3]); sec.setAttribute('data-tab', i.id); sec.id = x[0];
       sec.innerHTML = '<h2 class="kt-h">' + x[1] + '</h2><ol class="kser-items"></ol>';
       if (pan) box.insertBefore(sec, pan); else box.appendChild(sec);
     });
@@ -1418,7 +1422,8 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     var label = panel.getAttribute('data-label'), ol = panel.querySelector('ol.kser-items'); if (!label || !ol || ol.getAttribute('data-done')) return;
     ol.setAttribute('data-done', '1');
     fetch('/feeds/posts/summary/-/' + encodeURIComponent(label) + '?alt=json&max-results=500').then(function (r) { return r.json(); }).then(function (j) {
-      var es = (j.feed && j.feed.entry) || [], html = '';
+      var es = (j.feed && j.feed.entry) || [], html = '', lg = panel.getAttribute('data-lang');
+      if (lg) es = es.filter(function (e) { var c = (e.category || []).map(function (x) { return x.term; }); if (c.indexOf('lang-ne') > -1 || c.indexOf('lang-en') > -1) return c.indexOf('lang-' + lg) > -1; return /[\u0900-\u097F]/.test(e.title.$t || '') === (lg === 'ne'); });
       es.forEach(function (e, i) {
         var l = ((e.link || []).filter(function (x) { return x.rel === 'alternate'; })[0] || {}).href || '#', t = e.title.$t || '';
         var sm = String((e.summary && e.summary.$t) || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim(); if (sm.length > 200) sm = sm.slice(0, 200).replace(/\s+\S*$/, '') + '…';
@@ -1432,7 +1437,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
       var tab = document.querySelector('label[for="' + (panel.getAttribute('data-tab') || 'kt-' + label.toLowerCase()) + '"] span'); if (tab) tab.textContent = es.length;
     }).catch(function () {});
   }
-  function hash() { var h = (location.hash || '').replace('#', '').toLowerCase(), r = h && document.getElementById('kt-' + h); if (r) r.checked = true; }
+  function hash() { var h = (location.hash || '').replace('#', '').toLowerCase(); if (h === 'poetry') h = 'nepoetry'; var r = h && document.getElementById('kt-' + h); if (r) r.checked = true; }
   function go() { addTabs(); [].forEach.call(document.querySelectorAll('.kser-tabs.klit .kt-panel[data-label]'), fill); hash(); }
   window.addEventListener('hashchange', hash);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
@@ -1600,6 +1605,10 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .kser-tabs' + N + '{gap:4px!important}' +
     'html body .kser-tabs' + N + '>label{gap:3px!important;padding:6px 5px!important;font-size:10px!important;white-space:nowrap!important}' +
     'html body .kser-tabs' + N + '>label span{font-size:8.5px!important;padding:1px 4px!important;min-width:0!important}' +
+    'html body .kser-tabs.klit' + N + '>label span{display:none!important}' +
+    'html body .kser-tabs.klit:not(#s5):not(#s6)' + N + '{column-gap:1px!important}' +
+    'html body .kser-tabs.klit:not(#s5):not(#s6)' + N + '>label{font-size:9.5px!important;padding:6px 3px!important;gap:2px!important;letter-spacing:-.01em!important}' +
+    'html body .kser-tabs.klit:not(#s5):not(#s6)' + N + '>input[type=radio]{position:absolute!important;margin:0!important;width:0!important;height:0!important;opacity:0!important}' +
     P + ' .kn-about' + N + '{font-size:11.5px!important;padding:6px 2px!important}' +
     P + ' .ksearch-btn' + N + '{padding-left:6px!important;padding-right:6px!important}' +
   '}';
@@ -1666,4 +1675,265 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     P + ' .ksearch-btn' + N + '{width:28px!important;height:28px!important;padding:0!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important}' +
   '}';
   var s = document.createElement('style'); s.id = 'k225-menu'; s.textContent = css; document.head.appendChild(s);
+})();
+
+/* v227: no stretched word gaps in the story lists - titles are always left aligned, and the short excerpts are left aligned on phones */
+(function () {
+  var N = ':not(#j1):not(#j2):not(#j3):not(#j4):not(#j5):not(#j6)';
+  var css = 'html body .kser-items li h2' + N + ',html body .kser-items li h2 a' + N + '{text-align:left!important;text-align-last:left!important;word-spacing:normal!important}' +
+    '@media (max-width:700px){html body .kser-items li p' + N + '{text-align:left!important;text-align-last:left!important;word-spacing:normal!important}}';
+  var s = document.createElement('style'); s.id = 'k227-align'; s.textContent = css; document.head.appendChild(s);
+})();
+
+/* v227: story lists - the row reads "date · By author" and the listen / share icons sit right after it; menu - About carries the author's picture and the desktop menu uses the full width */
+(function () {
+  var N = ':not(#r1):not(#r2):not(#r3):not(#r4):not(#r5):not(#r6)';
+  var css = 'html body .kser-items li .kser-date' + N + '{grid-column:2 / -1!important;display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:4px 10px!important;margin:0!important}' +
+    'html body .kser-items li .kser-date .kser-acts' + N + '{display:inline-flex!important;margin:0!important;justify-self:auto!important;gap:6px!important}' +
+    'html body .kser-items li .kser-date .kx-by' + N + '{white-space:nowrap}' +
+    'html body .kser-items li span.kx-ne' + N + '{display:block!important;margin-top:6px!important;font-size:.94em!important;color:#6D6A65!important;text-align:left!important}' +
+    /* About with the author's picture */
+    'html body .knav-sticky .kn-about' + N + '{display:inline-flex!important;align-items:center!important;gap:6px!important}' +
+    'html body .knav-sticky .kn-about img.kn-av' + N + '{width:24px!important;height:24px!important;border-radius:50%!important;object-fit:cover!important;border:1px solid rgba(123,45,38,.35)!important;flex:0 0 auto}' +
+    '@media (max-width:700px){html body .knav-sticky .kn-about' + N + '{width:28px!important;min-width:28px!important;padding:0!important}html body .knav-sticky .kn-about img.kn-av' + N + '{width:28px!important;height:28px!important}html body .knav-sticky .kn-about span.kn-at' + N + '{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important}}' +
+    /* desktop: use the room the old Search button used to need */
+    '@media (min-width:701px){html body .knav-sticky nav.tabs' + N + '{padding-right:0!important}html body .knav-sticky .tabs-items' + N + '{padding-right:0!important}}';
+  var s = document.createElement('style'); s.id = 'k227-rows'; s.textContent = css; document.head.appendChild(s);
+  function who() { try { return (window.KAFKA_CFG && window.KAFKA_CFG.author) || 'बासभ'; } catch (e) { return 'बासभ'; } }
+  function rows() {
+    [].forEach.call(document.querySelectorAll('.kser-items li'), function (li) {
+      /* the Nepali line used to share the excerpt's grid cell and print on top of it: it now sits under the excerpt */
+      var ne = li.querySelector(':scope > p.kser-ne'), ds = ne && ne.previousElementSibling;
+      if (ne && ds && ds.tagName === 'P' && !ne.getAttribute('data-k227')) {
+        ne.setAttribute('data-k227', '1');
+        var sp = document.createElement('span'); sp.className = 'kser-ne kx-ne'; sp.setAttribute('lang', 'ne'); sp.innerHTML = ne.innerHTML;
+        ds.appendChild(sp); li.removeChild(ne);
+      }
+      var d = li.querySelector('.kser-date'); if (!d || d.getAttribute('data-k227')) return;
+      var a = li.querySelector('.kser-acts');
+      d.setAttribute('data-k227', '1');
+      var t = d.firstChild && d.firstChild.nodeType === 3 ? d.firstChild.nodeValue : d.textContent;
+      d.textContent = ''; var sp = document.createElement('span'); sp.textContent = t; d.appendChild(sp);
+      var by = document.createElement('span'); by.className = 'kx-by'; by.textContent = 'By ' + who(); d.appendChild(by);
+      if (a) d.appendChild(a);
+    });
+  }
+  function about() {
+    var a = document.querySelector('.knav-sticky .kn-about'); if (!a || a.querySelector('img.kn-av')) return;
+    var t = a.textContent; a.textContent = '';
+    var im = document.createElement('img'); im.className = 'kn-av'; im.alt = ''; im.src = 'https://assets.kafka.blog/basava-priest-king-400.jpg';
+    var sp = document.createElement('span'); sp.className = 'kn-at'; sp.textContent = t || 'About';
+    a.appendChild(im); a.appendChild(sp); a.setAttribute('aria-label', 'About'); a.setAttribute('title', 'About');
+    window.dispatchEvent(new Event('resize'));
+  }
+  function all() { rows(); about(); }
+  all(); [300, 1000, 2500, 5000].forEach(function (d) { setTimeout(all, d); });
+  if (window.MutationObserver) {
+    var t = 0, mo = new MutationObserver(function () { if (t) return; t = setTimeout(function () { t = 0; all(); }, 200); });
+    var go = function () { mo.observe(document.body, { childList: true, subtree: true }); setTimeout(function () { mo.disconnect(); }, 30000); };
+    if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
+  }
+})();
+
+/* v227: the "Start from Part 1" pills in the home series cards stay small and whole (they were being squeezed flat), and the ornament dividers inside posts have much less space above and below */
+(function () {
+  var N = ':not(#v1):not(#v2):not(#v3):not(#v4):not(#v5):not(#v6)';
+  var css = 'html body .scol a.kp1' + N + ',html body .scol a.kp1-named' + N + '{display:block!important;width:fit-content!important;max-width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;flex:0 0 auto!important;align-self:flex-start!important;padding:4px 12px!important;font-size:11px!important;line-height:1.3!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;text-align:left!important;margin:6px 0 8px!important}' +
+    'html body .prose .dinkus' + N + '{margin:-8px 0 4px!important;line-height:0!important;height:auto!important}' +
+    'html body .prose .dinkus img' + N + '{height:22px!important;width:auto!important;display:block!important;margin:0 auto!important}';
+  var s = document.createElement('style'); s.id = 'k227-fix'; s.textContent = css; document.head.appendChild(s);
+})();
+
+/* v227: series lists start with the oldest piece (home series cards and the four series pages) */
+(function () {
+  var PAGES = ['/p/sumer.html', '/p/roman-britannia.html', '/p/organisms.html', '/p/biology-and-cancer.html'];
+  function flip(list, renumber) {
+    if (!list || list.getAttribute('data-k227o')) return;
+    var kids = [].slice.call(list.children); if (kids.length < 2) return;
+    list.setAttribute('data-k227o', '1');
+    kids.reverse().forEach(function (k) { list.appendChild(k); });
+    if (renumber) [].forEach.call(list.children, function (li, i) { var n = li.querySelector('.kser-n'); if (n) n.textContent = i + 1; });
+  }
+  function all() {
+    [].forEach.call(document.querySelectorAll('.scol .slist'), function (l) { flip(l, false); });
+    if (PAGES.indexOf(location.pathname) > -1) [].forEach.call(document.querySelectorAll('ol.kser-items'), function (l) { if (l.children.length) flip(l, true); });
+  }
+  all(); [400, 1200, 2800, 6000].forEach(function (d) { setTimeout(all, d); });
+  if (window.MutationObserver) {
+    var t = 0, mo = new MutationObserver(function () { if (t) return; t = setTimeout(function () { t = 0; all(); }, 250); });
+    var go = function () { mo.observe(document.body, { childList: true, subtree: true }); setTimeout(function () { mo.disconnect(); }, 30000); };
+    if (document.body) go(); else document.addEventListener('DOMContentLoaded', go);
+  }
+})();
+
+/* v227: a quiet one-line "More poems" strip between the poem's header and its first line: three poems in the same language, nearest in date */
+(function () {
+  if (!/^\/\d{4}\/\d{2}\//.test(location.pathname)) return;
+  var N = ':not(#q1):not(#q2):not(#q3):not(#q4)';
+  var css = 'html body .kx-more' + N + '{display:flex;align-items:baseline;gap:4px 14px;margin:0 0 16px;padding:0;font:400 12px/1.5 Inter,system-ui,sans-serif;color:#8d8880;white-space:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;opacity:.85}' +
+    'html body .kx-more' + N + '::-webkit-scrollbar{display:none}' +
+    'html body .kx-more' + N + ' b{flex:0 0 auto;font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#a39d95}' +
+    'html body .kx-more' + N + ' a{flex:0 1 auto;min-width:0;max-width:26ch;overflow:hidden;text-overflow:ellipsis;color:inherit;text-decoration:none;border:0}' +
+    'html body .kx-more' + N + ' a:hover,html body .kx-more' + N + ' a:focus{color:#7B2D26;text-decoration:underline}';
+  var st = document.createElement('style'); st.id = 'k227-more'; st.textContent = css; document.head.appendChild(st);
+  var busy = false;
+  function run() {
+    if (busy || document.querySelector('.kx-more')) return;
+    var head = document.querySelector('.post-head'), prose = document.querySelector('article .prose, .prose'); if (!head || !prose) return;
+    var labs = [].map.call(head.querySelectorAll('.chip'), function (c) { return c.getAttribute('data-label') || c.textContent.trim(); });
+    var pool = labs.indexOf('Nepali Poetry') > -1 ? 'Nepali Poetry' : labs.indexOf('English Poetry') > -1 ? 'English Poetry' : labs.indexOf('Poetry') > -1 ? 'Poetry' : ''; if (!pool) return;
+    busy = true;
+    var here = location.pathname, h1 = head.querySelector('h1'), ne = /[ऀ-ॿ]/.test(h1 ? h1.textContent : '');
+    fetch('/feeds/posts/summary/-/' + encodeURIComponent(pool) + '?alt=json&max-results=500').then(function (r) { return r.json(); }).then(function (j) {
+      var es = ((j.feed && j.feed.entry) || []).map(function (e) {
+        var l = ((e.link || []).filter(function (x) { return x.rel === 'alternate'; })[0] || {}).href || ''; var u; try { u = new URL(l).pathname; } catch (x) { u = ''; }
+        return { t: e.title.$t || '', u: u, d: +new Date(e.published.$t) };
+      }).filter(function (e) { return e.u && e.u !== here && (/[ऀ-ॿ]/.test(e.t) === ne); });
+      var me = null; (j.feed.entry || []).forEach(function (e) { var l = ((e.link || []).filter(function (x) { return x.rel === 'alternate'; })[0] || {}).href || ''; try { if (new URL(l).pathname === here) me = +new Date(e.published.$t); } catch (x) {} });
+      if (me === null) me = Date.now();
+      es.sort(function (a, b) { return Math.abs(a.d - me) - Math.abs(b.d - me); });
+      var pick = es.slice(0, 3); if (!pick.length || document.querySelector('.kx-more')) return;
+      var nav = document.createElement('nav'); nav.className = 'kx-more'; nav.setAttribute('aria-label', 'More poems');
+      var b = document.createElement('b'); b.textContent = ne ? 'थप कविता' : 'More poems'; nav.appendChild(b);
+      pick.forEach(function (e, i) { var a = document.createElement('a'); a.href = e.u; a.textContent = e.t.replace(/\s+/g, ' ').replace(/[.।]+$/, ''); a.title = e.t; nav.appendChild(a); });
+      prose.parentNode.insertBefore(nav, prose);
+    }).catch(function () {}).then(function () { busy = false; });
+  }
+  [200, 900, 2200, 4500].forEach(function (d) { setTimeout(run, d); });
+})();
+
+/* v229: the poetry page's count line follows its two tabs ("49 Nepali poems · 11 in English"); it used to take the total before the tabs were counted */
+(function () {
+  if (!/\/p\/nepali-kavita\.html$/.test(location.pathname)) return;
+  function sync() {
+    var m = document.querySelector('.page-meta'), t = document.querySelectorAll('.kser-tabs > label span');
+    if (!m || t.length !== 2 || !t[0].textContent || !t[1].textContent) return;
+    var s = t[0].textContent + ' Nepali poems · ' + t[1].textContent + ' in English';
+    if (m.textContent !== s) m.textContent = s;
+  }
+  function go() { sync(); var b = document.querySelector('.kser-tabs'); if (b && window.MutationObserver) new MutationObserver(sync).observe(b, { subtree: true, characterData: true, childList: true }); setTimeout(sync, 1500); setTimeout(sync, 4000); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
+})();
+
+/* v229: sidebar Lists with icons and a line each (fills the box), Archive years with a count bar, About "Elsewhere" card, Kafka quote on one line */
+(function () {
+  var N = ':not(#v1):not(#v2):not(#v3):not(#v4):not(#v5):not(#v6):not(#v7):not(#v8)';
+  var S = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+  var IC = {
+    books: '<svg viewBox="0 0 24 24" ' + S + '><path d="M3 5.5c3-1.3 6-1.3 9 .5v13c-3-1.8-6-1.8-9-.5z"/><path d="M21 5.5c-3-1.3-6-1.3-9 .5v13c3-1.8 6-1.8 9-.5z"/></svg>',
+    movies: '<svg viewBox="0 0 24 24" ' + S + '><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M3 8l3-4h15l-3 4M8 4l-2 4M13 4l-2 4M18 4l-2 4"/></svg>',
+    photos: '<svg viewBox="0 0 24 24" ' + S + '><path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>',
+    series: '<svg viewBox="0 0 24 24" ' + S + '><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 21h8M9 2.5l3 3.5 3-3.5"/></svg>',
+    songs: '<svg viewBox="0 0 24 24" ' + S + '><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>',
+    x: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>',
+    ig: '<svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>',
+    tt: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 3c.4 2.4 1.8 3.9 4.1 4.1v3.1c-1.5 0-2.9-.5-4.1-1.3v6.4a6.2 6.2 0 1 1-6.2-6.2c.3 0 .6 0 .9.1v3.2a3.1 3.1 0 1 0 2.2 3V3z"/></svg>',
+    ss: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 3h16v2.6H4zM4 7.7h16v2.6H4zM4 12.4h16V21l-8-4.4L4 21z"/></svg>',
+    pod: '<svg viewBox="0 0 24 24"><circle cx="12" cy="10.5" r="2.3" fill="currentColor"/><path d="M8.4 14.6a5.2 5.2 0 1 1 7.2 0M5.7 17.3a9 9 0 1 1 12.6 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M12 14.2v6.3" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>'
+  };
+  var SUB = { books: 'Books I keep', movies: 'Films', photos: 'Through my lens', series: 'TV series', songs: 'On repeat' };
+  var css =
+    /* Lists */
+    'html body nav.box.lists' + N + '{display:flex!important;flex-direction:column!important}' +
+    'html body nav.box.lists' + N + ' > a{flex:1 1 auto!important;display:grid!important;grid-template-columns:30px 1fr auto!important;grid-template-rows:auto auto!important;align-items:center!important;column-gap:12px!important;row-gap:1px!important;padding:10px 0!important}' +
+    'html body nav.box.lists' + N + ' > a .kl-ic{grid-row:1 / span 2;width:30px;height:30px;border-radius:50%;background:rgba(123,45,38,.08);color:#7B2D26;display:flex;align-items:center;justify-content:center}' +
+    'html body nav.box.lists' + N + ' > a .kl-ic svg{width:17px;height:17px}' +
+    'html body nav.box.lists' + N + ' > a .kl-t{grid-column:2;line-height:1.15}' +
+    'html body nav.box.lists' + N + ' > a .kl-s{grid-column:2;font:400 11.5px/1.2 Inter,system-ui,sans-serif;color:#8a8378}' +
+    'html body nav.box.lists' + N + ' > a::after{grid-column:3;grid-row:1 / span 2}' +
+    /* Archive */
+    'html body .karchive' + N + ' .ka-y{display:flex!important;align-items:center!important;gap:12px!important}' +
+    'html body .karchive' + N + ' .ka-y .ka-bar{flex:1 1 auto;height:6px;border-radius:99px;background:rgba(123,45,38,.08);position:relative;overflow:hidden;align-self:center}' +
+    'html body .karchive' + N + ' .ka-y .ka-bar i{position:absolute;left:0;top:0;bottom:0;width:var(--p,0%);border-radius:99px;background:linear-gradient(90deg,rgba(123,45,38,.55),rgba(184,144,74,.65))}' +
+    'html body .karchive' + N + ' .ka-y > span{flex:none;margin-left:0!important}' +
+    /* About: Elsewhere */
+    'html body .kafka-about' + N + ' .kel{margin:14px 0 6px;padding:16px 18px;border:1px solid rgba(26,26,24,.12);border-left:3px solid #7B2D26;border-radius:14px;background:rgba(255,253,249,.7)}' +
+    'html body .kafka-about' + N + ' .kel h3{margin:0 0 8px!important;font:700 11px/1 Inter,system-ui,sans-serif!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#7B2D26!important}' +
+    'html body .kafka-about' + N + ' .kel .kel-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}' +
+    'html body .kafka-about' + N + ' .kel .kel-row:last-child{margin-bottom:0}' +
+    'html body .kafka-about' + N + ' .kel .kel-pub{font:600 13px/1 Inter,system-ui,sans-serif;padding:7px 12px;border-radius:999px;background:#f1ebe2;color:#3d3a35}' +
+    'html body .kafka-about' + N + ' .kel a.kel-so{display:inline-flex;align-items:center;gap:7px;font:600 13px/1 Inter,system-ui,sans-serif;padding:6px 12px 6px 6px;border-radius:999px;border:1px solid rgba(26,26,24,.14);color:#191918!important;text-decoration:none!important;background:#fff}' +
+    'html body .kafka-about' + N + ' .kel a.kel-so:hover{border-color:#7B2D26}' +
+    'html body .kafka-about' + N + ' .kel a.kel-so i{width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}' +
+    'html body .kafka-about' + N + ' .kel a.kel-so i svg{width:13px;height:13px}' +
+    '.kel .c-x{background:#191918}.kel .c-ig{background:linear-gradient(45deg,#f9a03f,#e1306c 50%,#833ab4)}.kel .c-tt{background:#191918}.kel .c-ss{background:#ff6719}.kel .c-pod{background:linear-gradient(180deg,#d56dfb,#872ec4)}' +
+    'html body .kafka-about' + N + ' .kel .kel-h{font:600 14px/1 Inter,system-ui,sans-serif;color:#5e584f;margin:0 0 10px}' +
+    /* quote */
+    /* menu: About is just the round priest-king picture (text kept for screen readers) */
+    'html body .knav-sticky .kn-about' + N + '{width:32px!important;min-width:32px!important;height:32px!important;padding:0!important;justify-content:center!important;border-radius:50%!important;text-decoration:none!important}' +
+    'html body .knav-sticky .kn-about img.kn-av' + N + '{width:30px!important;height:30px!important;border:1.5px solid rgba(184,144,74,.8)!important;box-shadow:0 1px 3px rgba(0,0,0,.15)}' +
+    'html body .knav-sticky .kn-about:hover img.kn-av' + N + '{border-color:#7B2D26!important}' +
+    'html body .knav-sticky .kn-about span.kn-at' + N + '{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}' +
+    'html body .kbio .kq q' + N + '{white-space:nowrap!important}' +
+    'html body .bio .kbio p' + N + ',html body .sbio .kbio p' + N + '{hyphens:manual!important;-webkit-hyphens:manual!important}' +
+    'html body .bio .kbio p em' + N + ',html body .bio .kbio p i' + N + ',html body .sbio .kbio p em' + N + ',html body .sbio .kbio p i' + N + '{white-space:nowrap!important}';
+  var st = document.createElement('style'); st.id = 'k229-extras'; st.textContent = css; document.head.appendChild(st);
+
+  function lists() {
+    [].forEach.call(document.querySelectorAll('nav.box.lists > a'), function (a) {
+      if (a.querySelector('.kl-ic')) return;
+      var k = (a.getAttribute('href') || '').replace(/^.*\/p\/|\.html.*$/g, '');
+      if (!IC[k]) return;
+      var t = a.textContent; a.textContent = '';
+      var i = document.createElement('span'); i.className = 'kl-ic'; i.innerHTML = IC[k]; a.appendChild(i);
+      var tt = document.createElement('span'); tt.className = 'kl-t'; tt.textContent = t; a.appendChild(tt);
+      var s = document.createElement('span'); s.className = 'kl-s'; s.textContent = SUB[k]; a.appendChild(s);
+    });
+  }
+  function archive() {
+    var ys = [].slice.call(document.querySelectorAll('.karchive .ka-y'));
+    var n = ys.map(function (a) { var s = a.querySelector(':scope > span'); return s ? parseInt(s.textContent, 10) || 0 : 0; });
+    var mx = Math.max.apply(null, n.concat([1]));
+    ys.forEach(function (a, k) {
+      if (a.querySelector('.ka-bar')) return; var s = a.querySelector(':scope > span'); if (!s) return;
+      var b = document.createElement('span'); b.className = 'ka-bar'; b.setAttribute('aria-hidden', 'true');
+      var i = document.createElement('i'); i.style.setProperty('--p', Math.max(4, Math.round(n[k] / mx * 100)) + '%'); b.appendChild(i);
+      a.insertBefore(b, s);
+    });
+  }
+  function about() {
+    var box = document.querySelector('.kafka-about'); if (!box || box.querySelector('.kel')) return;
+    var h = [].filter.call(box.querySelectorAll('h2'), function (x) { return /Elsewhere/.test(x.textContent); })[0]; if (!h) return;
+    var p = h.nextElementSibling; if (!p || p.tagName !== 'P') return;
+    var so = [['c-x', 'x', 'X', 'https://x.com/naharchowck'], ['c-ig', 'ig', 'Instagram', 'https://www.instagram.com/naharchowck/'], ['c-tt', 'tt', 'TikTok', 'https://www.tiktok.com/@naharchowck'], ['c-ss', 'ss', 'Substack', 'https://naharchowck.substack.com/'], ['c-pod', 'pod', 'Podcast', 'https://audio.kafka.blog/podcast-en.xml']];
+    [].forEach.call(p.querySelectorAll('a[href]'), function (a) { so.forEach(function (x) { if (a.href.replace(/\/$/, '') === x[3].replace(/\/$/, '')) x[3] = a.href; }); });
+    var c = document.createElement('div'); c.className = 'kel';
+    var html = '<h3>Published in</h3><div class="kel-row">' + ['Onlinekhabar', 'Shilapatra', 'Ukaalo', 'Nepali Post'].map(function (x) { return '<span class="kel-pub">' + x + '</span>'; }).join('') + '</div>' +
+      '<h3>Find me</h3><p class="kel-h">@naharchowck</p><div class="kel-row">' + so.map(function (x) { return '<a class="kel-so" href="' + x[3] + '" target="_blank" rel="noopener"><i class="' + x[0] + '">' + IC[x[1]] + '</i>' + x[2] + '</a>'; }).join('') + '</div>';
+    c.innerHTML = html; p.insertAdjacentElement('afterend', c);
+  }
+  function quote() {
+    [].forEach.call(document.querySelectorAll('.kbio .kq q'), function (q) {
+      var sp = q.parentElement; if (!sp || !sp.getBoundingClientRect().width) return;
+      q.style.fontSize = ''; var fs = parseFloat(getComputedStyle(q).fontSize), k = 0;
+      while (q.scrollWidth > sp.clientWidth + 1 && fs > 12 && k++ < 20) { fs -= .5; q.style.setProperty('font-size', fs + 'px', 'important'); }
+    });
+  }
+  function go() { lists(); archive(); about(); quote(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+  setTimeout(go, 1500); setTimeout(go, 4000);
+  window.addEventListener('resize', function () { clearTimeout(quote.t); quote.t = setTimeout(quote, 200); });
+})();
+
+/* v229: real covers / posters on the Books, Movies, Songs and Series lists. Image links (Wikipedia page images) live in kafka-thumbs.json on the assets site; an item without one, or whose image fails to load, keeps its drawn tile. */
+(function () {
+  var m = location.pathname.match(/\/p\/(books|movies|songs|series)\.html$/); if (!m) return;
+  var kind = m[1];
+  var css = 'html body .kafka-item .kt-art:not(#t1):not(#t2):not(#t3):not(#t4){position:relative!important;overflow:hidden!important}' +
+    'html body .kafka-item .kt-art img.kt-img:not(#t1):not(#t2):not(#t3){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;border-radius:inherit;background:#efe9df}' +
+    'html body .kafka-item .kt-art.kt-has-img:not(#t1):not(#t2) .kt-tile{visibility:hidden}';
+  var st = document.createElement('style'); st.id = 'k229-thumbs'; st.textContent = css; document.head.appendChild(st);
+  function key(t) { return String(t || '').replace(/\s+/g, ' ').trim().toLowerCase(); }
+  function apply(map) {
+    [].forEach.call(document.querySelectorAll('.kafka-item'), function (it) {
+      var art = it.querySelector('.kt-art'), h = it.querySelector('h3'); if (!art || !h || art.querySelector('img.kt-img')) return;
+      var u = map[key(h.textContent)]; if (!u) return;
+      var im = document.createElement('img'); im.className = 'kt-img'; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
+      im.onerror = function () { im.remove(); art.classList.remove('kt-has-img'); };
+      im.onload = function () { art.classList.add('kt-has-img'); };
+      im.src = u; art.appendChild(im);
+    });
+  }
+  function go(map) { apply(map); setTimeout(function () { apply(map); }, 1500); setTimeout(function () { apply(map); }, 4000); }
+  fetch('https://assets.kafka.blog/kafka-thumbs.json?v=1').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j[kind]) go(j[kind]); }).catch(function () {});
 })();
