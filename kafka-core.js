@@ -1451,7 +1451,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     'html body .k-labrow .kcard-acts{zoom:.5;opacity:.3;margin:0!important;padding:0!important;transition:opacity .2s}' +
     'html body .k-labrow .kcard-acts:hover,html body .k-labrow .kcard-acts:focus-within{opacity:1}' +
     /* v219: every card button row is half as opaque as before; labelled rows even fainter */
-    'html body .kcard-acts{opacity:.5;transition:opacity .2s}html body .kcard-acts:hover,html body .kcard-acts:focus-within{opacity:1}html body .k-labrow .kcard-acts{opacity:.15}html body .k-labrow .kcard-acts:hover,html body .k-labrow .kcard-acts:focus-within{opacity:1}';
+    'html body .kcard-acts{opacity:.5;transition:opacity .2s}html body .k5-ic,html body .ktr-b,html body .kact{opacity:.5;color:rgba(123,45,38,.55)!important;border-color:rgba(123,45,38,.14)!important;transition:opacity .2s,color .2s}html body .k5-ic:hover,html body .ktr-b:hover,html body .kact:hover,html body .k5:hover .k5-ic,html body .k5:hover .ktr-b{opacity:1;color:#7B2D26!important}html body .kcard-acts:hover,html body .kcard-acts:focus-within{opacity:1}html body .k-labrow .kcard-acts{opacity:.15}html body .k-labrow .kcard-acts:hover,html body .k-labrow .kcard-acts:focus-within{opacity:1}';
   document.head.appendChild(st);
   function move() {
     [].forEach.call(document.querySelectorAll('.kcard-acts'), function (acts) {
