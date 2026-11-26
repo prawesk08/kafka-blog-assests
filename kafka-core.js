@@ -1908,3 +1908,26 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   setTimeout(go, 1500); setTimeout(go, 4000);
   window.addEventListener('resize', function () { clearTimeout(quote.t); quote.t = setTimeout(quote, 200); });
 })();
+
+/* v229: real covers / posters on the Books, Movies, Songs and Series lists. Image links (Wikipedia page images) live in kafka-thumbs.json on the assets site; an item without one, or whose image fails to load, keeps its drawn tile. */
+(function () {
+  var m = location.pathname.match(/\/p\/(books|movies|songs|series)\.html$/); if (!m) return;
+  var kind = m[1];
+  var css = 'html body .kafka-item .kt-art:not(#t1):not(#t2):not(#t3):not(#t4){position:relative!important;overflow:hidden!important}' +
+    'html body .kafka-item .kt-art img.kt-img:not(#t1):not(#t2):not(#t3){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;border-radius:inherit;background:#efe9df}' +
+    'html body .kafka-item .kt-art.kt-has-img:not(#t1):not(#t2) .kt-tile{visibility:hidden}';
+  var st = document.createElement('style'); st.id = 'k229-thumbs'; st.textContent = css; document.head.appendChild(st);
+  function key(t) { return String(t || '').replace(/\s+/g, ' ').trim().toLowerCase(); }
+  function apply(map) {
+    [].forEach.call(document.querySelectorAll('.kafka-item'), function (it) {
+      var art = it.querySelector('.kt-art'), h = it.querySelector('h3'); if (!art || !h || art.querySelector('img.kt-img')) return;
+      var u = map[key(h.textContent)]; if (!u) return;
+      var im = document.createElement('img'); im.className = 'kt-img'; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
+      im.onerror = function () { im.remove(); art.classList.remove('kt-has-img'); };
+      im.onload = function () { art.classList.add('kt-has-img'); };
+      im.src = u; art.appendChild(im);
+    });
+  }
+  function go(map) { apply(map); setTimeout(function () { apply(map); }, 1500); setTimeout(function () { apply(map); }, 4000); }
+  fetch('https://assets.kafka.blog/kafka-thumbs.json?v=1').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j[kind]) go(j[kind]); }).catch(function () {});
+})();
