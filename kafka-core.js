@@ -512,6 +512,18 @@ window.KAFKA_RECPLAYER = function (rec) {
       'html body .klisten.top-of-post:not(#kz) .kl-mid{order:9;flex:0 0 100%!important}' +
       'html body .klisten.top-of-post.on:not(#kz) .kl-label{display:none}' +
       'html body .klisten.top-of-post:not(#kz) .kl-time{margin-right:auto}' +
+      /* v192: one slim Listen panel: play, then Listen and time over the progress bar, then voice and speed */
+      'html body .klisten.top-of-post:not(#kz):not(#kz2){flex-wrap:nowrap!important;align-items:center!important;gap:10px!important;border-radius:999px!important;padding:6px 10px 6px 6px!important;row-gap:0!important}' +
+      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-play{width:38px!important;height:38px!important;min-width:38px!important}' +
+      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-mid{order:0!important;flex:1 1 auto!important;min-width:0!important;display:grid!important;grid-template-columns:1fr auto!important;align-items:center!important;row-gap:4px!important}' +
+      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-label{display:block!important;font-size:12.5px!important;line-height:1!important;margin:0!important}' +
+      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-time{display:block!important;margin:0!important;font-size:11px!important;line-height:1!important}' +
+      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-mid .kl-track{grid-column:1/-1!important;margin:0!important}' +
+      'html body .klisten.top-of-post:not(#kz):not(#kz2) .kl-speed{min-width:34px!important;height:26px!important}' +
+      '.share.kshare.top:not(#kz),.share.kshare .btns:not(#kz){justify-content:center!important}' +
+      'html body .translation-link:not(#kz){padding-top:10px!important;padding-bottom:10px!important}' +
+      'html body a.tr-cta:not(#kz){font-size:17px!important;font-weight:700!important}' +
+      'html body .tr-badge:not(#kz){font-size:13.5px!important;padding:5px 11px!important}' +
       /* v191: share is the bar at the bottom of the screen, centred; narration is a small vertical player at the right edge */
       'html body aside.kshare-float:not(#kz):not(#kz2){position:fixed!important;left:50%!important;right:auto!important;top:auto!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;transform:translateX(-50%)!important;width:auto!important;max-width:calc(100vw - 32px)!important;height:34px!important;min-height:0!important;max-height:none!important;flex-direction:row!important;flex-wrap:nowrap!important;justify-content:center!important;align-items:center!important;gap:2px!important;padding:0 10px!important;border-radius:999px!important;background:rgba(251,250,247,.96)!important;border:1px solid #1A1A18!important;box-shadow:0 4px 12px rgba(26,26,24,.16)!important;overflow:hidden!important;z-index:121}' +
       'html body aside.kshare-float:not(#kz):not(#kz2) .kf-lbl{display:none!important}' +
@@ -582,6 +594,7 @@ window.KAFKA_RECPLAYER = function (rec) {
     voiceHTML +
     '<button class="kl-speed" type="button" aria-label="Playback speed">' + SPEEDS[si] + '\u00d7</button>';
 
+  (function () { var mid = bar.querySelector('.kl-mid'), tm = bar.querySelector('.kl-time'), tk = bar.querySelector('.kl-track'); if (mid && tm && tk) mid.insertBefore(tm, tk); })();
   var mini = document.createElement('div');
   mini.className = 'klisten-mini';
   mini.setAttribute('role', 'region');
