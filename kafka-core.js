@@ -1619,3 +1619,17 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     return orig.apply(this, arguments);
   };
 })();
+
+/* v225: phone menu symmetry - logo and Search are the same 28px size, every pill is the same size with centred text, equal 6px gaps and 8px margins on both sides */
+(function () {
+  var N = ':not(#s1):not(#s2):not(#s3):not(#s4):not(#s5)', P = 'html body .knav-sticky';
+  var css = '@media (max-width:700px){' +
+    P + ' .knav-inner' + N + '{gap:6px!important;padding-left:8px!important;padding-right:8px!important}' +
+    P + ' .kn-home' + N + '{padding:0!important;width:28px!important;height:28px!important}' +
+    P + ' .kn-home img' + N + '{height:28px!important;width:28px!important}' +
+    P + ' .tabs-items>a' + N + '{height:28px!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:center!important;line-height:1!important}' +
+    P + ' .kn-about' + N + '{height:28px!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:0 2px!important;line-height:1!important}' +
+    P + ' .ksearch-btn' + N + '{width:28px!important;height:28px!important;padding:0!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important}' +
+  '}';
+  var s = document.createElement('style'); s.id = 'k225-menu'; s.textContent = css; document.head.appendChild(s);
+})();
