@@ -1303,7 +1303,9 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     /* bottom bars: one flush plane, 50 / 50, translucent; gone when the content ends */
     'html body .kdock:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6):not(#kz7):not(#kz8){left:0!important;right:auto!important;bottom:0!important;width:50%!important;max-width:none!important;height:calc(48px + env(safe-area-inset-bottom))!important;padding:0 10px env(safe-area-inset-bottom) 10px!important;border-radius:0!important;border:0!important;border-top:1px solid rgba(123,45,38,.25)!important;box-shadow:none!important}' +
     'html body aside.kshare-float:not(#kz):not(#kz2):not(#kz3):not(#kz4):not(#kz5):not(#kz6):not(#kz7):not(#kz8){right:0!important;left:auto!important;bottom:0!important;width:50%!important;max-width:none!important;height:calc(48px + env(safe-area-inset-bottom))!important;padding:0 10px env(safe-area-inset-bottom) 10px!important;border-radius:0!important;border:0!important;border-top:1px solid rgba(123,45,38,.25)!important;box-shadow:none!important;box-sizing:border-box!important}' +
-    'html.k-endhide .kdock,html.k-endhide aside.kshare-float{opacity:0!important;pointer-events:none!important;transition:opacity .3s ease!important}';
+    'html.k-endhide .kdock,html.k-endhide aside.kshare-float{opacity:0!important;pointer-events:none!important;transition:opacity .3s ease!important}' +
+    /* v211: the line drawings that fill the empty space under the sidebars are removed (only .side-tail; dividers and poem art stay) */
+    'html body .side-tail{display:none!important}';
   function style() { if (document.getElementById('k209-css')) return; var s = document.createElement('style'); s.id = 'k209-css'; s.textContent = css; document.head.appendChild(s); }
   style();
 
