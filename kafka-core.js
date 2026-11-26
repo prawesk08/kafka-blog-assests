@@ -1570,3 +1570,26 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
+
+/* v224: phone menu - exactly five items fit between the pinned logo and About/Search, the rest scroll and snap so nothing is cut; Poetry, Letters, Stories and Ramblings follow Archive */
+(function () {
+  var N = ':not(#m1):not(#m2):not(#m3):not(#m4)', P = 'html body .knav-sticky';
+  var css = '@media (max-width:700px){' +
+    P + ' .knav-inner' + N + '{gap:4px!important;padding-left:6px!important;padding-right:6px!important}' +
+    P + ' .kn-home' + N + '{padding:2px 2px!important}' +
+    P + ' .kn-home img' + N + '{height:28px!important;width:28px!important}' +
+    P + ' nav.tabs' + N + '{padding:0!important;gap:0!important}' +
+    P + ' .tabs-items' + N + '{padding:0!important;gap:2px!important;scroll-snap-type:x mandatory!important;scroll-padding-left:0!important}' +
+    P + ' .tabs-items>a' + N + ':not(#m5),' + P + ' .tabs-items>button' + N + ':not(#m5){flex:0 0 calc((100% - 8px)/5)!important;box-sizing:border-box!important;padding:5px 0!important;text-align:center!important;font-size:10px!important;letter-spacing:-.01em!important;scroll-snap-align:start!important;overflow:hidden!important;text-overflow:ellipsis!important}' +
+    P + ' .kn-about' + N + '{font-size:11.5px!important;padding:6px 2px!important}' +
+    P + ' .ksearch-btn' + N + '{padding-left:6px!important;padding-right:6px!important}' +
+  '}';
+  var s = document.createElement('style'); s.id = 'k224-menu'; s.textContent = css; document.head.appendChild(s);
+  var EX = [['Poetry', '/p/literature.html#poetry'], ['Letters', '/p/literature.html#letters'], ['Stories', '/p/literature.html#stories'], ['Ramblings', '/p/literature.html#ramblings']];
+  function extras() {
+    if (window.innerWidth > 700) return;
+    var it = document.querySelector('.knav-sticky .tabs-items'); if (!it || !it.closest('[data-k209]') || it.querySelector('.kx-extra')) return;
+    EX.forEach(function (e) { var a = document.createElement('a'); a.href = e[1]; a.textContent = e[0]; a.className = 'kx-extra'; a.setAttribute('data-k', e[0]); it.appendChild(a); });
+  }
+  [200, 700, 1600, 3600].forEach(function (d) { setTimeout(extras, d); });
+})();
