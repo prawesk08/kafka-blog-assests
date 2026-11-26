@@ -1580,16 +1580,42 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     P + ' .kn-home img' + N + '{height:28px!important;width:28px!important}' +
     P + ' nav.tabs' + N + '{padding:0!important;gap:0!important}' +
     P + ' .tabs-items' + N + '{padding:0!important;gap:2px!important;scroll-snap-type:x mandatory!important;scroll-padding-left:0!important}' +
-    P + ' .tabs-items>a' + N + ':not(#m5),' + P + ' .tabs-items>button' + N + ':not(#m5){flex:0 0 calc((100% - 8px)/5)!important;box-sizing:border-box!important;padding:5px 0!important;text-align:center!important;font-size:10px!important;letter-spacing:-.01em!important;scroll-snap-align:start!important;overflow:hidden!important;text-overflow:ellipsis!important}' +
+    P + ' .tabs-items>a' + N + ':not(#m5),' + P + ' .tabs-items>button' + N + ':not(#m5){flex:0 0 calc((100% - 8px)/5)!important;box-sizing:border-box!important;padding:5px 0!important;text-align:center!important;font-size:9.5px!important;letter-spacing:-.01em!important;scroll-snap-align:start!important;overflow:hidden!important;text-overflow:ellipsis!important}' +
+    'html body .kser-tabs' + N + '{gap:4px!important}' +
+    'html body .kser-tabs' + N + '>label{gap:3px!important;padding:6px 5px!important;font-size:10px!important;white-space:nowrap!important}' +
+    'html body .kser-tabs' + N + '>label span{font-size:8.5px!important;padding:1px 4px!important;min-width:0!important}' +
     P + ' .kn-about' + N + '{font-size:11.5px!important;padding:6px 2px!important}' +
     P + ' .ksearch-btn' + N + '{padding-left:6px!important;padding-right:6px!important}' +
   '}';
   var s = document.createElement('style'); s.id = 'k224-menu'; s.textContent = css; document.head.appendChild(s);
-  var EX = [['Poetry', '/p/literature.html#poetry'], ['Letters', '/p/literature.html#letters'], ['Stories', '/p/literature.html#stories'], ['Ramblings', '/p/literature.html#ramblings']];
+  var EX = [['Poetry', '/p/nepali-kavita.html'], ['Photos', '/p/photos.html'], ['Sumer', '/p/sumer.html'], ['Britain', '/p/roman-britannia.html'], ['Organisms', '/p/organisms.html'], ['Cancer', '/p/biology-and-cancer.html']];
+  /* after the first five items come the real series, then the rest of the menu */
   function extras() {
     if (window.innerWidth > 700) return;
     var it = document.querySelector('.knav-sticky .tabs-items'); if (!it || !it.closest('[data-k209]') || it.querySelector('.kx-extra')) return;
-    EX.forEach(function (e) { var a = document.createElement('a'); a.href = e[1]; a.textContent = e[0]; a.className = 'kx-extra'; a.setAttribute('data-k', e[0]); it.appendChild(a); });
+    var lit = it.querySelector('a[data-k="Literature"]'); if (!lit) return;
+    var ph = it.querySelector('a[data-k="Photos"]'); if (ph && ph.parentNode) ph.parentNode.removeChild(ph);
+    var at = lit.nextSibling;
+    EX.forEach(function (e) {
+      var a = document.createElement('a'); a.href = e[1]; a.textContent = e[0]; a.className = 'kx-extra'; a.setAttribute('data-k', e[0]);
+      try { if (location.pathname === e[1]) a.className += ' on'; } catch (x) {}
+      it.insertBefore(a, at);
+    });
   }
   [200, 700, 1600, 3600].forEach(function (d) { setTimeout(extras, d); });
+})();
+
+/* v224: on phones the share buttons that open another site no longer depend on pop-ups (many in-app browsers, like the one inside X, block them): open in a new tab, and if that is blocked, go there in the same tab */
+(function () {
+  var orig = window.open;
+  window.open = function (u, t, f) {
+    try {
+      if (window.innerWidth <= 900 && typeof u === 'string' && /^https?:\/\/([a-z]+\.)?(facebook|x|twitter|reddit|tumblr|snapchat|substack|medium)\.com\//i.test(u)) {
+        var w = orig.call(window, u, '_blank');
+        if (!w) location.href = u;
+        return w;
+      }
+    } catch (e) {}
+    return orig.apply(this, arguments);
+  };
 })();
