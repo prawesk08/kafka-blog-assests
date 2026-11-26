@@ -501,7 +501,17 @@ window.KAFKA_RECPLAYER = function (rec) {
       '.klisten-mini .kl-track{height:5px;background:#E3DFD6;border-radius:99px;cursor:pointer;position:relative;overflow:hidden}' +
       '.klisten-mini .kl-fill{display:block;height:100%;width:0;background:#7B2D26;border-radius:99px}' +
       '.klisten-mini .kl-time{font:600 11px/1 ui-monospace,Menlo,monospace;color:#8A8578;flex:none}' +
-      '.klisten-mini .kl-speed{border:1px solid rgba(26,26,24,.22);background:#F1EBE2;color:#1A1A18;border-radius:999px;padding:4px 8px;font:600 11px/1 system-ui,sans-serif;cursor:pointer;flex:none}';
+      '.klisten-mini .kl-speed{border:1px solid rgba(26,26,24,.22);background:#F1EBE2;color:#1A1A18;border-radius:999px;padding:4px 8px;font:600 11px/1 system-ui,sans-serif;cursor:pointer;flex:none}' +
+      /* v187: seek bar, time and speed stay visible while a piece is playing */
+      'html body .klisten.top-of-post.on:not(#kz) .kl-track,html body .klisten-mini .kl-track{display:block!important;position:relative;height:6px!important;overflow:visible!important;touch-action:none;-webkit-tap-highlight-color:transparent;cursor:pointer}' +
+      '.klisten .kl-track::before,.klisten-mini .kl-track::before{content:"";position:absolute;left:-6px;right:-6px;top:-11px;bottom:-11px}' +
+      '.kl-thumb{position:absolute;top:50%;left:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#7B2D26;box-shadow:0 0 0 3px rgba(123,45,38,.18);pointer-events:none}' +
+      'html body .klisten.top-of-post.on:not(#kz) .kl-time{display:inline!important}' +
+      'html body .klisten.top-of-post.on:not(#kz) .kl-speed{display:inline-flex!important;align-items:center;justify-content:center;min-width:46px;height:28px!important;font-size:12px!important}' +
+      'html body .klisten.top-of-post.on:not(#kz){flex-wrap:wrap!important;border-radius:22px!important;row-gap:12px!important;padding:6px 12px 14px 6px!important}' +
+      'html body .klisten.top-of-post.on:not(#kz) .kl-mid{order:9;flex:0 0 100%!important}' +
+      'html body .klisten.top-of-post.on:not(#kz) .kl-label{display:none}' +
+      'html body .klisten.top-of-post.on:not(#kz) .kl-time{margin-right:auto}';
     document.head.appendChild(st);
   }
   var anchor = h1, nx = h1.nextElementSibling;
@@ -535,7 +545,9 @@ window.KAFKA_RECPLAYER = function (rec) {
       .concat(['https://drive.usercontent.google.com/download?id=' + rec.id + '&export=download&confirm=t']);
   }
 
-  var SPEEDS = [1, 1.15, 1.3, 1.5, 0.85], si = 0;
+  var SPEEDS = [0.75, 1, 1.075, 1.25, 1.5, 1.75, 2], SP_KEY = 'kafka-speed-' + (ne ? 'ne' : 'en'), si = SPEEDS.indexOf(ne ? 1.075 : 1);
+  /* v187: Nepali narrations start at 1.075x, English at 1x; a speed the reader picks is remembered per language */
+  try { var savedSp = parseFloat(localStorage.getItem(SP_KEY)); if (SPEEDS.indexOf(savedSp) > -1) si = SPEEDS.indexOf(savedSp); } catch (e) {}
   var voiceHTML = isDual
     ? '<span class="kl-voice" role="group" aria-label="Narrator voice">' +
       '<button type="button" data-v="f" class="' + (voice === 'f' ? 'on' : '') + '" aria-label="Female voice">\u2640</button>' +
@@ -548,7 +560,7 @@ window.KAFKA_RECPLAYER = function (rec) {
     '<span class="kl-time" aria-live="off"></span>' +
     '<button class="kl-stop" type="button" aria-label="Stop" hidden="hidden">' + STOP + '</button>' +
     voiceHTML +
-    '<button class="kl-speed" type="button" aria-label="Reading speed">1\u00d7</button>';
+    '<button class="kl-speed" type="button" aria-label="Playback speed">' + SPEEDS[si] + '\u00d7</button>';
 
   var mini = document.createElement('div');
   mini.className = 'klisten-mini';
@@ -556,7 +568,7 @@ window.KAFKA_RECPLAYER = function (rec) {
   mini.setAttribute('aria-label', 'Mini audio player');
   mini.innerHTML = '<button class="kl-play" type="button" aria-label="Listen">' + PLAY + '</button>' +
     '<div class="kl-mwrap"><span class="kl-mtitle"></span><div class="kl-track"><span class="kl-fill"></span></div></div>' +
-    '<span class="kl-time"></span>' + voiceHTML + '<button class="kl-speed" type="button" aria-label="Reading speed">1\u00d7</button>';
+    '<span class="kl-time"></span>' + voiceHTML + '<button class="kl-speed" type="button" aria-label="Playback speed">' + SPEEDS[si] + '\u00d7</button>';
   mini.querySelector('.kl-mtitle').textContent = h1.textContent.trim();
   document.body.appendChild(mini);
 
@@ -569,8 +581,15 @@ window.KAFKA_RECPLAYER = function (rec) {
       noteEl = bar.querySelector('.kl-note');
 
   var SRCS = buildSrcs(), sx = 0, SRC = SRCS[0];
-  var au = new Audio(), started = false, failed = false, topVisible = true;
+  var au = new Audio(), started = false, failed = false, topVisible = true, dragging = false;
   au.preload = 'none';
+  try { au.preservesPitch = true; au.webkitPreservesPitch = true; } catch (e) {}
+  var thumbs = [track, mTrack].map(function (t) { var th = document.createElement('span'); th.className = 'kl-thumb'; t.appendChild(th); return th; });
+  function setProg(p) {
+    fill.style.width = p + '%'; mFill.style.width = p + '%';
+    thumbs[0].style.left = p + '%'; thumbs[1].style.left = p + '%';
+    track.setAttribute('aria-valuenow', Math.round(p));
+  }
 
   function syncMini() {
     var active = started && (!au.paused || au.currentTime > 0);
@@ -654,17 +673,14 @@ window.KAFKA_RECPLAYER = function (rec) {
 
   au.addEventListener('timeupdate', function () {
     var d = au.duration || curDur() || 0;
-    if (d) {
-      var p = au.currentTime / d * 100;
-      fill.style.width = p + '%'; mFill.style.width = p + '%';
-      track.setAttribute('aria-valuenow', Math.round(p));
-    }
+    if (dragging) return;
+    if (d) setProg(au.currentTime / d * 100);
     var ts = mmss(au.currentTime) + ' / ' + mmss(d);
     timeEl.textContent = ts; mTimeEl.textContent = ts;
   });
   au.addEventListener('play', ui); au.addEventListener('pause', ui);
   au.addEventListener('ended', function () {
-    au.currentTime = 0; fill.style.width = '0'; mFill.style.width = '0';
+    au.currentTime = 0; setProg(0);
     var d = mmss(curDur()); timeEl.textContent = d; mTimeEl.textContent = d; ui();
   });
   au.addEventListener('waiting', function () { pb.classList.add('busy'); mPb.classList.add('busy'); });
@@ -684,11 +700,12 @@ window.KAFKA_RECPLAYER = function (rec) {
   }
   pb.onclick = togglePlay; mPb.onclick = togglePlay;
   stopB.onclick = function () {
-    au.pause(); au.currentTime = 0; fill.style.width = '0'; mFill.style.width = '0';
+    au.pause(); au.currentTime = 0; setProg(0);
     var d = mmss(curDur()); timeEl.textContent = d; mTimeEl.textContent = d; started = false; ui();
   };
   function cycleSpeed() {
     si = (si + 1) % SPEEDS.length; au.playbackRate = SPEEDS[si];
+    try { localStorage.setItem(SP_KEY, String(SPEEDS[si])); } catch (e) {}
     var lbl = SPEEDS[si] + '\u00d7'; spB.textContent = lbl; mSpB.textContent = lbl;
   }
   spB.onclick = cycleSpeed; mSpB.onclick = cycleSpeed;
@@ -697,12 +714,32 @@ window.KAFKA_RECPLAYER = function (rec) {
     if (!started || !d) return;
     au.currentTime = Math.max(0, Math.min(1, (x - r.left) / r.width)) * d;
   }
-  track.onclick = function (e) { seekOn(track, e.clientX); };
-  mTrack.onclick = function (e) { seekOn(mTrack, e.clientX); };
+  function fracAt(el, x) { var r = el.getBoundingClientRect(); return r.width ? Math.max(0, Math.min(1, (x - r.left) / r.width)) : 0; }
+  function showScrub(f) {
+    var d = au.duration || curDur(), ts = mmss(f * d) + ' / ' + mmss(d);
+    setProg(f * 100); timeEl.textContent = ts; mTimeEl.textContent = ts;
+  }
+  function bindScrub(el) {
+    el.addEventListener('pointerdown', function (e) {
+      if (!started || !(au.duration || curDur())) return;
+      dragging = true;
+      try { el.setPointerCapture(e.pointerId); } catch (x) {}
+      showScrub(fracAt(el, e.clientX)); e.preventDefault();
+    });
+    el.addEventListener('pointermove', function (e) { if (dragging) showScrub(fracAt(el, e.clientX)); });
+    el.addEventListener('pointerup', function (e) {
+      if (!dragging) return; dragging = false;
+      var d = au.duration || curDur(); if (d) au.currentTime = fracAt(el, e.clientX) * d;
+    });
+    el.addEventListener('pointercancel', function () { dragging = false; });
+  }
+  bindScrub(track); bindScrub(mTrack);
   track.onkeydown = function (e) {
     if (!started) return;
     if (e.key === 'ArrowRight') au.currentTime = Math.min((au.duration || curDur()), au.currentTime + 15);
     if (e.key === 'ArrowLeft') au.currentTime = Math.max(0, au.currentTime - 15);
+    if (e.key === 'Home') au.currentTime = 0;
+    if (e.key === 'End') au.currentTime = Math.max(0, (au.duration || curDur()) - 1);
   };
   timeEl.textContent = mmss(curDur()); mTimeEl.textContent = mmss(curDur());
 };
