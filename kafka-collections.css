@@ -407,7 +407,7 @@ html body .kserlist:not(#ks1):not(#ks2):not(#ks3):not(#ks4):not(#ks5):not(#ks6):
 
 /* sidebar at mid widths (shown as a grid above the footer): two columns, small boxes stacked beside Lists, no stretched empty space */
 @media (min-width:641px) and (max-width:1099px){
-html body aside.side:not(#ka1):not(#ka2):not(#ka3):not(#ka4):not(#ka5):not(#ka6):not(#ka7):not(#ka8):not(#ka9):not(#ka10):not(#ka11){grid-template-columns:1fr 1fr!important;align-items:start!important;grid-auto-rows:auto!important}
+html body aside.side:not(#ka1):not(#ka2):not(#ka3):not(#ka4):not(#ka5):not(#ka6):not(#ka7):not(#ka8):not(#ka9):not(#ka10):not(#ka11){grid-template-columns:1fr 1fr!important;grid-template-rows:auto auto 1fr!important;align-items:start!important;grid-auto-rows:auto!important;align-content:start!important}
 html body aside.side:not(#ka1):not(#ka2):not(#ka3):not(#ka4):not(#ka5):not(#ka6):not(#ka7):not(#ka8):not(#ka9):not(#ka10):not(#ka11)>.box.somewhere{grid-column:1!important;grid-row:1!important}
 html body aside.side:not(#ka1):not(#ka2):not(#ka3):not(#ka4):not(#ka5):not(#ka6):not(#ka7):not(#ka8):not(#ka9):not(#ka10):not(#ka11)>.box:not(.somewhere):not(.subbox):not(.lists):not(.desk):not(.sbio):not(.nowbox):not(.archbox):not(.feedbox){grid-column:1!important;grid-row:2!important}
 html body aside.side:not(#ka1):not(#ka2):not(#ka3):not(#ka4):not(#ka5):not(#ka6):not(#ka7):not(#ka8):not(#ka9):not(#ka10):not(#ka11)>.box.subbox{grid-column:1!important;grid-row:3!important}
