@@ -128,6 +128,8 @@
       ["ap","Apple Podcasts","https://podcasts.apple.com/us/podcast/kafkaintherun/id6839536736"],
       ["sp","Spotify","https://open.spotify.com/show/43tPb3BsR0uvj6YpPSJEwp"]
     ];
+    /* v6: Nepali pages use the Nepali show; a post with its own Spotify episode links straight to it (spotify-episodes.json) */
+    var SP_NE="https://open.spotify.com/show/67ic9qmrYOxsSaDknnnCLT";
     function listen(){
       var li=document.querySelector(".post-head .klisten.top-of-post")||document.querySelector(".post-head .kl-ph");
       if(document.querySelector(".kfollow"))return true;if(!li)return false;
@@ -143,9 +145,13 @@
       box.appendChild(top);
       var g=document.createElement("div");g.className="kf-ics";
       FOLLOW.forEach(function(f){
-        var a=document.createElement("a");a.className="kf-"+f[0];a.href=f[2];a.target="_blank";a.rel="noopener";
+        var a=document.createElement("a");a.className="kf-"+f[0];a.href=(f[0]==="sp"&&L())?SP_NE:f[2];a.target="_blank";a.rel="noopener";
         a.setAttribute("aria-label",f[1]);a.title=f[1];a.innerHTML=I[f[0]];g.appendChild(a);
       });
+      try{fetch("https://assets.kafka.blog/spotify-episodes.json").then(function(r){return r.ok?r.json():null}).then(function(m){
+        var u=m&&m.episodes&&m.episodes[location.pathname],a=g.querySelector(".kf-sp");
+        if(u&&a){a.href=u;a.title=L()?"Spotify मा यो पोस्ट सुन्नुहोस्":"Listen to this post on Spotify";a.setAttribute("aria-label",a.title)}
+      }).catch(function(){})}catch(e){}
       var b=document.createElement("button");b.type="button";b.className="kf-rss kpod-ic";b.innerHTML=I.rss;
       b.setAttribute("aria-label","Podcast RSS");b.title=L()?"पोडकास्ट RSS फिड":"Podcast RSS feed";
       b.addEventListener("click",function(e){e.stopPropagation();open(b,L()?"ne":"en")});

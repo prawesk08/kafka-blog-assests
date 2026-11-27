@@ -1,14 +1,14 @@
 {
- "version": 2,
+ "version": 3,
  "updated": "2026-11-27",
  "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list. Since 2026-11-27 R2's manifest is a flat list (path -> slug, title, l, category, v16, v9) without the 13 earlier films, so 11 of those carry their own src and poster here. Marginalia and Echoes use the new animated films from R2 (owner's choice, 2026-11-27).",
  "videos": {
   "/2025/05/manusi.html": {
    "heading": "मानुषी: भुपीसँगका थाँती संवाद",
    "heading_alt": "Manushi: A Dialogue Left with Bhupi",
-   "title": "मानुषी: भुपीसँगका थाँती संवाद | कविता चलचित्र · बासभ",
+   "title": "मानुषी: भुपीसँगका थाँती संवाद | कविता · बासभ",
    "caption": "भूपी शेरचनका चोकहरूमा इतिहासले नदेखेकी मानुषीको स्वर।",
-   "description": "भूपी शेरचनसँगको थाँती संवादका रूपमा लेखिएको बासभको कविता ‘मानुषी’ को कविता चलचित्र। सहरका चोक, पुरुषले लेखेको इतिहास र त्यसको छायाँमा बाँचेकी मानुषीको स्वर। A Nepali poetry film by Basava: a reply to the poet Bhupi Sherchan, voiced by the woman his city squares never saw.",
+   "description": "भुपी, हिजो तिमीले तिम्रो चोकमा रोग, भोक र शोक देख्यौ, “देशको नाभी” त्यही चोकमा आज धेरै थोक थपिएको छ। ती चोकहरूका भित्तामा, पुरुषहरूले इतिहास लेख्दै गर्दा, टाउकोमा पानीको घाम बोकेर कविताको छायाँ बनेर बाँचिरहेकी मानुषी… “शब्दहीन, इतिहासविहीन। भुपी, तिमीले त लेख्यौ– “म चोकमा बस्दछु,”” “बिनाशब्दका घाउ बोकेर टोलाउँदै, टुक्रिँदै घण्टाघरको फेदमा उभिएर रानीपोखरीको रित्तोपनजस्तै समय उल्टिएको हेरिरहेकी छु।” “मलाई त तिमीहरूको वंशावलीमा पनि ठाउँ भएन। म मानुषी, अब मलाई तिमीहरुको कविता होइन, मेरो आफ्नै स्वर चाहिएको छ।” पूरा लेख: https://www.kafka.blog/2025/05/manusi.html — अरू पढ्नुहोस्: म, तिमी, हामी; बुद्ध वाज बर्न इन नेपाल।; म प्रश्न सोध्ने माटो।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "मानुषी कविता",
     "बासभ कविता",
@@ -29,14 +29,37 @@
    "durationIso": "PT5M23S",
    "uploadDate": "2026-11-26",
    "lang": "ne",
-   "type": "poem"
+   "type": "poem",
+   "kind": "poem",
+   "excerpt": "भुपी, हिजो तिमीले तिम्रो चोकमा रोग, भोक र शोक देख्यौ, “देशको नाभी” त्यही चोकमा आज धेरै थोक थपिएको छ। ती चोकहरूका भित्तामा, पुरुषहरूले इतिहास लेख्दै गर्दा, टाउकोमा पानीको घाम बोकेर कविताको छायाँ बनेर बाँचिरहेकी मानुषी…",
+   "quotes": [
+    "शब्दहीन, इतिहासविहीन। भुपी, तिमीले त लेख्यौ– “म चोकमा बस्दछु,”",
+    "बिनाशब्दका घाउ बोकेर टोलाउँदै, टुक्रिँदै घण्टाघरको फेदमा उभिएर रानीपोखरीको रित्तोपनजस्तै समय उल्टिएको हेरिरहेकी छु।",
+    "मलाई त तिमीहरूको वंशावलीमा पनि ठाउँ भएन। म मानुषी, अब मलाई तिमीहरुको कविता होइन, मेरो आफ्नै स्वर चाहिएको छ।"
+   ],
+   "related": [
+    {
+     "path": "/2025/05/meyouus.html",
+     "title": "म, तिमी, हामी"
+    },
+    {
+     "path": "/2025/05/buddha.html",
+     "title": "बुद्ध वाज बर्न इन नेपाल।"
+    },
+    {
+     "path": "/2025/06/soil.html",
+     "title": "म प्रश्न सोध्ने माटो।"
+    }
+   ],
+   "about": "‘मानुषी: भुपीसँगका थाँती संवाद’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ५ मिनेट २३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/4zKtVdLuqs9FjIETZEozbR"
   },
   "/2025/06/caste.html": {
    "heading": "परम्पराको कारागार",
    "heading_alt": "The Prison of Tradition",
-   "title": "परम्पराको कारागार | जातीय विभेदविरुद्ध कविता चलचित्र · बासभ",
+   "title": "परम्पराको कारागार | कविता · बासभ",
    "caption": "मन्दिरको ढोकामा लेखिएको ‘प्रवेश निषेध’ र मौन ईश्वरमाथिको प्रश्न।",
-   "description": "जात ईश्वरले होइन, मान्छेले बनाएको हो भन्ने बासभको कविता ‘परम्पराको कारागार’ को चलचित्र। मन्दिरको ढोका, छुत-अछुत र परम्पराको नाममा बनेको कारागार। A Nepali poetry film by Basava against caste discrimination: gods stay silent while people write who may enter the temple.",
+   "description": "ऊ गलत जन्मिएको हो, ऊ पसिना भएर बाँच्छ, उसको नाम गलत, जात गलत, रगत गलत, छायाँ अपवित्र। आफूले बनाएको मुर्ती सजिएको मन्दिरको, ढोकामा परम्पराले लेखिदिएको छ - “अछुतलाई प्रवेश निषेध।” “ऋग्वेदका मन्त्रहरू जातको गन्धमा भिज्न थाले। कविता होइन, आदेश बनाइयो कसले पढ्न पाउने?” ““अछुतलाई प्रवेश निषेध।” मलाई थाहा छ - तिमी हलो समाउन्नौ, खेत जोत्नेलाई ‘हली’ भन्छौ, उसले फलाएको अन्न चाहिन्छ।” ““कसले बनायो जात?” \"हे मानव! किन अझै किन बाँधिन्छौ भित्रभित्रै  चिटिक्क, धर्मको रेसा बुनेर?”” पूरा लेख: https://www.kafka.blog/2025/06/caste.html — अरू पढ्नुहोस्: म थर नभएको आत्मा।; देश हराएको सपना; लव-कुशको नागरिकता।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "परम्पराको कारागार",
     "जातीय विभेद कविता",
@@ -57,14 +80,37 @@
    "durationIso": "PT4M19S",
    "uploadDate": "2026-11-26",
    "lang": "ne",
-   "type": "poem"
+   "type": "poem",
+   "kind": "poem",
+   "excerpt": "ऊ गलत जन्मिएको हो, ऊ पसिना भएर बाँच्छ, उसको नाम गलत, जात गलत, रगत गलत, छायाँ अपवित्र। आफूले बनाएको मुर्ती सजिएको मन्दिरको, ढोकामा परम्पराले लेखिदिएको छ - “अछुतलाई प्रवेश निषेध।”",
+   "quotes": [
+    "ऋग्वेदका मन्त्रहरू जातको गन्धमा भिज्न थाले। कविता होइन, आदेश बनाइयो कसले पढ्न पाउने?",
+    "“अछुतलाई प्रवेश निषेध।” मलाई थाहा छ - तिमी हलो समाउन्नौ, खेत जोत्नेलाई ‘हली’ भन्छौ, उसले फलाएको अन्न चाहिन्छ।",
+    "“कसले बनायो जात?” \"हे मानव! किन अझै किन बाँधिन्छौ भित्रभित्रै  चिटिक्क, धर्मको रेसा बुनेर?”"
+   ],
+   "related": [
+    {
+     "path": "/2025/06/nosurnames.html",
+     "title": "म थर नभएको आत्मा।"
+    },
+    {
+     "path": "/2025/06/nepal.html",
+     "title": "देश हराएको सपना"
+    },
+    {
+     "path": "/2025/07/labkush.html",
+     "title": "लव-कुशको नागरिकता।"
+    }
+   ],
+   "about": "‘परम्पराको कारागार’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट १९ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/3xMt5Px3GhJagcqL4YCiLl"
   },
   "/2025/09/chaupadi.html": {
    "heading": "छाउपडीको छायाँ",
    "heading_alt": "In the Shadow of Chhaupadi",
-   "title": "छाउपडीको छायाँ | कविता चलचित्र · बासभ",
+   "title": "छाउपडीको छायाँ | कविता · बासभ",
    "caption": "चार दिनको गोठ, पाँचौँ दिन फेरि देवी बन्नुपर्ने अभिनय।",
-   "description": "छाउपडी प्रथा, रजस्वलामा गरिने बहिष्कार र शुद्धताको ढोंगमाथि प्रश्न गर्ने बासभको कविता ‘छाउपडीको छायाँ’ को चलचित्र। A Nepali poetry film by Basava on Chhaupadi, the practice of banishing menstruating women to a shed, and the pretence of purity around it.",
+   "description": "मलाई थाहा छ - मेरो चार दिन सकिएपछि, आँगनको ढोकाले फेरि - मलाई भित्र बोलाउनेछ: फूलको थुँगाभित्र - शुद्धताको ढोंग छर्किनेछ। अनि मैले - देवी भएको अभिनय गर्नुपर्छ। “रुख छुनुहुँदैन -फूल सुक्छन् रे, पर सरेकी छेस - सबैबाट टाढै बसेस, छोए, छायाँ परे देवता रिसाउलान।”” “आमा भन्छिन् - “छोरी, यो वंशको रीत हो, यसलाई तोड्न मिल्दैन।”” “मेरो मौनताको बाँध फुट्यो भने के यी भित्ताहरू आफैं ढल्ने छन्?” पूरा लेख: https://www.kafka.blog/2025/09/chaupadi.html — अरू पढ्नुहोस्: नोस्टालजिया पसल; छायाँमा लुकेको उज्यालोको सत्य; वाद्यहरूको विरोध संगित। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "छाउपडीको छायाँ",
     "छाउपडी प्रथा",
@@ -85,14 +131,37 @@
    "durationIso": "PT4M2S",
    "uploadDate": "2026-11-26",
    "lang": "ne",
-   "type": "poem"
+   "type": "poem",
+   "kind": "poem",
+   "excerpt": "मलाई थाहा छ - मेरो चार दिन सकिएपछि, आँगनको ढोकाले फेरि - मलाई भित्र बोलाउनेछ: फूलको थुँगाभित्र - शुद्धताको ढोंग छर्किनेछ। अनि मैले - देवी भएको अभिनय गर्नुपर्छ।",
+   "quotes": [
+    "रुख छुनुहुँदैन -फूल सुक्छन् रे, पर सरेकी छेस - सबैबाट टाढै बसेस, छोए, छायाँ परे देवता रिसाउलान।”",
+    "आमा भन्छिन् - “छोरी, यो वंशको रीत हो, यसलाई तोड्न मिल्दैन।”",
+    "मेरो मौनताको बाँध फुट्यो भने के यी भित्ताहरू आफैं ढल्ने छन्?"
+   ],
+   "related": [
+    {
+     "path": "/2025/09/nostalgia.html",
+     "title": "नोस्टालजिया पसल"
+    },
+    {
+     "path": "/2025/10/shadow.html",
+     "title": "छायाँमा लुकेको उज्यालोको सत्य"
+    },
+    {
+     "path": "/2025/10/misicinnepal.html",
+     "title": "वाद्यहरूको विरोध संगित"
+    }
+   ],
+   "about": "‘छाउपडीको छायाँ’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट २ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/2aScQuzJOImjjp4g8fMAyq"
   },
   "/2025/11/coldsilence.html": {
    "heading": "मौनताको चिसो",
    "heading_alt": "The Cold of Silence",
-   "title": "मौनताको चिसो | कविता चलचित्र · बासभ",
+   "title": "मौनताको चिसो | कविता · बासभ",
    "caption": "‘पर्खूँ कि फर्कूँ?’ भन्ने प्रश्नमै बाँचेका नबोलिएका शब्द।",
-   "description": "शब्दहरूको छेउमा बसेर मौनको आकार नाप्ने बासभको प्रेम र पर्खाइको कविता ‘मौनताको चिसो’ को चलचित्र। A short Nepali poetry film by Basava about waiting, and the words that stay unsaid.",
+   "description": "तिमीले पढिरहेकीछ्यौ मेरो मौनता, ओल्टाइ- पल्टाइ, भित्तामा झुण्डाइएका प्रश्न जस्तै। के तिमीले सुनेकी छ्यौ मैले नबोल्दै पोखिएका शब्दहरू? तिमी सोध्छ्यौ- “पर्खूँ कि फर्कूँ?” म त त्यो प्रश्नमै बाँचिरहेछु न पर्खाइको समय… “म तिनको अर्थ खोज्दै, फेरि मौनकै साथमा फर्किएको भेटाउँछु।” “न पर्खाइको समय टुङ्गिन्छ, न फर्काइको बाटो खुल्छ।” “यो चिसो मौन; दूरी कुनै दूरी होइन, शब्दहरूको भीडबाट थाकेर बाँचेको स्वास-परिभाष हो।” पूरा लेख: https://www.kafka.blog/2025/11/coldsilence.html — अरू पढ्नुहोस्: घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको; फेरि, फेरि, फेरि; जुठी दमिनीको छायाँपारि। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "मौनताको चिसो",
     "प्रेम कविता",
@@ -113,14 +182,37 @@
    "durationIso": "PT2M28S",
    "uploadDate": "2026-11-26",
    "lang": "ne",
-   "type": "poem"
+   "type": "poem",
+   "kind": "poem",
+   "excerpt": "तिमीले पढिरहेकीछ्यौ मेरो मौनता, ओल्टाइ- पल्टाइ, भित्तामा झुण्डाइएका प्रश्न जस्तै। के तिमीले सुनेकी छ्यौ मैले नबोल्दै पोखिएका शब्दहरू? तिमी सोध्छ्यौ- “पर्खूँ कि फर्कूँ?” म त त्यो प्रश्नमै बाँचिरहेछु न पर्खाइको समय…",
+   "quotes": [
+    "म तिनको अर्थ खोज्दै, फेरि मौनकै साथमा फर्किएको भेटाउँछु।",
+    "न पर्खाइको समय टुङ्गिन्छ, न फर्काइको बाटो खुल्छ।",
+    "यो चिसो मौन; दूरी कुनै दूरी होइन, शब्दहरूको भीडबाट थाकेर बाँचेको स्वास-परिभाष हो।"
+   ],
+   "related": [
+    {
+     "path": "/2025/11/nepal-2.html",
+     "title": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको"
+    },
+    {
+     "path": "/2025/11/again.html",
+     "title": "फेरि, फेरि, फेरि"
+    },
+    {
+     "path": "/2025/12/juthi.html",
+     "title": "जुठी दमिनीको छायाँपारि"
+    }
+   ],
+   "about": "‘मौनताको चिसो’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट २८ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/2gliEbSUV8KRJTRaSsogmn"
   },
   "/2025/06/nosurnames.html": {
    "heading": "म थर नभएको आत्मा",
    "heading_alt": "I, a Soul Without a Surname",
-   "title": "म थर नभएको आत्मा | कविता चलचित्र · बासभ",
+   "title": "म थर नभएको आत्मा | कविता · बासभ",
    "caption": "जन्मँदा एउटै रगत, एउटै हाँसो; पछि आएको जात र थर।",
-   "description": "जात, थर र पितृसत्तात्मक पहिचानभन्दा पर एउटै मानव रगत खोज्ने बासभको कविता ‘म थर नभएको आत्मा’ को चलचित्र। A Nepali poetry film by Basava: born with one skin and one blood, then cut into castes and stuck with a surname.",
+   "description": "म थरबाट जन्मिएँ - तर थर कहिल्यै मेरो थिएन। त्यो बुवाको थर थियो, बुबाको पनि, हरेक बुबाहरूको इतिहासमा मातृकुल हराइरहेको प्रमाण। किनभने - म होइन, मेरो थर पो थियो यस देशको नागरिता। “धर्मले आदेश दियो – “तिमी तल्लो,” कसरी मानौँ आत्माको पनि थर हुन्छ?” “धारमा एउटै घाम पर्छ, शरीर एउटै रगतले भरिन्छ। तर जातको पर्खाल उचालेर हाम्रो हाँसोमा सिउरिइन्छ।” “अब बोल्ने पालो मेरो हो। म लेख्छु - पर्खालमाथि होइन, पर्खालभित्रका चिसा आत्माहरूका लागि।” पूरा लेख: https://www.kafka.blog/2025/06/nosurnames.html — अरू पढ्नुहोस्: परम्पराको कारागार; मानुषी: भुपीसँगका थाँती संवाद।; घनघोरका आँधिपुराणहरू।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "म थर नभएको आत्मा",
     "थर र जात",
@@ -141,14 +233,37 @@
    "durationIso": "PT5M29S",
    "uploadDate": "2026-11-26",
    "lang": "ne",
-   "type": "poem"
+   "type": "poem",
+   "kind": "poem",
+   "excerpt": "म थरबाट जन्मिएँ - तर थर कहिल्यै मेरो थिएन। त्यो बुवाको थर थियो, बुबाको पनि, हरेक बुबाहरूको इतिहासमा मातृकुल हराइरहेको प्रमाण। किनभने - म होइन, मेरो थर पो थियो यस देशको नागरिता।",
+   "quotes": [
+    "धर्मले आदेश दियो – “तिमी तल्लो,” कसरी मानौँ आत्माको पनि थर हुन्छ?",
+    "धारमा एउटै घाम पर्छ, शरीर एउटै रगतले भरिन्छ। तर जातको पर्खाल उचालेर हाम्रो हाँसोमा सिउरिइन्छ।",
+    "अब बोल्ने पालो मेरो हो। म लेख्छु - पर्खालमाथि होइन, पर्खालभित्रका चिसा आत्माहरूका लागि।"
+   ],
+   "related": [
+    {
+     "path": "/2025/06/caste.html",
+     "title": "परम्पराको कारागार"
+    },
+    {
+     "path": "/2025/05/manusi.html",
+     "title": "मानुषी: भुपीसँगका थाँती संवाद।"
+    },
+    {
+     "path": "/2025/04/storminside.html",
+     "title": "घनघोरका आँधिपुराणहरू।"
+    }
+   ],
+   "about": "‘म थर नभएको आत्मा’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ५ मिनेट २९ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/0tPwUMN2PbqKDw8Y8Onhfz"
   },
   "/2025/07/labkush.html": {
    "heading": "लव-कुशको नागरिकता",
    "heading_alt": "The Citizenship of Lav and Kush",
-   "title": "लव-कुशको नागरिकता | कविता चलचित्र · बासभ",
+   "title": "लव-कुशको नागरिकता | कविता · बासभ",
    "caption": "सीताको स्वरमा आमाको नामबाट नागरिकताको प्रश्न।",
-   "description": "जनकपुरकी छोरी सीताको स्वरमा आमाको नामबाट नागरिकता, अपनत्व र लैङ्गिक विभेदको प्रश्न उठाउने बासभको कविता ‘लव-कुशको नागरिकता’ को चलचित्र। A Nepali poetry film by Basava in Sita's voice, asking why a mother cannot pass citizenship to her sons.",
+   "description": "म सीता, म माटोकी छोरी, अझै वनवासी, अझै प्रश्नवाची। कहिले जनकपुर, कहिले अयोध्या, कहिले वनवास, कहिले ऋषिको कुटी; म कहिल्यै घरकी भइन। कसरी प्रमाणित गरूँ - म यही माटोकी छोरी? कसरी देखाउँ तिमीलाई - मेरो गर्भमा हुर्किएको पीडा? ““म पवित्र छु!” तिमीले त - शंकाको आगोमा जलेर मलाई जंगलवासी बन्न बाध्य पारेका थियौ।” “मेरो आँसुमा पवित्रता खोजिन्छ, मेरो देशमा मेरै छोराहरूलाई विदेशी लेखिन्छ?” “जन्म दिनुअघि थाहा हुँदैन - मातृत्व एकदिन अपराध हुनेछ।” पूरा लेख: https://www.kafka.blog/2025/07/labkush.html — अरू पढ्नुहोस्: छाउपडीको छायाँ; कोठाभित्रको मानचित्र; प्रिय म, (ऐनाभित्रको पत्र)। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "लव-कुशको नागरिकता",
     "आमाको नाममा नागरिकता",
@@ -169,14 +284,37 @@
    "durationIso": "PT3M51S",
    "uploadDate": "2026-11-26",
    "lang": "ne",
-   "type": "poem"
+   "type": "poem",
+   "kind": "poem",
+   "excerpt": "म सीता, म माटोकी छोरी, अझै वनवासी, अझै प्रश्नवाची। कहिले जनकपुर, कहिले अयोध्या, कहिले वनवास, कहिले ऋषिको कुटी; म कहिल्यै घरकी भइन। कसरी प्रमाणित गरूँ - म यही माटोकी छोरी? कसरी देखाउँ तिमीलाई - मेरो गर्भमा हुर्किएको पीडा?",
+   "quotes": [
+    "“म पवित्र छु!” तिमीले त - शंकाको आगोमा जलेर मलाई जंगलवासी बन्न बाध्य पारेका थियौ।",
+    "मेरो आँसुमा पवित्रता खोजिन्छ, मेरो देशमा मेरै छोराहरूलाई विदेशी लेखिन्छ?",
+    "जन्म दिनुअघि थाहा हुँदैन - मातृत्व एकदिन अपराध हुनेछ।"
+   ],
+   "related": [
+    {
+     "path": "/2025/09/chaupadi.html",
+     "title": "छाउपडीको छायाँ"
+    },
+    {
+     "path": "/2025/10/mapinroom.html",
+     "title": "कोठाभित्रको मानचित्र"
+    },
+    {
+     "path": "/2025/10/lettertome.html",
+     "title": "प्रिय म, (ऐनाभित्रको पत्र)"
+    }
+   ],
+   "about": "‘लव-कुशको नागरिकता’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ५१ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/1WV9fnd36O8J7HD1breFtK"
   },
   "/2026/06/marginalia.html": {
    "heading": "marginalia",
    "heading_alt": "मार्जिनालिया",
-   "title": "marginalia | Poetry Film by Basava (बासभ)",
+   "title": "marginalia | Poem · Basava",
    "caption": "The light goes out and the room fills with writers: Kafka first, then Woolf.",
-   "description": "A poetry film of 'marginalia' by Basava (बासभ). A poem about loving the letter more than the sending, and the borrowed voices of Kafka, Woolf and other dead writers that we underline in the margins.",
+   "description": "A poem about loving the letter more than the sending - and the letter that goes out everywhere but to you. ghosts in the room: five dead writers crowd the room. I underline all. “not one of them ends. tonight, I sit with this pen and a notebook, still too clean for confession, to write to her.” “I take notes. that is the whole of my courage: I underline.” “I mean it- every word. and then I give it to the wall.” Read the full article: https://www.kafka.blog/2026/06/marginalia.html — More on Kafkaintherun: The Long Way Back; echoes of faded love.; sunset hues, again with the blues.. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "marginalia poem",
     "Basava poetry film",
@@ -190,14 +328,37 @@
    "lang": "en",
    "type": "poem",
    "duration": 359,
-   "durationIso": "PT5M59S"
+   "durationIso": "PT5M59S",
+   "kind": "poem",
+   "excerpt": "A poem about loving the letter more than the sending - and the letter that goes out everywhere but to you. ghosts in the room: five dead writers crowd the room. I underline all.",
+   "quotes": [
+    "not one of them ends. tonight, I sit with this pen and a notebook, still too clean for confession, to write to her.",
+    "I take notes. that is the whole of my courage: I underline.",
+    "I mean it- every word. and then I give it to the wall."
+   ],
+   "related": [
+    {
+     "path": "/2026/06/the-long-way-back.html",
+     "title": "The Long Way Back"
+    },
+    {
+     "path": "/2025/05/echoes-of-faded-love.html",
+     "title": "echoes of faded love."
+    },
+    {
+     "path": "/2025/04/sunsets-again.html",
+     "title": "sunset hues, again with the blues."
+    }
+   ],
+   "about": "A video version of “marginalia”, a poem by Basava (बासभ). Running time: 5 min 59 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/4QeB9C6q55jWdAFewpPrY1"
   },
   "/2025/05/echoes-of-faded-love.html": {
    "heading": "echoes of faded love.",
    "heading_alt": "मेटिँदै गएको मायाका प्रतिध्वनि",
-   "title": "echoes of faded love. | Poetry Film by Basava (बासभ)",
+   "title": "echoes of faded love. | Poem · Basava",
    "caption": "Two ghosts of light crossing the same pale sky, and poems written against forgetting.",
-   "description": "A poetry film of 'echoes of faded love.' by Basava (बासभ). Two people who were never possessions of each other, two ghosts of light in the same sky, and poems written to keep a memory alive a little longer.",
+   "description": "stay, alive in my head a little longer. stay, so that I may go on writing poems against forgetting. stay, so, I may keep on living fighting for surviving. “on this strange blue planet, two mistakes in time that almost rhyme.” “now I carry the ghost of her not with blooming roses not in longing, no possession.” “and so, I walk, with a heavy heart, through room of thoughts with all her echo.” Read the full article: https://www.kafka.blog/2025/05/echoes-of-faded-love.html — More on Kafkaintherun: she is not here- but she is everywhere.; old house across the street..; note to self.. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "echoes of faded love",
     "love and memory poem",
@@ -210,14 +371,37 @@
    "lang": "en",
    "type": "poem",
    "duration": 262,
-   "durationIso": "PT4M22S"
+   "durationIso": "PT4M22S",
+   "kind": "poem",
+   "excerpt": "stay, alive in my head a little longer. stay, so that I may go on writing poems against forgetting. stay, so, I may keep on living fighting for surviving.",
+   "quotes": [
+    "on this strange blue planet, two mistakes in time that almost rhyme.",
+    "now I carry the ghost of her not with blooming roses not in longing, no possession.",
+    "and so, I walk, with a heavy heart, through room of thoughts with all her echo."
+   ],
+   "related": [
+    {
+     "path": "/2025/04/she-is-not-here-but-she-is-everywhere.html",
+     "title": "she is not here- but she is everywhere."
+    },
+    {
+     "path": "/2025/04/old-house-across-the-street.html",
+     "title": "old house across the street.."
+    },
+    {
+     "path": "/2025/04/note-to-self.html",
+     "title": "note to self."
+    }
+   ],
+   "about": "A video version of “echoes of faded love”, a poem by Basava (बासभ). Running time: 4 min 22 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/51htTCEzqxZ5Az4uQtex8g"
   },
   "/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html": {
    "heading": "भाइरस र क्यान्सर, भाग १: मानिसमा भेटिएको पहिलो अन्कोभाइरस",
    "heading_alt": "Viruses and Cancer, Part 1: The First Human Oncovirus",
-   "title": "भाइरस र क्यान्सर, भाग १ | नेपाली विज्ञान वृत्तचित्र · बासभ",
+   "title": "भाइरस र क्यान्सर, भाग १: मानिसमा भेटिएको पहिलो अन्कोभाइरस | विज्ञान · बासभ",
    "caption": "बार्किट लिम्फोमादेखि एपस्टिन-बार भाइरससम्म: भाइरसले पनि क्यान्सर गराउँछ भन्ने खोज।",
-   "description": "शरीरमा डेरा जमाएर बस्ने भाइरस र क्यान्सरबीचको सम्बन्धमाथि बासभको नेपाली विज्ञान वृत्तचित्रको पहिलो भाग: बार्किट लिम्फोमा, एपस्टिन-बार भाइरस (EBV) र मानिसमा भेटिएको पहिलो अन्कोभाइरसको खोज। A Nepali science documentary by Basava on how the first human cancer virus, Epstein-Barr virus, was found.",
+   "description": "हामी धेरैलाई लाग्छ, क्यान्सर चुरोट, रक्सी, खानामा मिसिएको विषादी वा वंशाणुगत रूपमा सरेका डीएनएका गल्तीहरूबाट हुने रोग हो। सुन्दा अचम्म लाग्न सक्छ, संसारका हरेक आठमध्ये करिब एक नयाँ क्यान्सरको पछाडि कुनै न कुनै संक्रमणको कारणले हुन्छ। “भाइरस शरीरमा हुनु र क्यान्सर हुनु एउटै कुरा होइन; टी–सेलले धेरैजसोलाई जोगाइरहेका हुन्छन्।” “यिनले गर्ने काम एउटै हुँदैन, तर यिनिहरु सक्रिय भए परिणामस्वरूप कोषको नियमन बिग्रिन्छ र क्यान्सर बन्न सक्छ।” “यस्ता भाइरसका लागि जति धेरै कोष, उति धेरै घर।” पूरा लेख: https://www.kafka.blog/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html — अरू पढ्नुहोस्: हाम्रो शरीरमा डेरा जमाएर बस्ने भाइरस र जोडिएका क्यान्सरको कथा (भाग २): क्यान्सरजन्य भाइरस हामी सबैमा हुन्छ तर, सबैलाई किन क्यान्सर लाग्दैन?; माईपोखरीको थकथके: काटिएको खुट्टा फेरि पलाउने जीव; एकान्तप्रेमी फट्याङ्ग्रा कसरी सलहको बथान बन्छ?। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "भाइरस र क्यान्सर",
     "अन्कोभाइरस",
@@ -243,14 +427,37 @@
    "durationIso": "PT5M0S",
    "uploadDate": "2026-11-26",
    "lang": "ne",
-   "type": "documentary"
+   "type": "documentary",
+   "kind": "science",
+   "excerpt": "हामी धेरैलाई लाग्छ, क्यान्सर चुरोट, रक्सी, खानामा मिसिएको विषादी वा वंशाणुगत रूपमा सरेका डीएनएका गल्तीहरूबाट हुने रोग हो। सुन्दा अचम्म लाग्न सक्छ, संसारका हरेक आठमध्ये करिब एक नयाँ क्यान्सरको पछाडि कुनै न कुनै संक्रमणको कारणले हुन्छ।",
+   "quotes": [
+    "भाइरस शरीरमा हुनु र क्यान्सर हुनु एउटै कुरा होइन; टी–सेलले धेरैजसोलाई जोगाइरहेका हुन्छन्।",
+    "यिनले गर्ने काम एउटै हुँदैन, तर यिनिहरु सक्रिय भए परिणामस्वरूप कोषको नियमन बिग्रिन्छ र क्यान्सर बन्न सक्छ।",
+    "यस्ता भाइरसका लागि जति धेरै कोष, उति धेरै घर।"
+   ],
+   "related": [
+    {
+     "path": "/2026/11/cancer-janya-virus-sabaima-bhag-2.html",
+     "title": "हाम्रो शरीरमा डेरा जमाएर बस्ने भाइरस र जोडिएका क्यान्सरको कथा (भाग २): क्यान्सरजन्य भाइरस हामी सबैमा हुन्छ तर, सबैलाई किन क्यान्सर लाग्दैन?"
+    },
+    {
+     "path": "/2026/11/thakthake-salamander-khutta-feri-palauchha.html",
+     "title": "माईपोखरीको थकथके: काटिएको खुट्टा फेरि पलाउने जीव"
+    },
+    {
+     "path": "/2026/11/phatyangra-salah-kasari-banchha.html",
+     "title": "एकान्तप्रेमी फट्याङ्ग्रा कसरी सलहको बथान बन्छ?"
+    }
+   ],
+   "about": "‘भाइरस र क्यान्सर, भाग १: मानिसमा भेटिएको पहिलो अन्कोभाइरस’ विज्ञानसम्बन्धी लेखको भिडियो संस्करण हो। भिडियोको अवधि ५ मिनेट। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/5UNps1gTnedr01BZK39Gyk"
   },
   "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html": {
    "heading": "Roman Britannia, Part I: The Work of Giants",
    "heading_alt": "रोमन ब्रिटानिया, भाग १: दैत्यहरूको काम",
-   "title": "Roman Britannia, Part I: The Work of Giants | History Documentary by Basava (बासभ)",
+   "title": "Roman Britannia, Part I: The Work of Giants | History · Basava",
    "caption": "From Stonehenge and painted Britons to Caesar's landings and Caligula's war on the sea.",
-   "description": "Part I of Roman Britannia, a history documentary by Basava (बासभ): Neolithic Stonehenge, Iron Age Britons and Druids, Julius Caesar's two landings in 55 and 54 BCE, and Caligula's legions gathering seashells. How Rome first reached for Britain.",
+   "description": "How an island of stone circles and blue-painted warriors first felt the Roman Eagle. If you have ever watched the television series Vikings, you may remember a quiet scene in which the monk Athelstan and King Ecbert of Wessex stand together in the shadow of… “The Iron Age Britons, guided by their Druids, went to war with lime-washed hair, gold torcs and bodies stained blue with woad.” “These ancient Britons were a hardy, tribal people who outlasted the island’s brutal winters in timber-and-mud roundhouses.” “By every ancient account, the man who climbed out of that sickbed was not the one who had climbed in.” Read the full article: https://www.kafka.blog/2026/11/story-of-roman-britannia-part-1-work-of-giants.html — More on Kafkaintherun: Roman Britannia, Part II: The Birth of Roman Britannia; Roman Britannia, Part IV: The Long Goodbye; Roman Britannia, Part III: The Wall and the Warlords. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "Roman Britannia documentary",
     "The Work of Giants",
@@ -277,14 +484,37 @@
    "durationIso": "PT5M33S",
    "uploadDate": "2026-11-26",
    "lang": "en",
-   "type": "documentary"
+   "type": "documentary",
+   "kind": "history",
+   "excerpt": "How an island of stone circles and blue-painted warriors first felt the Roman Eagle. If you have ever watched the television series Vikings, you may remember a quiet scene in which the monk Athelstan and King Ecbert of Wessex stand together in the shadow of…",
+   "quotes": [
+    "The Iron Age Britons, guided by their Druids, went to war with lime-washed hair, gold torcs and bodies stained blue with woad.",
+    "These ancient Britons were a hardy, tribal people who outlasted the island’s brutal winters in timber-and-mud roundhouses.",
+    "By every ancient account, the man who climbed out of that sickbed was not the one who had climbed in."
+   ],
+   "related": [
+    {
+     "path": "/2026/11/the-story-of-roman-britannia-part-ii.html",
+     "title": "Roman Britannia, Part II: The Birth of Roman Britannia"
+    },
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html",
+     "title": "Roman Britannia, Part IV: The Long Goodbye"
+    },
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html",
+     "title": "Roman Britannia, Part III: The Wall and the Warlords"
+    }
+   ],
+   "about": "A video version of “Roman Britannia, Part I: The Work of Giants”, a history article by Basava (बासभ). Running time: 5 min 33 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/5TwrfVFY5Wk6v9MpDOBips"
   },
   "/2026/11/the-story-of-roman-britannia-part-ii.html": {
    "heading": "Roman Britannia, Part II: The Birth of Roman Britannia",
    "heading_alt": "रोमन ब्रिटानिया, भाग २: रोमन ब्रिटानियाको जन्म",
-   "title": "Roman Britannia, Part II: The Birth of Roman Britannia | History Documentary by Basava (बासभ)",
+   "title": "Roman Britannia, Part II: The Birth of Roman Britannia | History · Basava",
    "caption": "Claudius invades in 43 CE with an elephant; Londinium rises; Boudica burns it.",
-   "description": "Part II of Roman Britannia, a history documentary by Basava (बासभ): Emperor Claudius's invasion in 43 CE with four legions and a war elephant, the founding of Londinium, and Queen Boudica's Iceni revolt that burned it.",
+   "description": "How a stuttering scholar-emperor finished what Caesar couldn’t- and what happened to an island that refused to stay conquered. Hannibal Barca crossing the Alps with his war elephants, 218 BCE- the terror Rome never forgot. “Rome, completely unprepared for an enemy already inside Italy, scrambled to respond.” “The decision was quietly made to settle on a boundary- and south of that boundary, to build.” “Boudica united the tribes- the Iceni, the Trinovantes, and others nursing their own grievances- and turned them into an army.” Read the full article: https://www.kafka.blog/2026/11/the-story-of-roman-britannia-part-ii.html — More on Kafkaintherun: Roman Britannia, Part I: The Work of Giants; Roman Britannia, Part IV: The Long Goodbye; Roman Britannia, Part III: The Wall and the Warlords. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "Roman conquest of Britain",
     "Claudius 43 CE",
@@ -309,14 +539,37 @@
    "durationIso": "PT5M33S",
    "uploadDate": "2026-11-26",
    "lang": "en",
-   "type": "documentary"
+   "type": "documentary",
+   "kind": "history",
+   "excerpt": "How a stuttering scholar-emperor finished what Caesar couldn’t- and what happened to an island that refused to stay conquered. Hannibal Barca crossing the Alps with his war elephants, 218 BCE- the terror Rome never forgot.",
+   "quotes": [
+    "Rome, completely unprepared for an enemy already inside Italy, scrambled to respond.",
+    "The decision was quietly made to settle on a boundary- and south of that boundary, to build.",
+    "Boudica united the tribes- the Iceni, the Trinovantes, and others nursing their own grievances- and turned them into an army."
+   ],
+   "related": [
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html",
+     "title": "Roman Britannia, Part I: The Work of Giants"
+    },
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html",
+     "title": "Roman Britannia, Part IV: The Long Goodbye"
+    },
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html",
+     "title": "Roman Britannia, Part III: The Wall and the Warlords"
+    }
+   ],
+   "about": "A video version of “Roman Britannia, Part II: The Birth of Roman Britannia”, a history article by Basava (बासभ). Running time: 5 min 33 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/6gtte1DWJwPPGvlpVPoNp9"
   },
   "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html": {
    "heading": "Roman Britannia, Part III: The Wall and the Warlords",
    "heading_alt": "रोमन ब्रिटानिया, भाग ३: पर्खाल र युद्धप्रमुखहरू",
-   "title": "Roman Britannia, Part III: The Wall and the Warlords | History Documentary by Basava (बासभ)",
+   "title": "Roman Britannia, Part III: The Wall and the Warlords | History · Basava",
    "caption": "Hadrian's Wall, the Vindolanda letters, and governors who reached for Rome's throne.",
-   "description": "Part III of Roman Britannia, a history documentary by Basava (बासभ): Agricola's campaigns, Hadrian's Wall as a 73-mile frontier of forts and checkpoints, the Vindolanda tablets, Clodius Albinus, and Constantine proclaimed emperor at York.",
+   "description": "Hadrian’s Wall and the Governors Who Wanted to Be Emperor: How Rome solved the problem of Britain- and created a far more dangerous one in doing so. “He legalized Christianity, moved the empire's capital to Constantinople, and reshaped Western civilization for the next seventeen centuries.” “Further south still, a second earthwork barrier called the Vallum marked the limit of the military zone.” “Forts along Hadrian’s Wall were abandoned, and the entire permanent garrison of Britain was ferried to Gaul.” Read the full article: https://www.kafka.blog/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html — More on Kafkaintherun: Roman Britannia, Part II: The Birth of Roman Britannia; Roman Britannia, Part I: The Work of Giants; Roman Britannia, Part IV: The Long Goodbye. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "Hadrian's Wall documentary",
     "Vindolanda tablets",
@@ -341,14 +594,37 @@
    "durationIso": "PT5M33S",
    "uploadDate": "2026-11-26",
    "lang": "en",
-   "type": "documentary"
+   "type": "documentary",
+   "kind": "history",
+   "excerpt": "Hadrian’s Wall and the Governors Who Wanted to Be Emperor: How Rome solved the problem of Britain- and created a far more dangerous one in doing so.",
+   "quotes": [
+    "He legalized Christianity, moved the empire's capital to Constantinople, and reshaped Western civilization for the next seventeen centuries.",
+    "Further south still, a second earthwork barrier called the Vallum marked the limit of the military zone.",
+    "Forts along Hadrian’s Wall were abandoned, and the entire permanent garrison of Britain was ferried to Gaul."
+   ],
+   "related": [
+    {
+     "path": "/2026/11/the-story-of-roman-britannia-part-ii.html",
+     "title": "Roman Britannia, Part II: The Birth of Roman Britannia"
+    },
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html",
+     "title": "Roman Britannia, Part I: The Work of Giants"
+    },
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html",
+     "title": "Roman Britannia, Part IV: The Long Goodbye"
+    }
+   ],
+   "about": "A video version of “Roman Britannia, Part III: The Wall and the Warlords”, a history article by Basava (बासभ). Running time: 5 min 33 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/5jcN5Liu1R66zYmMeS9Rwk"
   },
   "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html": {
    "heading": "Roman Britannia, Part IV: The Long Goodbye",
    "heading_alt": "रोमन ब्रिटानिया, भाग ४: लामो बिदाइ",
-   "title": "Roman Britannia, Part IV: The Long Goodbye | History Documentary by Basava (बासभ)",
+   "title": "Roman Britannia, Part IV: The Long Goodbye | History · Basava",
    "caption": "Usurpers drain the legions; in 410 CE a letter tells Britain to defend itself.",
-   "description": "Part IV of Roman Britannia, a history documentary by Basava (बासभ): the usurpers Carausius, Magnus Maximus and Constantine III, the Rescript of Honorius in 410 CE, and the Old English poem 'The Ruin' looking at Roman Bath.",
+   "description": "How Rome left Britain, and what it left behind- The End of Roman Britannia and the work of the giants. In 410 CE, an emperor hiding in Ravenna sent a letter to Britain's cities with a simple message: look to your own defense. “An ordinary soldier, nobody famous, nobody distinguished, no military record that survives in any source.” “Worse still, in the eyes of the traditional army, was what Gratian surrounded himself with.” “The roads kept working because roads keep working; they require no maintenance to remain usable for decades.” Read the full article: https://www.kafka.blog/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html — More on Kafkaintherun: Roman Britannia, Part II: The Birth of Roman Britannia; Roman Britannia, Part III: The Wall and the Warlords; Roman Britannia, Part I: The Work of Giants. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "end of Roman Britain",
     "Rescript of Honorius 410",
@@ -373,7 +649,30 @@
    "durationIso": "PT5M33S",
    "uploadDate": "2026-11-26",
    "lang": "en",
-   "type": "documentary"
+   "type": "documentary",
+   "kind": "history",
+   "excerpt": "How Rome left Britain, and what it left behind- The End of Roman Britannia and the work of the giants. In 410 CE, an emperor hiding in Ravenna sent a letter to Britain's cities with a simple message: look to your own defense.",
+   "quotes": [
+    "An ordinary soldier, nobody famous, nobody distinguished, no military record that survives in any source.",
+    "Worse still, in the eyes of the traditional army, was what Gratian surrounded himself with.",
+    "The roads kept working because roads keep working; they require no maintenance to remain usable for decades."
+   ],
+   "related": [
+    {
+     "path": "/2026/11/the-story-of-roman-britannia-part-ii.html",
+     "title": "Roman Britannia, Part II: The Birth of Roman Britannia"
+    },
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html",
+     "title": "Roman Britannia, Part III: The Wall and the Warlords"
+    },
+    {
+     "path": "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html",
+     "title": "Roman Britannia, Part I: The Work of Giants"
+    }
+   ],
+   "about": "A video version of “Roman Britannia, Part IV: The Long Goodbye”, a history article by Basava (बासभ). Running time: 5 min 33 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/2oMOPUsTHYFjvYfLZgkhBD"
   },
   "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html": {
    "slug": "eel",
@@ -386,9 +685,9 @@
    "uploadDate": "2026-11-27",
    "heading": "The Mysterious Life of the Eel: Guests of the River, Children of the Sea",
    "heading_alt": "बाम माछाको रहस्यमय जीवन",
-   "title": "The Mysterious Life of the Eel | Science Documentary · Basava",
+   "title": "The Mysterious Life of the Eel: Guests of the River, Children of the Sea | Science · Basava",
    "caption": "The eel in a Nepali paddy field was born in the ocean, and one day it will swim back there to spawn and die.",
-   "description": "A short science documentary by Basava on the eel's hidden life cycle: why Aristotle thought eels came from mud, how a young Sigmund Freud dissected some 400 eels in Trieste looking for their sex organs, how Johannes Schmidt traced Atlantic eels to the Sargasso Sea, and how Nepal's Anguilla bengalensis travels from Himalayan streams down the Ganga and Brahmaputra, through the Sundarbans, to the Bay of Bengal and the Indian Ocean.",
+   "description": "That eel in a muddy monsoon field was born in the Indian Ocean, and it’s going back there to die. No one has ever seen where. The eel that suddenly appears in muddy monsoon fields is not native to the region. “To put it more plainly, even today no one knows exactly how eels reproduce in the sea.” “Burning the fat, it has stored all its life, it sets out on this one-way journey.” “There was only one place where the smallest, newly hatched larvae were found: the middle of the Sargasso Sea.” Read the full article: https://www.kafka.blog/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html — More on Kafkaintherun: The Viruses That Settle in Our Bodies, Part 2: Cancer-Causing Viruses Live in Almost All of Us. Why Doesn’t Everyone Get Cancer?; The Viruses That Settle in Our Bodies and the Cancers Linked to Them, Part 1: Viruses, Cancer and the First Human Oncovirus; Smallpox in Nepal, Part II: Shitala Maju, the Smallpox Calendar, and the Vaccine That Took 159 Years to Reach the People. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "eel life cycle",
     "mysterious life of the eel",
@@ -402,7 +701,30 @@
     "science documentary",
     "Basava"
    ],
-   "alt": "Title card of ‘The Mysterious Life of the Eel’: an eel drawn swimming from pale river water into a deep blue ocean."
+   "alt": "Title card of ‘The Mysterious Life of the Eel’: an eel drawn swimming from pale river water into a deep blue ocean.",
+   "kind": "science",
+   "excerpt": "That eel in a muddy monsoon field was born in the Indian Ocean, and it’s going back there to die. No one has ever seen where. The eel that suddenly appears in muddy monsoon fields is not native to the region.",
+   "quotes": [
+    "To put it more plainly, even today no one knows exactly how eels reproduce in the sea.",
+    "Burning the fat, it has stored all its life, it sets out on this one-way journey.",
+    "There was only one place where the smallest, newly hatched larvae were found: the middle of the Sargasso Sea."
+   ],
+   "related": [
+    {
+     "path": "/2026/11/viruses-that-live-in-us-and-cancer-part-2.html",
+     "title": "The Viruses That Settle in Our Bodies, Part 2: Cancer-Causing Viruses Live in Almost All of Us. Why Doesn’t Everyone Get Cancer?"
+    },
+    {
+     "path": "/2026/11/viruses-that-live-in-us-and-cancer-part-1.html",
+     "title": "The Viruses That Settle in Our Bodies and the Cancers Linked to Them, Part 1: Viruses, Cancer and the First Human Oncovirus"
+    },
+    {
+     "path": "/2026/11/smallpox-in-nepal-part-2-vaccine-159-years.html",
+     "title": "Smallpox in Nepal, Part II: Shitala Maju, the Smallpox Calendar, and the Vaccine That Took 159 Years to Reach the People"
+    }
+   ],
+   "about": "A video version of “The Mysterious Life of the Eel: Guests of the River, Children of the Sea”, a science article by Basava (बासभ). Running time: 2 min 37 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/0m14fcJg3OSR6e0dUnb5oi"
   },
   "/2026/11/cancer-janya-virus-sabaima-bhag-2.html": {
    "slug": "virus-cancer-2",
@@ -415,9 +737,9 @@
    "uploadDate": "2026-11-27",
    "heading": "भाइरस र क्यान्सर, भाग २: भाइरस धेरैलाई, क्यान्सर थोरैलाई",
    "heading_alt": "Viruses and Cancer, Part 2: Cancer Viruses Live in Almost All of Us",
-   "title": "भाइरस र क्यान्सर, भाग २ | नेपाली विज्ञान वृत्तचित्र · बासभ",
+   "title": "भाइरस र क्यान्सर, भाग २: भाइरस धेरैलाई, क्यान्सर थोरैलाई | विज्ञान · बासभ",
    "caption": "क्यान्सरजन्य भाइरस हामी सबैमा हुन्छ, तर सबैलाई किन क्यान्सर लाग्दैन?",
-   "description": "शरीरमा डेरा जमाएर बस्ने भाइरस र क्यान्सरबीचको सम्बन्धमाथि बासभको नेपाली विज्ञान वृत्तचित्रको दोस्रो भाग: दस जनामध्ये करिब नौ जनामा एपस्टिन-बार भाइरस (EBV) हुँदा पनि थोरैलाई मात्र क्यान्सर किन लाग्छ, औलो धेरै लाग्ने ठाउँमा बार्किट लिम्फोमा, अङ्ग प्रत्यारोपण र प्रतिरक्षा, लुकेर बस्ने भाइरस, एचपीभी र हेपाटाइटिस बी विरुद्धका खोप, र कोभिडपछिको अध्ययन। Part 2 of Basava's Nepali science documentary: why cancer-causing viruses live in almost all of us, yet only a few people get cancer.",
+   "description": "कुखुरामा भाइरसले क्यान्सर गराउँछ भनेर हामीले थाह पाएको करिब ५० वर्षपछी भाइरसले मान्छेमा पनि क्यान्सर गराउँछ भनेर पहिलोपटक देखिएको थियो। सन् १९५० को दशकमा युगान्डामा काम गरिरेका एक चिकित्सकले बंगारा सुन्निने अनौठो क्यान्सर देखे। “भाइरस र पहरेदारबीचको यो सन्तुलन दशकौँसम्म चलिरहन्छ, र हामीलाई थाहै हुँदैन।” “भाइरस होस् वा गल्ती, क्यान्सरले सधैँ शरिका शिपाइहरू कमजोर भएको मौका कुरिरहेको हुन्छ।” “यसरी ईबीभी, केएसएचभी, एचपीभी, हेपाटाइटिस बी, हेपाटाइटिस सी, एचटीएलभी–१ र मर्केल सेल पोलियोमाभाइरस गरी अहिलेसम्म हामीले थाहा पाएका सात अङ्कोभाइरस छन्।” पूरा लेख: https://www.kafka.blog/2026/11/cancer-janya-virus-sabaima-bhag-2.html — अरू पढ्नुहोस्: हाम्रो शरीरमा डेरा जमाएर बस्ने भाइरस र जोडिएका क्यान्सरको कथा (भाग १): भाइरस, क्यान्सर र मानिसमा भेटिएको पहिलो अन्कोभाइरस; नोबेल पुरस्कारमा नअटाएको चौथो कुर्सी: परिश्रम शोधकर्ताको, पदक प्रयोगशालाका प्रमुखलाई; मामाचेला फुपूचेला बिहेका स्वास्थ्य समस्या। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "भाइरस र क्यान्सर भाग २",
     "क्यान्सरजन्य भाइरस",
@@ -436,13 +758,36 @@
     "name": "भाइरस र क्यान्सर",
     "part": 2,
     "of": 2
-   }
+   },
+   "kind": "science",
+   "excerpt": "कुखुरामा भाइरसले क्यान्सर गराउँछ भनेर हामीले थाह पाएको करिब ५० वर्षपछी भाइरसले मान्छेमा पनि क्यान्सर गराउँछ भनेर पहिलोपटक देखिएको थियो। सन् १९५० को दशकमा युगान्डामा काम गरिरेका एक चिकित्सकले बंगारा सुन्निने अनौठो क्यान्सर देखे।",
+   "quotes": [
+    "भाइरस र पहरेदारबीचको यो सन्तुलन दशकौँसम्म चलिरहन्छ, र हामीलाई थाहै हुँदैन।",
+    "भाइरस होस् वा गल्ती, क्यान्सरले सधैँ शरिका शिपाइहरू कमजोर भएको मौका कुरिरहेको हुन्छ।",
+    "यसरी ईबीभी, केएसएचभी, एचपीभी, हेपाटाइटिस बी, हेपाटाइटिस सी, एचटीएलभी–१ र मर्केल सेल पोलियोमाभाइरस गरी अहिलेसम्म हामीले थाहा पाएका सात अङ्कोभाइरस छन्।"
+   ],
+   "related": [
+    {
+     "path": "/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html",
+     "title": "हाम्रो शरीरमा डेरा जमाएर बस्ने भाइरस र जोडिएका क्यान्सरको कथा (भाग १): भाइरस, क्यान्सर र मानिसमा भेटिएको पहिलो अन्कोभाइरस"
+    },
+    {
+     "path": "/2026/11/nobel-chautho-kursi.html",
+     "title": "नोबेल पुरस्कारमा नअटाएको चौथो कुर्सी: परिश्रम शोधकर्ताको, पदक प्रयोगशालाका प्रमुखलाई"
+    },
+    {
+     "path": "/2026/10/mamachela-phupuchela-bihe-genetic-rog.html",
+     "title": "मामाचेला फुपूचेला बिहेका स्वास्थ्य समस्या"
+    }
+   ],
+   "about": "‘भाइरस र क्यान्सर, भाग २: भाइरस धेरैलाई, क्यान्सर थोरैलाई’ विज्ञानसम्बन्धी लेखको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ४१ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/4IDwtMgxlOC2J7MUfGeL3W"
   },
   "/2025/12/juthi.html": {
    "heading": "जुठी दमिनीको छायाँपारि",
-   "title": "जुठी दमिनीको छायाँपारि | छुवाछुत र जातीय विभेदमाथिको कविता चलचित्र · बासभ",
+   "title": "जुठी दमिनीको छायाँपारि | कविता · बासभ",
    "caption": "गाउँको अन्तिम भित्तामा एउटा घडी अड्किएको छ - भित्र समय छैन, डरको ताल मात्र।",
-   "description": "गाउँको अन्तिम भित्तामा टाँसिएकी जुठी दमिनी, जसको देह काम लाग्ने तर छुन नहुने, उसमाथि लेखिएको बासभको कविताको चलचित्र। A Nepali poetry film by Basava about Juthi Damini, a village woman whose body is useful but untouchable; she sews herself, not torn cloth.",
+   "description": "गाउँको अन्तिम भित्तामा समय छैन- डरको ताल मात्र। उसको देह काम लाग्ने, तर छुन नहुने। उसले सिउँछे फाटेको लुगा होइन, आफूलाई। उज्यालो अब उत्तर होइन अवस्था हो। “बाटो धूलोले मात्र ढाकिएको छैन। पुराना विधानका अदृश्य चिहानहरु खुट्टामुनि सास फेर्छन्।” “दुख्छ। र दुखाइले उसलाई सम्झाउँछ - आवाज शब्द होइन, भूगोलले थिचिएको सास हो।” “उसले बुझ्छे - देह कुनै मन्त्रबाट बनेको होइन, फाटो नामले होइन सासले बाँधिन्छ।” पूरा लेख: https://www.kafka.blog/2025/12/juthi.html — अरू पढ्नुहोस्: अब रमिता छ; पृथ्वीनारायणसँगको जम्काभेट; कांग्रेस: विरासतको विज्ञापन। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "जुठी दमिनीको छायाँपारि",
     "जुठी दमिनी",
@@ -458,13 +803,36 @@
    "lang": "ne",
    "duration": 263,
    "durationIso": "PT4M23S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "गाउँको अन्तिम भित्तामा समय छैन- डरको ताल मात्र। उसको देह काम लाग्ने, तर छुन नहुने। उसले सिउँछे फाटेको लुगा होइन, आफूलाई। उज्यालो अब उत्तर होइन अवस्था हो।",
+   "quotes": [
+    "बाटो धूलोले मात्र ढाकिएको छैन। पुराना विधानका अदृश्य चिहानहरु खुट्टामुनि सास फेर्छन्।",
+    "दुख्छ। र दुखाइले उसलाई सम्झाउँछ - आवाज शब्द होइन, भूगोलले थिचिएको सास हो।",
+    "उसले बुझ्छे - देह कुनै मन्त्रबाट बनेको होइन, फाटो नामले होइन सासले बाँधिन्छ।"
+   ],
+   "related": [
+    {
+     "path": "/2026/01/ramita.html",
+     "title": "अब रमिता छ"
+    },
+    {
+     "path": "/2026/01/prithivi.html",
+     "title": "पृथ्वीनारायणसँगको जम्काभेट"
+    },
+    {
+     "path": "/2026/01/congress.html",
+     "title": "कांग्रेस: विरासतको विज्ञापन"
+    }
+   ],
+   "about": "‘जुठी दमिनीको छायाँपारि’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट २३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/4jFNnhZ05KOyvZjWaK41i4"
   },
   "/2024/10/aaja-mero-janmadin.html": {
    "heading": "आज मेरो जन्मदिन",
-   "title": "आज मेरो जन्मदिन | जन्मदिनको कविता चलचित्र · बासभ",
+   "title": "आज मेरो जन्मदिन | कविता · बासभ",
    "caption": "आज, २०८१ साल असोज २३ गते, फेरि अर्को शिशिर-वसन्तको यात्रा सुरु गर्ने दिन।",
-   "description": "पुरेत बाजेको षष्ठीको दिन, दशैँ मनाउनेहरूको पूर्वसन्ध्या र नमनाउनेहरूको बिदा, तर आफ्नो लागि अर्को यात्राको सुरुवात, भन्ने जन्मदिनको कविताको चलचित्र। A Nepali poetry film written on the poet's birthday, 23 Asoj 2081: the same day is a priest's sixth day, the eve of Dashain for some and a plain holiday for others, and for him the start of another journey.",
+   "description": "आज, २०८१ साल असोज २३ गते, पुरेत बाजेको निम्ति षष्टीको दिन, दशैँ मनाउनेहरूको निम्ति दशैँ सुरु हुन अघिको दिन, दशैँ नमनाउनेहरुको निम्ति बिदा सुरु हुने दिन, मेरो निम्ति, फेरी अर्को शिशिर-वसन्तको यात्रा सुरु गर्ने दिन,… “अड्किरहेको, अनकन्टारको जंगलमा, अल्झिरेहेको बन्धनमा, निरन्तर अघि बढिरहेको, शिखर छुने सोच, हुनु-नहुनुको आभाषमा, केही बन्ने प्रयास।” “केही गुमाए जस्तो, केही हराए जस्तो, संसार जित्ने प्रतिस्पर्धामा भाग नै नलिइ हारेर, अनवरत चलिरहेको पाहडी मन: अस्तित्व यात्रा।” “खुल्चेको मनलाई सुल्झ्याउने उल्झान: आत्मआलोचना को कविता, बस यही हो मेरो जन्मदिनको सेलेब्रेसन।” पूरा लेख: https://www.kafka.blog/2024/10/aaja-mero-janmadin.html — अरू पढ्नुहोस्: ऊ-ध्रुव, म-परिक्रमा; सपनाका यथार्थहरू।; धुवाँमा चलेको सहर। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "आज मेरो जन्मदिन",
     "जन्मदिन कविता",
@@ -480,13 +848,35 @@
    "lang": "ne",
    "duration": 217,
    "durationIso": "PT3M37S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "आज, २०८१ साल असोज २३ गते, पुरेत बाजेको निम्ति षष्टीको दिन, दशैँ मनाउनेहरूको निम्ति दशैँ सुरु हुन अघिको दिन, दशैँ नमनाउनेहरुको निम्ति बिदा सुरु हुने दिन, मेरो निम्ति, फेरी अर्को शिशिर-वसन्तको यात्रा सुरु गर्ने दिन,…",
+   "quotes": [
+    "अड्किरहेको, अनकन्टारको जंगलमा, अल्झिरेहेको बन्धनमा, निरन्तर अघि बढिरहेको, शिखर छुने सोच, हुनु-नहुनुको आभाषमा, केही बन्ने प्रयास।",
+    "केही गुमाए जस्तो, केही हराए जस्तो, संसार जित्ने प्रतिस्पर्धामा भाग नै नलिइ हारेर, अनवरत चलिरहेको पाहडी मन: अस्तित्व यात्रा।",
+    "खुल्चेको मनलाई सुल्झ्याउने उल्झान: आत्मआलोचना को कविता, बस यही हो मेरो जन्मदिनको सेलेब्रेसन।"
+   ],
+   "related": [
+    {
+     "path": "/2025/03/u-dhruva-ma-parikrama.html",
+     "title": "ऊ-ध्रुव, म-परिक्रमा"
+    },
+    {
+     "path": "/2025/03/realityofdreams.html",
+     "title": "सपनाका यथार्थहरू।"
+    },
+    {
+     "path": "/2025/03/dhuwanma-chaleko-sahar.html",
+     "title": "धुवाँमा चलेको सहर"
+    }
+   ],
+   "about": "‘आज मेरो जन्मदिन’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ३७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/11/again.html": {
    "heading": "फेरि, फेरि, फेरि",
-   "title": "फेरि, फेरि, फेरि | उज्यालो र अँध्यारोबीचको कविता चलचित्र · बासभ",
+   "title": "फेरि, फेरि, फेरि | कविता · बासभ",
    "caption": "हामी पूरै छैनौँ, पूरै हुनुपर्ने कुरा पनि छैन।",
-   "description": "उज्यालोबाट अँध्यारोतिर र अँध्यारोबाट उज्यालोतिर फेरि, फेरि, फेरि हिँडिरहने हामीबारे, र कहिल्यै ठोस नहुने वास्तविकताबारे कविताको चलचित्र। A Nepali poetry film about walking from light into dark and back again, over and over, in a reality that never turns solid.",
+   "description": "हामी हिँडिरहन्छौँ- उज्यालोबाट अँध्यारोतिर, अँध्यारोबाट उज्यालोतिर। तर वास्तविकता कहिल्यै ठोस हुँदैन। रातभरि आफ्नै मनको तरल रूप बुझ्ने प्रयास मात्र हो, फेरि, फेरि, फेरि। बिहानीको घाम आँगनमा आइपुग्दा, अझै नखुलेको… “छायाँहरू भित्तामा मात्र छैनन् हड्डीभित्र एक किसिमको निरन्तर थकान बनेर बस्छन्।” “रात कहिलेकाहीँ हल्लिन्छ, जसरी सास फेर्दा छातीभित्र एक पुरानो पुस्तक आफैँ पल्टिन्छ।” “नरम, तर भयानक सानो एउटा मृत्यु, जसलाई कसैले देख्दैन, तर फोक्सोभित्र अचानक नयाँ कोठा खुल्छ।” पूरा लेख: https://www.kafka.blog/2025/11/again.html — अरू पढ्नुहोस्: मौनताको चिसो; कामरेडसँगको पुनर्मिलन; सहरभित्रको अलिकति आश। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "फेरि, फेरि, फेरि",
     "फेरि फेरि फेरि",
@@ -501,13 +891,36 @@
    "lang": "ne",
    "duration": 267,
    "durationIso": "PT4M27S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "हामी हिँडिरहन्छौँ- उज्यालोबाट अँध्यारोतिर, अँध्यारोबाट उज्यालोतिर। तर वास्तविकता कहिल्यै ठोस हुँदैन। रातभरि आफ्नै मनको तरल रूप बुझ्ने प्रयास मात्र हो, फेरि, फेरि, फेरि। बिहानीको घाम आँगनमा आइपुग्दा, अझै नखुलेको…",
+   "quotes": [
+    "छायाँहरू भित्तामा मात्र छैनन् हड्डीभित्र एक किसिमको निरन्तर थकान बनेर बस्छन्।",
+    "रात कहिलेकाहीँ हल्लिन्छ, जसरी सास फेर्दा छातीभित्र एक पुरानो पुस्तक आफैँ पल्टिन्छ।",
+    "नरम, तर भयानक सानो एउटा मृत्यु, जसलाई कसैले देख्दैन, तर फोक्सोभित्र अचानक नयाँ कोठा खुल्छ।"
+   ],
+   "related": [
+    {
+     "path": "/2025/11/coldsilence.html",
+     "title": "मौनताको चिसो"
+    },
+    {
+     "path": "/2026/01/comrade.html",
+     "title": "कामरेडसँगको पुनर्मिलन"
+    },
+    {
+     "path": "/2026/01/city.html",
+     "title": "सहरभित्रको अलिकति आश"
+    }
+   ],
+   "about": "‘फेरि, फेरि, फेरि’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट २७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/0QYhDjYSv1LqkumNd0il7M"
   },
   "/2025/03/bhavsunya.html": {
    "heading": "भावसुन्य",
-   "title": "भावसुन्य | राजनीतिक थकानको कविता चलचित्र · बासभ",
+   "title": "भावसुन्य | कविता · बासभ",
    "caption": "जो आए पनि, जसरी आए पनि, परिणाम उही।",
-   "description": "फेरि राजाकै कुरा, फेरि अनुहारकै बहस, तर जो आए पनि देशको अनुहार उस्तै रहने कविताको चलचित्र। A Nepali poetry film about a country that argues again about kings and faces while the result stays the same whoever comes.",
+   "description": "हुल बाँधेर- एकोहोरो ताली बजाउने, स्वप्न स्वर्ग- स्वप्न वर्तमान, नस्ट्याल्जिया फ्यान्टासीमा- अडिएको- अनवरत अस्तित्व यात्रा, मानौं पहिलो सुल्टो जुलूस हो इतिहासको। सबेरै- हाइना हाँस्छन्, साझै- कुखुरा बास्छन्; नयाँ बिहान?… “जो आए पनि- जसरि आए पनि- जे भन्दै आए पनि- परिणाम उही, देशको अनुहार उस्तै, हिजो जस्तो, आज जस्तै, भोली पनि उस्तै।” “अडिएको- अनवरत अस्तित्व यात्रा, मानौं पहिलो सुल्टो जुलूस हो इतिहासको।” “सबेरै- हाइना हाँस्छन्, सम्साँझै- कुखुरा बास्छन्; नयाँ बिहान?” पूरा लेख: https://www.kafka.blog/2025/03/bhavsunya.html — अरू पढ्नुहोस्: मौन बुद्ध।; साँझको मौनता।; अनुत्तरित खल्दुलीहरू।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "भावसुन्य",
     "भावसुन्य",
@@ -523,13 +936,35 @@
    "lang": "ne",
    "duration": 145,
    "durationIso": "PT2M25S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "हुल बाँधेर- एकोहोरो ताली बजाउने, स्वप्न स्वर्ग- स्वप्न वर्तमान, नस्ट्याल्जिया फ्यान्टासीमा- अडिएको- अनवरत अस्तित्व यात्रा, मानौं पहिलो सुल्टो जुलूस हो इतिहासको। सबेरै- हाइना हाँस्छन्, साझै- कुखुरा बास्छन्; नयाँ बिहान?…",
+   "quotes": [
+    "जो आए पनि- जसरि आए पनि- जे भन्दै आए पनि- परिणाम उही, देशको अनुहार उस्तै, हिजो जस्तो, आज जस्तै, भोली पनि उस्तै।",
+    "अडिएको- अनवरत अस्तित्व यात्रा, मानौं पहिलो सुल्टो जुलूस हो इतिहासको।",
+    "सबेरै- हाइना हाँस्छन्, सम्साँझै- कुखुरा बास्छन्; नयाँ बिहान?"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/silentbuddha.html",
+     "title": "मौन बुद्ध।"
+    },
+    {
+     "path": "/2025/04/silence.html",
+     "title": "साँझको मौनता।"
+    },
+    {
+     "path": "/2025/04/questions.html",
+     "title": "अनुत्तरित खल्दुलीहरू।"
+    }
+   ],
+   "about": "‘भावसुन्य’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट २५ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/05/buddha.html": {
    "heading": "बुद्ध वाज बर्न इन नेपाल",
-   "title": "बुद्ध वाज बर्न इन नेपाल | बुद्ध र हाम्रा शब्दमाथिको कविता चलचित्र · बासभ",
+   "title": "बुद्ध वाज बर्न इन नेपाल | कविता · बासभ",
    "caption": "हरेक शब्दमा बिस्ट्याउँछौँ एके-४७ का बारुदहरू।",
-   "description": "बुद्धको जन्मभूमिमा लोभ, ईर्ष्या, घृणा र घमन्डले भरिएका शब्दहरूबीच, बुद्धले देखाएको बाटो साँच्चै कसले हिँडेको छ भनी सोध्ने कविताको चलचित्र। A Nepali poetry film asking who in the Buddha's birthplace has truly walked the path he showed, when our words carry greed, envy, hatred and pride.",
+   "description": "हरेक शब्दमा, बिस्ट्याउँछौं, एके-४७ का बारुदहरू, हरेक भावहरू, ओतप्रोत हुन्छन्, लोभले, ईर्ष्या ले, घिनले, घमन्डले, अनि खोक्रो आत्मसम्मानले, थाह छैन- कसैलाई, कर्मको, बुद्धको मर्मको, को छ हिँडेको- साँच्चीकै, बुद्धले देखाएको… “हरेक शब्दमा, बिस्ट्याउँछौं, एके-४७ का बारुदहरू, हरेक भावहरू, ओतप्रोत हुन्छन्, लोभले, ईर्ष्या ले, घिनले, घमन्डले,” “संसारिक जन्जालमा जेलिएर, ईर्ष्या, राग, अनि फुस्रो घमन्डका, गोला बारुदले भरिएको, ज्यानलाई डोर्याउँदै, उक्लन्छौं,” “स्वयम्भूका डाँडा, डुल्छौं, बौद्धका गल्लीहरू, वर्षमा एक दिन, आजै, जन्माउन बुद्धको जन्मजयन्ती, अनि भन्छौं, ह्यासट्याग मा राखेर,” पूरा लेख: https://www.kafka.blog/2025/05/buddha.html — अरू पढ्नुहोस्: ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा।; कार्की दाई, राजा, गणतन्त्र।; हो, म बहुला हुँ।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "बुद्ध वाज बर्न इन नेपाल",
     "बुद्ध वाज बर्न इन नेपाल",
@@ -544,13 +979,36 @@
    "lang": "ne",
    "duration": 104,
    "durationIso": "PT1M44S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "हरेक शब्दमा, बिस्ट्याउँछौं, एके-४७ का बारुदहरू, हरेक भावहरू, ओतप्रोत हुन्छन्, लोभले, ईर्ष्या ले, घिनले, घमन्डले, अनि खोक्रो आत्मसम्मानले, थाह छैन- कसैलाई, कर्मको, बुद्धको मर्मको, को छ हिँडेको- साँच्चीकै, बुद्धले देखाएको…",
+   "quotes": [
+    "हरेक शब्दमा, बिस्ट्याउँछौं, एके-४७ का बारुदहरू, हरेक भावहरू, ओतप्रोत हुन्छन्, लोभले, ईर्ष्या ले, घिनले, घमन्डले,",
+    "संसारिक जन्जालमा जेलिएर, ईर्ष्या, राग, अनि फुस्रो घमन्डका, गोला बारुदले भरिएको, ज्यानलाई डोर्याउँदै, उक्लन्छौं,",
+    "स्वयम्भूका डाँडा, डुल्छौं, बौद्धका गल्लीहरू, वर्षमा एक दिन, आजै, जन्माउन बुद्धको जन्मजयन्ती, अनि भन्छौं, ह्यासट्याग मा राखेर,"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/mirageofpolitics.html",
+     "title": "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा।"
+    },
+    {
+     "path": "/2025/04/karkidai.html",
+     "title": "कार्की दाई, राजा, गणतन्त्र।"
+    },
+    {
+     "path": "/2025/04/ho-ma-bahula-hun.html",
+     "title": "हो, म बहुला हुँ।"
+    }
+   ],
+   "about": "‘बुद्ध वाज बर्न इन नेपाल’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि १ मिनेट ४४ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/2Kvhtu1TJp4gHf3jTxuQBH"
   },
   "/2025/04/cat.html": {
    "heading": "कालो बिरालो, हामी",
-   "title": "कालो बिरालो, हामी | कालो बिरालोको कविता चलचित्र · बासभ",
+   "title": "कालो बिरालो, हामी | कविता · बासभ",
    "caption": "के देख्यो? सानो मूसो। झम्टियो, मर्यो, खायो; रानी, लन्डन? हु केयर्स!",
-   "description": "लन्डनमा रानीलाई भेट्न निस्केको कालो बिरालोले देख्यो त सानो मूसो मात्र; चेतना, चाहना र कर्मले बाँधिएका हामीबारे व्यङ्ग्यात्मक कविताको चलचित्र। A Nepali poetry film in which a black cat sets out to meet the Queen in London and sees only a small mouse: a playful, bitter poem about the desire and karma that bind us.",
+   "description": "नियात्रा: प्रश्न: के देख्यो? उत्तर: सानो मूसो। झम्टियो-मर्यो-खायो, रानी-लन्डन? हु केयर्स! देख्यो- सके जति गर्यो- सक्ने जति बाँधिएको- चेतना, विवेक, चाहना, आशक्ति, कर्म-फेट, ह्वाटईभर! “नियात्रा: प्रश्न: के देख्यो? उत्तर: सानो मूसो। झम्टियो-मर्यो-खायो, रानी-लन्डन?” “हामी जस्तै, यौटा अपरिहार्यता, बाँच्नुपर्ने, जति लुटिए पनि जति मिचिए पनि निशामग्न वर्तमानमा, बुजो लगाएर, चुप-चाप।” “चलिरहेको छ, एडप्टेड हामी, ओभर पेसेन्ट; धैर्यवान-सहनशील।” पूरा लेख: https://www.kafka.blog/2025/04/cat.html — अरू पढ्नुहोस्: ए! तिमि।; देशभक्ति।; मेरो निन्द्रा। मेरो देश।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "कालो बिरालो, हामी",
     "कालो बिरालो",
@@ -565,13 +1023,36 @@
    "lang": "ne",
    "duration": 125,
    "durationIso": "PT2M5S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "नियात्रा: प्रश्न: के देख्यो? उत्तर: सानो मूसो। झम्टियो-मर्यो-खायो, रानी-लन्डन? हु केयर्स! देख्यो- सके जति गर्यो- सक्ने जति बाँधिएको- चेतना, विवेक, चाहना, आशक्ति, कर्म-फेट, ह्वाटईभर!",
+   "quotes": [
+    "नियात्रा: प्रश्न: के देख्यो? उत्तर: सानो मूसो। झम्टियो-मर्यो-खायो, रानी-लन्डन?",
+    "हामी जस्तै, यौटा अपरिहार्यता, बाँच्नुपर्ने, जति लुटिए पनि जति मिचिए पनि निशामग्न वर्तमानमा, बुजो लगाएर, चुप-चाप।",
+    "चलिरहेको छ, एडप्टेड हामी, ओभर पेसेन्ट; धैर्यवान-सहनशील।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/e-timi.html",
+     "title": "ए! तिमि।"
+    },
+    {
+     "path": "/2025/04/deshbhakti.html",
+     "title": "देशभक्ति।"
+    },
+    {
+     "path": "/2025/04/collectivestupidity.html",
+     "title": "मेरो निन्द्रा। मेरो देश।"
+    }
+   ],
+   "about": "‘कालो बिरालो, हामी’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ५ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/032V53iJBbFAnjOb1d8yq9"
   },
   "/2025/04/chaaturey.html": {
    "heading": "चतुरेको दश लाखको सपना",
-   "title": "चतुरेको दश लाखको सपना | चतुरेको कविता चलचित्र · बासभ",
+   "title": "चतुरेको दश लाखको सपना | कविता · बासभ",
    "caption": "‘किन गरिस् यस्तो?’ चतुरे आँसु पोख्दै भन्छ, ‘आमालाई भात किन्न।’",
-   "description": "पिपलबोटे खोलाको छेउको झुप्रोमा आमा र तीन साना बहिनीसँग बस्ने बालक चतुरेको दश लाख रुपियाँको सपनाको कथा भन्ने कविताको चलचित्र। A Nepali poetry film about Chaturey, a boy who lives with his mother and three little sisters in a shack by the river, and his dream of ten lakh rupees to put rice on their plates.",
+   "description": "सबैको एउटै प्रश्न- “किन गरिस् यस्तो?” चतुरेले हाँसेन- आँसु पोख्दै भन्यो- “मल्न, मलेर दश लाख लुपियाँ कमाउन, म, बुहिनिहरु, अनि आमालाई भात किल्न।” “टालटुल छाना, च्यातिएको प्लास्टिक, जसको छानाले पानी थाम्न सक्दैनथ्यो, न त आँसु नै रोक्न सक्थ्यो, जहाँ खसिरहेको आशा मात्रै बाँकी हुन्छ।” “पानी आकाशबाट मात्रै खसेन, छानाबाट झरेको- भोकको आवाज खोलाभन्दा ठूलो भेल बनेर आयो।” “गुन्द्रुकको झोल पनि नभेटेर, उसले साँच्चै गर्यो- चौथो दिन बिहानै, गाडीको तल पस्यो।” पूरा लेख: https://www.kafka.blog/2025/04/chaaturey.html — अरू पढ्नुहोस्: मौन प्रतिबिम्ब; म गर्भवति मान्छे, मलाई ..; चिसो अनुभुति।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "चतुरेको दश लाखको सपना",
     "चतुरे",
@@ -587,13 +1068,36 @@
    "lang": "ne",
    "duration": 204,
    "durationIso": "PT3M24S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "सबैको एउटै प्रश्न- “किन गरिस् यस्तो?” चतुरेले हाँसेन- आँसु पोख्दै भन्यो- “मल्न, मलेर दश लाख लुपियाँ कमाउन, म, बुहिनिहरु, अनि आमालाई भात किल्न।”",
+   "quotes": [
+    "टालटुल छाना, च्यातिएको प्लास्टिक, जसको छानाले पानी थाम्न सक्दैनथ्यो, न त आँसु नै रोक्न सक्थ्यो, जहाँ खसिरहेको आशा मात्रै बाँकी हुन्छ।",
+    "पानी आकाशबाट मात्रै खसेन, छानाबाट झरेको- भोकको आवाज खोलाभन्दा ठूलो भेल बनेर आयो।",
+    "गुन्द्रुकको झोल पनि नभेटेर, उसले साँच्चै गर्यो- चौथो दिन बिहानै, गाडीको तल पस्यो।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/silentimage.html",
+     "title": "मौन प्रतिबिम्ब"
+    },
+    {
+     "path": "/2025/04/gravidsoul.html",
+     "title": "म गर्भवति मान्छे, मलाई .."
+    },
+    {
+     "path": "/2025/04/coldfeeling.html",
+     "title": "चिसो अनुभुति।"
+    }
+   ],
+   "about": "‘चतुरेको दश लाखको सपना’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट २४ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/751CNPKuY6uhCg2GmquFrq"
   },
   "/2026/01/city.html": {
    "heading": "सहरभित्रको अलिकति आश",
-   "title": "सहरभित्रको अलिकति आश | सहर र आशाको कविता चलचित्र · बासभ",
+   "title": "सहरभित्रको अलिकति आश | कविता · बासभ",
    "caption": "शहरले तिमीलाई निलेको हैन; तिमीले आफैँ यसको लयसँग आफ्नो सास मिलाउन सिकेका हौ।",
-   "description": "साँघुरो गल्लीमा उभिएर आफूलाई नै भनिएको कुरा: सहरले निलेको होइन, थकित निर्णयहरूको बाटो हुँदै आफैँ आइपुगिएको हो, र त्यहीँ अलिकति आश बाँकी छ। A Nepali poetry film spoken to oneself in a narrow alley: the city did not swallow you, you arrived through tired decisions, and a little hope is left in it.",
+   "description": "तर आज, यो साँघुरो गल्लीमा उभिँदा, आफैँसँग झूट नबोल। तिमी यहाँ ल्याइएका होइनौ। तिमी आफैँ आइपुगेका हौ - थकित निर्णयहरूको बाटो हुँदै। शहरले तिमीलाई निलेको हैन। तिमीले आफैँ यसको लयसँग आफ्नो सास मिलाउन सिकेका हौ। त्यसैले त… “उनीहरूलाई ठेगाना थाहा थिएन, तर हिँडिरहनु आफैंमा एउटा विश्वास थियो।” “हो, सपना यहाँ जल्छन्, तर केही सपना ताप बनेर हामीलाई जिउँदो पनि राख्छन्।” ““आज पनि म यहीँ छु। त्यो नै मेरो जीवन हो।” बाँच्नु खुसीको घोषणाजस्तै हुँदैन।” पूरा लेख: https://www.kafka.blog/2026/01/city.html — अरू पढ्नुहोस्: मिनपचासको जाडोमा कठ्यांग्रिएको देश; शीर्षकविहीन; कालो बिरालो, हामी।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "सहरभित्रको अलिकति आश",
     "सहरभित्रको अलिकति आश",
@@ -608,13 +1112,36 @@
    "lang": "ne",
    "duration": 260,
    "durationIso": "PT4M20S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "तर आज, यो साँघुरो गल्लीमा उभिँदा, आफैँसँग झूट नबोल। तिमी यहाँ ल्याइएका होइनौ। तिमी आफैँ आइपुगेका हौ - थकित निर्णयहरूको बाटो हुँदै। शहरले तिमीलाई निलेको हैन। तिमीले आफैँ यसको लयसँग आफ्नो सास मिलाउन सिकेका हौ। त्यसैले त…",
+   "quotes": [
+    "उनीहरूलाई ठेगाना थाहा थिएन, तर हिँडिरहनु आफैंमा एउटा विश्वास थियो।",
+    "हो, सपना यहाँ जल्छन्, तर केही सपना ताप बनेर हामीलाई जिउँदो पनि राख्छन्।",
+    "“आज पनि म यहीँ छु। त्यो नै मेरो जीवन हो।” बाँच्नु खुसीको घोषणाजस्तै हुँदैन।"
+   ],
+   "related": [
+    {
+     "path": "/2026/02/coldnepal.html",
+     "title": "मिनपचासको जाडोमा कठ्यांग्रिएको देश"
+    },
+    {
+     "path": "/2026/06/nomad.html",
+     "title": "शीर्षकविहीन"
+    },
+    {
+     "path": "/2025/04/cat.html",
+     "title": "कालो बिरालो, हामी।"
+    }
+   ],
+   "about": "‘सहरभित्रको अलिकति आश’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट २० सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/1Zo5ZhbxIG1f5dUXYt3iwl"
   },
   "/2025/04/coldfeeling.html": {
    "heading": "चिसो अनुभुति",
-   "title": "चिसो अनुभुति | जीवन र अनुपस्थितिको कविता चलचित्र · बासभ",
+   "title": "चिसो अनुभुति | कविता · बासभ",
    "caption": "म शब्द बेच्दिनँ, केवल अनुभूति सुनाउँछु।",
-   "description": "धुवाँजस्तै बिलाएको समय, पुरानो सम्झना र जीवन सपना हो कि हाम्रै मस्तिष्कले बनाएको जेल भन्ने प्रश्नको कविताको चलचित्र। A Nepali poetry film on time that dissolved like smoke, old memories, and whether life is a dream or a prison built by our own minds.",
+   "description": "धुबाँ जस्तै- बिलायो समय अबशेष मात्र बाँकि; पुरानो सम्झना, के त्यो जीवन हो? कि स्मृतिको लहर? शायद प्रेमको, शायद अनुपस्थितिको। म शब्द बेच्दिनँ, केवल अनुभूति सुनाउँछु- मूल्य त- तिनैले तोक्छन्, जो महसुस गर्न सक्छन। घामको… “जीवन- स्वप्न हो कि यथार्थ- कि हाम्रै मस्तिष्कले बनाएको जेल, जहाँ हामी सपनाको विपनामा साँझलाई भेटाउँछौँ।” “सस्तो-महँगो- कस्तो, को, के-को हो यो मापन? कागज जस्तै च्यातिएको मन।” “जसको आँखा छैनन्, जसले मनको हिसाब कहिल्यै गर्न जानेनन्, उनीहरूले आफूखुसी मूल्य तोक्छन्।” पूरा लेख: https://www.kafka.blog/2025/04/coldfeeling.html — अरू पढ्नुहोस्: भावसुन्य:; आज मेरो जन्मदिन।; घनघोरका आँधिपुराणहरू।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "चिसो अनुभुति",
     "चिसो अनुभुति",
@@ -629,13 +1156,35 @@
    "lang": "ne",
    "duration": 152,
    "durationIso": "PT2M32S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "धुबाँ जस्तै- बिलायो समय अबशेष मात्र बाँकि; पुरानो सम्झना, के त्यो जीवन हो? कि स्मृतिको लहर? शायद प्रेमको, शायद अनुपस्थितिको। म शब्द बेच्दिनँ, केवल अनुभूति सुनाउँछु- मूल्य त- तिनैले तोक्छन्, जो महसुस गर्न सक्छन। घामको…",
+   "quotes": [
+    "जीवन- स्वप्न हो कि यथार्थ- कि हाम्रै मस्तिष्कले बनाएको जेल, जहाँ हामी सपनाको विपनामा साँझलाई भेटाउँछौँ।",
+    "सस्तो-महँगो- कस्तो, को, के-को हो यो मापन? कागज जस्तै च्यातिएको मन।",
+    "जसको आँखा छैनन्, जसले मनको हिसाब कहिल्यै गर्न जानेनन्, उनीहरूले आफूखुसी मूल्य तोक्छन्।"
+   ],
+   "related": [
+    {
+     "path": "/2025/03/bhavsunya.html",
+     "title": "भावसुन्य:"
+    },
+    {
+     "path": "/2024/10/aaja-mero-janmadin.html",
+     "title": "आज मेरो जन्मदिन।"
+    },
+    {
+     "path": "/2025/04/storminside.html",
+     "title": "घनघोरका आँधिपुराणहरू।"
+    }
+   ],
+   "about": "‘चिसो अनुभुति’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ३२ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2026/02/coldnepal.html": {
    "heading": "मिनपचासको जाडोमा कठ्यांग्रिएको देश",
-   "title": "मिनपचासको जाडोमा कठ्यांग्रिएको देश | देश र विवेकको कविता चलचित्र · बासभ",
+   "title": "मिनपचासको जाडोमा कठ्यांग्रिएको देश | कविता · बासभ",
    "caption": "यहाँ मौसम होइन, विवेक चिसिएको छ।",
-   "description": "मिनपचासको जाडोमा कठ्याङ्ग्रिएको देश, जहाँ मौसम होइन विवेक चिसिएको छ र हामी नहेर्ने अभ्यासमा निपुण छौँ भन्ने कविताको चलचित्र। A Nepali poetry film about a country frozen in the cold of Minpachas, where it is conscience, not weather, that has gone cold, and where we are expert at not looking.",
+   "description": "मिनपचासको जाडोमा कठ्याङ्ग्रिएको देश- यहाँ मौसम होइन, विवेक चिसिएको छ। अफसोस, हामीलाई त कठ्यांग्रिनुमै ‘निशाचर’ आनन्द छ। “हामी त्यसैमा भोलिको लय खोजिरहेका छौँ। चुनाब यसपटक ढोकाबाट होइन, पर्दाबाट आएको छ।” “हामी उत्तर चाहँदैनौँ, हामी कसैलाई दोष दिन चाहन्छौँ।” “हामी प्रतिक्रिया जनाउँछौँ। रिस सबैभन्दा सजिलो भाषा भएको छ।” पूरा लेख: https://www.kafka.blog/2026/02/coldnepal.html — अरू पढ्नुहोस्: अब रमिता छ; पृथ्वीनारायणसँगको जम्काभेट; कांग्रेस: विरासतको विज्ञापन। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "मिनपचासको जाडोमा कठ्यांग्रिएको देश",
     "मिनपचासको जाडो",
@@ -650,13 +1199,36 @@
    "lang": "ne",
    "duration": 176,
    "durationIso": "PT2M56S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "मिनपचासको जाडोमा कठ्याङ्ग्रिएको देश- यहाँ मौसम होइन, विवेक चिसिएको छ। अफसोस, हामीलाई त कठ्यांग्रिनुमै ‘निशाचर’ आनन्द छ।",
+   "quotes": [
+    "हामी त्यसैमा भोलिको लय खोजिरहेका छौँ। चुनाब यसपटक ढोकाबाट होइन, पर्दाबाट आएको छ।",
+    "हामी उत्तर चाहँदैनौँ, हामी कसैलाई दोष दिन चाहन्छौँ।",
+    "हामी प्रतिक्रिया जनाउँछौँ। रिस सबैभन्दा सजिलो भाषा भएको छ।"
+   ],
+   "related": [
+    {
+     "path": "/2026/01/ramita.html",
+     "title": "अब रमिता छ"
+    },
+    {
+     "path": "/2026/01/prithivi.html",
+     "title": "पृथ्वीनारायणसँगको जम्काभेट"
+    },
+    {
+     "path": "/2026/01/congress.html",
+     "title": "कांग्रेस: विरासतको विज्ञापन"
+    }
+   ],
+   "about": "‘मिनपचासको जाडोमा कठ्यांग्रिएको देश’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ५६ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/10obztODK2XevCYE6fc4zL"
   },
   "/2025/04/collectivestupidity.html": {
    "heading": "मेरो निन्द्रा। मेरो देश।",
-   "title": "मेरो निन्द्रा। मेरो देश। | देश र राष्ट्रियताको कविता चलचित्र · बासभ",
+   "title": "मेरो निन्द्रा। मेरो देश। | कविता · बासभ",
    "caption": "किन? खै। कसका लागि? खै। के का लागि? खै।",
-   "description": "सडकभरि जुलूस, बुद्ध, गैँडा, सगरमाथा र वीरहरूले धानेको राष्ट्रियता, अनि त्यसबीच निदाएको देशबारे कविताको चलचित्र। A Nepali poetry film about a procession that nobody can explain and a nationhood held up by Buddha, the rhino and Everest, while the country sleeps.",
+   "description": "यो सडक, त्यो सडक- मान्छे, मोटर-पोखरी छिचोल्दै, निस्किएको - रहेछ त्यो जुलूस; किन?- खै। कसका लागि?- खै। के का लागि?- खै। “विवशता मेरो राष्ट्रियता- मेरो नेपाल- राम्रो नेपाल।” “उत्साह- असिम, मानौं: पहिलो- सुल्टो जुलूस हो इतिहासको।” “सवेरै हायनाहरू हाँस्छन्, सम्साँझै कुखुरा बास्छन्।” पूरा लेख: https://www.kafka.blog/2025/04/collectivestupidity.html — अरू पढ्नुहोस्: मौन बुद्ध।; साँझको मौनता।; अनुत्तरित खल्दुलीहरू।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "मेरो निन्द्रा। मेरो देश।",
     "मेरो निन्द्रा मेरो देश",
@@ -671,13 +1243,35 @@
    "lang": "ne",
    "duration": 197,
    "durationIso": "PT3M17S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "यो सडक, त्यो सडक- मान्छे, मोटर-पोखरी छिचोल्दै, निस्किएको - रहेछ त्यो जुलूस; किन?- खै। कसका लागि?- खै। के का लागि?- खै।",
+   "quotes": [
+    "विवशता मेरो राष्ट्रियता- मेरो नेपाल- राम्रो नेपाल।",
+    "उत्साह- असिम, मानौं: पहिलो- सुल्टो जुलूस हो इतिहासको।",
+    "सवेरै हायनाहरू हाँस्छन्, सम्साँझै कुखुरा बास्छन्।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/silentbuddha.html",
+     "title": "मौन बुद्ध।"
+    },
+    {
+     "path": "/2025/04/silence.html",
+     "title": "साँझको मौनता।"
+    },
+    {
+     "path": "/2025/04/questions.html",
+     "title": "अनुत्तरित खल्दुलीहरू।"
+    }
+   ],
+   "about": "‘मेरो निन्द्रा। मेरो देश’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट १७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2026/01/comrade.html": {
    "heading": "कामरेडसँगको पुनर्मिलन",
-   "title": "कामरेडसँगको पुनर्मिलन | कम्युनिस्ट राजनीतिको कविता चलचित्र · बासभ",
+   "title": "कामरेडसँगको पुनर्मिलन | कविता · बासभ",
    "caption": "कामरेड, तिमी फर्कियौ, बा-पुस्ताको आवाज लिएर।",
-   "description": "दाउरा सुरुवालको स्मृति, महल, कुर्सी र भाषणहरू, अनि गठबन्धनको नयाँ संस्करणबीच कामरेडसँग गरिएको संवादको कविताको चलचित्र। A Nepali poetry film addressed to a comrade who returns in a new coalition, with the old memory of the rustic suit worn away by palaces, chairs and speeches.",
+   "description": "कामरेड, तिमी फर्कियौ, बा–पुस्ताको आवाज लिएर। दाउरा सुरुवालको स्मृति अझै बाँकी थियो। महल, कुर्सी, र भाषणहरूले त्यो स्मृति मेटाए। हामी सुन्दै बुढा भयौँ, सपना नबोलिकन। हामी उभियौँ, नामसहित, अर्थविहीन। “कामरेड! मलाई चिन्यौ? दाउरा सुरुवालमा थियौ, सुटमा सजिएछौ।” “हामीले चुपचाप हेरिरह्यौँ। कामरेड! अनि तिम्रो छोराले पिआर लियो?” “साँझको नदीमा फर्किएको छायाजस्तै। के केही परिवर्तन भयो?” पूरा लेख: https://www.kafka.blog/2026/01/comrade.html — अरू पढ्नुहोस्: सहरभित्रको अलिकति आश; मिनपचासको जाडोमा कठ्यांग्रिएको देश; जुठी दमिनीको छायाँपारि। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "कामरेडसँगको पुनर्मिलन",
     "कामरेड",
@@ -692,13 +1286,36 @@
    "lang": "ne",
    "duration": 187,
    "durationIso": "PT3M7S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "कामरेड, तिमी फर्कियौ, बा–पुस्ताको आवाज लिएर। दाउरा सुरुवालको स्मृति अझै बाँकी थियो। महल, कुर्सी, र भाषणहरूले त्यो स्मृति मेटाए। हामी सुन्दै बुढा भयौँ, सपना नबोलिकन। हामी उभियौँ, नामसहित, अर्थविहीन।",
+   "quotes": [
+    "कामरेड! मलाई चिन्यौ? दाउरा सुरुवालमा थियौ, सुटमा सजिएछौ।",
+    "हामीले चुपचाप हेरिरह्यौँ। कामरेड! अनि तिम्रो छोराले पिआर लियो?",
+    "साँझको नदीमा फर्किएको छायाजस्तै। के केही परिवर्तन भयो?"
+   ],
+   "related": [
+    {
+     "path": "/2026/01/city.html",
+     "title": "सहरभित्रको अलिकति आश"
+    },
+    {
+     "path": "/2026/02/coldnepal.html",
+     "title": "मिनपचासको जाडोमा कठ्यांग्रिएको देश"
+    },
+    {
+     "path": "/2025/12/juthi.html",
+     "title": "जुठी दमिनीको छायाँपारि"
+    }
+   ],
+   "about": "‘कामरेडसँगको पुनर्मिलन’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/3Wi2UKEPVLBfjZ5B58FIXS"
   },
   "/2026/01/congress.html": {
    "heading": "कांग्रेस: विरासतको विज्ञापन",
-   "title": "कांग्रेस: विरासतको विज्ञापन | राजनीतिक दल र विरासतको कविता चलचित्र · बासभ",
+   "title": "कांग्रेस: विरासतको विज्ञापन | कविता · बासभ",
    "caption": "यो पार्टी लाज बाँकी रहेसम्म मात्र बाँच्छ।",
-   "description": "न राजा, न प्रजा भनी बीचमै अड्किएको देशमा एउटा पार्टीको जन्मदेखि, विरासत विज्ञापन बन्दासम्मको कुरा गर्ने कविताको चलचित्र। A Nepali poetry film on a party born in a country stuck between king and subject, and what is left when a legacy turns into an advertisement.",
+   "description": "यो पार्टी न इतिहासले बाँचेको हो न चुनावले, न बी.पी.को नामले। यो, लाज बाँकी रहेसम्म मात्र बाँच्छ। र जब लाज पनि सकिन्छ- तब पार्टी इतिहास होइन, स्मारक बन्छ। “सपना होइन- अस्तित्वको भाषा। बी.पी. ले राजनीतिलाई सत्ताको सीमामा थुनेनन्।” “विश्वास होइन, लगानी गनियो। देउवाको कांग्रेस तुफानबाट बाँचेको पुरानो जहाज भएको छ, कहिले डुब्ने, कहिले तैरिने।” “एकातिर बी.पी. को सपना, अर्कोतिर सत्ताको निद्रा। अब प्रश्न बाँच्ने–मर्नेको होइन।” पूरा लेख: https://www.kafka.blog/2026/01/congress.html — अरू पढ्नुहोस्: कामरेडसँगको पुनर्मिलन; घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको; मौनताको चिसो। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "कांग्रेस: विरासतको विज्ञापन",
     "कांग्रेस विरासत",
@@ -713,13 +1330,36 @@
    "lang": "ne",
    "duration": 210,
    "durationIso": "PT3M30S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "यो पार्टी न इतिहासले बाँचेको हो न चुनावले, न बी.पी.को नामले। यो, लाज बाँकी रहेसम्म मात्र बाँच्छ। र जब लाज पनि सकिन्छ- तब पार्टी इतिहास होइन, स्मारक बन्छ।",
+   "quotes": [
+    "सपना होइन- अस्तित्वको भाषा। बी.पी. ले राजनीतिलाई सत्ताको सीमामा थुनेनन्।",
+    "विश्वास होइन, लगानी गनियो। देउवाको कांग्रेस तुफानबाट बाँचेको पुरानो जहाज भएको छ, कहिले डुब्ने, कहिले तैरिने।",
+    "एकातिर बी.पी. को सपना, अर्कोतिर सत्ताको निद्रा। अब प्रश्न बाँच्ने–मर्नेको होइन।"
+   ],
+   "related": [
+    {
+     "path": "/2026/01/comrade.html",
+     "title": "कामरेडसँगको पुनर्मिलन"
+    },
+    {
+     "path": "/2025/11/nepal-2.html",
+     "title": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको"
+    },
+    {
+     "path": "/2025/11/coldsilence.html",
+     "title": "मौनताको चिसो"
+    }
+   ],
+   "about": "‘कांग्रेस: विरासतको विज्ञापन’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ३० सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/0pF7im4KhBtj2JjobmIjjj"
   },
   "/2025/04/deshbhakti.html": {
    "heading": "देशभक्ति",
-   "title": "देशभक्ति | देशभक्तिको अर्थमाथिको कविता चलचित्र · बासभ",
+   "title": "देशभक्ति | कविता · बासभ",
    "caption": "इतिहास खाएर म आफ्नो भोक टार्न सक्दिनँ।",
-   "description": "खुकुरीको धार, बलभद्र र अमरसिंहको नाम, दौराको फेर र नेताको भाषणमा पस्किइने देशभक्तिको अर्थ सोध्ने कविताको चलचित्र। A Nepali poetry film questioning what patriotism means when it is served up through the edge of the khukuri, the names of old heroes and a politician's speech.",
+   "description": "देशभक्ति; खुकुरीको धारसँगै चम्किएको थियो रे कुनैबेला, वीरहरूको गर्जनसँगै गर्जिएको थियो रे कुनैबेला, म, यति बेला इतिहास खाएर आफ्नो भोक टार्न सक्दिन, मलाई बलभद्रसँगै देशभक्तिले शाहदत पाएको थाह छ, मलाई अमरसिंहसँगै… “चम्किएको देखे, अलिकति, नेताको भाषणमा पस्किएको देखे, देख्नेहरुले, मान्छेको मनभित्र सल्किएको पनि देखे!” “देशभक्ति; खै म कहाँ गएर भेटुँ, छातीभित्र हुन्छ भन्छन्, खै म कहाँ गएर देखुँ?” “देशभक्ति बहने मैले कुनै नशा देखेको छैन, देशभक्ति कसैको रगतमा सल्बलाएको देखेको छैन, देशका लागि कसैले साउती मारिरहेको देखेको छैन।” पूरा लेख: https://www.kafka.blog/2025/04/deshbhakti.html — अरू पढ्नुहोस्: नोस्टालजिया पसल; शीर्षकविहीन; ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "देशभक्ति",
     "देशभक्ति कविता",
@@ -735,13 +1375,35 @@
    "lang": "ne",
    "duration": 177,
    "durationIso": "PT2M57S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "देशभक्ति; खुकुरीको धारसँगै चम्किएको थियो रे कुनैबेला, वीरहरूको गर्जनसँगै गर्जिएको थियो रे कुनैबेला, म, यति बेला इतिहास खाएर आफ्नो भोक टार्न सक्दिन, मलाई बलभद्रसँगै देशभक्तिले शाहदत पाएको थाह छ, मलाई अमरसिंहसँगै…",
+   "quotes": [
+    "चम्किएको देखे, अलिकति, नेताको भाषणमा पस्किएको देखे, देख्नेहरुले, मान्छेको मनभित्र सल्किएको पनि देखे!",
+    "देशभक्ति; खै म कहाँ गएर भेटुँ, छातीभित्र हुन्छ भन्छन्, खै म कहाँ गएर देखुँ?",
+    "देशभक्ति बहने मैले कुनै नशा देखेको छैन, देशभक्ति कसैको रगतमा सल्बलाएको देखेको छैन, देशका लागि कसैले साउती मारिरहेको देखेको छैन।"
+   ],
+   "related": [
+    {
+     "path": "/2025/09/nostalgia.html",
+     "title": "नोस्टालजिया पसल"
+    },
+    {
+     "path": "/2026/06/nomad.html",
+     "title": "शीर्षकविहीन"
+    },
+    {
+     "path": "/2025/04/mirageofpolitics.html",
+     "title": "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा।"
+    }
+   ],
+   "about": "‘देशभक्ति’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ५७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/03/dhuwanma-chaleko-sahar.html": {
    "heading": "धुवाँमा चलेको सहर",
-   "title": "धुवाँमा चलेको सहर | धुवाँ र सहरको कविता चलचित्र · बासभ",
+   "title": "धुवाँमा चलेको सहर | कविता · बासभ",
    "caption": "रोकिएको त यात्रु बस हैन, रोकिएका त अनुहारहरू छन्।",
-   "description": "धुवाँमा अनुहार र पाइला हराउँदै, सबैले ठेगाना सोध्दै हिँड्ने तर कसैलाई बाटो थाहा नहुने सहरबारे कविताको चलचित्र। A Nepali poetry film about a city running in smoke, where faces and footsteps vanish and everyone asks for an address but nobody knows the way.",
+   "description": "धुवाँमा अनुहार हराए, सडकमा पाइला हराए, सहरमा सबैले- ठेगाना सोध्दै हिँड्छन्, तर यहाँ कसैलाई- बाटो थाहा हुँदैन। सहरको छातीमा उठिरहेको धुवाँ, फगत बाफ न हो, ठहरिएको सहर तताउन मानिसहरूले फालेको- “धुवाँमा अनुहार हराए, सडकमा पाइला हराए, सहरमा सबैले- ठेगाना सोध्दै हिँड्छन्, तर यहाँ कसैलाई- बाटो थाहा हुँदैन।” “हतार-लतारा-चतारामा, सडकमै हराएका सपनाहरू, सहरले थिचेका आकांक्षाहरू।” “समयको, धैर्यको, रहरको, सहरले थोपरेको अदृश्य पीडाको।” पूरा लेख: https://www.kafka.blog/2025/03/dhuwanma-chaleko-sahar.html — अरू पढ्नुहोस्: ऊ-ध्रुव, म-परिक्रमा; सपनाका यथार्थहरू।; भावसुन्य:। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "धुवाँमा चलेको सहर",
     "धुवाँमा चलेको सहर",
@@ -756,13 +1418,35 @@
    "lang": "ne",
    "duration": 125,
    "durationIso": "PT2M5S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "धुवाँमा अनुहार हराए, सडकमा पाइला हराए, सहरमा सबैले- ठेगाना सोध्दै हिँड्छन्, तर यहाँ कसैलाई- बाटो थाहा हुँदैन। सहरको छातीमा उठिरहेको धुवाँ, फगत बाफ न हो, ठहरिएको सहर तताउन मानिसहरूले फालेको-",
+   "quotes": [
+    "धुवाँमा अनुहार हराए, सडकमा पाइला हराए, सहरमा सबैले- ठेगाना सोध्दै हिँड्छन्, तर यहाँ कसैलाई- बाटो थाहा हुँदैन।",
+    "हतार-लतारा-चतारामा, सडकमै हराएका सपनाहरू, सहरले थिचेका आकांक्षाहरू।",
+    "समयको, धैर्यको, रहरको, सहरले थोपरेको अदृश्य पीडाको।"
+   ],
+   "related": [
+    {
+     "path": "/2025/03/u-dhruva-ma-parikrama.html",
+     "title": "ऊ-ध्रुव, म-परिक्रमा"
+    },
+    {
+     "path": "/2025/03/realityofdreams.html",
+     "title": "सपनाका यथार्थहरू।"
+    },
+    {
+     "path": "/2025/03/bhavsunya.html",
+     "title": "भावसुन्य:"
+    }
+   ],
+   "about": "‘धुवाँमा चलेको सहर’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ५ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/04/e-timi.html": {
    "heading": "ए! तिमि",
-   "title": "ए! तिमि | प्रेमको कविता चलचित्र · बासभ",
+   "title": "ए! तिमि | कविता · बासभ",
    "caption": "मेरो पागलपन पनि तिमि, अनि आशा पनि तिमि।",
-   "description": "मुखौटा जलाएर भनिएको प्रेमको स्वीकार: पागलपन पनि तिमि, आशा पनि तिमि, भन्ने कविताको चलचित्र। A Nepali love-poem film: with every mask burned away, the speaker says you are my madness and also my hope.",
+   "description": "ज्ञात, अज्ञात सबै- मुखौटा जलाएर हात- फिँजाउदै भन्छु मेरो- पागलपन पनि तिमि अनि- आशा पनि तिमि। हरेक रहर- हरेक सपनाहरु रहरहरू- केही- कल्पना हरू बेरङी- केही- विपनाहरू बेतुकको- कल्पना बहुलठ्ठको पाहडको- त्यो सानो घर “जिन्जर… “केही- कल्पना हरू बेरङी- केही- विपनाहरू बेतुकको- कल्पना, बहुलठ्ठको पाहडको-” “सुर्यास्त र सुर्योदय बिचको अन्धकार चिर्दै उसैको-” “तिमि-मम-तिमि हामि- सुस्तरी- सुस्तरी-एकमुष्ट सर्बांङ्ग-” पूरा लेख: https://www.kafka.blog/2025/04/e-timi.html — अरू पढ्नुहोस्: कार्की दाई, राजा, गणतन्त्र।; हो, म बहुला हुँ।; देशभक्ति।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "ए! तिमि",
     "ए तिमि",
@@ -777,13 +1461,35 @@
    "lang": "ne",
    "duration": 123,
    "durationIso": "PT2M3S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "ज्ञात, अज्ञात सबै- मुखौटा जलाएर हात- फिँजाउदै भन्छु मेरो- पागलपन पनि तिमि अनि- आशा पनि तिमि। हरेक रहर- हरेक सपनाहरु रहरहरू- केही- कल्पना हरू बेरङी- केही- विपनाहरू बेतुकको- कल्पना बहुलठ्ठको पाहडको- त्यो सानो घर “जिन्जर…",
+   "quotes": [
+    "केही- कल्पना हरू बेरङी- केही- विपनाहरू बेतुकको- कल्पना, बहुलठ्ठको पाहडको-",
+    "सुर्यास्त र सुर्योदय बिचको अन्धकार चिर्दै उसैको-",
+    "तिमि-मम-तिमि हामि- सुस्तरी- सुस्तरी-एकमुष्ट सर्बांङ्ग-"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/karkidai.html",
+     "title": "कार्की दाई, राजा, गणतन्त्र।"
+    },
+    {
+     "path": "/2025/04/ho-ma-bahula-hun.html",
+     "title": "हो, म बहुला हुँ।"
+    },
+    {
+     "path": "/2025/04/deshbhakti.html",
+     "title": "देशभक्ति।"
+    }
+   ],
+   "about": "‘ए! तिमि’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/04/gravidsoul.html": {
    "heading": "म गर्भवति मान्छे, मलाई ..",
-   "title": "म गर्भवति मान्छे, मलाई .. | नयाँ बिहानीको आशाको कविता चलचित्र · बासभ",
+   "title": "म गर्भवति मान्छे, मलाई .. | कविता · बासभ",
    "caption": "म गर्भवती मान्छे, मलाई रानीपोखरी जन्माउने रहर छ।",
-   "description": "आफ्ना शब्द र सपनाबाट नयाँ बिहानीको भ्रूण हुर्काइरहेको, स्वतन्त्र रानीपोखरी र हाँसिलो धरहरा जन्माउन चाहने मान्छेको कविताको चलचित्र। A Nepali poetry film in which the speaker is pregnant with a new dawn, and hopes to give birth to a free Rani Pokhari and a smiling Dharahara.",
+   "description": "मलाई विश्वास छ, मेरा- शब्दहरू- सपनाहरु- सम्भावनाहरूबाट, हुर्काउँदै गरेको- नयाँ बिहानीको सुषुप्त भ्रुण- भोली- स्वतन्त्र र स्वच्छ रानीपोखरी, र हाँसीलो- धरहरा बनेर आउनेछ, अवस्य आउनेछ। त्यो बिहानी-जहाँ- नयाँ दिनका किरणहरू,… “‘मृत्यु सजिलो छ हौ साथी, जिन्दगी पो गार्हो छ जीउन, सकिएपछी त सक्किहाल्यो'।” “जहाँ उज्यालो- रातको अल्झिएको धागो- पखालिन बाँकी अँध्यारोको कुरूप अवशेष मात्रै नहोस।” “जसले- सारङ्गी जस्तो पेट लिएर घामले रेग्ने गोरेटो पार गर्नेको भोक र पीडाका गीत मात्रै गाउने छैन।” पूरा लेख: https://www.kafka.blog/2025/04/gravidsoul.html — अरू पढ्नुहोस्: चतुरेको दश लाखको सपना।; घाम र फूलको प्रेम गीत।; उसका लागि कविता।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "म गर्भवति मान्छे, मलाई ..",
     "गर्भवति मान्छे",
@@ -799,13 +1505,35 @@
    "lang": "ne",
    "duration": 248,
    "durationIso": "PT4M8S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "मलाई विश्वास छ, मेरा- शब्दहरू- सपनाहरु- सम्भावनाहरूबाट, हुर्काउँदै गरेको- नयाँ बिहानीको सुषुप्त भ्रुण- भोली- स्वतन्त्र र स्वच्छ रानीपोखरी, र हाँसीलो- धरहरा बनेर आउनेछ, अवस्य आउनेछ। त्यो बिहानी-जहाँ- नयाँ दिनका किरणहरू,…",
+   "quotes": [
+    "‘मृत्यु सजिलो छ हौ साथी, जिन्दगी पो गार्हो छ जीउन, सकिएपछी त सक्किहाल्यो'।",
+    "जहाँ उज्यालो- रातको अल्झिएको धागो- पखालिन बाँकी अँध्यारोको कुरूप अवशेष मात्रै नहोस।",
+    "जसले- सारङ्गी जस्तो पेट लिएर घामले रेग्ने गोरेटो पार गर्नेको भोक र पीडाका गीत मात्रै गाउने छैन।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/chaaturey.html",
+     "title": "चतुरेको दश लाखको सपना।"
+    },
+    {
+     "path": "/2025/07/sunandflower.html",
+     "title": "घाम र फूलको प्रेम गीत।"
+    },
+    {
+     "path": "/2025/08/usaka-lagi-kabita.html",
+     "title": "उसका लागि कविता।"
+    }
+   ],
+   "about": "‘म गर्भवति मान्छे, मलाई’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट ८ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/04/ho-ma-bahula-hun.html": {
    "heading": "हो, म बहुला हुँ",
-   "title": "हो, म बहुला हुँ | देवता र धर्मको एकतर्फी छविमाथिको कविता चलचित्र · बासभ",
+   "title": "हो, म बहुला हुँ | कविता · बासभ",
    "caption": "उनीहरू शिवलाई सर्वशक्तिमान मात्र देख्छन्; मैले भाङ-धतुरो खाने पनि देखेँ।",
-   "description": "देवताहरूको एकतर्फी छवि, हिन्दू-ख्रिस्टियन-मुसलमान र ब्राह्मण-अछुतको विभाजनविरुद्ध, ‘हो, म बहुला हुँ’ भन्ने कविताको चलचित्र। A Nepali poetry film against the one-sided pictures of the gods and the divisions of faith and caste, spoken by someone who proudly says yes, I am mad.",
+   "description": "उनीहरु- शीवलाई सर्वशक्तिमान मात्र देख्ने, विष्णुलाई पालक मात्र देख्ने, रामलाई न्यायी मात्र देख्ने, कृष्णलाई आदर्श-पूरुष बनाउने। मैले- शिवलाई भाङ्ग-धतुरो खाने पनि देखेँ, मैले व्रिन्दालाई गरेको छल पनि देखेँ, मैले सीतामाथी… “धर्मको नाममा ठड्याइएका पर्खालहरूले, भोका को चीत्कार मेटाउन सक्दैनन्।” “ईश्वर भए एउटै हो- साझा हो। तर उनीहरू पहिल्यै- ईश्वरलाई टुक्रा-टुक्रामा बाँडेर, अनगिन्ति नाम टाँसिएका पो रहेछन्।” “मेरो लागि- तिनको  पेट भर्न सक्दा- हराएको हाँसो फिर्ता गर्दा, आशिर्वाद त्यही- स्वर्ग त्यही, मेरो ईश्वर पनि त्यही हो।” पूरा लेख: https://www.kafka.blog/2025/04/ho-ma-bahula-hun.html — अरू पढ्नुहोस्: ए! तिमि।; मेरो निन्द्रा। मेरो देश।; चिसो अनुभुति।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "हो, म बहुला हुँ",
     "हो म बहुला हुँ",
@@ -821,13 +1549,35 @@
    "lang": "ne",
    "duration": 224,
    "durationIso": "PT3M44S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "उनीहरु- शीवलाई सर्वशक्तिमान मात्र देख्ने, विष्णुलाई पालक मात्र देख्ने, रामलाई न्यायी मात्र देख्ने, कृष्णलाई आदर्श-पूरुष बनाउने। मैले- शिवलाई भाङ्ग-धतुरो खाने पनि देखेँ, मैले व्रिन्दालाई गरेको छल पनि देखेँ, मैले सीतामाथी…",
+   "quotes": [
+    "धर्मको नाममा ठड्याइएका पर्खालहरूले, भोका को चीत्कार मेटाउन सक्दैनन्।",
+    "ईश्वर भए एउटै हो- साझा हो। तर उनीहरू पहिल्यै- ईश्वरलाई टुक्रा-टुक्रामा बाँडेर, अनगिन्ति नाम टाँसिएका पो रहेछन्।",
+    "मेरो लागि- तिनको  पेट भर्न सक्दा- हराएको हाँसो फिर्ता गर्दा, आशिर्वाद त्यही- स्वर्ग त्यही, मेरो ईश्वर पनि त्यही हो।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/e-timi.html",
+     "title": "ए! तिमि।"
+    },
+    {
+     "path": "/2025/04/collectivestupidity.html",
+     "title": "मेरो निन्द्रा। मेरो देश।"
+    },
+    {
+     "path": "/2025/04/coldfeeling.html",
+     "title": "चिसो अनुभुति।"
+    }
+   ],
+   "about": "‘हो, म बहुला हुँ’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ४४ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/04/karkidai.html": {
    "heading": "कार्की दाई, राजा, गणतन्त्र",
-   "title": "कार्की दाई, राजा, गणतन्त्र | राजा र गणतन्त्रको कविता चलचित्र · बासभ",
+   "title": "कार्की दाई, राजा, गणतन्त्र | कविता · बासभ",
    "caption": "‘दाइ, तपाईँलाई राजा चाहिने कि राष्ट्रपति?’ उनी फिस्स हाँसे।",
-   "description": "काम खोज्न निस्किएका कार्की दाइलाई ‘राजा चाहिने कि राष्ट्रपति?’ भनी सोध्दा आएको भोक, थकाइ र झोकले भरिएको हाँसोको कविताको चलचित्र। A Nepali poetry film in which a working man, Karki dai, is asked whether he wants a king or a president and answers with a laugh made of hunger, tiredness and anger.",
+   "description": "कार्की दाइलाई सोधेँ - “दाइ, तपाईँलाई राजा चाहिने कि राष्ट्रपति?” उनि फिस्स हाँसे, तर त्यो हाँसो हाँसो थिएन, तर त्यो हाँसो - सडकमा लडेको सपना जस्तै, टुक्रिएको थियो। भोक, थकाइ, र झोकको घोल थियो। “रामे-ज्ञाने जो आएपनि जो… “एक चोटि देख्न पाउँ।” तर दुई वर्षदेखि आएको छैन रे, साउँ- ब्याज असुल नहुन्नजेल फिर्ता ल्याउन दिनेवाला छैनन् रे।” “कार्की दाइलाई सोधेँ- “दाइ, तपाईँलाई राजा चाहिने कि राष्ट्रपति?”” “राष्ट्रगान भन्दा पहिले भोक गुञ्जिन्छ। उनले- न राजा राजा ढोग्न खोजे, न राष्ट्रपतिको भाषणमा हाँसे, न कुनै पार्टीको झन्डा समाते।” पूरा लेख: https://www.kafka.blog/2025/04/karkidai.html — अरू पढ्नुहोस्: कालो बिरालो, हामी।; म, तिमी, हामी; मानुषी: भुपीसँगका थाँती संवाद।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "कार्की दाई, राजा, गणतन्त्र",
     "कार्की दाई",
@@ -843,13 +1593,35 @@
    "lang": "ne",
    "duration": 215,
    "durationIso": "PT3M35S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "कार्की दाइलाई सोधेँ - “दाइ, तपाईँलाई राजा चाहिने कि राष्ट्रपति?” उनि फिस्स हाँसे, तर त्यो हाँसो हाँसो थिएन, तर त्यो हाँसो - सडकमा लडेको सपना जस्तै, टुक्रिएको थियो। भोक, थकाइ, र झोकको घोल थियो। “रामे-ज्ञाने जो आएपनि जो…",
+   "quotes": [
+    "एक चोटि देख्न पाउँ।” तर दुई वर्षदेखि आएको छैन रे, साउँ- ब्याज असुल नहुन्नजेल फिर्ता ल्याउन दिनेवाला छैनन् रे।",
+    "कार्की दाइलाई सोधेँ- “दाइ, तपाईँलाई राजा चाहिने कि राष्ट्रपति?”",
+    "राष्ट्रगान भन्दा पहिले भोक गुञ्जिन्छ। उनले- न राजा राजा ढोग्न खोजे, न राष्ट्रपतिको भाषणमा हाँसे, न कुनै पार्टीको झन्डा समाते।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/cat.html",
+     "title": "कालो बिरालो, हामी।"
+    },
+    {
+     "path": "/2025/05/meyouus.html",
+     "title": "म, तिमी, हामी"
+    },
+    {
+     "path": "/2025/05/manusi.html",
+     "title": "मानुषी: भुपीसँगका थाँती संवाद।"
+    }
+   ],
+   "about": "‘कार्की दाई, राजा, गणतन्त्र’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ३५ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/10/lettertome.html": {
    "heading": "प्रिय म, (ऐनाभित्रको पत्र)",
-   "title": "प्रिय म, (ऐनाभित्रको पत्र) | ऐनाभित्रको आफ्नै संवादको कविता चलचित्र · बासभ",
+   "title": "प्रिय म, (ऐनाभित्रको पत्र) | कविता · बासभ",
    "caption": "स्थिरता असम्भव छ, तर सुन्दरता हरेक बिहान सम्भव हुन्छ।",
-   "description": "ऐनाभित्रको काल्पनिक ‘म’ र ऐनाबाहिरको वास्तविक ‘म’ बीचको संवाद, थकित रात र हरेक बिहानको सुन्दरताबारे कविताको चलचित्र। A Nepali poetry film written as a conversation between the imagined self in the mirror and the real self outside it, on a tired night and the beauty each morning allows.",
+   "description": "तिमी बुझ्नेछौ; स्थिरता असम्भव छ, तर सुन्दरता हरेक बिहान सम्भव हुन्छ। अन्ततः ऐनाले तिम्रो अनुहार बोक्दैन अब त्यहाँ, तिम्रो आत्मा झल्किन्छ; ऐनाभित्रको घामको झिल्कोमा म लुप्त हुन्छु, तिमी बाँच्छौ; अरू धेरै जन्मदिनहरूका… “म- सुनिरहेको छु, साससँग तौरिँदै छालाभित्र चलिरहेका अधुरा संवादहरू।” “तिमी सोच्छौ; कति जन्महरू बिर्सन बाँकी आफ्नै गल्तीहरू सम्झँदै, कति मरणहरू बाँच्न बाँकी केवल विगतका उत्तर खोज्दै।” “तिमी छौ। तिमी छौ। तिमी छौ।” तिमी उपस्थित हुन्छौ, आफ्ना- थकानसँग, मौनतासँग, आफ्ना- गल्तीहरू, डरहरूसँग।” पूरा लेख: https://www.kafka.blog/2025/10/lettertome.html — अरू पढ्नुहोस्: छायाँमा लुकेको उज्यालोको सत्य; वाद्यहरूको विरोध संगित; कोठाभित्रको मानचित्र। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "प्रिय म, (ऐनाभित्रको पत्र)",
     "प्रिय म",
@@ -865,13 +1637,36 @@
    "lang": "ne",
    "duration": 341,
    "durationIso": "PT5M41S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "तिमी बुझ्नेछौ; स्थिरता असम्भव छ, तर सुन्दरता हरेक बिहान सम्भव हुन्छ। अन्ततः ऐनाले तिम्रो अनुहार बोक्दैन अब त्यहाँ, तिम्रो आत्मा झल्किन्छ; ऐनाभित्रको घामको झिल्कोमा म लुप्त हुन्छु, तिमी बाँच्छौ; अरू धेरै जन्मदिनहरूका…",
+   "quotes": [
+    "म- सुनिरहेको छु, साससँग तौरिँदै छालाभित्र चलिरहेका अधुरा संवादहरू।",
+    "तिमी सोच्छौ; कति जन्महरू बिर्सन बाँकी आफ्नै गल्तीहरू सम्झँदै, कति मरणहरू बाँच्न बाँकी केवल विगतका उत्तर खोज्दै।",
+    "तिमी छौ। तिमी छौ। तिमी छौ।” तिमी उपस्थित हुन्छौ, आफ्ना- थकानसँग, मौनतासँग, आफ्ना- गल्तीहरू, डरहरूसँग।"
+   ],
+   "related": [
+    {
+     "path": "/2025/10/shadow.html",
+     "title": "छायाँमा लुकेको उज्यालोको सत्य"
+    },
+    {
+     "path": "/2025/10/misicinnepal.html",
+     "title": "वाद्यहरूको विरोध संगित"
+    },
+    {
+     "path": "/2025/10/mapinroom.html",
+     "title": "कोठाभित्रको मानचित्र"
+    }
+   ],
+   "about": "‘प्रिय म, (ऐनाभित्रको पत्र)’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ५ मिनेट ४१ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/3uvvBOZz2sybZbUPcuFO6B"
   },
   "/2026/01/love.html": {
    "heading": "अघोषित माया",
-   "title": "अघोषित माया | अघोषित मायाको कविता चलचित्र · बासभ",
+   "title": "अघोषित माया | कविता · बासभ",
    "caption": "तिमी मेरो सोचको धारमा बग्ने एउटा अनाम उज्यालो हौ।",
-   "description": "दुई हातले समात्न नसकिने, बाँध्न नसकिने तिमीप्रतिको अघोषित मायाको कविताको चलचित्र। A Nepali poetry film about an undeclared love for someone who cannot be held or bound, only followed like a nameless light.",
+   "description": "दिनहरू चल्छन्, तर समय हिँड्दैन। चेतनाको एउटा छाल आउँछ, तिम्रो यादलाई किनारमा छोड्छ, र फेरि आफ्नै गहिराइतिर फर्कन्छ। “मेरो प्रेम केवल तिम्रो संसारलाई उज्यालो बनाउने चाहन होइन।” “ओ! तिम्रो अव्यक्त हाँसोका रेखाहरू! ती रेखाहरूले कुनै अनुहार कोर्दैनन्, मेरो मौनता कोर्छन्।” “बाटो भेट्टाउन होइन। साहस त केवल तिनलाई चाहिन्छ, जो किनारामा बसेर डुब्न डराउँछन्।” पूरा लेख: https://www.kafka.blog/2026/01/love.html — अरू पढ्नुहोस्: मैले बाँचेको भ्रमको सहर; फेरि, फेरि, फेरि; प्रिय म, (ऐनाभित्रको पत्र)। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "अघोषित माया",
     "अघोषित माया",
@@ -886,13 +1681,36 @@
    "lang": "ne",
    "duration": 245,
    "durationIso": "PT4M5S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "दिनहरू चल्छन्, तर समय हिँड्दैन। चेतनाको एउटा छाल आउँछ, तिम्रो यादलाई किनारमा छोड्छ, र फेरि आफ्नै गहिराइतिर फर्कन्छ।",
+   "quotes": [
+    "मेरो प्रेम केवल तिम्रो संसारलाई उज्यालो बनाउने चाहन होइन।",
+    "ओ! तिम्रो अव्यक्त हाँसोका रेखाहरू! ती रेखाहरूले कुनै अनुहार कोर्दैनन्, मेरो मौनता कोर्छन्।",
+    "बाटो भेट्टाउन होइन। साहस त केवल तिनलाई चाहिन्छ, जो किनारामा बसेर डुब्न डराउँछन्।"
+   ],
+   "related": [
+    {
+     "path": "/2025/12/mycity.html",
+     "title": "मैले बाँचेको भ्रमको सहर"
+    },
+    {
+     "path": "/2025/11/again.html",
+     "title": "फेरि, फेरि, फेरि"
+    },
+    {
+     "path": "/2025/10/lettertome.html",
+     "title": "प्रिय म, (ऐनाभित्रको पत्र)"
+    }
+   ],
+   "about": "‘अघोषित माया’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट ५ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/1YbEF98wEIsKiNzumveNMn"
   },
   "/2025/06/soil.html": {
    "heading": "म प्रश्न सोध्ने माटो",
-   "title": "म प्रश्न सोध्ने माटो | माटोको कविता चलचित्र · बासभ",
+   "title": "म प्रश्न सोध्ने माटो | कविता · बासभ",
    "caption": "म मौन रहँदा तिमीहरूले सम्झियौ म कमजोर छु; भुल्यौ, म धैर्य हुँ।",
-   "description": "थिचिएको, जोतिएको, कुल्चिएको माटोको आवाजमा, चोटहरू इतिहास बनेर उम्रिने कुरा भन्ने कविताको चलचित्र। A Nepali poetry film in the voice of the soil: pressed, ploughed and trampled, where every wound grows back as history, and silence is patience, not forgetting.",
+   "description": "म माटो थिएँ- जहाँ हरेक चोट इतिहास बनेर उम्रन्थ्यो। म मौन रहँदा- तिमीहरूले सम्झियौ म कमजोर छु; भुल्यौ- म धैर्य हुँ म विस्मरण होइन। “म माटो थिएँ- म शब्द बनेको छु। म पीडाभित्र कविता लेख्छु, म मौनताभित्र विद्रोह बोल्छु।” “के म फेरि मल बनूँ? कि चुपचाप तिम्रा वाक्यहरू बोकुँ?” “म उब्जन्छु अब शब्दमा- जहाँ भोकको खेती हुँदैन, चेतनाको जंगल फैलिन्छ।” पूरा लेख: https://www.kafka.blog/2025/06/soil.html — अरू पढ्नुहोस्: म थर नभएको आत्मा।; देश हराएको सपना; परम्पराको कारागार। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "म प्रश्न सोध्ने माटो",
     "म प्रश्न सोध्ने माटो",
@@ -907,13 +1725,36 @@
    "lang": "ne",
    "duration": 157,
    "durationIso": "PT2M37S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "म माटो थिएँ- जहाँ हरेक चोट इतिहास बनेर उम्रन्थ्यो। म मौन रहँदा- तिमीहरूले सम्झियौ म कमजोर छु; भुल्यौ- म धैर्य हुँ म विस्मरण होइन।",
+   "quotes": [
+    "म माटो थिएँ- म शब्द बनेको छु। म पीडाभित्र कविता लेख्छु, म मौनताभित्र विद्रोह बोल्छु।",
+    "के म फेरि मल बनूँ? कि चुपचाप तिम्रा वाक्यहरू बोकुँ?",
+    "म उब्जन्छु अब शब्दमा- जहाँ भोकको खेती हुँदैन, चेतनाको जंगल फैलिन्छ।"
+   ],
+   "related": [
+    {
+     "path": "/2025/06/nosurnames.html",
+     "title": "म थर नभएको आत्मा।"
+    },
+    {
+     "path": "/2025/06/nepal.html",
+     "title": "देश हराएको सपना"
+    },
+    {
+     "path": "/2025/06/caste.html",
+     "title": "परम्पराको कारागार"
+    }
+   ],
+   "about": "‘म प्रश्न सोध्ने माटो’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ३७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/1UqcYvBNqTxMFT8sgVffu8"
   },
   "/2025/10/mapinroom.html": {
    "heading": "कोठाभित्रको मानचित्र",
-   "title": "कोठाभित्रको मानचित्र | आफ्नै छालाको कविता चलचित्र · बासभ",
+   "title": "कोठाभित्रको मानचित्र | कविता · बासभ",
    "caption": "मेरो छाला आफैँमा एक मानचित्र, घाउका नदीहरूको चित्र।",
-   "description": "साँघुरो कोठाभित्र आफ्नै छालालाई घाउका नदीहरूको मानचित्र ठान्ने मानिसको कविताको चलचित्र। A Nepali poetry film about a person in a narrow room who reads his own skin as a map, a picture of rivers of wounds.",
+   "description": "कहिलेकाहीँ म आफ्नै छालाबाट बाहिर निस्केको छायाँ बन्छु- छायाँ जो हिँड्छ, तर वजन महसुस गर्न सक्दैन। छायाभित्रको शरीरलाई तानेर हेर्दा आफ्नै सास काट्ने सुइँ देख्छु। लाग्छ- कुनै नाटकको पर्दा, जो बारम्बार तानिन्छ, तर अन्त्य-… “लाग्छ- कुनै नाटकको पर्दा, जो बारम्बार तानिन्छ, तर अन्त्य- कहिल्यै आउँदैन।” “मानिसहरू मृत भगवानको अस्थिमाथि नाचिरहेका छन् र प्रत्येक हाँसो चाकु बनेर आकाश चिरेर जान्छ।” “गीतलाई बहिनीका खुट्टामा छर्छु। गीतलाई आमाका सासमा फुक्छु।” पूरा लेख: https://www.kafka.blog/2025/10/mapinroom.html — अरू पढ्नुहोस्: छाउपडीको छायाँ; लव-कुशको नागरिकता।; म प्रश्न सोध्ने माटो।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "कोठाभित्रको मानचित्र",
     "कोठाभित्रको मानचित्र",
@@ -928,13 +1769,36 @@
    "lang": "ne",
    "duration": 208,
    "durationIso": "PT3M28S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "कहिलेकाहीँ म आफ्नै छालाबाट बाहिर निस्केको छायाँ बन्छु- छायाँ जो हिँड्छ, तर वजन महसुस गर्न सक्दैन। छायाभित्रको शरीरलाई तानेर हेर्दा आफ्नै सास काट्ने सुइँ देख्छु। लाग्छ- कुनै नाटकको पर्दा, जो बारम्बार तानिन्छ, तर अन्त्य-…",
+   "quotes": [
+    "लाग्छ- कुनै नाटकको पर्दा, जो बारम्बार तानिन्छ, तर अन्त्य- कहिल्यै आउँदैन।",
+    "मानिसहरू मृत भगवानको अस्थिमाथि नाचिरहेका छन् र प्रत्येक हाँसो चाकु बनेर आकाश चिरेर जान्छ।",
+    "गीतलाई बहिनीका खुट्टामा छर्छु। गीतलाई आमाका सासमा फुक्छु।"
+   ],
+   "related": [
+    {
+     "path": "/2025/09/chaupadi.html",
+     "title": "छाउपडीको छायाँ"
+    },
+    {
+     "path": "/2025/07/labkush.html",
+     "title": "लव-कुशको नागरिकता।"
+    },
+    {
+     "path": "/2025/06/soil.html",
+     "title": "म प्रश्न सोध्ने माटो।"
+    }
+   ],
+   "about": "‘कोठाभित्रको मानचित्र’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट २८ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/197yw4T7lGdstQYK3TKvBb"
   },
   "/2025/05/meyouus.html": {
    "heading": "म, तिमी, हामी",
-   "title": "म, तिमी, हामी | दुई आत्माको कविता चलचित्र · बासभ",
+   "title": "म, तिमी, हामी | कविता · बासभ",
    "caption": "हामी: धुलो र इच्छाको द्वन्द्व।",
-   "description": "थेसिस, एन्टि-थेसिस र सिन्थेसिसको ढाँचामा लेखिएको ‘म’, ‘तिमी’ र ‘हामी’ को कविताको चलचित्र: दुई भाँचिएका, प्रतिबिम्बित आत्मा। A Nepali poetry film built as thesis, anti-thesis and synthesis: I, you and we, two broken and mirrored souls.",
+   "description": "हामी: धुलो र इच्छाको द्वन्द्व। दुई आत्माहरू - भाँचिएका, प्रतिबिम्बित, न पूरै, न हराएका। Thesis: म, आक्रान्त, आजीत, थकित, चकित, मौन, एक्सप्रेशनलेश, निठुर, निफल - “तैपनि, सजीव, एडप्टेड, जीजिविषा बोकेर हाँस्दै, खुसी हुँदै, जीवनलाई अँगाल्दै, बाँच्नै पर्ने, रम्नै पर्ने।” “Churlish, brusque, Yet timid, meek. And still, Winsome.” “म- तिमीले बसोबास गर्ने मौनता। हामी - सन्तुलन होइन, गति।” पूरा लेख: https://www.kafka.blog/2025/05/meyouus.html — अरू पढ्नुहोस्: बुद्ध वाज बर्न इन नेपाल।; धुवाँमा चलेको सहर; आज मेरो जन्मदिन।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "म, तिमी, हामी",
     "म तिमी हामी",
@@ -949,13 +1813,36 @@
    "lang": "ne",
    "duration": 139,
    "durationIso": "PT2M19S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "हामी: धुलो र इच्छाको द्वन्द्व। दुई आत्माहरू - भाँचिएका, प्रतिबिम्बित, न पूरै, न हराएका। Thesis: म, आक्रान्त, आजीत, थकित, चकित, मौन, एक्सप्रेशनलेश, निठुर, निफल -",
+   "quotes": [
+    "तैपनि, सजीव, एडप्टेड, जीजिविषा बोकेर हाँस्दै, खुसी हुँदै, जीवनलाई अँगाल्दै, बाँच्नै पर्ने, रम्नै पर्ने।",
+    "Churlish, brusque, Yet timid, meek. And still, Winsome.",
+    "म- तिमीले बसोबास गर्ने मौनता। हामी - सन्तुलन होइन, गति।"
+   ],
+   "related": [
+    {
+     "path": "/2025/05/buddha.html",
+     "title": "बुद्ध वाज बर्न इन नेपाल।"
+    },
+    {
+     "path": "/2025/03/dhuwanma-chaleko-sahar.html",
+     "title": "धुवाँमा चलेको सहर"
+    },
+    {
+     "path": "/2024/10/aaja-mero-janmadin.html",
+     "title": "आज मेरो जन्मदिन।"
+    }
+   ],
+   "about": "‘म, तिमी, हामी’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट १९ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/6bzZJo6KYxC8JXbyKZRchN"
   },
   "/2025/04/mirageofpolitics.html": {
    "heading": "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा",
-   "title": "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा | शक्ति र विजयको क्षणभङ्गुरताको कविता चलचित्र · बासभ",
+   "title": "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा | कविता · बासभ",
    "caption": "भाँचिएका मूर्तिका टुक्रा र मरुभूमिको तातो बालुवा।",
-   "description": "ओजिमान्डियसको मरुभूमिमा ट्रुमन, नेपोलियन र मरी एन्तोनेटको छायाँ भेटिने, विजय र शक्तिको मृगतृष्णाबारे कविताको चलचित्र। A Nepali poetry film set in the desert of Ozymandias, where Truman, Napoleon and Marie Antoinette are only shadows: a poem on the mirage of power and victory.",
+   "description": "ओजिमान्डियसको मरुभूमिमा ट्रुमन र नेपोलियनले- एकअर्काको छायाँ मात्र देखे साथमा थिए- हराइसकेका सपना बचेको थियो- शून्यको एक सानो आवाज, “उनीहरूलाई रोटी छैन? केक बाँडिदिउँ?” मरी एन्तोनेटले झ्यालबाट हेर्दै भन्दै थपिन,… “सुनिन्छ- उसले बाँसुरी चर्काउँदै भनिरहेको थियो: “यो त इतिहासको पुनर्लेखन हो”” “एटोमिक क्लाउड, क्षतविक्षत लासहरु, कहालीलाग्दो विभत्सता, देख्यो होला नयाँ हिरोसिमा।” “एलेक्जेन्डरले, सपना देखेको थियो- उसले जितेको संसार, टिकेन विजयको नक्सा, टिकेनन् ति सहरहरू।” पूरा लेख: https://www.kafka.blog/2025/04/mirageofpolitics.html — अरू पढ्नुहोस्: अघोषित माया; घनघोरका आँधिपुराणहरू।; मौन बुद्ध।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा",
     "ओजिमान्डियस",
@@ -970,13 +1857,35 @@
    "lang": "ne",
    "duration": 338,
    "durationIso": "PT5M38S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "ओजिमान्डियसको मरुभूमिमा ट्रुमन र नेपोलियनले- एकअर्काको छायाँ मात्र देखे साथमा थिए- हराइसकेका सपना बचेको थियो- शून्यको एक सानो आवाज, “उनीहरूलाई रोटी छैन? केक बाँडिदिउँ?” मरी एन्तोनेटले झ्यालबाट हेर्दै भन्दै थपिन,…",
+   "quotes": [
+    "सुनिन्छ- उसले बाँसुरी चर्काउँदै भनिरहेको थियो: “यो त इतिहासको पुनर्लेखन हो”",
+    "एटोमिक क्लाउड, क्षतविक्षत लासहरु, कहालीलाग्दो विभत्सता, देख्यो होला नयाँ हिरोसिमा।",
+    "एलेक्जेन्डरले, सपना देखेको थियो- उसले जितेको संसार, टिकेन विजयको नक्सा, टिकेनन् ति सहरहरू।"
+   ],
+   "related": [
+    {
+     "path": "/2026/01/love.html",
+     "title": "अघोषित माया"
+    },
+    {
+     "path": "/2025/04/storminside.html",
+     "title": "घनघोरका आँधिपुराणहरू।"
+    },
+    {
+     "path": "/2025/04/silentbuddha.html",
+     "title": "मौन बुद्ध।"
+    }
+   ],
+   "about": "‘ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ५ मिनेट ३८ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/10/misicinnepal.html": {
    "heading": "वाद्यहरूको विरोध संगित",
-   "title": "वाद्यहरूको विरोध संगित | वाद्यहरूको कविता चलचित्र · बासभ",
+   "title": "वाद्यहरूको विरोध संगित | कविता · बासभ",
    "caption": "म सारंगी हुँ; मेरो तारमा लुकेको छ थिचिएका अनुहारहरूको सास।",
-   "description": "सारंगी, ढोल र बाँसुरीले थारु आमाको लोरी, तामाङ दाइका गीत र मधेसका लोकसुरसहित थिचिएकाहरूको आवाज बोल्ने कविताको चलचित्र। A Nepali poetry film in which the sarangi, the drum and the flute carry the voices of the pressed: a Tharu mother's lullaby, Tamang songs and Madhesi folk tunes.",
+   "description": "वाद्यहरूको यो सेना उठोस्; सारंगीका तार, ढोलका ठोका, बाँसुरीका श्वासहरू एउटै तालमा मिल्छन हाम्रो सङ्गीतले कागजातमा लेखिएका दावीहरू पनि बचाउन। म सारंगी हुँ- मेरो तारबाट उठ्ने ध्वनि सुन। म ढोल हुँ- मेरो ठोकाबाट उठ्ने कदम… “ताकि भुलाइएका नामहरू उच्चरित हुन्। म ढोल हुँ; मलाई कुनामा थन्काएर नछोड, धुलोको थुप्रोमुनि लुकाएर नछोड।” “बजाउ मलाई- मेरो स्वरले मातृभाषाको पहिचान फुकालोस् विद्यालयको पाठ्यपुस्तकमा, सभाको भाषामा, कानुनको शब्दमा।” “मधेस कराउँछ- “हामीलाई सीमाना होइन, अधिकार चाहिन्छ।”” पूरा लेख: https://www.kafka.blog/2025/10/misicinnepal.html — अरू पढ्नुहोस्: छायाँमा लुकेको उज्यालोको सत्य; कोठाभित्रको मानचित्र; प्रिय म, (ऐनाभित्रको पत्र)। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "वाद्यहरूको विरोध संगित",
     "वाद्यहरूको विरोध संगीत",
@@ -991,13 +1900,36 @@
    "lang": "ne",
    "duration": 192,
    "durationIso": "PT3M12S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "वाद्यहरूको यो सेना उठोस्; सारंगीका तार, ढोलका ठोका, बाँसुरीका श्वासहरू एउटै तालमा मिल्छन हाम्रो सङ्गीतले कागजातमा लेखिएका दावीहरू पनि बचाउन। म सारंगी हुँ- मेरो तारबाट उठ्ने ध्वनि सुन। म ढोल हुँ- मेरो ठोकाबाट उठ्ने कदम…",
+   "quotes": [
+    "ताकि भुलाइएका नामहरू उच्चरित हुन्। म ढोल हुँ; मलाई कुनामा थन्काएर नछोड, धुलोको थुप्रोमुनि लुकाएर नछोड।",
+    "बजाउ मलाई- मेरो स्वरले मातृभाषाको पहिचान फुकालोस् विद्यालयको पाठ्यपुस्तकमा, सभाको भाषामा, कानुनको शब्दमा।",
+    "मधेस कराउँछ- “हामीलाई सीमाना होइन, अधिकार चाहिन्छ।”"
+   ],
+   "related": [
+    {
+     "path": "/2025/10/shadow.html",
+     "title": "छायाँमा लुकेको उज्यालोको सत्य"
+    },
+    {
+     "path": "/2025/10/mapinroom.html",
+     "title": "कोठाभित्रको मानचित्र"
+    },
+    {
+     "path": "/2025/10/lettertome.html",
+     "title": "प्रिय म, (ऐनाभित्रको पत्र)"
+    }
+   ],
+   "about": "‘वाद्यहरूको विरोध संगित’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट १२ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/5yUTo32bPWhAIPE3b7t3ei"
   },
   "/2025/12/mycity.html": {
    "heading": "मैले बाँचेको भ्रमको सहर",
-   "title": "मैले बाँचेको भ्रमको सहर | सहर र थकानको कविता चलचित्र · बासभ",
+   "title": "मैले बाँचेको भ्रमको सहर | कविता · बासभ",
    "caption": "यो सहर मेरो रहरले होइन, मेरो थकानमा जेलिएको छ।",
-   "description": "रोजाइ होइन, थकानको निरन्तरताको रूपमा बाँचिएको सहरबारे, जहाँ समय बग्दैन नाडीभित्र थाकेर अड्किन्छ भन्ने कविताको चलचित्र। A Nepali poetry film about a city lived not by choice but as a continuation of tiredness, where time does not flow but gets stuck, worn out, inside the wrist.",
+   "description": "यो सहर मेरो रोजाइ होइन- मेरो थकानको निरन्तरता हो। यहाँ समय बग्दैन, ऊ मेरो नाडीभित्र थाकेर अड्किन्छ, र दिनहरू हिजोका अधुरा बोझ बोकेर फेरि उठ्छन्। “रातले अधूरै छोडेका सपनाहरू फेरि टिप्ने आशामा अर्को दिन ब्युझनका लागि मात्रै यो सहर निदाउन जान्छ।” “मौन शान्ति- सहमतिमा। बिहान यहाँ, घाम बोकेर आउँदैन, आकाशमा कुनै अमूर्त चित्रकारले हतासमा पोतेको फुस्रो रङ्गझैँ खुल्छ।” “म दुई अवस्थाको बीचमा बाँचिरहेको छु- जहाँ आशा लाज मान्छ र निराशा आफ्नो नाम खुलस्त बोल्छ।” पूरा लेख: https://www.kafka.blog/2025/12/mycity.html — अरू पढ्नुहोस्: अघोषित माया; उसका लागि कविता।; घाम र फूलको प्रेम गीत।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "मैले बाँचेको भ्रमको सहर",
     "मैले बाँचेको भ्रमको सहर",
@@ -1012,13 +1944,36 @@
    "lang": "ne",
    "duration": 280,
    "durationIso": "PT4M40S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "यो सहर मेरो रोजाइ होइन- मेरो थकानको निरन्तरता हो। यहाँ समय बग्दैन, ऊ मेरो नाडीभित्र थाकेर अड्किन्छ, र दिनहरू हिजोका अधुरा बोझ बोकेर फेरि उठ्छन्।",
+   "quotes": [
+    "रातले अधूरै छोडेका सपनाहरू फेरि टिप्ने आशामा अर्को दिन ब्युझनका लागि मात्रै यो सहर निदाउन जान्छ।",
+    "मौन शान्ति- सहमतिमा। बिहान यहाँ, घाम बोकेर आउँदैन, आकाशमा कुनै अमूर्त चित्रकारले हतासमा पोतेको फुस्रो रङ्गझैँ खुल्छ।",
+    "म दुई अवस्थाको बीचमा बाँचिरहेको छु- जहाँ आशा लाज मान्छ र निराशा आफ्नो नाम खुलस्त बोल्छ।"
+   ],
+   "related": [
+    {
+     "path": "/2026/01/love.html",
+     "title": "अघोषित माया"
+    },
+    {
+     "path": "/2025/08/usaka-lagi-kabita.html",
+     "title": "उसका लागि कविता।"
+    },
+    {
+     "path": "/2025/07/sunandflower.html",
+     "title": "घाम र फूलको प्रेम गीत।"
+    }
+   ],
+   "about": "‘मैले बाँचेको भ्रमको सहर’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट ४० सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/0OatQWDRWyeYwMbRC9dv3h"
   },
   "/2025/11/nepal-2.html": {
    "heading": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको",
-   "title": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको | राष्ट्रिय थकानको कविता चलचित्र · बासभ",
+   "title": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको | कविता · बासभ",
    "caption": "हामी, हाम्रो भविष्यभन्दा पहिले थकानको व्याकरण सिकेका।",
-   "description": "ध्वंसलाई विकास भन्दै हरेक भत्किएको घरभित्र डर सुरक्षित राख्ने, भर्खर जन्मिएका बुढा मानिसहरूको देशबारे घोषणापत्रको कविताको चलचित्र। A Nepali poetry film written as a manifesto for a country that has lost its future: people who learned the grammar of fatigue before their own future.",
+   "description": "हाम्रो स्मृतिमा, अझै धुवाँ बाँचिरहेको छ, अझै आकाश भाँचिँ नै रहेको छ। देश थकानको दिशामा, आफ्नै गतिमा घस्रिरहेको छ। हामी- ध्वंसलाई विकास भनिरहेका छौं, र हरेक भत्किएको घरभित्र आफ्नो डर सुरक्षित राखिरहेका छौं। “धुवाँ र धुलोको असमञ्जस्यतामा- भोलिपल्ट घामले माफी माग्न नपाउँदै, हिजो- उसको छायाँ हराएको भित्ता ढाक्न- नयाँ पोस्टरहरू आइसकेका थिए।” “सपना बिसाएको उज्यालो- हावाको दिशासँग चलि नै रह्यो, धुलोमा नारा चर्को सुनिन्छ र, मानवता बिर्सिइने रहेछ।” “शहरका ढुङ्गा बोल्छन्- “हामीले हाम्रो सपना गाड्यौं।”” पूरा लेख: https://www.kafka.blog/2025/11/nepal-2.html — अरू पढ्नुहोस्: मौनताको चिसो; फेरि, फेरि, फेरि; जुठी दमिनीको छायाँपारि। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको",
     "राष्ट्रिय थकानको घोषणापत्र",
@@ -1033,13 +1988,36 @@
    "lang": "ne",
    "duration": 301,
    "durationIso": "PT5M1S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "हाम्रो स्मृतिमा, अझै धुवाँ बाँचिरहेको छ, अझै आकाश भाँचिँ नै रहेको छ। देश थकानको दिशामा, आफ्नै गतिमा घस्रिरहेको छ। हामी- ध्वंसलाई विकास भनिरहेका छौं, र हरेक भत्किएको घरभित्र आफ्नो डर सुरक्षित राखिरहेका छौं।",
+   "quotes": [
+    "धुवाँ र धुलोको असमञ्जस्यतामा- भोलिपल्ट घामले माफी माग्न नपाउँदै, हिजो- उसको छायाँ हराएको भित्ता ढाक्न- नयाँ पोस्टरहरू आइसकेका थिए।",
+    "सपना बिसाएको उज्यालो- हावाको दिशासँग चलि नै रह्यो, धुलोमा नारा चर्को सुनिन्छ र, मानवता बिर्सिइने रहेछ।",
+    "शहरका ढुङ्गा बोल्छन्- “हामीले हाम्रो सपना गाड्यौं।”"
+   ],
+   "related": [
+    {
+     "path": "/2025/11/coldsilence.html",
+     "title": "मौनताको चिसो"
+    },
+    {
+     "path": "/2025/11/again.html",
+     "title": "फेरि, फेरि, फेरि"
+    },
+    {
+     "path": "/2025/12/juthi.html",
+     "title": "जुठी दमिनीको छायाँपारि"
+    }
+   ],
+   "about": "‘घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ५ मिनेट १ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/4iVdLdgi4LhsAkxTxBftrp"
   },
   "/2025/06/nepal.html": {
    "heading": "देश हराएको सपना",
-   "title": "देश हराएको सपना | हराएको सपनाको कविता चलचित्र · बासभ",
+   "title": "देश हराएको सपना | कविता · बासभ",
    "caption": "म पनि सपना देख्थेँ देशको: नक्शा होइन, अनुहार भएको देश।",
-   "description": "कविले बन्दुक होइन कलम बोकेर प्रतिवाद गर्ने, बालबालिकाले बाँच्ने पालो कुर्नु नपर्ने देशको सपना काठमाडौँको कंक्रिट क्यानभासमा हराएको कविताको चलचित्र। A Nepali poetry film about the dream of a country with a face, not just a map, where poets carry pens and not guns, and how that dream got lost on Kathmandu's concrete canvas.",
+   "description": "म पनि- सपना देख्थें देशको, नक्शा होइन, अनुहार भएको देश। जहाँ कविले बन्दुक होइन, कलम बोकेर गर्थे प्रतिवाद। जहाँ सपना- सिर्जनाको गर्भ, सिर्जना- विद्रोहको आवाज। तर मेरो सपना हरायो! हरायो- काठमाडौंको कन्क्रिट क्यानभासमा।… “जहाँ कविले बन्दुक होइन, कलम बोकेर गर्थे प्रतिवाद।” “जसको गन्तव्य सधैं सिंहदरबार हुन्छ। यहाँ आज- सपना बेच्नेहरू सिंहदरबारमा छन्: चाउरिएको झन्डा, झुटा नाराको पर्दा।” “सम्झनामा बचेको एक पुरानो कविता, एक पुरानो झरी, एक पुरानो देश अपुरो बिलौना।” पूरा लेख: https://www.kafka.blog/2025/06/nepal.html — अरू पढ्नुहोस्: म प्रश्न सोध्ने माटो।; म थर नभएको आत्मा।; परम्पराको कारागार। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "देश हराएको सपना",
     "देश हराएको सपना",
@@ -1054,13 +2032,36 @@
    "lang": "ne",
    "duration": 194,
    "durationIso": "PT3M14S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "म पनि- सपना देख्थें देशको, नक्शा होइन, अनुहार भएको देश। जहाँ कविले बन्दुक होइन, कलम बोकेर गर्थे प्रतिवाद। जहाँ सपना- सिर्जनाको गर्भ, सिर्जना- विद्रोहको आवाज। तर मेरो सपना हरायो! हरायो- काठमाडौंको कन्क्रिट क्यानभासमा।…",
+   "quotes": [
+    "जहाँ कविले बन्दुक होइन, कलम बोकेर गर्थे प्रतिवाद।",
+    "जसको गन्तव्य सधैं सिंहदरबार हुन्छ। यहाँ आज- सपना बेच्नेहरू सिंहदरबारमा छन्: चाउरिएको झन्डा, झुटा नाराको पर्दा।",
+    "सम्झनामा बचेको एक पुरानो कविता, एक पुरानो झरी, एक पुरानो देश अपुरो बिलौना।"
+   ],
+   "related": [
+    {
+     "path": "/2025/06/soil.html",
+     "title": "म प्रश्न सोध्ने माटो।"
+    },
+    {
+     "path": "/2025/06/nosurnames.html",
+     "title": "म थर नभएको आत्मा।"
+    },
+    {
+     "path": "/2025/06/caste.html",
+     "title": "परम्पराको कारागार"
+    }
+   ],
+   "about": "‘देश हराएको सपना’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट १४ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/16g9YfNfmNnET6KdAXggvG"
   },
   "/2026/06/nomad.html": {
    "heading": "शीर्षकविहीन",
-   "title": "शीर्षकविहीन | घर फर्कन डराउने घुमन्तेको कविता चलचित्र · बासभ",
+   "title": "शीर्षकविहीन | कविता · बासभ",
    "caption": "म पुग्दा मेरो घरले मलाई चिन्ने छैन।",
-   "description": "घुमन्ते बनेको मानिसले घर पुग्दा घरले आफूलाई नचिन्ने, आफ्नै आँगनमा पाहुना हुनुपर्ने डरको कविताको चलचित्र। A Nepali poetry film about a nomad who fears that when he finally arrives his home will not know him and he will stand in his own yard as a guest.",
+   "description": "तर म जान्दछु, म पुग्दा मेरो घरले मलाई चिन्ने छैन। भित्ता पोतिएको हुनेछ। चौखटले मलाई नचिनी बस्नेछ। चुकुल अहिले कसैले तेल हालिसक्यो होला। बत्तीको स्विच अर्कैको हातले भेट्टाउने छ। र म उभिनेछु, पाहुना भएर, आफ्नै आँगनमा। “आँप ढल्यो रे। छिमेकको त्यो केटो, अब त छोराको बुवा भयो।” “अर्थात् मेरो। कुनै-कुनै रात स्टेसनसम्म पुग्छु। टिकट हत्केलामा भिज्छ।” “लुगा हावामा फुल्छन्, अर्कै फर्केर। ऊसँग सिङ्गो दिन छ।” पूरा लेख: https://www.kafka.blog/2026/06/nomad.html — अरू पढ्नुहोस्: नोस्टालजिया पसल; देशभक्ति।; आफ्नै संस्मरण १- किताबका कुरा। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "शीर्षकविहीन",
     "घुमन्ते कविता",
@@ -1076,13 +2077,36 @@
    "lang": "ne",
    "duration": 171,
    "durationIso": "PT2M51S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "तर म जान्दछु, म पुग्दा मेरो घरले मलाई चिन्ने छैन। भित्ता पोतिएको हुनेछ। चौखटले मलाई नचिनी बस्नेछ। चुकुल अहिले कसैले तेल हालिसक्यो होला। बत्तीको स्विच अर्कैको हातले भेट्टाउने छ। र म उभिनेछु, पाहुना भएर, आफ्नै आँगनमा।",
+   "quotes": [
+    "आँप ढल्यो रे। छिमेकको त्यो केटो, अब त छोराको बुवा भयो।",
+    "अर्थात् मेरो। कुनै-कुनै रात स्टेसनसम्म पुग्छु। टिकट हत्केलामा भिज्छ।",
+    "लुगा हावामा फुल्छन्, अर्कै फर्केर। ऊसँग सिङ्गो दिन छ।"
+   ],
+   "related": [
+    {
+     "path": "/2025/09/nostalgia.html",
+     "title": "नोस्टालजिया पसल"
+    },
+    {
+     "path": "/2025/04/deshbhakti.html",
+     "title": "देशभक्ति।"
+    },
+    {
+     "path": "/2025/03/booksandauthors.html",
+     "title": "आफ्नै संस्मरण १- किताबका कुरा"
+    }
+   ],
+   "about": "‘शीर्षकविहीन’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ५१ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/1hWwuHPp8riJgQETfWKN7M"
   },
   "/2025/09/nostalgia.html": {
    "heading": "नोस्टालजिया पसल",
-   "title": "नोस्टालजिया पसल | सम्झनाको पसलको कविता चलचित्र · बासभ",
+   "title": "नोस्टालजिया पसल | कविता · बासभ",
    "caption": "यस पसलमा मूल्य छैन; सबै स्मृतिमा तौलिन्छ।",
-   "description": "कहिल्यै बन्द नहुने, न बेचिने न खरिद हुने नोस्टालजिया पसलमा बाल्यकालको पसिना र अधुरा सम्झना बोकेर बाँचेको कविताको चलचित्र। A Nepali poetry film set in a nostalgia shop that never closes, where nothing is bought or sold and everything is weighed in memory.",
+   "description": "नोस्टालजिया पसल- कहिल्यै बन्द हुँदैन यहाँ जीवन टुक्रिन्छ र समय हुर्किन्छ, उसका अधुरा सम्झनाहरू गुनासो र मायाको छाप बोकेर मलाई बाँधिरहन्छ। म पसल छोड्न खोज्छु, तर ढोकाबाहिर निस्कँदा फेरि पसलमै फर्केको पाउँछु, “उसको… “हजुरबुबाको काँध अझै हलुका, एउटा असम्भव उचाइमा जहाँ आकाशलाई छोइन्छ तर आकाश खाली फिर्ता फर्कन्छ।” “ऊ न आँसु हो, न मृत्यु अनन्त गहिरो दृष्टि उस्तै निरन्तर उज्यालो।” “मलाई बाँधिरहन्छ। म पसल छोड्न खोज्छु, तर ढोकाबाहिर निस्कँदा फेरि पसलमै फर्केको पाउँछु, “उसको अनुपस्थिति नै मेरो उपस्थितिको कारण हो।”” पूरा लेख: https://www.kafka.blog/2025/09/nostalgia.html — अरू पढ्नुहोस्: शीर्षकविहीन; देशभक्ति।; छाउपडीको छायाँ। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "नोस्टालजिया पसल",
     "नोस्टालजिया पसल",
@@ -1097,13 +2121,36 @@
    "lang": "ne",
    "duration": 294,
    "durationIso": "PT4M54S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "नोस्टालजिया पसल- कहिल्यै बन्द हुँदैन यहाँ जीवन टुक्रिन्छ र समय हुर्किन्छ, उसका अधुरा सम्झनाहरू गुनासो र मायाको छाप बोकेर मलाई बाँधिरहन्छ। म पसल छोड्न खोज्छु, तर ढोकाबाहिर निस्कँदा फेरि पसलमै फर्केको पाउँछु, “उसको…",
+   "quotes": [
+    "हजुरबुबाको काँध अझै हलुका, एउटा असम्भव उचाइमा जहाँ आकाशलाई छोइन्छ तर आकाश खाली फिर्ता फर्कन्छ।",
+    "ऊ न आँसु हो, न मृत्यु अनन्त गहिरो दृष्टि उस्तै निरन्तर उज्यालो।",
+    "मलाई बाँधिरहन्छ। म पसल छोड्न खोज्छु, तर ढोकाबाहिर निस्कँदा फेरि पसलमै फर्केको पाउँछु, “उसको अनुपस्थिति नै मेरो उपस्थितिको कारण हो।”"
+   ],
+   "related": [
+    {
+     "path": "/2026/06/nomad.html",
+     "title": "शीर्षकविहीन"
+    },
+    {
+     "path": "/2025/04/deshbhakti.html",
+     "title": "देशभक्ति।"
+    },
+    {
+     "path": "/2025/09/chaupadi.html",
+     "title": "छाउपडीको छायाँ"
+    }
+   ],
+   "about": "‘नोस्टालजिया पसल’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट ५४ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/7xgJDh4uRXBchD1eu0tD6C"
   },
   "/2026/01/prithivi.html": {
    "heading": "पृथ्वीनारायणसँगको जम्काभेट",
-   "title": "पृथ्वीनारायणसँगको जम्काभेट | पृथ्वीनारायण र आजको नेपालको कविता चलचित्र · बासभ",
+   "title": "पृथ्वीनारायणसँगको जम्काभेट | कविता · बासभ",
    "caption": "आजकाल त्यही औँलाले युवाहरूलाई ‘एयरपोर्ट’ को बाटो देखाइरहेछ।",
-   "description": "सिंहदरबारको गेटमा ठड्याइएको पृथ्वीनारायणको सालिकको औँलाले अब युवाहरूलाई एयरपोर्टको बाटो देखाइरहेछ भन्ने कविताको चलचित्र। A Nepali poetry film addressed to Prithvi Narayan Shah: the raised finger of his statue at the Singha Durbar gate now points young people to the airport.",
+   "description": "पृथ्वीनारायण! तिमी आयौ? सिंहदरबारको गेटमा उभिएको सालिकले ठड्याएको औँला अब देश हाँक्ने बाटो होइन, युवाहरूलाई ‘एयरपोर्ट’ को बाटो देखाइरहेछ। “अहिले सिंहदरबार जित्न। ‘घूस लिन्या र दिन्या दुबै देशका शत्रु हुन्’ भन्थ्यौ, देख्यौ? अहिले त तिनै देशका मालिक भएका छन्।” “वीरहरू! युद्ध जितेर पनि जिन्दगी हार्‍यौ कि? वा, सुगौली सन्धि च्यातेर, हातमा रातो पासपोर्ट लियौ?” “\"एक भाषा, एक भेष\" को सपना, अहिले इतिहासको खल्लो व्यंग्य बनेर बाँचेको छ।” पूरा लेख: https://www.kafka.blog/2026/01/prithivi.html — अरू पढ्नुहोस्: अब रमिता छ; कांग्रेस: विरासतको विज्ञापन; कामरेडसँगको पुनर्मिलन। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "पृथ्वीनारायणसँगको जम्काभेट",
     "पृथ्वीनारायण शाह",
@@ -1119,13 +2166,36 @@
    "lang": "ne",
    "duration": 327,
    "durationIso": "PT5M27S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "पृथ्वीनारायण! तिमी आयौ? सिंहदरबारको गेटमा उभिएको सालिकले ठड्याएको औँला अब देश हाँक्ने बाटो होइन, युवाहरूलाई ‘एयरपोर्ट’ को बाटो देखाइरहेछ।",
+   "quotes": [
+    "अहिले सिंहदरबार जित्न। ‘घूस लिन्या र दिन्या दुबै देशका शत्रु हुन्’ भन्थ्यौ, देख्यौ? अहिले त तिनै देशका मालिक भएका छन्।",
+    "वीरहरू! युद्ध जितेर पनि जिन्दगी हार्‍यौ कि? वा, सुगौली सन्धि च्यातेर, हातमा रातो पासपोर्ट लियौ?",
+    "\"एक भाषा, एक भेष\" को सपना, अहिले इतिहासको खल्लो व्यंग्य बनेर बाँचेको छ।"
+   ],
+   "related": [
+    {
+     "path": "/2026/01/ramita.html",
+     "title": "अब रमिता छ"
+    },
+    {
+     "path": "/2026/01/congress.html",
+     "title": "कांग्रेस: विरासतको विज्ञापन"
+    },
+    {
+     "path": "/2026/01/comrade.html",
+     "title": "कामरेडसँगको पुनर्मिलन"
+    }
+   ],
+   "about": "‘पृथ्वीनारायणसँगको जम्काभेट’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ५ मिनेट २७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/6ijgqo2DGxC1GI7l6WrykM"
   },
   "/2025/04/questions.html": {
    "heading": "अनुत्तरित खल्दुलीहरू",
-   "title": "अनुत्तरित खल्दुलीहरू | महाभारत र आस्थाको कविता चलचित्र · बासभ",
+   "title": "अनुत्तरित खल्दुलीहरू | कविता · बासभ",
    "caption": "भनिन्छ, अहिले यस भूगोलमा सतीको श्राप परेको छ।",
-   "description": "महाभारतका पात्र र कृष्णले बोकेका आस्था ढल्दै गएको भन्दै अनुत्तरित प्रश्नहरू उठाउने कविताको चलचित्र। A Nepali poetry film that raises unanswered questions through the Mahabharata, as the faiths carried by Krishna fall one by one.",
+   "description": "तर, सत्यचहिँ के हो भने, मान्छे बलेको आगोनै ताप्ने रहेछ, सायद त्यसैले होला, अहिले भिमको गधाको गर्व कसैले गर्दैनन्, युधिष्ठिरको इमानको चर्चा कसैले गर्दैनन्, अभिमन्युको गर्विलो चर्चा कसैले गर्दैनन्, भिष्मपितामहको… “कृष्ण उभिएको धरतीबाट, र स्वयम कृष्णको घरहरु बाट, कृष्णले बोकेका आस्थाहरु ढल्दैछन, कृष्णले उठाएका विश्वासहरु ढल्दैछन।” “सृष्टिका यि सत्यहरु, कहिल्यै मायावी जालमा पर्दैनन्, ऐश आरामको सपना देखाएर, कृष्णको सत्यलाई जित्न सकिँदैन, तर, अहिले मैले,” “मलाई वंशद्रोहको आरोप लाग्न सक्छ्। तर, सत्यचहिँ के हो भने, मान्छे बलेको आगोनै ताप्ने रहेछ, सायद त्यसैले होला, अहिले भिमको गधाको गर्व कसैले गर्दैनन्,” पूरा लेख: https://www.kafka.blog/2025/04/questions.html — अरू पढ्नुहोस्: साँझको मौनता।; ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा।; कार्की दाई, राजा, गणतन्त्र।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "अनुत्तरित खल्दुलीहरू",
     "अनुत्तरित खल्दुलीहरू",
@@ -1140,13 +2210,35 @@
    "lang": "ne",
    "duration": 114,
    "durationIso": "PT1M54S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "तर, सत्यचहिँ के हो भने, मान्छे बलेको आगोनै ताप्ने रहेछ, सायद त्यसैले होला, अहिले भिमको गधाको गर्व कसैले गर्दैनन्, युधिष्ठिरको इमानको चर्चा कसैले गर्दैनन्, अभिमन्युको गर्विलो चर्चा कसैले गर्दैनन्, भिष्मपितामहको…",
+   "quotes": [
+    "कृष्ण उभिएको धरतीबाट, र स्वयम कृष्णको घरहरु बाट, कृष्णले बोकेका आस्थाहरु ढल्दैछन, कृष्णले उठाएका विश्वासहरु ढल्दैछन।",
+    "सृष्टिका यि सत्यहरु, कहिल्यै मायावी जालमा पर्दैनन्, ऐश आरामको सपना देखाएर, कृष्णको सत्यलाई जित्न सकिँदैन, तर, अहिले मैले,",
+    "मलाई वंशद्रोहको आरोप लाग्न सक्छ्। तर, सत्यचहिँ के हो भने, मान्छे बलेको आगोनै ताप्ने रहेछ, सायद त्यसैले होला, अहिले भिमको गधाको गर्व कसैले गर्दैनन्,"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/silence.html",
+     "title": "साँझको मौनता।"
+    },
+    {
+     "path": "/2025/04/mirageofpolitics.html",
+     "title": "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा।"
+    },
+    {
+     "path": "/2025/04/karkidai.html",
+     "title": "कार्की दाई, राजा, गणतन्त्र।"
+    }
+   ],
+   "about": "‘अनुत्तरित खल्दुलीहरू’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि १ मिनेट ५४ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2026/01/ramita.html": {
    "heading": "अब रमिता छ",
-   "title": "अब रमिता छ | कालो सेप्टेम्बर र त्यसपछिको कविता चलचित्र · बासभ",
+   "title": "अब रमिता छ | कविता · बासभ",
    "caption": "हामीले बच्चाहरूलाई नारा सिकायौँ, अक्षरभन्दा पहिले दोषी चिनायौँ।",
-   "description": "कालो सेप्टेम्बरपछि देशमा के फेरियो भनी सोध्दै, सुशासन खोज्दै बितेका सपना निर्वाचनको कच्चा पदार्थ बनेको देखाउने कविताको चलचित्र। A Nepali poetry film asking what changed in the country after the black September, as dreams of good governance become raw material for elections.",
+   "description": "इतिहासले सोध्नेछ, त्यो कालो सेप्टेम्बरपछि देशमा के फेरियो? थाहा छैन हामी के भन्नेछौँ, यहाँ जब सुसासन खोज्दै बितेका सपनाहरू निर्वाचनको कच्चा पदार्थ बनाएर नयाँ मसिहाहरूले बोक्न थालेका छन्। म आक्रोशित छैन, आक्रोश त ऊर्जा… “बन्दुकका गोलीले सधैं शरीर खोज्छ। सत्ताको लाचारीले परिवर्तनका निमित्त उठेका नयाँ सपनाहरू सडकमै मृत लडेका थिए।” “‘लास’ सरकारको सपना सेकाइरहेका थिए। अहिले सहरका भित्ताहरूमा ढलेका ती कलिला सपनाहरूको ‘कपिराइट’ लिन होडबाजी छ।” “किनकि यहाँ नीति होइन, पुराना सत्ताको रिस सबैभन्दा सजिलो दर्शन हो।” पूरा लेख: https://www.kafka.blog/2026/01/ramita.html — अरू पढ्नुहोस्: पृथ्वीनारायणसँगको जम्काभेट; सहरभित्रको अलिकति आश; मिनपचासको जाडोमा कठ्यांग्रिएको देश। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "अब रमिता छ",
     "अब रमिता छ",
@@ -1162,13 +2254,36 @@
    "lang": "ne",
    "duration": 223,
    "durationIso": "PT3M43S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "इतिहासले सोध्नेछ, त्यो कालो सेप्टेम्बरपछि देशमा के फेरियो? थाहा छैन हामी के भन्नेछौँ, यहाँ जब सुसासन खोज्दै बितेका सपनाहरू निर्वाचनको कच्चा पदार्थ बनाएर नयाँ मसिहाहरूले बोक्न थालेका छन्। म आक्रोशित छैन, आक्रोश त ऊर्जा…",
+   "quotes": [
+    "बन्दुकका गोलीले सधैं शरीर खोज्छ। सत्ताको लाचारीले परिवर्तनका निमित्त उठेका नयाँ सपनाहरू सडकमै मृत लडेका थिए।",
+    "‘लास’ सरकारको सपना सेकाइरहेका थिए। अहिले सहरका भित्ताहरूमा ढलेका ती कलिला सपनाहरूको ‘कपिराइट’ लिन होडबाजी छ।",
+    "किनकि यहाँ नीति होइन, पुराना सत्ताको रिस सबैभन्दा सजिलो दर्शन हो।"
+   ],
+   "related": [
+    {
+     "path": "/2026/01/prithivi.html",
+     "title": "पृथ्वीनारायणसँगको जम्काभेट"
+    },
+    {
+     "path": "/2026/01/city.html",
+     "title": "सहरभित्रको अलिकति आश"
+    },
+    {
+     "path": "/2026/02/coldnepal.html",
+     "title": "मिनपचासको जाडोमा कठ्यांग्रिएको देश"
+    }
+   ],
+   "about": "‘अब रमिता छ’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ४३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/5YBZFQ4FDRWjFnP7VC46gk"
   },
   "/2025/03/realityofdreams.html": {
    "heading": "सपनाका यथार्थहरू",
-   "title": "सपनाका यथार्थहरू | सपना र यथार्थको कविता चलचित्र · बासभ",
+   "title": "सपनाका यथार्थहरू | कविता · बासभ",
    "caption": "यी दुई कहिल्यै भेटेनन्, कहिल्यै भेट्नेछैनन् फेरि।",
-   "description": "सपना विपनामै देख्ने तर अँगाल्न नपाउने, सूर्य र चन्द्रमाजस्तै कहिल्यै नभेटिने मानिसको कविताको चलचित्र। A Nepali poetry film about dreaming awake without being able to hold the dream, like the sun and moon that never meet.",
+   "description": "देखिरहन्छु- सपनाहरू विपनामै, परीपरीका, थरीथरीका, रङ्गविरङ्गका, तर अनुभव गर्न सक्दिनँ, अँगाल्न पाउँदिनँ, अनि यथार्थले किच्छ। त्यसपछि सोच्छु- कस्का लागि हुन् यी सपनाहरू? केका लागि हुन् यी सपनाहरू? भक्कानिएर आउँछ, दुख्छ… “अँगालो खोजी बसेको छु, हरेक दिन आलोकसँग, हरेक रात चाँदनीसँग।” “त्यसपछि सोच्छु- कस्का लागि हुन् यी सपनाहरू? केका लागि हुन् यी सपनाहरू?” “अस्थिपञ्जरले ढाकेको मन, छालाको खोल, मष्तिष्क र आत्मा, कहिलेकाहीँ टुट्दोरहेछ, सबै; जितिएर जितिन्न, हारेर पनि सकिन्न।” पूरा लेख: https://www.kafka.blog/2025/03/realityofdreams.html — अरू पढ्नुहोस्: ऊ-ध्रुव, म-परिक्रमा; धुवाँमा चलेको सहर; भावसुन्य:। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "सपनाका यथार्थहरू",
     "सपनाका यथार्थहरू",
@@ -1183,13 +2298,35 @@
    "lang": "ne",
    "duration": 203,
    "durationIso": "PT3M23S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "देखिरहन्छु- सपनाहरू विपनामै, परीपरीका, थरीथरीका, रङ्गविरङ्गका, तर अनुभव गर्न सक्दिनँ, अँगाल्न पाउँदिनँ, अनि यथार्थले किच्छ। त्यसपछि सोच्छु- कस्का लागि हुन् यी सपनाहरू? केका लागि हुन् यी सपनाहरू? भक्कानिएर आउँछ, दुख्छ…",
+   "quotes": [
+    "अँगालो खोजी बसेको छु, हरेक दिन आलोकसँग, हरेक रात चाँदनीसँग।",
+    "त्यसपछि सोच्छु- कस्का लागि हुन् यी सपनाहरू? केका लागि हुन् यी सपनाहरू?",
+    "अस्थिपञ्जरले ढाकेको मन, छालाको खोल, मष्तिष्क र आत्मा, कहिलेकाहीँ टुट्दोरहेछ, सबै; जितिएर जितिन्न, हारेर पनि सकिन्न।"
+   ],
+   "related": [
+    {
+     "path": "/2025/03/u-dhruva-ma-parikrama.html",
+     "title": "ऊ-ध्रुव, म-परिक्रमा"
+    },
+    {
+     "path": "/2025/03/dhuwanma-chaleko-sahar.html",
+     "title": "धुवाँमा चलेको सहर"
+    },
+    {
+     "path": "/2025/03/bhavsunya.html",
+     "title": "भावसुन्य:"
+    }
+   ],
+   "about": "‘सपनाका यथार्थहरू’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट २३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/10/shadow.html": {
    "heading": "छायाँमा लुकेको उज्यालोको सत्य",
-   "title": "छायाँमा लुकेको उज्यालोको सत्य | छायाँ र उज्यालोको कविता चलचित्र · बासभ",
+   "title": "छायाँमा लुकेको उज्यालोको सत्य | कविता · बासभ",
    "caption": "छायाँमा सत्य कुरिरहेछ, महोदय। उज्यालोमा हामी त्यसै झुलिरहेछौँ।",
-   "description": "उज्यालोको भाषामा बोल्ने संसार र प्रश्न नगरी पर्खने छायाँ, छायाँमा लुकेको सत्यबारे कविताको चलचित्र। A Nepali poetry film on the truth that waits in the shadow while the world speaks in the language of light.",
+   "description": "छालाभित्र न्यानो सास मात्र बाँकी रहन्छ। जसरी नदी शब्दहरू नाघेर, अर्थहरू बिर्सेर, पहाड फोरेर बगेको हुन्छ, म बोल्छु, उसले सुन्छ, म हिँड्छु, उसले बाटो सम्झिन्छ। जसलाई उज्यालोले मात्र हल्लाउँछ। जसलाई छायाँले मात्र बचाइराख्छ। “घामले कुरा गर्दैन, केवल देखाउँछ। म बुझेको नाटकमा आफ्ना आँखा बन्द गरिदिन्छु।” “हरेक दिन थोरै उज्यालो मर्छ, थोरै अन्धकार बाँच्छ।” “आकारले अन्त्य बोल्छन्। अन्तिम सास जसले आवाज बन्न अस्वीकार गर्छ।” पूरा लेख: https://www.kafka.blog/2025/10/shadow.html — अरू पढ्नुहोस्: वाद्यहरूको विरोध संगित; घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको; लव-कुशको नागरिकता।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "छायाँमा लुकेको उज्यालोको सत्य",
     "छायाँमा लुकेको उज्यालोको सत्य",
@@ -1204,13 +2341,36 @@
    "lang": "ne",
    "duration": 211,
    "durationIso": "PT3M31S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "छालाभित्र न्यानो सास मात्र बाँकी रहन्छ। जसरी नदी शब्दहरू नाघेर, अर्थहरू बिर्सेर, पहाड फोरेर बगेको हुन्छ, म बोल्छु, उसले सुन्छ, म हिँड्छु, उसले बाटो सम्झिन्छ। जसलाई उज्यालोले मात्र हल्लाउँछ। जसलाई छायाँले मात्र बचाइराख्छ।",
+   "quotes": [
+    "घामले कुरा गर्दैन, केवल देखाउँछ। म बुझेको नाटकमा आफ्ना आँखा बन्द गरिदिन्छु।",
+    "हरेक दिन थोरै उज्यालो मर्छ, थोरै अन्धकार बाँच्छ।",
+    "आकारले अन्त्य बोल्छन्। अन्तिम सास जसले आवाज बन्न अस्वीकार गर्छ।"
+   ],
+   "related": [
+    {
+     "path": "/2025/10/misicinnepal.html",
+     "title": "वाद्यहरूको विरोध संगित"
+    },
+    {
+     "path": "/2025/11/nepal-2.html",
+     "title": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको"
+    },
+    {
+     "path": "/2025/07/labkush.html",
+     "title": "लव-कुशको नागरिकता।"
+    }
+   ],
+   "about": "‘छायाँमा लुकेको उज्यालोको सत्य’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ३१ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/0fVt3ugDF9ZhLa2PjTfFii"
   },
   "/2025/04/silence.html": {
    "heading": "साँझको मौनता",
-   "title": "साँझको मौनता | साँझको मौनताको कविता चलचित्र · बासभ",
+   "title": "साँझको मौनता | कविता · बासभ",
    "caption": "साँझको त्यो एक घण्टा, जसलाई कहिल्यै घडीले देखाउँदैन, तर सधैँ आकाशले नियालिरहन्छ।",
-   "description": "घडीले कहिल्यै नदेखाउने, तर आकाशले सधैँ नियालिरहने साँझको एक घण्टा र मौन बगैँचामा स्मृतिको कविताको चलचित्र। A Nepali poetry film about the one hour of dusk that no clock ever shows but the sky always watches, in a silent garden of memory.",
+   "description": "जसलाई कहिल्यै घडीले देखाउँदैन, तर सँधै आकाशले नियालिरहन्छ। आकाश खुल्ला थियो– हावासँगको असमझदारी जारी थियो, त्यो मौन बगैंचामा स्मृतिको। उसको गुलाबी गालामा बादल बिसाएझैँ लाग्थ्यो, जहाँ सूर्य अस्ताउँदै थियो– तर सामान्य… “सपनाहरू पनि थाक्दारहेछन्– दिउँसोका पर्खाइहरू रातिमा, र रातिहरू फेरि दिनमा बिलाएपछि।” “एउटा स्पर्श– जसले ऊसलाई छुन सक्दैन, जसले मलाई कहिल्यै छोड्दैन।” “जहाँ सायद म उसको पीडामा साक्षी, उसको खोक्रोपनको साथी बन्न सक्थेँ भन्ने डरले, कुनै समय लेखेकी थिई– “म फर्केर आउँदिन।”” पूरा लेख: https://www.kafka.blog/2025/04/silence.html — अरू पढ्नुहोस्: अनुत्तरित खल्दुलीहरू।; हो, म बहुला हुँ।; ए! तिमि।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "साँझको मौनता",
     "साँझको मौनता",
@@ -1225,13 +2385,36 @@
    "lang": "ne",
    "duration": 253,
    "durationIso": "PT4M13S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "जसलाई कहिल्यै घडीले देखाउँदैन, तर सँधै आकाशले नियालिरहन्छ। आकाश खुल्ला थियो– हावासँगको असमझदारी जारी थियो, त्यो मौन बगैंचामा स्मृतिको। उसको गुलाबी गालामा बादल बिसाएझैँ लाग्थ्यो, जहाँ सूर्य अस्ताउँदै थियो– तर सामान्य…",
+   "quotes": [
+    "सपनाहरू पनि थाक्दारहेछन्– दिउँसोका पर्खाइहरू रातिमा, र रातिहरू फेरि दिनमा बिलाएपछि।",
+    "एउटा स्पर्श– जसले ऊसलाई छुन सक्दैन, जसले मलाई कहिल्यै छोड्दैन।",
+    "जहाँ सायद म उसको पीडामा साक्षी, उसको खोक्रोपनको साथी बन्न सक्थेँ भन्ने डरले, कुनै समय लेखेकी थिई– “म फर्केर आउँदिन।”"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/questions.html",
+     "title": "अनुत्तरित खल्दुलीहरू।"
+    },
+    {
+     "path": "/2025/04/ho-ma-bahula-hun.html",
+     "title": "हो, म बहुला हुँ।"
+    },
+    {
+     "path": "/2025/04/e-timi.html",
+     "title": "ए! तिमि।"
+    }
+   ],
+   "about": "‘साँझको मौनता’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट १३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/0ljPaQWt5h6WOgWAUTci2b"
   },
   "/2025/04/silentbuddha.html": {
    "heading": "मौन बुद्ध",
-   "title": "मौन बुद्ध | यशोधराको प्रश्नको कविता चलचित्र · बासभ",
+   "title": "मौन बुद्ध | कविता · बासभ",
    "caption": "बाधक थियो कि तिम्रो प्रेम? बाधक थियो कि शिशुको त्यो मुस्कान?",
-   "description": "किन भाग्यो ऊ सबैदेखि, के ज्ञान जङ्गलमा मात्र फुल्छ भनी यशोधराले सोध्ने प्रश्नमा लेखिएको, बुद्धको मौनताबारे कविताको चलचित्र। A Nepali poetry film in the voice of Yashodhara asking why he ran from everyone, whether wisdom flowers only in the forest, and what the Buddha's silence means.",
+   "description": "तिमीले सोधेको कुरा सोध्न सक्दैन कसैले; किन भाग्यो उ सबैदेखी? के ज्ञान केवल जङ्गलमा मात्रै फुल्छ? के दरवारमा ज्ञान सम्भब थिएन? बाधक थियो कि तिम्रो प्रेम? बाधक थियो कि शीशुको त्यो मुस्कान? बाधक थियो कि राजमहला सुनौला… “उ आज तिम्रो सामु नाजवाफ उभेको छ। तिमीले सोधेको कुरा सोध्न सक्दैन कसैले; किन भाग्यो उ सबैदेखी?” “बाधक थियो  कि राजमहला सुनौला झ्यालहरू? आज- उसको मौनताको अर्थ के यसोधरा?” “तिमिलाई निर्जन बनाएर गएको थियो उ; जसको उत्तर-बुद्धले समेत दिन सकेन, ज्ञान प्राप्तिको लागि गएको उ; यतिखेर बुद्ध पनि मौन छ।” पूरा लेख: https://www.kafka.blog/2025/04/silentbuddha.html — अरू पढ्नुहोस्: उरुक सहर: मानव सभ्यताको पहिलो महानगर; उर र लगश: व्यापार र युद्धको नयाँ युग; सुमेरको पुनरुत्थान : अन्तिम स्वर्णयुग। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "मौन बुद्ध",
     "मौन बुद्ध",
@@ -1246,13 +2429,35 @@
    "lang": "ne",
    "duration": 174,
    "durationIso": "PT2M54S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "तिमीले सोधेको कुरा सोध्न सक्दैन कसैले; किन भाग्यो उ सबैदेखी? के ज्ञान केवल जङ्गलमा मात्रै फुल्छ? के दरवारमा ज्ञान सम्भब थिएन? बाधक थियो कि तिम्रो प्रेम? बाधक थियो कि शीशुको त्यो मुस्कान? बाधक थियो कि राजमहला सुनौला…",
+   "quotes": [
+    "उ आज तिम्रो सामु नाजवाफ उभेको छ। तिमीले सोधेको कुरा सोध्न सक्दैन कसैले; किन भाग्यो उ सबैदेखी?",
+    "बाधक थियो  कि राजमहला सुनौला झ्यालहरू? आज- उसको मौनताको अर्थ के यसोधरा?",
+    "तिमिलाई निर्जन बनाएर गएको थियो उ; जसको उत्तर-बुद्धले समेत दिन सकेन, ज्ञान प्राप्तिको लागि गएको उ; यतिखेर बुद्ध पनि मौन छ।"
+   ],
+   "related": [
+    {
+     "path": "/2026/11/uruk-sahar-manav-sabhyatako-pahilo-mahanagar-ra-akshar.html",
+     "title": "उरुक सहर: मानव सभ्यताको पहिलो महानगर"
+    },
+    {
+     "path": "/2026/11/ur-ra-lagash-vyapar-ra-yuddhako-naya-yug.html",
+     "title": "उर र लगश: व्यापार र युद्धको नयाँ युग"
+    },
+    {
+     "path": "/2026/11/sumerko-punarutthan-guti-andhakaryug-ra-nava-sumeriya-punarjagaran.html",
+     "title": "सुमेरको पुनरुत्थान : अन्तिम स्वर्णयुग"
+    }
+   ],
+   "about": "‘मौन बुद्ध’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ५४ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/04/silentimage.html": {
    "heading": "मौन प्रतिबिम्ब",
-   "title": "मौन प्रतिबिम्ब | प्रतिबिम्ब र वास्तविकताको कविता चलचित्र · बासभ",
+   "title": "मौन प्रतिबिम्ब | कविता · बासभ",
    "caption": "उज्यालो र अँध्यारोको सङ्गम; प्रतिबिम्ब र वास्तविकताबिच अल्झिएको सुन्दर उन्माद।",
-   "description": "भिडको एकान्तमा फक्रिएको उन्माद, प्रेम र वेदनाको दोसाँध, फक्रिएर पनि एक्लो, रङ्गिन भएर पनि मौन प्रतिबिम्बको कविताको चलचित्र। A Nepali poetry film about a blossoming frenzy in the solitude of a crowd, love and pain at the same fork, lonely even in bloom, silent even in colour.",
+   "description": "भिडको- एकान्तमा फक्रिएको मोहक उन्माद, एकनासको बेहोसीपछी देखा परेको, एक सुन्दर सपना। देख्न नसकिने तर ओठमै अल्झिएको एक अस्फुष्ट चित्कार सुर्यास्त पछिको अन्धकार जस्तै मनको एकान्तमा अझै केही उज्यालो बाँकी छ। मनभित्र- गुँड… “हावाजस्तै- छाल भित्र चिप्लने एक अदृश्य हलचल तरल सतहमा अड्किएको उसको यो मौन प्रतिबिम्ब।” “मनभित्र- गुँड बनाउनेले किन होला बारम्बार खोज्ने उड्नलाई?” “भोली- जब म  उसलाई फेरी देख्नेछु हामीलाई देखेर घाम हाँस्ने अनि म पनि हाँसिदिँउला सँग-सँगै।” पूरा लेख: https://www.kafka.blog/2025/04/silentimage.html — अरू पढ्नुहोस्: म गर्भवति मान्छे, मलाई ..; चतुरेको दश लाखको सपना।; मैले बाँचेको भ्रमको सहर। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "मौन प्रतिबिम्ब",
     "मौन प्रतिबिम्ब",
@@ -1267,13 +2472,35 @@
    "lang": "ne",
    "duration": 192,
    "durationIso": "PT3M12S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "भिडको- एकान्तमा फक्रिएको मोहक उन्माद, एकनासको बेहोसीपछी देखा परेको, एक सुन्दर सपना। देख्न नसकिने तर ओठमै अल्झिएको एक अस्फुष्ट चित्कार सुर्यास्त पछिको अन्धकार जस्तै मनको एकान्तमा अझै केही उज्यालो बाँकी छ। मनभित्र- गुँड…",
+   "quotes": [
+    "हावाजस्तै- छाल भित्र चिप्लने एक अदृश्य हलचल तरल सतहमा अड्किएको उसको यो मौन प्रतिबिम्ब।",
+    "मनभित्र- गुँड बनाउनेले किन होला बारम्बार खोज्ने उड्नलाई?",
+    "भोली- जब म  उसलाई फेरी देख्नेछु हामीलाई देखेर घाम हाँस्ने अनि म पनि हाँसिदिँउला सँग-सँगै।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/gravidsoul.html",
+     "title": "म गर्भवति मान्छे, मलाई .."
+    },
+    {
+     "path": "/2025/04/chaaturey.html",
+     "title": "चतुरेको दश लाखको सपना।"
+    },
+    {
+     "path": "/2025/12/mycity.html",
+     "title": "मैले बाँचेको भ्रमको सहर"
+    }
+   ],
+   "about": "‘मौन प्रतिबिम्ब’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट १२ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/04/storminside.html": {
    "heading": "घनघोरका आँधिपुराणहरू",
-   "title": "घनघोरका आँधिपुराणहरू | भित्री आँधीको कविता चलचित्र · बासभ",
+   "title": "घनघोरका आँधिपुराणहरू | कविता · बासभ",
    "caption": "मन त आफैँ एउटा समुन्द्र, शब्दविहीन, तर लहरहरूले भरिएको।",
-   "description": "उदाउँदै छ कि अस्ताउँदै छ भन्ने थाहा नपाइने सूर्य र शब्दविहीन तर लहरहरूले भरिएको मनको आँधीबारे कविताको चलचित्र। A Nepali poetry film about the storm inside: a sun that cannot tell whether it is rising or setting, and a mind that is a wordless ocean full of waves.",
+   "description": "सुर्यलाई- के थाहा उ उदाइरहेको हो कि अस्ताइरहेको छ: सर्य उदाएपनि, उज्यालोमा आफ्नै छायाँ बिझ्छ, उज्यालोले कहिलेकाहीँ- हिउँले जस्तै पोल्छ, उसले छोडेको स्पर्शको याद बनेर। सुर्य अस्ताए पनि, उज्यालोको त्यो सम्झना- मलाई पनि,… “त्यही तलाउमा छाडी दिन्छ, तलाउ नबोले पनि, पग्लिरहेने समय।” “शब्दहरूको के अर्थ छ र जब उसको त्यो आकृति कहिल्यै स्पष्ट भएन।” “मलाइ त्यतै बाँधि राखेछ, अझैपनि विथोल्न छाडेको छैन।” पूरा लेख: https://www.kafka.blog/2025/04/storminside.html — अरू पढ्नुहोस्: मेरो निन्द्रा। मेरो देश।; चिसो अनुभुति।; कालो बिरालो, हामी।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "घनघोरका आँधिपुराणहरू",
     "घनघोरका आँधिपुराणहरू",
@@ -1288,13 +2515,35 @@
    "lang": "ne",
    "duration": 288,
    "durationIso": "PT4M48S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "सुर्यलाई- के थाहा उ उदाइरहेको हो कि अस्ताइरहेको छ: सर्य उदाएपनि, उज्यालोमा आफ्नै छायाँ बिझ्छ, उज्यालोले कहिलेकाहीँ- हिउँले जस्तै पोल्छ, उसले छोडेको स्पर्शको याद बनेर। सुर्य अस्ताए पनि, उज्यालोको त्यो सम्झना- मलाई पनि,…",
+   "quotes": [
+    "त्यही तलाउमा छाडी दिन्छ, तलाउ नबोले पनि, पग्लिरहेने समय।",
+    "शब्दहरूको के अर्थ छ र जब उसको त्यो आकृति कहिल्यै स्पष्ट भएन।",
+    "मलाइ त्यतै बाँधि राखेछ, अझैपनि विथोल्न छाडेको छैन।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/collectivestupidity.html",
+     "title": "मेरो निन्द्रा। मेरो देश।"
+    },
+    {
+     "path": "/2025/04/coldfeeling.html",
+     "title": "चिसो अनुभुति।"
+    },
+    {
+     "path": "/2025/04/cat.html",
+     "title": "कालो बिरालो, हामी।"
+    }
+   ],
+   "about": "‘घनघोरका आँधिपुराणहरू’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ४ मिनेट ४८ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/07/sunandflower.html": {
    "heading": "घाम र फूलको प्रेम गीत",
-   "title": "घाम र फूलको प्रेम गीत | घाम र फूलको कविता चलचित्र · बासभ",
+   "title": "घाम र फूलको प्रेम गीत | कविता · बासभ",
    "caption": "उसका पातहरूमा लेखिएका छन् घामका अक्षर।",
-   "description": "टाढाबाट उज्यालो छर्ने घाम र उसका अक्षर पातमा बोकेर बाँच्ने फूलबीचको अदृश्य प्रेमको गीतको चलचित्र। A Nepali film of a love song between the sun, who shines from far away, and the flower that carries the sun's letters on its leaves.",
+   "description": "उसका पातहरूमा - लेखिएका छन् घामका अक्षर। उसको मुटुमा - कुँदिएका छन् घामकै छायाँ। उसको गन्धमा - घुलिएका छन् घामको सम्झना। उ देखिएन भने पनि बाँच्छ, उ बुझिएन भने पनि बोल्छ। “घाम टाढा छे - आकाशको अर्को पाटामा, बादलको अँगालोभित्र बस्छे।” “घुलिएका छन् घामको सम्झना। उ देखिएन भने पनि बाँच्छ, उ बुझिएन भने पनि बोल्छ।” “अस्तित्वभन्दा बाहिरको विश्वास, टाढैबाट पूजा गर्ने साहस, घामले देख्ला कि नदेख्ला भन्ने डरमै फुलिरहने आत्मा।” पूरा लेख: https://www.kafka.blog/2025/07/sunandflower.html — अरू पढ्नुहोस्: मौन प्रतिबिम्ब; उसका लागि कविता।; देश हराएको सपना। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "घाम र फूलको प्रेम गीत",
     "घाम र फूलको प्रेम गीत",
@@ -1309,13 +2558,36 @@
    "lang": "ne",
    "duration": 233,
    "durationIso": "PT3M53S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "उसका पातहरूमा - लेखिएका छन् घामका अक्षर। उसको मुटुमा - कुँदिएका छन् घामकै छायाँ। उसको गन्धमा - घुलिएका छन् घामको सम्झना। उ देखिएन भने पनि बाँच्छ, उ बुझिएन भने पनि बोल्छ।",
+   "quotes": [
+    "घाम टाढा छे - आकाशको अर्को पाटामा, बादलको अँगालोभित्र बस्छे।",
+    "घुलिएका छन् घामको सम्झना। उ देखिएन भने पनि बाँच्छ, उ बुझिएन भने पनि बोल्छ।",
+    "अस्तित्वभन्दा बाहिरको विश्वास, टाढैबाट पूजा गर्ने साहस, घामले देख्ला कि नदेख्ला भन्ने डरमै फुलिरहने आत्मा।"
+   ],
+   "related": [
+    {
+     "path": "/2025/04/silentimage.html",
+     "title": "मौन प्रतिबिम्ब"
+    },
+    {
+     "path": "/2025/08/usaka-lagi-kabita.html",
+     "title": "उसका लागि कविता।"
+    },
+    {
+     "path": "/2025/06/nepal.html",
+     "title": "देश हराएको सपना"
+    }
+   ],
+   "about": "‘घाम र फूलको प्रेम गीत’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ३ मिनेट ५३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/0DmM1Tj3SjtMpTF3iOWD5P"
   },
   "/2025/03/u-dhruva-ma-parikrama.html": {
    "heading": "ऊ-ध्रुव, म-परिक्रमा",
-   "title": "ऊ-ध्रुव, म-परिक्रमा | ध्रुवतारा र परिक्रमाको कविता चलचित्र · बासभ",
+   "title": "ऊ-ध्रुव, म-परिक्रमा | कविता · बासभ",
    "caption": "अनगन्ति ताराहरूमाझ चम्किरहेकी ध्रुवतारा ऊ।",
-   "description": "अनगन्ति ताराहरूमाझ चम्किरहेकी ध्रुवतारा ऊ, र उसैको वरिपरि घुमिरहने आफ्नो परिक्रमाको प्रेम कविताको चलचित्र। A Nepali love-poem film in which she is the pole star shining among countless stars and the speaker is the one who keeps circling her.",
+   "description": "लाग्छ, धेरै ताराहरू मिलेर बनेकी छे ऊ; रातको अँध्यारोमा चम्कन्छे उही, लाग्छ, ऊ घाम हो; जसको वरिपरी घुमिरहेको छु, जसको उज्यालोमा, मस्त झुलेका- मेरा नयनहरू, हरेक ति कुण्ठाहरू, शरीरभरी चलेका आँधीपुराणहरू। रमिरहेको छु, ती… “हरेक दिन, उसैको प्रतिक्षामा पलेटी कसेका मेरा कुण्ठाहरू, उसको आगमनमा उल्लादका उडान भर्छन।” “एक सहारा हो, मेरो मनको अँध्यारो अविलम्ब गर्छ, मेरो सारा अभिलाषा प्रकाश गर्छ।” “बेहोशीको छेउबाट, उज्यालोको काखमा टेकेको, आशालाई अलिअलि हम्किरहेको।” पूरा लेख: https://www.kafka.blog/2025/03/u-dhruva-ma-parikrama.html — अरू पढ्नुहोस्: सपनाका यथार्थहरू।; म, तिमी, हामी; मानुषी: भुपीसँगका थाँती संवाद।। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "ऊ-ध्रुव, म-परिक्रमा",
     "ऊ ध्रुव म परिक्रमा",
@@ -1330,13 +2602,35 @@
    "lang": "ne",
    "duration": 154,
    "durationIso": "PT2M34S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "लाग्छ, धेरै ताराहरू मिलेर बनेकी छे ऊ; रातको अँध्यारोमा चम्कन्छे उही, लाग्छ, ऊ घाम हो; जसको वरिपरी घुमिरहेको छु, जसको उज्यालोमा, मस्त झुलेका- मेरा नयनहरू, हरेक ति कुण्ठाहरू, शरीरभरी चलेका आँधीपुराणहरू। रमिरहेको छु, ती…",
+   "quotes": [
+    "हरेक दिन, उसैको प्रतिक्षामा पलेटी कसेका मेरा कुण्ठाहरू, उसको आगमनमा उल्लादका उडान भर्छन।",
+    "एक सहारा हो, मेरो मनको अँध्यारो अविलम्ब गर्छ, मेरो सारा अभिलाषा प्रकाश गर्छ।",
+    "बेहोशीको छेउबाट, उज्यालोको काखमा टेकेको, आशालाई अलिअलि हम्किरहेको।"
+   ],
+   "related": [
+    {
+     "path": "/2025/03/realityofdreams.html",
+     "title": "सपनाका यथार्थहरू।"
+    },
+    {
+     "path": "/2025/05/meyouus.html",
+     "title": "म, तिमी, हामी"
+    },
+    {
+     "path": "/2025/05/manusi.html",
+     "title": "मानुषी: भुपीसँगका थाँती संवाद।"
+    }
+   ],
+   "about": "‘ऊ-ध्रुव, म-परिक्रमा’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि २ मिनेट ३४ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/08/usaka-lagi-kabita.html": {
    "heading": "उसका लागि कविता",
-   "title": "उसका लागि कविता | प्रेम र हारको कविता चलचित्र · बासभ",
+   "title": "उसका लागि कविता | कविता · बासभ",
    "caption": "हारेँ म तिमीसँग, जित तिम्रै भयो; तिम्रै भएँ म।",
-   "description": "नयनका गहिराई र स्पर्शको न्यानोपनमा हराएर, तिमीसँग हारेर पनि तिम्रै हुन पाएको प्रेमको कविताको चलचित्र। A Nepali love-poem film about losing oneself in her eyes and touch, and being glad to lose and belong to her.",
+   "description": "ती नयनका गहिराई, त्यो एकाकार अधर; ती स्पर्शका न्यानोपन हरू, अनि ति चुलबुलाहट, एक अर्कामा विलय हुने कल्पना; हराएर ती केश-राशीमा, तिमी-म, म-तिमी, हारेँ म तिमीसँग, पर्दैन अब बाँधिराख्न मोहनीमा, जित तिम्रै भयो- तिम्रै भए म।… “सुत्न अघि भन्दै थिई, कविताले बिउँझाउ है; साँच्चीकै बुझेकी छे त कविताको मुल्य?” “असीमित रूप र अनगिन्ती दु:ख सँगै लिएर आँउछु भन्छे, ऊ संसारको खूसी बोकेर फुल्न आँउछे, मखमली र सुनाखरी बनेर, मेरो ह्रदयको आँगनमा फक्रन आँउछे।” “हराएर ती केश-राशीमा, तिमी-म, म-तिमी, हारेँ म तिमीसँग, पर्दैन अब बाँधिराख्न मोहनीमा, जित तिम्रै भयो- तिम्रै भए म।” पूरा लेख: https://www.kafka.blog/2025/08/usaka-lagi-kabita.html — अरू पढ्नुहोस्: घाम र फूलको प्रेम गीत।; बुद्ध वाज बर्न इन नेपाल।; मैले बाँचेको भ्रमको सहर। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "उसका लागि कविता",
     "उसका लागि कविता",
@@ -1351,13 +2645,36 @@
    "lang": "ne",
    "duration": 308,
    "durationIso": "PT5M8S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "ती नयनका गहिराई, त्यो एकाकार अधर; ती स्पर्शका न्यानोपन हरू, अनि ति चुलबुलाहट, एक अर्कामा विलय हुने कल्पना; हराएर ती केश-राशीमा, तिमी-म, म-तिमी, हारेँ म तिमीसँग, पर्दैन अब बाँधिराख्न मोहनीमा, जित तिम्रै भयो- तिम्रै भए म।…",
+   "quotes": [
+    "सुत्न अघि भन्दै थिई, कविताले बिउँझाउ है; साँच्चीकै बुझेकी छे त कविताको मुल्य?",
+    "असीमित रूप र अनगिन्ती दु:ख सँगै लिएर आँउछु भन्छे, ऊ संसारको खूसी बोकेर फुल्न आँउछे, मखमली र सुनाखरी बनेर, मेरो ह्रदयको आँगनमा फक्रन आँउछे।",
+    "हराएर ती केश-राशीमा, तिमी-म, म-तिमी, हारेँ म तिमीसँग, पर्दैन अब बाँधिराख्न मोहनीमा, जित तिम्रै भयो- तिम्रै भए म।"
+   ],
+   "related": [
+    {
+     "path": "/2025/07/sunandflower.html",
+     "title": "घाम र फूलको प्रेम गीत।"
+    },
+    {
+     "path": "/2025/05/buddha.html",
+     "title": "बुद्ध वाज बर्न इन नेपाल।"
+    },
+    {
+     "path": "/2025/12/mycity.html",
+     "title": "मैले बाँचेको भ्रमको सहर"
+    }
+   ],
+   "about": "‘उसका लागि कविता’ बासभको कविताको भिडियो संस्करण हो। भिडियोको अवधि ५ मिनेट ८ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/3b4rrdXwuMG7ebIvxkQym0"
   },
   "/2025/04/blue-ode-to-you_3.html": {
    "heading": "blue.. ode to you.",
-   "title": "blue.. ode to you. | Poetry Film by Basava (बासभ)",
+   "title": "blue.. ode to you. | Poem · Basava",
    "caption": "starry nights, and northern lights, folded dreams, holy grails, loud laughs.",
-   "description": "A poetry film of 'blue.. ode to you.' by Basava (बासभ): an ode to the colour blue addressed as 'you', with storms and calm, bliss and peace, starry nights and northern lights.",
+   "description": "blue, something about you, woke up with thoughts of you, crossed my mind as the storms come through, chaos and calm, bliss and peace, starry nights, and northern lights, folded dreams, holy grails, loud laughs and… “sweet loving hell- you get me through. silly songs and foggy lullabies, all my words speak of you.” “midnight ocean, sloppy kisses, good memories have endless riches, little moment that lasts the ages.” “wishes you wishes were true. blue oh blue.. words don’t come through.” Read the full article: https://www.kafka.blog/2025/04/blue-ode-to-you_3.html — More on Kafkaintherun: Muse; dreams, poetry, sunsets.; marginalia. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "blue.. ode to you.",
     "blue ode to you",
@@ -1372,13 +2689,36 @@
    "lang": "en",
    "duration": 146,
    "durationIso": "PT2M26S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "blue, something about you, woke up with thoughts of you, crossed my mind as the storms come through, chaos and calm, bliss and peace, starry nights, and northern lights, folded dreams, holy grails, loud laughs and…",
+   "quotes": [
+    "sweet loving hell- you get me through. silly songs and foggy lullabies, all my words speak of you.",
+    "midnight ocean, sloppy kisses, good memories have endless riches, little moment that lasts the ages.",
+    "wishes you wishes were true. blue oh blue.. words don’t come through."
+   ],
+   "related": [
+    {
+     "path": "/2025/04/muse.html",
+     "title": "Muse"
+    },
+    {
+     "path": "/2025/04/dreams-poetry-sunsets.html",
+     "title": "dreams, poetry, sunsets."
+    },
+    {
+     "path": "/2026/06/marginalia.html",
+     "title": "marginalia"
+    }
+   ],
+   "about": "A video version of “blue.. ode to you”, a poem by Basava (बासभ). Running time: 2 min 26 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/3Vd4RCTcXqfXkC5JIViQod"
   },
   "/2025/04/dreams-poetry-sunsets.html": {
    "heading": "dreams, poetry, sunsets.",
-   "title": "dreams, poetry, sunsets. | Poetry Film by Basava (बासभ)",
+   "title": "dreams, poetry, sunsets. | Poem · Basava",
    "caption": "in the end, it is dreams, poetry, sunsets, mountain blues, someone's smile.",
-   "description": "A poetry film of 'dreams, poetry, sunsets.' by Basava (बासभ): a poem on why we all have an affair with beautiful things, and whether beauty is only an illusion.",
+   "description": "in the end, it is dreams, poetry, sunsets, mountain blues, someone’s smile, we all have an affair with beautiful things. “beauty is an illusion, do I deserve to write about you?” “stay, the escapes are not for us. we are, always in such a hurry to say we have had enough.” “memories, when you find pieces of yesterday, still stuck; today is not all about yesterday, we are not all yesterday.” Read the full article: https://www.kafka.blog/2025/04/dreams-poetry-sunsets.html — More on Kafkaintherun: blue.. ode to you.; sunset hues, again with the blues.; she is not here- but she is everywhere.. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "dreams, poetry, sunsets.",
     "dreams poetry sunsets",
@@ -1393,13 +2733,36 @@
    "lang": "en",
    "duration": 113,
    "durationIso": "PT1M53S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "in the end, it is dreams, poetry, sunsets, mountain blues, someone’s smile, we all have an affair with beautiful things.",
+   "quotes": [
+    "beauty is an illusion, do I deserve to write about you?",
+    "stay, the escapes are not for us. we are, always in such a hurry to say we have had enough.",
+    "memories, when you find pieces of yesterday, still stuck; today is not all about yesterday, we are not all yesterday."
+   ],
+   "related": [
+    {
+     "path": "/2025/04/blue-ode-to-you_3.html",
+     "title": "blue.. ode to you."
+    },
+    {
+     "path": "/2025/04/sunsets-again.html",
+     "title": "sunset hues, again with the blues."
+    },
+    {
+     "path": "/2025/04/she-is-not-here-but-she-is-everywhere.html",
+     "title": "she is not here- but she is everywhere."
+    }
+   ],
+   "about": "A video version of “dreams, poetry, sunsets”, a poem by Basava (बासभ). Running time: 1 min 53 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/7iMqW9ajHlaUtmX5NVVgtY"
   },
   "/2025/04/muse.html": {
    "heading": "Muse",
-   "title": "Muse | Poetry Film by Basava (बासभ)",
+   "title": "Muse | Poem · Basava",
    "caption": "a fisherman knows the sea is dangerous, but that does not keep him ashore.",
-   "description": "A poetry film of 'Muse' by Basava (बासभ): a poem of morning and evening bells, a fisherman who goes back to the sea, and the hope of chasing dreams and loving the living.",
+   "description": "'a fishermen knows- the sea is dangerous and the storm is terrible', but that doesn't - keep him ashore. it's his hope: of chasing dreams- of loving the living- and the fight of becoming, that brings him back into the… “do you remember; the morning and the evening bells when you were at school?” “last love hurt you doesn't mean - it always will.” “of loving the living- and the fight of becoming, that brings him back into the open sea, today, tomorrow and all the days after.” Read the full article: https://www.kafka.blog/2025/04/muse.html — More on Kafkaintherun: old house across the street..; note to self.; dreams, poetry, sunsets.. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "Muse",
     "muse poem",
@@ -1414,13 +2777,36 @@
    "lang": "en",
    "duration": 117,
    "durationIso": "PT1M57S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "'a fishermen knows- the sea is dangerous and the storm is terrible', but that doesn't - keep him ashore. it's his hope: of chasing dreams- of loving the living- and the fight of becoming, that brings him back into the…",
+   "quotes": [
+    "do you remember; the morning and the evening bells when you were at school?",
+    "last love hurt you doesn't mean - it always will.",
+    "of loving the living- and the fight of becoming, that brings him back into the open sea, today, tomorrow and all the days after."
+   ],
+   "related": [
+    {
+     "path": "/2025/04/old-house-across-the-street.html",
+     "title": "old house across the street.."
+    },
+    {
+     "path": "/2025/04/note-to-self.html",
+     "title": "note to self."
+    },
+    {
+     "path": "/2025/04/dreams-poetry-sunsets.html",
+     "title": "dreams, poetry, sunsets."
+    }
+   ],
+   "about": "A video version of “Muse”, a poem by Basava (बासभ). Running time: 1 min 57 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/2giqoAD4Bonxytw5qy5Bpw"
   },
   "/2025/04/note-to-self.html": {
    "heading": "note to self.",
-   "title": "note to self. | Poetry Film by Basava (बासभ)",
+   "title": "note to self. | Poem · Basava",
    "caption": "here, now, in this universe, stitched with stars and silence, we breathe.",
-   "description": "A poetry film of 'note to self.' by Basava (बासभ): a reminder that we are only what we are here and now, not what we were nanoseconds ago.",
+   "description": "we are here now, now, now. still fighting for becoming. time is- subjective sense of becoming We are only what we are. here, now- not what we were nanoseconds ago not what we were nanoseconds ago who gives a dam about… “what the clocks always say we are here now, now, now.” “into our softest dreams; let hope- walk barefoot and let our dreams be clean.” “all that- haunts us today this room, this breath this flickering of now, every quiet night full of nightmares maybe only makes us stronger.” Read the full article: https://www.kafka.blog/2025/04/note-to-self.html — More on Kafkaintherun: Muse; blue.. ode to you.; echoes of faded love.. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "note to self.",
     "note to self poem",
@@ -1434,13 +2820,36 @@
    "lang": "en",
    "duration": 210,
    "durationIso": "PT3M30S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "we are here now, now, now. still fighting for becoming. time is- subjective sense of becoming We are only what we are. here, now- not what we were nanoseconds ago not what we were nanoseconds ago who gives a dam about…",
+   "quotes": [
+    "what the clocks always say we are here now, now, now.",
+    "into our softest dreams; let hope- walk barefoot and let our dreams be clean.",
+    "all that- haunts us today this room, this breath this flickering of now, every quiet night full of nightmares maybe only makes us stronger."
+   ],
+   "related": [
+    {
+     "path": "/2025/04/muse.html",
+     "title": "Muse"
+    },
+    {
+     "path": "/2025/04/blue-ode-to-you_3.html",
+     "title": "blue.. ode to you."
+    },
+    {
+     "path": "/2025/05/echoes-of-faded-love.html",
+     "title": "echoes of faded love."
+    }
+   ],
+   "about": "A video version of “note to self”, a poem by Basava (बासभ). Running time: 3 min 30 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/0j0pIdAklm2XeQTZWF9ggo"
   },
   "/2025/04/old-house-across-the-street.html": {
    "heading": "old house across the street..",
-   "title": "old house across the street.. | Poetry Film by Basava (बासभ)",
+   "title": "old house across the street.. | Poem · Basava",
    "caption": "it barely stands, weathering the weather, rotting in its own silence.",
-   "description": "A poetry film of 'old house across the street..' by Basava (बासभ): a poem on the old house opposite the one he grew up in, once proud and now peeling and nailed shut.",
+   "description": "now, it barely stands. weathering the weather, a far cry from the majesty it once bore. across the street from where i grew up- lies an old house, rotting in its own silence. “paint peels like brittle skin, windows nailed shut, a monument to a bygone era.” “like a relic no one dared disturb. every saturday morning they’d ask the maids to bring the TV down like a holy offering.” “no one repaired. years passed. and the old tv was never brought down again.” Read the full article: https://www.kafka.blog/2025/04/old-house-across-the-street.html — More on Kafkaintherun: marginalia; The Name I once wore; sunset hues, again with the blues.. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "old house across the street..",
     "old house poem",
@@ -1455,13 +2864,36 @@
    "lang": "en",
    "duration": 162,
    "durationIso": "PT2M42S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "now, it barely stands. weathering the weather, a far cry from the majesty it once bore. across the street from where i grew up- lies an old house, rotting in its own silence.",
+   "quotes": [
+    "paint peels like brittle skin, windows nailed shut, a monument to a bygone era.",
+    "like a relic no one dared disturb. every saturday morning they’d ask the maids to bring the TV down like a holy offering.",
+    "no one repaired. years passed. and the old tv was never brought down again."
+   ],
+   "related": [
+    {
+     "path": "/2026/06/marginalia.html",
+     "title": "marginalia"
+    },
+    {
+     "path": "/2026/04/the-name-i-once-wore.html",
+     "title": "The Name I once wore"
+    },
+    {
+     "path": "/2025/04/sunsets-again.html",
+     "title": "sunset hues, again with the blues."
+    }
+   ],
+   "about": "A video version of “old house across the street”, a poem by Basava (बासभ). Running time: 2 min 42 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/2eHepqpkrEJRhjWXbbbqmH"
   },
   "/2025/04/she-is-not-here-but-she-is-everywhere.html": {
    "heading": "she is not here- but she is everywhere.",
-   "title": "she is not here- but she is everywhere. | Poetry Film by Basava (बासभ)",
+   "title": "she is not here- but she is everywhere. | Poem · Basava",
    "caption": "too holy to touch, too human to forget. not to be held- to be known.",
-   "description": "A poetry film of 'she is not here- but she is everywhere.' by Basava (बासभ): a poem about someone who is sunshine in human form, known rather than held.",
+   "description": "sunshine- in human form. knowing she exists, here. now. in this universe- somewhere, anywhere. too holy to touch, too human to forget. not to be held- to be known. and that knowing, softens me. my being. this joy- only… “she exists. sunshine- in human form. knowing she exists, here. now.” “my being. this joy- only a feeling, only for her existing.” “alone in this universe, wondering whether she exists.” Read the full article: https://www.kafka.blog/2025/04/she-is-not-here-but-she-is-everywhere.html — More on Kafkaintherun: old house across the street..; note to self.; Muse. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "she is not here- but she is everywhere.",
     "she is not here but she is everywhere",
@@ -1475,13 +2907,36 @@
    "lang": "en",
    "duration": 149,
    "durationIso": "PT2M29S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "sunshine- in human form. knowing she exists, here. now. in this universe- somewhere, anywhere. too holy to touch, too human to forget. not to be held- to be known. and that knowing, softens me. my being. this joy- only…",
+   "quotes": [
+    "she exists. sunshine- in human form. knowing she exists, here. now.",
+    "my being. this joy- only a feeling, only for her existing.",
+    "alone in this universe, wondering whether she exists."
+   ],
+   "related": [
+    {
+     "path": "/2025/04/old-house-across-the-street.html",
+     "title": "old house across the street.."
+    },
+    {
+     "path": "/2025/04/note-to-self.html",
+     "title": "note to self."
+    },
+    {
+     "path": "/2025/04/muse.html",
+     "title": "Muse"
+    }
+   ],
+   "about": "A video version of “she is not here- but she is everywhere”, a poem by Basava (बासभ). Running time: 2 min 29 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/0QNlXq1wpxUC8GDayQwotz"
   },
   "/2025/04/sunsets-again.html": {
    "heading": "sunset hues, again with the blues.",
-   "title": "sunset hues, again with the blues. | Poetry Film by Basava (बासभ)",
+   "title": "sunset hues, again with the blues. | Poem · Basava",
    "caption": "the sky doesn't beg to be noticed; it stretches slow and wide like a secret finally told.",
-   "description": "A poetry film of 'sunset hues, again with the blues.' by Basava (बासभ): a poem of warm oranges and violets bleeding into blue, and sunsets that sometimes feel like a beginning.",
+   "description": "the sky- doesn’t beg to be noticed it stretches slow and wide like a secret finally told. one last dance before folding into the arms of dusk, one last twirl into dusk’s arms. sunsets- sometimes feel like the beginning… “before the sun- that old actor bows again, not out of defeat, but- for the sake of not going away quietly.” “stubborn light- not to save us, not to prove a point, not for applause.” “unbothered- by memories, unfazed- by realities, it doesn’t care who left, who stayed, or who wept, all night.” Read the full article: https://www.kafka.blog/2025/04/sunsets-again.html — More on Kafkaintherun: she is not here- but she is everywhere.; dreams, poetry, sunsets.; blue.. ode to you.. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "sunset hues, again with the blues.",
     "sunset poem",
@@ -1496,13 +2951,36 @@
    "lang": "en",
    "duration": 253,
    "durationIso": "PT4M13S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "the sky- doesn’t beg to be noticed it stretches slow and wide like a secret finally told. one last dance before folding into the arms of dusk, one last twirl into dusk’s arms. sunsets- sometimes feel like the beginning…",
+   "quotes": [
+    "before the sun- that old actor bows again, not out of defeat, but- for the sake of not going away quietly.",
+    "stubborn light- not to save us, not to prove a point, not for applause.",
+    "unbothered- by memories, unfazed- by realities, it doesn’t care who left, who stayed, or who wept, all night."
+   ],
+   "related": [
+    {
+     "path": "/2025/04/she-is-not-here-but-she-is-everywhere.html",
+     "title": "she is not here- but she is everywhere."
+    },
+    {
+     "path": "/2025/04/dreams-poetry-sunsets.html",
+     "title": "dreams, poetry, sunsets."
+    },
+    {
+     "path": "/2025/04/blue-ode-to-you_3.html",
+     "title": "blue.. ode to you."
+    }
+   ],
+   "about": "A video version of “sunset hues, again with the blues”, a poem by Basava (बासभ). Running time: 4 min 13 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/1fZdMeuzMV8Xqo71RTeeWz"
   },
   "/2026/06/the-long-way-back.html": {
    "heading": "The Long Way Back",
-   "title": "The Long Way Back | Poetry Film by Basava (बासभ)",
+   "title": "The Long Way Back | Poem · Basava",
    "caption": "I do not buy the ticket. I keep the boy a boy, I keep the tree.",
-   "description": "A poetry film of 'The Long Way Back' by Basava (बासभ): a poem about refusing to go home, keeping the boy a boy, the tree and the light switch exactly where the hand remembers.",
+   "description": "I do not buy the ticket. I keep the boy a boy, I keep the tree, and the light switch exactly where my hand remembers. I keep a house where the hinge still complains. I keep a lane the rain has not yet hardened. I keep… “I could go. the road is right there, patient as a dog.” “I do not buy the ticket. I keep the boy a boy, I keep the tree, and the light switch exactly where my hand remembers.” “a man I have never met wakes in a room I have not seen.” Read the full article: https://www.kafka.blog/2026/06/the-long-way-back.html — More on Kafkaintherun: marginalia; Happy Birthday; Dear you, I hope you.. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "The Long Way Back",
     "the long way back poem",
@@ -1517,13 +2995,36 @@
    "lang": "en",
    "duration": 236,
    "durationIso": "PT3M56S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "I do not buy the ticket. I keep the boy a boy, I keep the tree, and the light switch exactly where my hand remembers. I keep a house where the hinge still complains. I keep a lane the rain has not yet hardened. I keep…",
+   "quotes": [
+    "I could go. the road is right there, patient as a dog.",
+    "I do not buy the ticket. I keep the boy a boy, I keep the tree, and the light switch exactly where my hand remembers.",
+    "a man I have never met wakes in a room I have not seen."
+   ],
+   "related": [
+    {
+     "path": "/2026/06/marginalia.html",
+     "title": "marginalia"
+    },
+    {
+     "path": "/2026/02/happy-birthday.html",
+     "title": "Happy Birthday"
+    },
+    {
+     "path": "/2025/10/dear-you-i-hope-you.html",
+     "title": "Dear you, I hope you."
+    }
+   ],
+   "about": "A video version of “The Long Way Back”, a poem by Basava (बासभ). Running time: 3 min 56 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/7DVo0EBicIoTWr8RokXPKs"
   },
   "/2026/04/the-name-i-once-wore.html": {
    "heading": "The Name I once wore",
-   "title": "The Name I once wore | Poetry Film by Basava (बासभ)",
+   "title": "The Name I once wore | Poem · Basava",
    "caption": "the wind is a thief and the mountains are tall.",
-   "description": "A poetry film of 'The Name I once wore' by Basava (बासभ): a poem tracing the shadows where memory stays, trading tomorrows for yesterdays.",
+   "description": "Oh, the wind is a thief and the mountains are tall, And I’m just a witness to the rise and the fall. I’m tracing the shadows where the memory stays, Trading my tomorrows for my yesterdays. “I left the city noise for a hollow kind of peace, A temporary stay, a conditional release.” “I found a mirror by the sink in the hall, It didn’t recognize the person at all.” “Just let me be quiet, just let me be still, High on the ridge of this lonely old hill.” Read the full article: https://www.kafka.blog/2026/04/the-name-i-once-wore.html — More on Kafkaintherun: The Long Way Back; echoes of faded love.; The Architecture of a Cure. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "The Name I once wore",
     "the name i once wore",
@@ -1538,13 +3039,36 @@
    "lang": "en",
    "duration": 130,
    "durationIso": "PT2M10S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "poem",
+   "excerpt": "Oh, the wind is a thief and the mountains are tall, And I’m just a witness to the rise and the fall. I’m tracing the shadows where the memory stays, Trading my tomorrows for my yesterdays.",
+   "quotes": [
+    "I left the city noise for a hollow kind of peace, A temporary stay, a conditional release.",
+    "I found a mirror by the sink in the hall, It didn’t recognize the person at all.",
+    "Just let me be quiet, just let me be still, High on the ridge of this lonely old hill."
+   ],
+   "related": [
+    {
+     "path": "/2026/06/the-long-way-back.html",
+     "title": "The Long Way Back"
+    },
+    {
+     "path": "/2025/05/echoes-of-faded-love.html",
+     "title": "echoes of faded love."
+    },
+    {
+     "path": "/2026/01/pancreatic-cancer-breakthrough-spain-cnio-reality-check.html",
+     "title": "The Architecture of a Cure"
+    }
+   ],
+   "about": "A video version of “The Name I once wore”, a poem by Basava (बासभ). Running time: 2 min 10 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/0m9iu9992qrOTQQ2jrqYFM"
   },
   "/2024/09/palpasa.html": {
    "heading": "कथा: पल्पसाको चिठ्ठी",
-   "title": "कथा: पल्पसाको चिठ्ठी | कथाको वाचन चलचित्र · बासभ",
+   "title": "कथा: पल्पसाको चिठ्ठी | कथा · बासभ",
    "caption": "म कतै धुवाँ बनेर उडिसकेको हुनेछु तिमीले यो पत्र पढ्दा।",
-   "description": "बिदाइको पत्र र २०१० को जुनमा फेसबुकको एउटा अनौठो नामबाट सुरु भएको कथाको वाचन। बासभको कथा ‘पल्पसाको चिठ्ठी’। A narrated film of Basava's Nepali story 'Palpasa's Letter': a farewell letter, and a strange name that caught his eye on Facebook in June 2010.",
+   "description": "धत्, बिदाइ कति गार्हो हुन्छ है? म कतै धुवाँ बनेर उडिसकेको हुनेछु तिमीले यो पत्र पढ्दा। मेरो कमजोरीको समयमा, मेरो लागि पनि उर्जा दिएका थियौ तिमीले, यो पढेर पनि तिमी रुनेछैनौ भन्ने आशा गरेको छु। किन दु:ख मान्नु र, म त… “\"भएको भए के हुन्थ्यो र?\" उ पनि कहाँ कम थिइ त। \"के थाह, मलाई तिमी पनि मन पर्न सक्थ्यो।\" मैले टेस्टेस्टोरन फ्यूल्ड रिप्लाई दिएँ।” ““जेनेटीक इन्जिनियरिङमा ब्याचलर्स गर्दै छु, बंगलादेशमा।”” “मोबाइलमा, 'लाइक अ रोलिङ स्टोन' सुन्दै सुतेको थिएँ त्यो रात।” पूरा लेख: https://www.kafka.blog/2024/09/palpasa.html — अरू पढ्नुहोस्: आफ्नै संस्मरण २- कविताका कुरा; अन्तरेको कथा; भुईँ छाडेको गाउँको कथा। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "कथा: पल्पसाको चिठ्ठी",
     "पल्पसाको चिठ्ठी",
@@ -1560,13 +3084,35 @@
    "lang": "ne",
    "duration": 827,
    "durationIso": "PT13M47S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "story",
+   "excerpt": "धत्, बिदाइ कति गार्हो हुन्छ है? म कतै धुवाँ बनेर उडिसकेको हुनेछु तिमीले यो पत्र पढ्दा। मेरो कमजोरीको समयमा, मेरो लागि पनि उर्जा दिएका थियौ तिमीले, यो पढेर पनि तिमी रुनेछैनौ भन्ने आशा गरेको छु। किन दु:ख मान्नु र, म त…",
+   "quotes": [
+    "\"भएको भए के हुन्थ्यो र?\" उ पनि कहाँ कम थिइ त। \"के थाह, मलाई तिमी पनि मन पर्न सक्थ्यो।\" मैले टेस्टेस्टोरन फ्यूल्ड रिप्लाई दिएँ।",
+    "“जेनेटीक इन्जिनियरिङमा ब्याचलर्स गर्दै छु, बंगलादेशमा।”",
+    "मोबाइलमा, 'लाइक अ रोलिङ स्टोन' सुन्दै सुतेको थिएँ त्यो रात।"
+   ],
+   "related": [
+    {
+     "path": "/2025/03/poetry.html",
+     "title": "आफ्नै संस्मरण २- कविताका कुरा"
+    },
+    {
+     "path": "/2025/11/antarey.html",
+     "title": "अन्तरेको कथा"
+    },
+    {
+     "path": "/2026/11/bhui-chhadeko-gaun-katha.html",
+     "title": "भुईँ छाडेको गाउँको कथा"
+    }
+   ],
+   "about": "‘कथा: पल्पसाको चिठ्ठी’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि १३ मिनेट ४७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/03/booksandauthors.html": {
    "heading": "आफ्नै संस्मरण १ - किताबका कुरा",
-   "title": "आफ्नै संस्मरण १ - किताबका कुरा | संस्मरणको वाचन चलचित्र · बासभ",
+   "title": "आफ्नै संस्मरण १ - किताबका कुरा | कथा · बासभ",
    "caption": "सानो बेलादेखि नै किताबहरूप्रति मेरो बिछट्टै मोह थियो।",
-   "description": "अक्षरको छायाँमा हुर्किएको बासभले किताबहरूलाई साथी बनाएको संस्मरण ‘किताबका कुरा’ को वाचन। A narrated film of Basava's memoir 'Talking of Books': growing up in the shade of letters, with books as friends.",
+   "description": "योगवीर, सकम्बरी, फुलहरू र बुढी पसल्नी लाई पहिले भेटेँ, अन्तरमुखीमा आँफूलाई पाएँ, परिभाषित आँखाहरुले पर्खालबाहिर धुपी सल्ला र लालीगुराँसको फेदीमा पुर्यायो, अनि महत्ताहिनले थाहै नपाइ बैँसालु वर्तमानमा लगेर छाडी राखेको… “बुवा - ‘झ्याउरे भाका भनेको के हो?’, ‘किन अरू सबै किताब जलाइदिनु भनेका?’, ‘क्षत्रीले मात्रै किन हो ढोग्न पर्ने?’,” “‘अनि ७० वर्षको मान्छेले मागेकै भरमा त्यति सानि फुच्चीसँग बिहे गर्न पनि पाइन्छ र’, ‘देवताहरुका राजालाई हतियार चाहियो भन्दैमा एक जना ऋषी मारिन पर्ने’,” “धत्, कता कता हराएछुँ आफूलाई खोज्ने-भेट्टाउने चक्करमा.. काफ्काको साम्सा, अनि बुकोस्कीको चिनास्की झैँ।” पूरा लेख: https://www.kafka.blog/2025/03/booksandauthors.html — अरू पढ्नुहोस्: आफ्नै संस्मरण २- कविताका कुरा; कथा: पल्पसाको चिठ्ठी।; अन्तरेको कथा। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "आफ्नै संस्मरण १ - किताबका कुरा",
     "किताबका कुरा",
@@ -1582,13 +3128,35 @@
    "lang": "ne",
    "duration": 743,
    "durationIso": "PT12M23S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "story",
+   "excerpt": "योगवीर, सकम्बरी, फुलहरू र बुढी पसल्नी लाई पहिले भेटेँ, अन्तरमुखीमा आँफूलाई पाएँ, परिभाषित आँखाहरुले पर्खालबाहिर धुपी सल्ला र लालीगुराँसको फेदीमा पुर्यायो, अनि महत्ताहिनले थाहै नपाइ बैँसालु वर्तमानमा लगेर छाडी राखेको…",
+   "quotes": [
+    "बुवा - ‘झ्याउरे भाका भनेको के हो?’, ‘किन अरू सबै किताब जलाइदिनु भनेका?’, ‘क्षत्रीले मात्रै किन हो ढोग्न पर्ने?’,",
+    "‘अनि ७० वर्षको मान्छेले मागेकै भरमा त्यति सानि फुच्चीसँग बिहे गर्न पनि पाइन्छ र’, ‘देवताहरुका राजालाई हतियार चाहियो भन्दैमा एक जना ऋषी मारिन पर्ने’,",
+    "धत्, कता कता हराएछुँ आफूलाई खोज्ने-भेट्टाउने चक्करमा.. काफ्काको साम्सा, अनि बुकोस्कीको चिनास्की झैँ।"
+   ],
+   "related": [
+    {
+     "path": "/2025/03/poetry.html",
+     "title": "आफ्नै संस्मरण २- कविताका कुरा"
+    },
+    {
+     "path": "/2024/09/palpasa.html",
+     "title": "कथा: पल्पसाको चिठ्ठी।"
+    },
+    {
+     "path": "/2025/11/antarey.html",
+     "title": "अन्तरेको कथा"
+    }
+   ],
+   "about": "‘आफ्नै संस्मरण १ - किताबका कुरा’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि १२ मिनेट २३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/03/poetry.html": {
    "heading": "आफ्नै संस्मरण २ - कविताका कुरा",
-   "title": "आफ्नै संस्मरण २ - कविताका कुरा | संस्मरणको वाचन चलचित्र · बासभ",
+   "title": "आफ्नै संस्मरण २ - कविताका कुरा | कथा · बासभ",
    "caption": "फेरि कलमले बामे सर्न खोज्दैछ, यो कविता लेख्ने हुटहुटी।",
-   "description": "कविता लेख्ने हुटहुटी, भुपी र अङ्ग्रेजी कविहरूसँगको भेट, ब्लग र ट्विटरमा हालेका कविताहरूबारे संस्मरण ‘कविताका कुरा’ को वाचन। A narrated film of Basava's memoir 'Talking of Poetry': the urge to write poems, meeting Bhupi and the English poets, and posting verses online.",
+   "description": "फेरी कलमले बामे सर्न खोज्दैछ, यो कविता लेख्ने हुटहुटी यस्तै, लागेपछि छुट्नै गाह्रो । लेखिएका कुराहरू ट्विटर र ब्लगमा हाल्दै गर्छु। यो मनोवाद, यी कविताहरु मेरा लागि नै हुन, भित्र गुम्सिएका आवाजहरूलाई बाहिर निकाल्न। मलाई… “अब कविताका कुरा- यसका नि खण्डहरू छन्- पख्नु न। कविताको कुरा गर्दा भुपी कसोगरी भुल्ने-” “यो कविता लेख्ने हुटहुटी कस्तो हो कुन्नी, लागेपछि छुट्नै गार्हो, छुटेपछि फेरी जोडिनै गाह्रो।” “यो पनि पढ्नुहोस् आफ्नै संस्मरण १- किताबका कुरा” पूरा लेख: https://www.kafka.blog/2025/03/poetry.html — अरू पढ्नुहोस्: आफ्नै संस्मरण १- किताबका कुरा; कथा: पल्पसाको चिठ्ठी।; भुईँ छाडेको गाउँको कथा। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "आफ्नै संस्मरण २ - कविताका कुरा",
     "कविताका कुरा",
@@ -1604,13 +3172,35 @@
    "lang": "ne",
    "duration": 589,
    "durationIso": "PT9M49S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "story",
+   "excerpt": "फेरी कलमले बामे सर्न खोज्दैछ, यो कविता लेख्ने हुटहुटी यस्तै, लागेपछि छुट्नै गाह्रो । लेखिएका कुराहरू ट्विटर र ब्लगमा हाल्दै गर्छु। यो मनोवाद, यी कविताहरु मेरा लागि नै हुन, भित्र गुम्सिएका आवाजहरूलाई बाहिर निकाल्न। मलाई…",
+   "quotes": [
+    "अब कविताका कुरा- यसका नि खण्डहरू छन्- पख्नु न। कविताको कुरा गर्दा भुपी कसोगरी भुल्ने-",
+    "यो कविता लेख्ने हुटहुटी कस्तो हो कुन्नी, लागेपछि छुट्नै गार्हो, छुटेपछि फेरी जोडिनै गाह्रो।",
+    "यो पनि पढ्नुहोस् आफ्नै संस्मरण १- किताबका कुरा"
+   ],
+   "related": [
+    {
+     "path": "/2025/03/booksandauthors.html",
+     "title": "आफ्नै संस्मरण १- किताबका कुरा"
+    },
+    {
+     "path": "/2024/09/palpasa.html",
+     "title": "कथा: पल्पसाको चिठ्ठी।"
+    },
+    {
+     "path": "/2026/11/bhui-chhadeko-gaun-katha.html",
+     "title": "भुईँ छाडेको गाउँको कथा"
+    }
+   ],
+   "about": "‘आफ्नै संस्मरण २ - कविताका कुरा’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि ९ मिनेट ४९ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
   },
   "/2025/10/lettertoher.html": {
    "heading": "प्रिय तिमी, म तिम्रो आश गर्छु",
-   "title": "प्रिय तिमी, म तिम्रो आश गर्छु | पत्रको वाचन चलचित्र · बासभ",
+   "title": "प्रिय तिमी, म तिम्रो आश गर्छु | चिठी · बासभ",
    "caption": "बिहानको ३:१३ बज्यो। मैले यो लेख्नै नहुने।",
-   "description": "बिहान ३:१३ बजे गहिरिएको रातमा लेखिएको पत्र ‘प्रिय तिमी, म तिम्रो आश गर्छु’ को वाचन। A narrated film of Basava's letter 'Dear you, I wait for you', written at 3:13 in the morning as the night deepens.",
+   "description": "(translated by Google gemini, as it is.) प्रिय तिमी, बिहानको ३:१३ बज्यो। मेरो कोठाको भित्ताबाट पानी र डढेको कफीको मिश्रित गन्ध आउँछ। अब पानी, पानीजस्तो लाग्दैन र भित्ताहरू तिम्रो नाम कानेखुसी गर्छन्। भुइँमा मेरो छायाँ घरीघरी बदलिन्छ। “म डराएको छु; सम्पूर्ण सत्य यही हो। म डराएको छु, मदेखि, तिमीदेखि, तिम्रो लागि।” “काफ्का यहाँ छ। म कुनै टाढाको, साहित्यिक अर्थमा भनिरहेको छैन।” “सायद केही होइन। सायद सबथोक। सायद बिहानसम्म आफूलाई नखाई सास फेरिरहनु।” पूरा लेख: https://www.kafka.blog/2025/10/lettertoher.html — अरू पढ्नुहोस्: बहुला राजा रणबहादुरको दरबार; रोजालिन्ड फ्रांकलिन; मुसामा क्यान्सर जितियो, मानिसमा कहिले?। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
    "keywords": [
     "प्रिय तिमी, म तिम्रो आश गर्छु",
     "प्रिय तिमी म तिम्रो आश गर्छु",
@@ -1626,13 +3216,36 @@
    "lang": "ne",
    "duration": 799,
    "durationIso": "PT13M19S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "letter",
+   "excerpt": "(translated by Google gemini, as it is.) प्रिय तिमी, बिहानको ३:१३ बज्यो। मेरो कोठाको भित्ताबाट पानी र डढेको कफीको मिश्रित गन्ध आउँछ। अब पानी, पानीजस्तो लाग्दैन र भित्ताहरू तिम्रो नाम कानेखुसी गर्छन्। भुइँमा मेरो छायाँ घरीघरी बदलिन्छ।",
+   "quotes": [
+    "म डराएको छु; सम्पूर्ण सत्य यही हो। म डराएको छु, मदेखि, तिमीदेखि, तिम्रो लागि।",
+    "काफ्का यहाँ छ। म कुनै टाढाको, साहित्यिक अर्थमा भनिरहेको छैन।",
+    "सायद केही होइन। सायद सबथोक। सायद बिहानसम्म आफूलाई नखाई सास फेरिरहनु।"
+   ],
+   "related": [
+    {
+     "path": "/2025/11/ranabahadur.html",
+     "title": "बहुला राजा रणबहादुरको दरबार"
+    },
+    {
+     "path": "/2026/09/rosalind-franklin-nepali.html",
+     "title": "रोजालिन्ड फ्रांकलिन"
+    },
+    {
+     "path": "/2026/09/musama-cancer-jitiyo-manisma-kahile.html",
+     "title": "मुसामा क्यान्सर जितियो, मानिसमा कहिले?"
+    }
+   ],
+   "about": "‘प्रिय तिमी, म तिम्रो आश गर्छु’ बासभको चिठीको भिडियो संस्करण हो। भिडियोको अवधि १३ मिनेट १९ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
+   "spotify": "https://open.spotify.com/episode/4ZTzKcm1absuZDd1ytHi61"
   },
   "/2026/02/happy-birthday.html": {
    "heading": "Happy Birthday",
-   "title": "Happy Birthday | Narrated Letter Film by Basava (बासभ)",
+   "title": "Happy Birthday | Letter · Basava",
    "caption": "It's late. Or early. The hours no longer obey logic when my mind settles on your name.",
-   "description": "A narrated film of Basava's birthday letter 'Happy Birthday': written late at night to someone he found a year ago on this day, keeping the truth of a promise to wish them in person.",
+   "description": "I found you a year ago on this day, and I promised to wish you not virtually the next time around. I failed the geography of that promise, but not the truth of it. This is not just pixels on a screen. It is a heartbeat… “Happy Birthday. It’s late. Or early. The hours no longer obey logic when my mind settles on your name.” “I’m glad I know you. I’m glad I once learned the shape of your thoughts.” “I’m glad the world contains you, not as an idea, not as a memory, but as a living, breathing fact.” Read the full article: https://www.kafka.blog/2026/02/happy-birthday.html — More on Kafkaintherun: Dear you, I hope you.; The Long Way Back; Lobsters, Telomerase, and Aging. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "Happy Birthday",
     "happy birthday letter",
@@ -1647,13 +3260,36 @@
    "lang": "en",
    "duration": 289,
    "durationIso": "PT4M49S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "letter",
+   "excerpt": "I found you a year ago on this day, and I promised to wish you not virtually the next time around. I failed the geography of that promise, but not the truth of it. This is not just pixels on a screen. It is a heartbeat…",
+   "quotes": [
+    "Happy Birthday. It’s late. Or early. The hours no longer obey logic when my mind settles on your name.",
+    "I’m glad I know you. I’m glad I once learned the shape of your thoughts.",
+    "I’m glad the world contains you, not as an idea, not as a memory, but as a living, breathing fact."
+   ],
+   "related": [
+    {
+     "path": "/2025/10/dear-you-i-hope-you.html",
+     "title": "Dear you, I hope you."
+    },
+    {
+     "path": "/2026/06/the-long-way-back.html",
+     "title": "The Long Way Back"
+    },
+    {
+     "path": "/2025/12/lobsters.html",
+     "title": "Lobsters, Telomerase, and Aging"
+    }
+   ],
+   "about": "A video version of “Happy Birthday”, a letter by Basava (बासभ). Running time: 4 min 49 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/0DHEC65lHStG8aWIZNMw3n"
   },
   "/2025/04/hippies.html": {
    "heading": "Hippies: Music, Marijuana, Magic Bus and Kathmandu",
-   "title": "Hippies: Music, Marijuana, Magic Bus and Kathmandu | History Documentary · Basava",
+   "title": "Hippies: Music, Marijuana, Magic Bus and Kathmandu | History · Basava",
    "caption": "How Kathmandu became the last stop of the hippie dream, and how it ended.",
-   "description": "A documentary film by Basava on how Kathmandu briefly became the last stand of hippie culture: from Haight-Ashbury and Woodstock to the Magic Bus and Freak Street, and how it ended.",
+   "description": "From Haight-Ashbury and Woodstock to the Magic Bus and Freak Street: how Kathmandu became the last stop of the hippie dream, and how it ended. A revised and fact-checked version of an essay first posted on Kafkaintherun in April 2025. “That summer, Haight-Ashbury gave its name to the Summer of Love, and the hippie era had begun.” “In Tehran, Herat, Kabul and Peshawar, travelers met an Islamic world that, in many ways, no longer exists.” “For a brief window, Nepal did not just host the global counterculture; it shaped its myth.” Read the full article: https://www.kafka.blog/2025/04/hippies.html — More on Kafkaintherun: Like a Rolling Stone- No Direction Home; Between Two Rivers: How Mesopotamia Gave Birth to Civilization; Ur and Lagash: Sumer's City-States in an Age of Trade and War. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "Hippies: Music, Marijuana, Magic Bus and Kathmandu",
     "Freak Street",
@@ -1672,13 +3308,36 @@
    "lang": "en",
    "duration": 326,
    "durationIso": "PT5M26S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "history",
+   "excerpt": "From Haight-Ashbury and Woodstock to the Magic Bus and Freak Street: how Kathmandu became the last stop of the hippie dream, and how it ended. A revised and fact-checked version of an essay first posted on Kafkaintherun in April 2025.",
+   "quotes": [
+    "That summer, Haight-Ashbury gave its name to the Summer of Love, and the hippie era had begun.",
+    "In Tehran, Herat, Kabul and Peshawar, travelers met an Islamic world that, in many ways, no longer exists.",
+    "For a brief window, Nepal did not just host the global counterculture; it shaped its myth."
+   ],
+   "related": [
+    {
+     "path": "/2025/04/how-many-roads-a-life-with-dylans-songs.html",
+     "title": "Like a Rolling Stone- No Direction Home"
+    },
+    {
+     "path": "/2025/07/between-two-rivers-how-rain-rock-and-myth-gave-birth-to-civilization.html",
+     "title": "Between Two Rivers: How Mesopotamia Gave Birth to Civilization"
+    },
+    {
+     "path": "/2025/08/ur-and-lagash-a-new-age-of-trade-and-warfare.html",
+     "title": "Ur and Lagash: Sumer's City-States in an Age of Trade and War"
+    }
+   ],
+   "about": "A video version of “Hippies: Music, Marijuana, Magic Bus and Kathmandu”, a history article by Basava (बासभ). Running time: 5 min 26 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/1Csnb0qdm6Z9iwR4VY7Hbn"
   },
   "/2025/10/dear-you-i-hope-you.html": {
    "heading": "Dear you, I hope you.",
-   "title": "Dear you, I hope you. | Narrated Letter Film by Basava (बासभ)",
+   "title": "Dear you, I hope you. | Letter · Basava",
    "caption": "A letter written at 3:13 AM, to someone it may never reach.",
-   "description": "A narrated letter film by Basava. It is 3:13 AM, the night has no mercy, and a letter to ‘you’ gets written that may never be sent: love that is killing and keeping alive, and the ghosts of old lovers that keep dragging behind.",
+   "description": "Dear you, It’s 3:13 AM. I shouldn’t be writing this. But it is late, and the night has no mercy. The wall of my apartment smells like rain and burnt coffee. The rain no longer feels like a rain and the walls whispers your name. “By morning, I wake with a fist full of ash- another day, longing, again, again, night, repeat. Again.” “I close my fist around it and feel your absence inside it.” “This isn’t a letter anymore, it’s a spill, it’s a mess, it’s my head split open on paper.” Read the full article: https://www.kafka.blog/2025/10/dear-you-i-hope-you.html — More on Kafkaintherun: Happy Birthday; The curious case of eels- how do eels reproduce?; Dark antigens and Transposons. Kafkaintherun is the bilingual blog of Basava (बासभ).",
    "keywords": [
     "Dear you, I hope you",
     "letter to a lover",
@@ -1693,7 +3352,30 @@
    "lang": "en",
    "duration": 966,
    "durationIso": "PT16M6S",
-   "uploadDate": "2026-11-27"
+   "uploadDate": "2026-11-27",
+   "kind": "letter",
+   "excerpt": "Dear you, It’s 3:13 AM. I shouldn’t be writing this. But it is late, and the night has no mercy. The wall of my apartment smells like rain and burnt coffee. The rain no longer feels like a rain and the walls whispers your name.",
+   "quotes": [
+    "By morning, I wake with a fist full of ash- another day, longing, again, again, night, repeat. Again.",
+    "I close my fist around it and feel your absence inside it.",
+    "This isn’t a letter anymore, it’s a spill, it’s a mess, it’s my head split open on paper."
+   ],
+   "related": [
+    {
+     "path": "/2026/02/happy-birthday.html",
+     "title": "Happy Birthday"
+    },
+    {
+     "path": "/2025/11/eels.html",
+     "title": "The curious case of eels- how do eels reproduce?"
+    },
+    {
+     "path": "/2025/12/darkantigens.html",
+     "title": "Dark antigens and Transposons"
+    }
+   ],
+   "about": "A video version of “Dear you, I hope you”, a letter by Basava (बासभ). Running time: 16 min 6 sec. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/4HMGZEYr6E4b58MT62oMO5"
   }
  }
 }
