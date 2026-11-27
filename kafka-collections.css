@@ -1049,21 +1049,23 @@ html body a.k5:not(#kz) .k5-d .k5-ic{position:absolute!important;right:9px!impor
 html body a.k5:not(#kz) .k5-d .k5-ic.k5-listen{top:calc(50% - 27px)!important}
 html body a.k5:not(#kz) .k5-d .k5-ic.kact-share{top:calc(50% + 3px)!important}
 html body a.k5:not(#kz) .k5-d .ktr-b{position:absolute!important;left:11px!important;top:calc(50% + 4px)!important;margin:0!important;transform:scale(.86);transform-origin:left top;z-index:2}
-html body a.k5:not(#kz) .k5-d .k5-ic.k5-film{top:calc(50% + 3px)!important;cursor:pointer}
-html body a.k5:not(#kz) .k5-d .k5-ic.k5-film svg{width:14px;height:14px}
-html body a.k5:not(#kz) .k5-d .k5-ic.k5-film.is-off{opacity:.32;cursor:default;pointer-events:none}
+html body a.k5:not(#kz) .k5-d .k5-ic.kfilm-btn{top:calc(50% + 3px)!important;cursor:pointer}
+html body a.k5:not(#kz) .k5-d .k5-ic.kfilm-btn svg{width:14px;height:14px}
+html body a.k5:not(#kz) .k5-d .k5-ic.kfilm-btn.is-off{opacity:.32;cursor:default;pointer-events:none}
 /* v8: pinned series - more room for the parts, smaller explainer text, photos centred on the left */
 @media (min-width:701px){
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) article.kps{grid-template-columns:140px minmax(0,1fr) minmax(0,1.2fr)!important;align-items:center!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) article.kps>.kps-pic{align-self:center!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts{align-self:center!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts>li{display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;grid-template-rows:auto 1fr!important;column-gap:12px!important;row-gap:4px!important;align-items:center!important;overflow:visible!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts>li>.kps-th{grid-column:1!important;grid-row:1/span 2!important;align-self:center!important;margin:0!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts>li>.kps-no{grid-column:2!important;grid-row:1!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts>li>.kps-pt{grid-column:2!important;grid-row:2!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15){grid-template-columns:160px minmax(0,1fr) minmax(0,1.25fr)!important;align-items:center!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15)>a.kps-pic{align-self:center!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) ol.kps-parts{align-self:center!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) ol.kps-parts>li{display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;grid-template-rows:auto 1fr!important;column-gap:12px!important;row-gap:4px!important;align-items:center!important;overflow:visible!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) ol.kps-parts>li>.kps-th{grid-column:1!important;grid-row:1/span 2!important;align-self:center!important;margin:0!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) ol.kps-parts>li>.kps-no{grid-column:2!important;grid-row:1!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) ol.kps-parts>li>.kps-pt{grid-column:2!important;grid-row:2!important}
 }
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-lede{font-size:13.5px!important;line-height:1.5!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-bhajan blockquote,html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-bhajan blockquote *{font-size:14px!important;line-height:1.5!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-parts .kps-d{font-size:12.5px!important;line-height:1.5!important}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-parts .kps-row{flex-wrap:nowrap!important;min-width:0}
-html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-parts .kps-en{display:none!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) .kps-lede{font-size:13.5px!important;line-height:1.5!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) .kps-bhajan blockquote,html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) .kps-bhajan blockquote *{font-size:14px!important;line-height:1.5!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) .kps-parts .kps-d{font-size:12.5px!important;line-height:1.5!important}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) .kps-parts .kps-row{flex-wrap:nowrap!important;min-width:0}
+html body #kafka-home .pin-pair article.kps:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15) .kps-parts .kps-en{display:none!important}
+html body .kfilm-btn.is-off{opacity:.32!important;cursor:default!important;pointer-events:none!important}
+html body .kfilm-btn svg{width:15px;height:15px}
