@@ -284,7 +284,78 @@ window.kTiny=window.kTiny||function(u,n){
       });
     });
   }
-  function all(){shelves();order();paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();homeTint();partThumbs();danda()}
+  /* v8: line rows up across the homepage's three-column blocks, and keep the section doors even */
+  function kTop(e){return e.getBoundingClientRect().top}
+  function kH(e){return e?e.getBoundingClientRect().height:0}
+  function kOneCol(cols){var xs=cols.filter(function(c){return c.length}).map(function(c){return Math.round(c[0].getBoundingClientRect().left)});return xs.length<2||xs.every(function(x){return x===xs[0]})}
+  /* sizes go into one generated stylesheet (nth-child paths), so scripts that rewrite a row's style attribute or rebuild it can't undo them */
+  var kSheet=null,kRules=[];
+  function kPath(e,stop){var p=[];while(e&&e!==stop&&e.parentElement){var i=Array.prototype.indexOf.call(e.parentElement.children,e)+1;p.unshift(e.tagName.toLowerCase()+':nth-child('+i+')');e=e.parentElement}return stop.className.split(/\s+/).filter(Boolean).map(function(c){return '.'+c}).join('').replace(/^/,'html body ')+'>'+p.join('>')}
+  function kRule(e,root,decl,tail){kRules.push(kPath(e,root)+(tail||'')+'{'+decl+'}')}
+  function kFlush(){if(!kSheet){kSheet=document.createElement('style');kSheet.id='k-even-rows';document.head.appendChild(kSheet)}var t=kRules.join('\n');if(kSheet.textContent!==t)kSheet.textContent=t}
+  function kSet(cols,H,root){cols.forEach(function(c){c.forEach(function(e,i){if(e&&H[i]>kH(e)+0.5){kRule(e,root,'min-height:'+H[i].toFixed(2)+'px!important');kRule(e,root,'align-self:stretch!important;justify-content:space-between!important','>.k5-b')}})})}
+  function rowSync(){
+    kRules=[];if(kSheet)kSheet.textContent='';
+    if(window.innerWidth<=700){kFlush();return}
+    var k3=document.querySelector('.kstart3');
+    if(k3){var c3=Array.prototype.map.call(k3.querySelectorAll(':scope>.k3col'),function(c){return Array.prototype.slice.call(c.querySelectorAll(':scope>.k5'))});
+      if(!kOneCol(c3)){var n3=Math.max.apply(null,c3.map(function(c){return c.length})),H3=[];for(var i=0;i<n3;i++){H3[i]=0;c3.forEach(function(c){H3[i]=Math.max(H3[i],kH(c[i]))})}kSet(c3,H3,k3)}}
+    var th=document.querySelector('.three'),cs=th?th.querySelectorAll(':scope>.col'):[];
+    if(cs.length===3){
+      var L=Array.prototype.slice.call(cs[0].querySelectorAll('ol.klist>li')),R=Array.prototype.slice.call(cs[2].querySelectorAll('ol.klist>li'));
+      var S=Array.prototype.slice.call(cs[1].querySelectorAll('.kserlist>.kser-row')),A=cs[1].querySelector('.karchive'),Y=A?Array.prototype.slice.call(A.querySelectorAll(':scope>.ka-year')):[],list=cs[1].querySelector('.kserlist');
+      if(L.length&&R.length&&!kOneCol([L,R])){
+        /* the side columns set the block's height; the middle column fits itself to their rows */
+        kRule(cs[1],th,'contain:size!important');kFlush();
+        var n=Math.max(L.length,R.length),off=n-S.length,mid=off>=1&&S.length&&A&&A.classList.contains('folded')&&Y.length;
+        var H=[];for(var j=0;j<n;j++)H[j]=Math.max(kH(L[j]),kH(R[j]));
+        kSet([L,R],H,th);kFlush();
+        if(mid){
+          S.forEach(function(e,i){var h=kH(L[i+off]).toFixed(2);kRule(e,th,'height:'+h+'px!important;min-height:'+h+'px!important')});
+          var ah=Math.max(40,L[off-1].getBoundingClientRect().bottom-kTop(L[0]));
+          kRule(A,th,'display:flex!important;flex-direction:column!important;height:'+ah.toFixed(2)+'px!important');
+          Y.forEach(function(y){kRule(y,th,'min-height:0!important;height:'+(ah/Y.length).toFixed(2)+'px!important')});
+          kFlush();
+          if(list){var m=0,base=kRules.length;for(var k=0;k<3;k++){var d=kTop(L[off])-kTop(S[0]);if(Math.abs(d)<0.5)break;m+=d;kRules.length=base;kRule(list,th,'margin-top:'+m.toFixed(2)+'px!important');kFlush()}}
+        }
+      }
+    }
+    kFlush();
+  }
+  function doorsEven(){
+    var g=document.querySelector('.kd-grid');if(!g)return;g.classList.remove('kd-stack');
+    var wrap=Array.prototype.some.call(g.querySelectorAll('.kd-door'),function(d){var a=d.querySelector('.kd-ne'),b=d.querySelector('.kd-en');return a&&b&&b.offsetTop>a.offsetTop+4});
+    if(wrap)g.classList.add('kd-stack');
+  }
+  var kRS=0,kRO=null,kSeen=[];function evenUp(){if(kRS)clearTimeout(kRS);kRS=setTimeout(function(){kRS=0;try{doorsEven();rowSync();kWatch()}catch(e){}},40)}
+  function kWatch(){if(!window.ResizeObserver)return;if(!kRO)kRO=new ResizeObserver(function(){evenUp()});
+    Array.prototype.forEach.call(document.querySelectorAll('.kstart3>.k3col .k5-t,.three ol.klist>li .kl-t,.three ol.klist>li>div,.kd-door'),function(e){if(kSeen.indexOf(e)<0){kSeen.push(e);kRO.observe(e)}});
+    kSeen=kSeen.filter(function(e){if(document.contains(e))return true;kRO.unobserve(e);return false})}
+  window.addEventListener('resize',evenUp);window.addEventListener('load',evenUp);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(evenUp);
+  /* v8: in list rows the share button becomes a film button; faded until that post has a film */
+  var kFilms=null,kFilmP=null;
+  function kFilmList(){if(!kFilmP)kFilmP=Promise.all(['https://audio.kafka.blog/video-manifest.json','https://assets.kafka.blog/video-captions.json'].map(function(u){return fetch(u).then(function(r){return r.ok?r.json():null}).catch(function(){return null})})).then(function(r){var m={};r.forEach(function(j){if(j&&j.videos)Object.keys(j.videos).forEach(function(k){if(j.videos[k]&&(j.videos[k].src||j===r[0]))m[k]=1})});kFilms=m;return m});return kFilmP}
+  var FILM_SVG='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M10 9.2v5.6l4.6-2.8z" fill="currentColor"></path></svg>';
+  function kInPost(b){if(b.closest('li,a.k5,.kcard,article.kps,article.plane,.kser-items,.related,.side,.three,.kstart3,.kstart5'))return false;return !!b.closest('.prose,.poem-body,.post-body,.kshare,.kshare-float,.kpost-head,.post-header,article.post')}
+  function filmButtons(){
+    var sh=Array.prototype.filter.call(document.querySelectorAll('.kact-share'),function(b){return !kInPost(b)});if(!sh.length)return;
+    kFilmList().then(function(m){
+      Array.prototype.forEach.call(document.querySelectorAll('.kact-share'),function(b){
+        if(kInPost(b)||!b.parentNode)return;
+        var a=b.closest('a[href]')||((b.closest('li,article')||{querySelector:function(){return null}}).querySelector('a[href]:not(.chip)')),u=b.getAttribute('data-url')||(a&&a.getAttribute('href'))||'',p=u.replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0],has=!!(p&&m[p]);
+        var v=document.createElement(b.tagName==='BUTTON'?'button':'span');if(v.tagName==='BUTTON')v.type='button';
+        v.className=b.className.replace(/\bkact-share\b/,'kact-film')+' kfilm-btn'+(has?'':' is-off');
+        v.innerHTML=FILM_SVG+(b.querySelector('span')?'<span>'+(has?'Film':'Film soon')+'</span>':'');
+        var lab=b.querySelector('span');if(lab){var sp=v.querySelector('span');sp.className=lab.className;sp.setAttribute('style',lab.getAttribute('style')||'')}
+        if(has){if(v.tagName!=='BUTTON'){v.setAttribute('role','link');v.tabIndex=0}v.setAttribute('data-to',p+'#kfilm');v.title='Watch the film';v.setAttribute('aria-label','Watch the film')}
+        else{v.title='Film coming later';v.setAttribute('aria-hidden','true');v.tabIndex=-1;if(v.tagName==='BUTTON')v.disabled=true}
+        b.parentNode.replaceChild(v,b);
+      });
+    });
+  }
+  document.addEventListener('click',function(e){var v=e.target.closest&&e.target.closest('.kfilm-btn');if(!v)return;e.preventDefault();e.stopPropagation();var to=v.getAttribute('data-to');if(to)location.href=to},true);
+  document.addEventListener('keydown',function(e){if(e.key!=='Enter')return;var v=e.target.closest&&e.target.closest('.kfilm-btn[data-to]');if(v){e.preventDefault();location.href=v.getAttribute('data-to')}},true);
+  function all(){shelves();order();paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();homeTint();partThumbs();danda();filmButtons();evenUp()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
