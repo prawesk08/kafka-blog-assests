@@ -71,8 +71,10 @@
   var SOFT_BG='#a8665b', SOFT_BD='#c08d84', seen=window.WeakSet?new WeakSet():null;
   function soften(){
     if(!seen)return;
+    /* wait for this file's stylesheet, so elements it restyles (e.g. the plain-text name) are not painted */
+    if(getComputedStyle(document.documentElement).getPropertyValue('--red').trim().toLowerCase()!=='#9a5047')return;
     [].forEach.call(document.querySelectorAll('button,a,span,i,b,label,input,div.ksh-cnt,form'),function(e){
-      if(seen.has(e))return; seen.add(e); if(e.closest('.kl-voice,[aria-pressed],[role=tab],.tabs-items'))return; var s=getComputedStyle(e);
+      if(seen.has(e))return; seen.add(e); if(e.closest('.kl-voice,[aria-pressed],[role=tab],.tabs-items,.kfollow .kf-top'))return; var s=getComputedStyle(e);
       if(s.backgroundColor==='rgb(123, 45, 38)')e.style.setProperty('background-color',SOFT_BG,'important');
       if(s.borderTopColor==='rgb(123, 45, 38)'&&parseFloat(s.borderTopWidth)>0)e.style.setProperty('border-color',SOFT_BD,'important');
     });
