@@ -2,7 +2,9 @@
    1. gives each list block (ol.klist, ol.kser-items rows, article.kcard) its featured photo as --kbg, for the blurred photo canvas
    2. series carousel cards on post pages (.kser-deck .kser-card) get --kbg the same way
    3. post header: Share (opens on tap), Listen and the बासभ follow box in one row of one panel
-   4. post rows (ol.kser-items on category/series/literature pages, article.kcard on home/label/search pages):
+   4. Photos page: numbered section heads, captions on the prints, lightbox
+   5. About page: portrait card, lead, pull quote, topic cards, callouts
+   6. post rows (ol.kser-items on category/series/literature pages, article.kcard on home/label/search pages):
       moves the number out of the photo into its own column, splits "Title: Subtitle" so the two get different type,
       and marks Devanagari titles/subtitles with .kt-ne (the li lang attribute is not reliable) */
 (function(){
@@ -60,7 +62,78 @@
     document.addEventListener('click',function(e){if(!sh.contains(e.target))set(false)});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
   }
-  function all(){paint();rows();deck();onerow()}
+
+  /* Photos page: numbered section heads with counts, a caption on each print, and a lightbox */
+  function gallery(){
+    var root=document.querySelector('.kphotos'); if(!root||root.getAttribute('data-kg'))return; root.setAttribute('data-kg','1');
+    var ROM=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'], all=[];
+    [].forEach.call(root.querySelectorAll('h2'),function(h,i){
+      var g=h.nextElementSibling; while(g&&!g.classList.contains('kgrid'))g=g.nextElementSibling;
+      var n=g?g.querySelectorAll('a').length:0;
+      h.setAttribute('data-kn',ROM[i]||String(i+1)); h.setAttribute('data-kc',n+(n===1?' photograph':' photographs'));
+    });
+    [].forEach.call(root.querySelectorAll('.kgrid>a'),function(a){
+      var img=a.querySelector('img'); if(!img)return; var k=all.length;
+      a.setAttribute('data-cap',img.getAttribute('alt')||''); a.setAttribute('data-no','Nº '+(k+1<10?'0':'')+(k+1));
+      all.push({src:a.getAttribute('href'),cap:img.getAttribute('alt')||''});
+      a.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();open(k)});
+    });
+    var box,im,cap,cur=0,tx=null;
+    function show(i){cur=(i+all.length)%all.length;im.src=all[cur].src;im.alt=all[cur].cap;cap.innerHTML='';var b=document.createElement('b');b.textContent='Nº '+(cur+1)+' / '+all.length;cap.appendChild(b);cap.appendChild(document.createTextNode(all[cur].cap))}
+    function close(){if(!box)return;box.classList.remove('on');document.documentElement.style.overflow='';var b=box;box=null;setTimeout(function(){b.remove()},200);document.removeEventListener('keydown',key)}
+    function key(e){if(e.key==='Escape')close();else if(e.key==='ArrowRight')show(cur+1);else if(e.key==='ArrowLeft')show(cur-1)}
+    function btn(c,t,f){var b=document.createElement('button');b.type='button';b.className=c;b.setAttribute('aria-label',t);b.textContent=c==='klb-x'?'×':(c==='klb-p'?'‹':'›');b.addEventListener('click',function(e){e.stopPropagation();f()});return b}
+    function open(i){
+      box=document.createElement('div');box.className='klb';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');
+      im=document.createElement('img');cap=document.createElement('p');cap.className='klb-cap';
+      box.appendChild(im);box.appendChild(cap);
+      box.appendChild(btn('klb-x','Close',close));box.appendChild(btn('klb-p','Previous',function(){show(cur-1)}));box.appendChild(btn('klb-n','Next',function(){show(cur+1)}));
+      box.addEventListener('click',function(e){if(e.target===box)close()});
+      box.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+      box.addEventListener('touchend',function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>40)show(cur+(d<0?1:-1))});
+      document.body.appendChild(box);document.documentElement.style.overflow='hidden';document.addEventListener('keydown',key);
+      show(i);requestAnimationFrame(function(){box&&box.classList.add('on')});
+    }
+  }
+  /* About page: portrait card, lead paragraph, pull quote, topic cards and callouts, built from the page's own text */
+  function about(){
+    var ab=document.querySelector('.kafka-about'); if(!ab||ab.classList.contains('kab'))return; ab.classList.add('kab');
+    var IC={sci:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/></svg>',
+      his:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 10h16M12 3 3 8h18z"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8"/></svg>',
+      lit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-6 0-11 5-12 12l-2 4"/><path d="M8 16c4 0 8-2 10-6"/></svg>',
+      pho:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>'};
+    var LINK={sci:'/p/science.html',his:'/p/history.html',lit:'/p/literature.html',pho:'/p/photos.html'};
+    [].forEach.call(ab.querySelectorAll(':scope>p'),function(p){if(!p.textContent.replace(/ /g,'').trim()&&!p.querySelector('img'))p.classList.add('kab-blank')});
+    var ps=ab.querySelectorAll(':scope>p:not(.kab-blank)');
+    /* hero card */
+    var hero=document.createElement('div');hero.className='kab-hero';
+    hero.innerHTML='<img class="kab-face" alt="बासभ (Basava)" src="https://assets.kafka.blog/basava-priest-king-400.jpg"><div><h2 class="kab-name">बासभ <span>Basava, writing as @naharchowck</span></h2><div class="kab-roles"><span>Immunotherapy</span><span>Molecular biology</span><span>Occasional writer</span><span>Occasional photographer</span></div><div class="kab-so"></div></div>';
+    var so=hero.querySelector('.kab-so');
+    [].forEach.call(ab.querySelectorAll('.kel a.kel-so'),function(a){var c=a.cloneNode(true);c.className='';var i=c.querySelector('i');if(i)i.remove();so.appendChild(c)});
+    ab.insertBefore(hero,ab.firstChild);
+    if(ps[0])ps[0].classList.add('kab-lead');
+    /* pull quote from the childhood paragraph */
+    if(ps[1]){var m=ps[1].textContent.match(/Muna Madan[^.;]*;\s*Parijat[^.]*\./);if(m){var q=document.createElement('blockquote');q.className='kab-pull';q.textContent=m[0];ps[1].parentNode.insertBefore(q,ps[1].nextSibling)}}
+    /* topic cards */
+    var ul=ab.querySelector(':scope>ul');
+    if(ul){var grid=document.createElement('div');grid.className='kab-topics';
+      [].forEach.call(ul.querySelectorAll(':scope>li'),function(li){
+        var b=li.querySelector('b'); if(!b)return; var t=b.textContent.replace(/[-–—\s]+$/,'').trim();
+        var k=/^Sci/i.test(t)?'sci':/^Hist/i.test(t)?'his':/^Photo/i.test(t)?'pho':'lit';
+        var card=document.createElement('div');card.className='kab-topic';
+        var ic=document.createElement('span');ic.className='kab-ic';ic.innerHTML=IC[k];
+        var body=document.createElement('div');var h=document.createElement('h3');var a=document.createElement('a');a.href=LINK[k];a.textContent=t;h.appendChild(a);
+        var p=document.createElement('p');var c=li.cloneNode(true);var cb=c.querySelector('b');if(cb)cb.remove();p.innerHTML=c.innerHTML.replace(/^(\s|&nbsp;)+/,'');
+        body.appendChild(h);body.appendChild(p);card.appendChild(ic);card.appendChild(body);grid.appendChild(card);
+      });
+      ul.parentNode.replaceChild(grid,ul);}
+    /* callouts */
+    [].forEach.call(ab.querySelectorAll(':scope>p'),function(p){var s=p.textContent;if(/press\s+Listen/i.test(s))p.classList.add('kab-note');else if(/Subscribe/.test(s)&&/inbox/.test(s)){p.classList.add('kab-note');p.classList.add('kab-mail')}});
+    /* "Why" section as a dark card with the Kafka line on top */
+    var hs=ab.querySelectorAll(':scope>h2'), last=hs[hs.length-1];
+    if(last&&/Kafka/i.test(last.textContent)){var wp=last.nextElementSibling;if(wp&&wp.tagName==='P'){var card=document.createElement('div');card.className='kab-why';var qi=wp.querySelector('i');if(qi){var big=document.createElement('i');big.textContent=qi.textContent;card.appendChild(big)}wp.parentNode.insertBefore(card,wp);card.appendChild(wp)}}
+  }
+  function all(){paint();rows();deck();onerow();gallery();about()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
