@@ -98,3 +98,7 @@
 
 #kplaylists .kpl-bar[hidden],#kplaylists .kpl-film[hidden]{display:none!important}
 #kplaylists ol.kpl-strip>li.kpl-item::marker{content:none!important}
+#kplaylists,#kplaylists p,#kplaylists b,#kplaylists h1,#kplaylists h2,#kplaylists h3,#kplaylists span{text-align:left!important;hyphens:none!important;word-spacing:normal!important}
+#kplaylists .kpl-num{text-align:center!important}
+#kplaylists .kpl-txt b{text-wrap:balance}
+@media (max-width:640px){#kplaylists .kpl-item{min-height:0!important;padding:7px 9px 7px 7px!important}#kplaylists .kpl-acts{margin-top:2px!important}}
