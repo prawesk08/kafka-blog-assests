@@ -9,13 +9,13 @@
       and marks Devanagari titles/subtitles with .kt-ne (the li lang attribute is not reliable) */
 /* v7: the tinted canvases are blurred 10-38px, so they only need a tiny copy of the photo.
    Using the full-size photo there cost ~7.7 MB on the homepage (PageSpeed, 2026-11-27). */
-window.kTiny=window.kTiny||function(u){
-  if(!u||/^data:/.test(u))return u;
+window.kTiny=window.kTiny||function(u,n){
+  if(!u||/^data:/.test(u))return u;n=n||96;var W='=w'+n+'-rw';
   if(/googleusercontent\.com|blogspot\.com|ggpht\.com/.test(u)){
-    if(/\/d\/[^\/=?]+(=[^\/?]*)?$/.test(u))return u.replace(/(\/d\/[^\/=?]+)(=[^\/?]*)?$/,'$1=w96-rw');
-    if(/\/(s|w)\d+[^\/]*\/[^\/]+$/.test(u))return u.replace(/\/(s|w)\d+[^\/]*\/([^\/]+)$/,'/w96/$2');
-    if(/=[swh]\d+[^\/?]*$/.test(u))return u.replace(/=[swh]\d+[^\/?]*$/,'=w96-rw');
-    return u+'=w96-rw';
+    if(/\/d\/[^\/=?]+(=[^\/?]*)?$/.test(u))return u.replace(/(\/d\/[^\/=?]+)(=[^\/?]*)?$/,'$1'+W);
+    if(/\/(s|w)\d+[^\/]*\/[^\/]+$/.test(u))return u.replace(/\/(s|w)\d+[^\/]*\/([^\/]+)$/,'/w'+n+'/$2');
+    if(/=[swh]\d+[^\/?]*$/.test(u))return u.replace(/=[swh]\d+[^\/?]*$/,W);
+    return u+W;
   }
   return u;
 };
