@@ -280,6 +280,69 @@
     "part": 4,
     "of": 4
    }
+  },
+  "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html": {
+   "slug": "eel",
+   "type": "documentary",
+   "lang": "en",
+   "src": "https://audio.kafka.blog/videos/eel.mp4",
+   "poster": "https://audio.kafka.blog/videos/eel.jpg",
+   "duration": 157.4,
+   "durationIso": "PT2M37S",
+   "uploadDate": "2026-11-27",
+   "heading": "The Mysterious Life of the Eel: Guests of the River, Children of the Sea",
+   "heading_alt": "बाम माछाको रहस्यमय जीवन",
+   "title": "The Mysterious Life of the Eel | Science Documentary · Basava",
+   "caption": "The eel in a Nepali paddy field was born in the ocean, and one day it will swim back there to spawn and die.",
+   "description": "A short science documentary by Basava on the eel's hidden life cycle: why Aristotle thought eels came from mud, how a young Sigmund Freud dissected some 400 eels in Trieste looking for their sex organs, how Johannes Schmidt traced Atlantic eels to the Sargasso Sea, and how Nepal's Anguilla bengalensis travels from Himalayan streams down the Ganga and Brahmaputra, through the Sundarbans, to the Bay of Bengal and the Indian Ocean.",
+   "keywords": [
+    "eel life cycle",
+    "mysterious life of the eel",
+    "Anguilla bengalensis",
+    "Sargasso Sea",
+    "eel migration",
+    "Freud eels",
+    "Johannes Schmidt",
+    "eels in Nepal",
+    "बाम माछा",
+    "science documentary",
+    "Basava"
+   ],
+   "alt": "Title card of ‘The Mysterious Life of the Eel’: an eel drawn swimming from pale river water into a deep blue ocean."
+  },
+  "/2026/11/cancer-janya-virus-sabaima-bhag-2.html": {
+   "slug": "virus-cancer-2",
+   "type": "documentary",
+   "lang": "ne",
+   "src": "https://audio.kafka.blog/videos/virus-cancer-2.mp4",
+   "poster": "https://audio.kafka.blog/videos/virus-cancer-2.jpg",
+   "duration": 161.0,
+   "durationIso": "PT2M41S",
+   "uploadDate": "2026-11-27",
+   "heading": "भाइरस र क्यान्सर, भाग २: भाइरस धेरैलाई, क्यान्सर थोरैलाई",
+   "heading_alt": "Viruses and Cancer, Part 2: Cancer Viruses Live in Almost All of Us",
+   "title": "भाइरस र क्यान्सर, भाग २ | नेपाली विज्ञान वृत्तचित्र · बासभ",
+   "caption": "क्यान्सरजन्य भाइरस हामी सबैमा हुन्छ, तर सबैलाई किन क्यान्सर लाग्दैन?",
+   "description": "शरीरमा डेरा जमाएर बस्ने भाइरस र क्यान्सरबीचको सम्बन्धमाथि बासभको नेपाली विज्ञान वृत्तचित्रको दोस्रो भाग: दस जनामध्ये करिब नौ जनामा एपस्टिन-बार भाइरस (EBV) हुँदा पनि थोरैलाई मात्र क्यान्सर किन लाग्छ, औलो धेरै लाग्ने ठाउँमा बार्किट लिम्फोमा, अङ्ग प्रत्यारोपण र प्रतिरक्षा, लुकेर बस्ने भाइरस, एचपीभी र हेपाटाइटिस बी विरुद्धका खोप, र कोभिडपछिको अध्ययन। Part 2 of Basava's Nepali science documentary: why cancer-causing viruses live in almost all of us, yet only a few people get cancer.",
+   "keywords": [
+    "भाइरस र क्यान्सर भाग २",
+    "क्यान्सरजन्य भाइरस",
+    "एपस्टिन-बार भाइरस",
+    "बार्किट लिम्फोमा",
+    "एचपीभी खोप",
+    "हेपाटाइटिस बी खोप",
+    "नेपाली विज्ञान वृत्तचित्र",
+    "oncovirus",
+    "Epstein-Barr virus",
+    "HPV vaccine Nepal",
+    "Basava"
+   ],
+   "alt": "‘भाइरस र क्यान्सर, भाग २’ वृत्तचित्रको आवरण: ‘भाइरस धेरैलाई, क्यान्सर थोरैलाई’ लेखिएको गाढा निलो पर्दा।",
+   "series": {
+    "name": "भाइरस र क्यान्सर",
+    "part": 2,
+    "of": 2
+   }
   }
  }
 }
