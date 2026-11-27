@@ -336,13 +336,13 @@ window.kTiny=window.kTiny||function(u,n){
   var kFilms=null,kFilmP=null;
   function kFilmList(){if(!kFilmP)kFilmP=Promise.all(['https://audio.kafka.blog/video-manifest.json','https://assets.kafka.blog/video-captions.json'].map(function(u){return fetch(u).then(function(r){return r.ok?r.json():null}).catch(function(){return null})})).then(function(r){var m={};r.forEach(function(j){if(j&&j.videos)Object.keys(j.videos).forEach(function(k){if(j.videos[k]&&(j.videos[k].src||j===r[0]))m[k]=1})});kFilms=m;return m});return kFilmP}
   var FILM_SVG='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M10 9.2v5.6l4.6-2.8z" fill="currentColor"></path></svg>';
-  function kInPost(b){return !!(b.closest('.prose,.poem-body,.post-body,.kshare,.kshare-float,.kpost-head,.post-header')||(b.closest('#kview[data-view="post"] article.post')&&!b.closest('li,a.k5,.kcard,.related,.side,.three')))}
+  function kInPost(b){if(b.closest('li,a.k5,.kcard,article.kps,article.plane,.kser-items,.related,.side,.three,.kstart3,.kstart5'))return false;return !!b.closest('.prose,.poem-body,.post-body,.kshare,.kshare-float,.kpost-head,.post-header,article.post')}
   function filmButtons(){
     var sh=Array.prototype.filter.call(document.querySelectorAll('.kact-share'),function(b){return !kInPost(b)});if(!sh.length)return;
     kFilmList().then(function(m){
       Array.prototype.forEach.call(document.querySelectorAll('.kact-share'),function(b){
         if(kInPost(b)||!b.parentNode)return;
-        var a=b.closest('a[href]'),u=b.getAttribute('data-url')||(a&&a.getAttribute('href'))||'',p=u.replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0],has=!!(p&&m[p]);
+        var a=b.closest('a[href]')||((b.closest('li,article')||{querySelector:function(){return null}}).querySelector('a[href]:not(.chip)')),u=b.getAttribute('data-url')||(a&&a.getAttribute('href'))||'',p=u.replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0],has=!!(p&&m[p]);
         var v=document.createElement(b.tagName==='BUTTON'?'button':'span');if(v.tagName==='BUTTON')v.type='button';
         v.className=b.className.replace(/\bkact-share\b/,'kact-film')+' kfilm-btn'+(has?'':' is-off');
         v.innerHTML=FILM_SVG+(b.querySelector('span')?'<span>'+(has?'Film':'Film soon')+'</span>':'');
