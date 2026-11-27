@@ -1653,8 +1653,8 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       ".kvid-fs svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}",
       ".kvid-stage video:fullscreen,.kvid-stage:fullscreen video{object-fit:contain;background:#000;width:100%;height:100%}",
       ".kvid-stage:fullscreen{background:#000;display:flex;align-items:center;justify-content:center}",
-      ".kvid-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}",
-      ".kvid-act{appearance:none;border:1px solid rgba(26,26,24,.2);background:rgba(255,255,255,.72);color:var(--ink,#1a1a18);font:600 12px/1 var(--sans,system-ui,sans-serif);padding:7px 11px;border-radius:999px;cursor:pointer;text-decoration:none!important;display:inline-flex;align-items:center;gap:5px}",
+      ".kvid-actions{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;align-items:center}",
+      ".kvid-act{appearance:none;border:1px solid rgba(26,26,24,.2);background:rgba(255,255,255,.72);color:var(--ink,#1a1a18);font:600 10.5px/1 var(--sans,system-ui,sans-serif);padding:4px 8px;border-radius:999px;cursor:pointer;text-decoration:none!important;display:inline-flex;align-items:center;gap:4px}",
       ".kvid-act:hover{background:#fff;border-color:rgba(26,26,24,.4)}",
       ".kvid-act.kvid-sp{background:#1db954;border-color:#1db954;color:#fff}",
       ".kvid-act.kvid-sp:hover{background:#17a34a;border-color:#17a34a}",
@@ -1668,8 +1668,8 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       ".poem-art.has-kvid .kvid-meta{padding:9px 11px 10px}",
       ".poem-art.has-kvid .kvid-desc{font-size:12.5px;line-height:1.45}",
       "@media (max-width:820px){.kvid-wrap{margin:1.1em 0 1.4em}}",
-      ".kvid-hold{box-shadow:none}.kvid-hold .kvid-stage{background:#e9e4da}.kvid-hold-meta{min-height:196px}",
-      ".kvid-doc.kvid-hold .kvid-hold-meta{min-height:140px}",
+      ".kvid-hold{box-shadow:none}.kvid-hold .kvid-stage{background:#e9e4da}.kvid-hold-meta{min-height:184px}",
+      ".kvid-doc.kvid-hold .kvid-hold-meta{min-height:128px}",
       "@media (max-width:640px){.kpl-col .kvid-hold-meta{min-height:288px}}"
     ].join("");
     document.head.appendChild(st);
@@ -1727,12 +1727,8 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
   function shareMessage(item, isNe){
     if (item.share) return String(item.share);
     var h = item.heading || item.title;
-    if (isNe){
-      var kind = item.type === "poem" ? "कविता चलचित्र" : item.type === "story" ? "वाचन चलचित्र" : "वृत्तचित्र";
-      return "\u201c" + h + "\u201d \u2014 बासभको " + kind + ", Kafkaintherun मा हेर्नुहोस्।";
-    }
-    var kindEn = item.type === "poem" ? "poetry film" : item.type === "story" ? "narrated film" : "documentary film";
-    return "\u201c" + h + "\u201d \u2014 a " + kindEn + " by Basava (\u092c\u093e\u0938\u092d), on Kafkaintherun.";
+    if (isNe) return "\u201c" + h + "\u201d \u2014 बासभ, Kafkaintherun मा हेर्नुहोस्।";
+    return "\u201c" + h + "\u201d \u2014 by Basava (\u092c\u093e\u0938\u092d), on Kafkaintherun.";
   }
   function enterFs(stage, vid){
     var d = document;
