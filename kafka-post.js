@@ -1576,6 +1576,8 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
   var kv = document.getElementById("kview");
   if (!kv || (kv.getAttribute("data-view") || "") !== "post") return;
   var MANIFEST_URL = "https://audio.kafka.blog/video-manifest.json";
+  /* v188: titles, captions and search text are kept in the assets repo and merged over the R2 manifest */
+  var CAPTIONS_URL = "https://assets.kafka.blog/video-captions.json";
   var path = location.pathname;
 
   function esc(s){
@@ -1595,7 +1597,16 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       ".kvid-stage video{display:block;width:100%;height:100%;object-fit:cover;background:#141618}",
       ".kvid-meta{padding:11px 14px 12px;display:flex;flex-direction:column;gap:6px;font-family:var(--sans,system-ui,sans-serif)}",
       ".kvid-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}",
-      ".kvid-tag{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red,#9E2A2B)}",
+      ".kvid-wrap span.kvid-tag:not(#kv1):not(#kv2){font-size:11px!important;line-height:1.3!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:#a8665b!important;font-family:var(--sans,'Inter',system-ui,sans-serif)!important}",
+      ".kvid-wrap .kvid-head{margin:0!important;font:600 17px/1.3 var(--serif,'Lora',Georgia,serif)!important;color:var(--ink,#1a1a18)!important;text-align:left!important}",
+      ".kvid-wrap .kvid-head[lang=ne]{font-family:'Martel',var(--serif,serif)!important;font-size:16px!important;line-height:1.45!important}",
+      ".kvid-wrap .kvid-cap{margin:0!important;font-size:13.5px!important;line-height:1.45!important;color:#4a4843!important;text-align:left!important}",
+      ".kvid-wrap .kvid-more{margin:0!important;font-size:12.5px!important;color:#6b5f52!important}",
+      ".kvid-more summary{cursor:pointer;font-weight:600;list-style:none;display:inline-block}",
+      ".kvid-more summary::-webkit-details-marker{display:none}",
+      ".kvid-more summary::after{content:' +';}",
+      ".kvid-more[open] summary::after{content:' −';}",
+      ".kvid-more .kvid-desc{margin-top:4px}",
       ".kvid-share{appearance:none;border:1px solid rgba(26,26,24,.2);background:rgba(255,255,255,.72);color:var(--ink,#1a1a18);font:600 12px/1 var(--sans,system-ui,sans-serif);padding:6px 10px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}",
       ".kvid-share:hover{background:#fff;border-color:rgba(26,26,24,.4)}",
       ".kvid-desc{margin:0;font-size:13.5px;line-height:1.5;color:#4a4843;text-align:left!important}",
@@ -1606,7 +1617,7 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       ".kpl-col.has-kvid .kvid-wrap{margin:0 0 14px!important;width:100%!important;flex:0 0 auto}",
       ".kpl-col.has-kvid .kvid-meta{padding:9px 11px 10px}",
       ".kpl-col.has-kvid .kvid-desc{font-size:12.5px;line-height:1.45}",
-      "@media (max-width:640px){.kpl-col.has-kvid .kvid-meta{padding:7px 8px 8px;gap:4px}.kpl-col.has-kvid .kvid-tag{font-size:10px}.kpl-col.has-kvid .kvid-share{padding:4px 7px;font-size:10.5px}.kpl-col.has-kvid .kvid-desc{font-size:11.5px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}}",
+      "@media (max-width:640px){.kpl-col.has-kvid .kvid-meta{padding:7px 8px 8px;gap:4px}.kpl-col.has-kvid .kvid-tag{font-size:10px}.kpl-col.has-kvid .kvid-share{padding:4px 7px;font-size:10.5px}.kpl-col.has-kvid .kvid-desc{font-size:11.5px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.kpl-col.has-kvid .kvid-head{font-size:13.5px}.kpl-col.has-kvid .kvid-cap{font-size:12px}}",
       ".poem-art.has-kvid .kvid-meta{padding:9px 11px 10px}",
       ".poem-art.has-kvid .kvid-desc{font-size:12.5px;line-height:1.45}",
       "@media (max-width:820px){.kvid-wrap{margin:1.1em 0 1.4em}}"
@@ -1631,6 +1642,9 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       "author": {"@type": "Person", "name": "बासभ (Basava)", "alternateName": "@naharchowck"},
       "publisher": {"@type": "Organization", "name": "Kafkaintherun", "url": "https://www.kafka.blog/"}
     };
+    if (item.heading_alt) ld.alternateName = item.heading_alt;
+    if (item.caption) ld.abstract = item.caption;
+    if (item.series) ld.isPartOf = {"@type": "CreativeWorkSeries", "name": item.series.name};
     var sc = document.createElement("script");
     sc.id = "kvid-schema";
     sc.type = "application/ld+json";
@@ -1667,10 +1681,13 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       '</div>' +
       '<figcaption class="kvid-meta">' +
         '<div class="kvid-bar">' +
-          '<span class="kvid-tag">' + esc(badge) + ' · ' + esc(fmtDur(item.duration)) + '</span>' +
+          '<span class="kvid-tag">' + esc(badge) + ' · ' + esc(fmtDur(item.duration)) + (item.series ? ' · ' + (isNe ? "भाग " : "Part ") + item.series.part + (isNe ? " / " : " of ") + item.series.of : '') + '</span>' +
           '<button type="button" class="kvid-share" aria-label="' + esc(shareLabel) + '">' + esc(shareLabel) + '</button>' +
         '</div>' +
-        '<p class="kvid-desc">' + esc(item.description) + '</p>' +
+        (item.heading ? '<p class="kvid-head" lang="' + esc(item.lang || "en") + '">' + esc(item.heading) + '</p>' : '') +
+        (item.caption ? '<p class="kvid-cap">' + esc(item.caption) + '</p>' +
+          '<details class="kvid-more"><summary>' + (isNe ? "चलचित्रबारे" : "About this film") + '</summary><p class="kvid-desc">' + esc(item.description) + '</p></details>'
+          : '<p class="kvid-desc">' + esc(item.description) + '</p>') +
         '<div class="kvid-capbox" tabindex="0">' + esc(capText) + '</div>' +
       '</figcaption>';
 
@@ -1761,12 +1778,15 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     }
   }
 
-  fetch(MANIFEST_URL, {cache: "default"})
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(m){
-      if (!m || !m.videos) return;
-      var item = m.videos[path];
-      if (!item) return;
+  function getJSON(u){ return fetch(u, {cache: "default"}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
+  Promise.all([getJSON(MANIFEST_URL), getJSON(CAPTIONS_URL)])
+    .then(function(res){
+      var base = (res[0] && res[0].videos && res[0].videos[path]) || null;
+      var over = (res[1] && res[1].videos && res[1].videos[path]) || null;
+      if (!base && !(over && over.src)) return;
+      var item = {}, k;
+      for (k in (base || {})) item[k] = base[k];
+      for (k in (over || {})) item[k] = over[k];
       mountVideo(item);
     })
     .catch(function(){});
