@@ -1,0 +1,20 @@
+{
+ "note": "Copy of the fields of https://audio.kafka.blog/video-manifest.json that the video sitemap needs (2026-11-27). Refresh it when a film is added, then run: node tools/build-video-sitemap.mjs",
+ "videos": {
+  "/2025/05/manusi.html": {"file": "manusi", "duration": 323, "uploadDate": "2026-11-26"},
+  "/2025/06/caste.html": {"file": "caste", "duration": 259, "uploadDate": "2026-11-26"},
+  "/2025/09/chaupadi.html": {"file": "chaupadi", "duration": 242, "uploadDate": "2026-11-26"},
+  "/2025/11/coldsilence.html": {"file": "coldsilence", "duration": 148, "uploadDate": "2026-11-26"},
+  "/2025/06/nosurnames.html": {"file": "nosurnames", "duration": 329, "uploadDate": "2026-11-26"},
+  "/2025/07/labkush.html": {"file": "labkush", "duration": 231, "uploadDate": "2026-11-26"},
+  "/2026/06/marginalia.html": {"file": "marginalia", "duration": 359, "uploadDate": "2026-11-26"},
+  "/2025/05/echoes-of-faded-love.html": {"file": "echoes-of-faded-love", "duration": 256, "uploadDate": "2026-11-26"},
+  "/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html": {"file": "virus-cancer-1", "duration": 300, "uploadDate": "2026-11-26"},
+  "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html": {"file": "roman-britannia-1", "duration": 333, "uploadDate": "2026-11-26"},
+  "/2026/11/the-story-of-roman-britannia-part-ii.html": {"file": "roman-britannia-2", "duration": 333, "uploadDate": "2026-11-26"},
+  "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html": {"file": "roman-britannia-3", "duration": 333, "uploadDate": "2026-11-26"},
+  "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html": {"file": "roman-britannia-4", "duration": 333, "uploadDate": "2026-11-26"},
+  "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html": {"file": "eel", "duration": 157, "uploadDate": "2026-11-27"},
+  "/2026/11/cancer-janya-virus-sabaima-bhag-2.html": {"file": "virus-cancer-2", "duration": 161, "uploadDate": "2026-11-27"}
+ }
+}

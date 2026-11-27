@@ -298,5 +298,14 @@
     var films = (r[2] && r[2].videos) || {};
     Object.keys(films).forEach(function(k){ films[k].path = k; filmsByPath[k] = films[k]; });
     build(r[0], r[1] || {}, films);
+    /* v2: search engines get the list of films on this page (ItemList pointing at each film's post) */
+    try {
+      if (!document.getElementById("kpl-schema")) {
+        var keys = Object.keys(films).sort(function(a, b){ return String(films[b].uploadDate || "").localeCompare(String(films[a].uploadDate || "")); });
+        var ld = {"@context": "https://schema.org", "@type": "ItemList", "name": "Watch and Listen: films by Basava (बासभ)",
+          "itemListElement": keys.map(function(k, i){ return {"@type": "ListItem", "position": i + 1, "url": "https://www.kafka.blog" + k, "name": films[k].title || ""}; })};
+        var sc = document.createElement("script"); sc.type = "application/ld+json"; sc.id = "kpl-schema"; sc.textContent = JSON.stringify(ld); document.head.appendChild(sc);
+      }
+    } catch (e) {}
   }).catch(function(){ root.innerHTML = '<p class="kpl-loading">The playlists could not load. Please refresh the page.</p>'; });
 })();
