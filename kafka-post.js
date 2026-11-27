@@ -1814,6 +1814,10 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     if (window.MutationObserver){
       var target = document.querySelector(".prose") || document.body;
       new MutationObserver(function(){ place(); }).observe(target, {childList: true});
+      /* v189: the theme rebuilds the poem photo column 2.5 s after load, which dropped the film until the next timer.
+         Put it straight back in the same task, before the browser paints, so nothing moves. */
+      var row = document.querySelector(".poem-row");
+      if (row) new MutationObserver(function(){ place(); }).observe(row, {childList: true});
     }
   }
 
@@ -1821,6 +1825,10 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
   if (KVID_PATHS[path]){
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", holdPlace);
     setTimeout(holdPlace, 0); setTimeout(holdPlace, 300);
+    if (window.MutationObserver){
+      var hrow = document.querySelector(".poem-row");
+      if (hrow) new MutationObserver(function(){ if (document.querySelector(".kvid-hold") || !document.querySelector(".kvid-wrap")) holdPlace(); }).observe(hrow, {childList: true});
+    }
   }
   function getJSON(u){ return fetch(u, {cache: "default"}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
   Promise.all([getJSON(MANIFEST_URL), getJSON(CAPTIONS_URL)])
