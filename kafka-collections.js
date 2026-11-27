@@ -253,7 +253,26 @@
       lis.forEach(function(li){box.__kend.parentNode.insertBefore(li,box.__kend)});
     });
   }
-  function all(){order();paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();homeTint();partThumbs();danda()}
+  /* Books, Movies, Series, Songs: each shelf becomes one sideways strip, with arrows on its heading */
+  function shelves(){
+    [].forEach.call(document.querySelectorAll('.kafka-list'),function(L){
+      if(L.getAttribute('data-kstrip'))return;
+      var kids=[].slice.call(L.children); if(!kids.some(function(k){return k.classList.contains('kafka-item')}))return;
+      L.setAttribute('data-kstrip','1'); if(L.closest('.static-page'))document.documentElement.classList.add('k-photos-page','k-shelf-page');
+      var head=null, strip=null;
+      kids.forEach(function(k){
+        if(k.classList.contains('kafka-list-shelf')){head=k;strip=null;return}
+        if(!k.classList.contains('kafka-item')){strip=null;return}
+        if(!strip){strip=document.createElement('div');strip.className='kshelf-strip';k.parentNode.insertBefore(strip,k);
+          if(head&&!head.querySelector('.kg-nav')){(function(st){var nav=document.createElement('span');nav.className='kg-nav';
+            [['‹','Previous',-1],['›','More',1]].forEach(function(d){var b=document.createElement('button');b.type='button';b.textContent=d[0];b.setAttribute('aria-label',d[1]);b.addEventListener('click',function(){st.scrollBy({left:d[2]*Math.max(200,st.clientWidth*.8),behavior:'smooth'})});nav.appendChild(b)});
+            head.appendChild(nav);function fit(){nav.style.visibility=st.scrollWidth>st.clientWidth+4?'':'hidden'}setTimeout(fit,300);window.addEventListener('resize',fit);window.addEventListener('load',fit)})(strip)}}
+        strip.appendChild(k);
+        var im=k.querySelector('.kt-art img'); if(im&&!k.style.getPropertyValue('--kbg'))k.style.setProperty('--kbg','url("'+(im.currentSrc||im.src).replace(/"/g,'%22')+'")');
+      });
+    });
+  }
+  function all(){shelves();order();paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();homeTint();partThumbs();danda()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
