@@ -772,5 +772,8 @@ html body .widget.Blog:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc
 html body .widget.Blog:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14)>article.kcard h3{font-size:16px!important}
 html body .widget.Blog:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14)>article.kcard p.exc{font-size:13.5px!important}
 }
+/* Lower three columns: the Series footer lines up with the two pagers */
+html body .three:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14) .kser-more{padding:6px 0 0!important;margin-top:auto!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;min-height:0!important}
+html body .three:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14) .kser-more>a{height:30px!important;padding:0 12px!important;display:inline-flex!important;align-items:center!important;box-sizing:border-box!important}
 
-/* lists-v2 */
+/* align-v1 */
