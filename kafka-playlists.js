@@ -148,8 +148,8 @@
 
   function render(lists){
     var html = '<header class="kpl-head">' +
-      '<div class="kpl-hgroup"><h1 class="kpl-h1">Watch &amp; Listen <span>हेर्नुहोस् र सुन्नुहोस्</span></h1>' +
-      '<p class="kpl-dek">Narrated essays, poems and letters, and the films made from them, gathered into playlists. Each row plays its narration; rows marked Film also have a film.</p></div>' +
+      '<div class="kpl-hgroup"><p class="kpl-ne">हेर्नुहोस् र सुन्नुहोस्</p>' +
+      '<p class="kpl-dek">' + (state.lang === "ne" ? "वाचन गरिएका कविता, लेख र चिठी, अनि तिनबाट बनेका चलचित्र।" : "Narrated poems, essays and letters, and the films made from them.") + '</p></div>' +
       '<div class="kpl-langsw" role="group" aria-label="Language">' +
         '<button type="button" data-lang="ne"' + (state.lang === "ne" ? ' aria-pressed="true"' : '') + '>नेपाली</button>' +
         '<button type="button" data-lang="en"' + (state.lang === "en" ? ' aria-pressed="true"' : '') + '>English</button>' +

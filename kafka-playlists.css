@@ -116,3 +116,8 @@
   #kplaylists .kpl-item{grid-template-columns:62px 22px minmax(0,1fr)!important;column-gap:6px!important}
 }
 #kplaylists .kpl-sec-head p{white-space:nowrap!important}
+
+/* page head: the Blogger page title is the main heading, so the block only adds the Nepali name, one line, and the language switch */
+#kplaylists .kpl-head{align-items:center!important;margin:0 0 10px!important}
+#kplaylists .kpl-ne{margin:0!important;font:600 18px/1.3 'Martel',var(--serif,serif)!important;color:var(--kp-mute)!important}
+#kplaylists .kpl-dek{margin:2px 0 0!important;font-size:13.5px!important;line-height:1.45!important;text-wrap:pretty}
