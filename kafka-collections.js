@@ -284,7 +284,45 @@ window.kTiny=window.kTiny||function(u,n){
       });
     });
   }
-  function all(){shelves();order();paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();homeTint();partThumbs();danda()}
+  /* v8: line rows up across the homepage's three-column blocks, and keep the section doors even */
+  function kTop(e){return e.getBoundingClientRect().top}
+  function kOneCol(cols){var xs=cols.filter(function(c){return c.length}).map(function(c){return Math.round(c[0].getBoundingClientRect().left)});return xs.length<2||xs.every(function(x){return x===xs[0]})}
+  function kReset(els,props){els.forEach(function(e){if(!e)return;props.forEach(function(p){e.style[p]=''});e.classList.remove('kr-tall')})}
+  function kSync(cols){
+    var flat=[].concat.apply([],cols);kReset(flat,['minHeight']);if(kOneCol(cols))return null;
+    var n=Math.max.apply(null,cols.map(function(c){return c.length})),H=[],nat=flat.map(function(e){return e.offsetHeight});
+    for(var i=0;i<n;i++){H[i]=0;cols.forEach(function(c){if(c[i])H[i]=Math.max(H[i],c[i].offsetHeight)})}
+    cols.forEach(function(c){c.forEach(function(e,i){var h=e.offsetHeight;if(H[i]>h+1){e.style.minHeight=H[i]+'px';e.classList.add('kr-tall')}})});
+    return H;
+  }
+  function rowSync(){
+    var k3=document.querySelector('.kstart3');
+    if(k3)kSync(Array.prototype.map.call(k3.querySelectorAll(':scope>.k3col'),function(c){return Array.prototype.slice.call(c.querySelectorAll(':scope>.k5'))}));
+    var th=document.querySelector('.three');if(!th)return;
+    var cs=th.querySelectorAll(':scope>.col');if(cs.length!==3)return;
+    var L=Array.prototype.slice.call(cs[0].querySelectorAll('ol.klist>li')),R=Array.prototype.slice.call(cs[2].querySelectorAll('ol.klist>li'));
+    var S=Array.prototype.slice.call(cs[1].querySelectorAll('.kserlist>.kser-row')),A=cs[1].querySelector('.karchive'),Y=A?Array.prototype.slice.call(A.querySelectorAll(':scope>.ka-year')):[],list=cs[1].querySelector('.kserlist');
+    kReset(S,['height','minHeight']);kReset(Y,['height','minHeight']);if(A){A.style.height='';A.style.display='';A.style.flexDirection=''}if(list)list.style.marginTop='';
+    if(!L.length||!R.length||kOneCol([L,R]))return kSync([L,R]);
+    var n=Math.max(L.length,R.length),off=n-S.length,mid=off>=1&&S.length&&A&&A.classList.contains('folded')&&Y.length;
+    if(mid){var sh=S.map(function(e){return e.offsetHeight});kReset(L.concat(R),['minHeight']);
+      var H=[];for(var j=0;j<n;j++)H[j]=Math.max(L[j]?L[j].offsetHeight:0,R[j]?R[j].offsetHeight:0,j>=off?sh[j-off]:0);
+      [L,R].forEach(function(c){c.forEach(function(e,i){if(H[i]>e.offsetHeight+1){e.style.minHeight=H[i]+'px';e.classList.add('kr-tall')}})});
+      S.forEach(function(e,i){e.style.height=e.style.minHeight=H[i+off]+'px'});
+      var top=kTop(L[0]),edge=L[off-1].getBoundingClientRect().bottom,ah=Math.max(40,Math.floor(edge-top));
+      A.style.display='flex';A.style.flexDirection='column';A.style.height=ah+'px';
+      Y.forEach(function(y){y.style.minHeight='0';y.style.height=(ah/Y.length)+'px'});
+      if(list){var d=kTop(L[off])-kTop(S[0]);if(Math.abs(d)>0.5)list.style.marginTop=d+'px'}
+    }else kSync([L,R]);
+  }
+  function doorsEven(){
+    var g=document.querySelector('.kd-grid');if(!g)return;g.classList.remove('kd-stack');
+    var wrap=Array.prototype.some.call(g.querySelectorAll('.kd-door'),function(d){var a=d.querySelector('.kd-ne'),b=d.querySelector('.kd-en');return a&&b&&b.offsetTop>a.offsetTop+4});
+    if(wrap)g.classList.add('kd-stack');
+  }
+  var kRS=0;function evenUp(){if(kRS)cancelAnimationFrame(kRS);kRS=requestAnimationFrame(function(){kRS=0;try{doorsEven();rowSync()}catch(e){}})}
+  window.addEventListener('resize',evenUp);window.addEventListener('load',evenUp);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(evenUp);
+  function all(){shelves();order();paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();homeTint();partThumbs();danda();evenUp()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();

@@ -1033,3 +1033,10 @@ html:not(.k-photos-page) body aside.side:not(#kc1):not(#kc2):not(#kc3):not(#kc4)
 
 /* nowside-v2 */
 /* tint-v2 */
+
+/* v8: even rows across the homepage three-column blocks, even section doors */
+html body .kstart3 .k5.kr-tall>.k5-b{align-self:stretch!important;justify-content:space-between!important}
+html body .three .karchive .ka-year{box-sizing:border-box!important}
+@media (min-width:561px){html body .kd-grid .kd-door:not(#kz)>.kd-sub{min-height:2.8em!important}}
+html body .kd-grid.kd-stack .kd-door:not(#kz)>.kd-en{flex:0 0 100%!important;margin-top:1px!important}
+html body .kd-grid.kd-stack .kd-door:not(#kz)>.kd-ne::after{content:none!important}
