@@ -1954,7 +1954,7 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     });
   }
   function go(map) { apply(map); setTimeout(function () { apply(map); }, 1500); setTimeout(function () { apply(map); }, 4000); }
-  fetch('https://assets.kafka.blog/kafka-thumbs.json?v=1').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j[kind]) go(j[kind]); }).catch(function () {});
+  fetch('https://assets.kafka.blog/kafka-thumbs.json?v=2').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (j && j[kind]) go(j[kind]); }).catch(function () {});
 })();
 
 
