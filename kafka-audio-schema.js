@@ -126,7 +126,7 @@
       ["ig","Instagram","https://www.instagram.com/naharchowck/"],
       ["tt","TikTok","https://www.tiktok.com/@naharchowck"],
       ["ap","Apple Podcasts","https://podcasts.apple.com/us/podcast/kafkaintherun/id6839536736"],
-      ["sp","Spotify","https://open.spotify.com/search/Kafkaintherun/podcasts"]
+      ["sp","Spotify","https://open.spotify.com/show/43tPb3BsR0uvj6YpPSJEwp"]
     ];
     function listen(){
       var li=document.querySelector(".post-head .klisten.top-of-post")||document.querySelector(".post-head .kl-ph");

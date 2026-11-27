@@ -1716,7 +1716,7 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
 
   /* v194: Spotify show links. Fill these in once the podcast feed is live on Spotify; until then the button
      opens a Spotify search for the show. */
-  var SPOTIFY = {en: "", ne: ""};
+  var SPOTIFY = {en: "https://open.spotify.com/show/43tPb3BsR0uvj6YpPSJEwp", ne: "https://open.spotify.com/show/43tPb3BsR0uvj6YpPSJEwp"};
   var SPOTIFY_FALLBACK = "https://open.spotify.com/search/Kafkaintherun/podcasts";
   function pageUrl(){
     var c = document.querySelector('link[rel="canonical"]');
