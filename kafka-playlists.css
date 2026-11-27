@@ -40,7 +40,7 @@
 #kplaylists ol.kpl-strip.kpl-two{grid-template-rows:auto auto!important}
 
 /* row card: small photo left, centred; translucent canvas tinted by the photo */
-#kplaylists .kpl-item{position:relative!important;isolation:isolate!important;overflow:hidden!important;display:grid!important;grid-template-columns:72px 22px minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:8px!important;align-items:center!important;min-height:88px!important;padding:8px 10px 8px 8px!important;background:var(--kp-card)!important;border:1px solid var(--kp-line)!important;border-radius:4px!important;scroll-snap-align:start!important;margin:0!important}
+#kplaylists .kpl-item{position:relative!important;isolation:isolate!important;overflow:hidden!important;display:grid!important;grid-template-columns:72px 30px minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:8px!important;align-items:center!important;min-height:88px!important;padding:8px 10px 8px 8px!important;background:var(--kp-card)!important;border:1px solid var(--kp-line)!important;border-radius:4px!important;scroll-snap-align:start!important;margin:0!important}
 #kplaylists .kpl-item::before{content:""!important;position:absolute!important;inset:-40px!important;z-index:-1!important;background-image:var(--kbg,none)!important;background-size:cover!important;background-position:center!important;filter:blur(38px) saturate(1.25)!important;opacity:.16!important;pointer-events:none!important}
 #kplaylists .kpl-item:hover{border-color:rgba(123,45,38,.38)!important}
 #kplaylists .kpl-item.is-on{border-color:var(--kp-red)!important;box-shadow:inset 3px 0 0 var(--kp-red)!important}
@@ -52,7 +52,7 @@
 #kplaylists .kpl-item.is-on .kpl-pic i{background:var(--kp-red)!important}
 #kplaylists.kpl-playing .kpl-item.is-on .kpl-pic i{font-size:0!important}
 #kplaylists.kpl-playing .kpl-item.is-on .kpl-pic i::after{content:""!important;width:8px!important;height:9px!important;border-left:3px solid #fffdf8!important;border-right:3px solid #fffdf8!important}
-#kplaylists .kpl-num{grid-row:1/3!important;font:700 17px/1 var(--serif,'Lora',Georgia,serif)!important;color:var(--kp-gold)!important;text-align:center!important;font-variant-numeric:tabular-nums!important}
+#kplaylists .kpl-num{grid-row:1/3!important;font:700 17px/1 var(--serif,'Lora',Georgia,serif)!important;color:var(--kp-gold)!important;text-align:center!important;font-variant-numeric:tabular-nums!important;white-space:nowrap!important;letter-spacing:-.02em!important}
 #kplaylists .kpl-txt{min-width:0!important;display:flex!important;flex-direction:column!important;gap:3px!important;align-self:end!important}
 #kplaylists .kpl-txt b{font:600 14px/1.3 var(--serif,'Lora',Georgia,serif)!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;color:var(--kp-ink)!important}
 #kplaylists .kpl-txt b[lang="ne"]{font-family:'Martel',var(--serif,serif)!important;font-size:13.5px!important;line-height:1.45!important}
@@ -86,7 +86,7 @@
 @media (max-width:640px){
   #kplaylists .kpl-h1{font-size:23px!important}
   #kplaylists ol.kpl-strip{grid-auto-columns:84%!important}
-  #kplaylists .kpl-item{min-height:80px!important;grid-template-columns:62px 18px minmax(0,1fr)!important}
+  #kplaylists .kpl-item{min-height:80px!important;grid-template-columns:62px 26px minmax(0,1fr)!important}
   #kplaylists .kpl-pic{width:62px!important;height:62px!important}
   #kplaylists .kpl-num{font-size:15px!important}
   #kplaylists .kpl-bar{grid-template-columns:40px minmax(0,1fr) auto auto!important;grid-template-rows:auto auto!important;row-gap:6px!important}
