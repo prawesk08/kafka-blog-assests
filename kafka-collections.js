@@ -65,6 +65,18 @@
 
 
 
+
+  /* softer red sitewide: solid maroon fills (#7B2D26: buttons, badges, pills, the player) become a lighter terracotta, solid maroon borders a dusty rose.
+     The colour is set in many stylesheets and scripts, so this finds the painted elements once each and overrides them inline. */
+  var SOFT_BG='#a8665b', SOFT_BD='#c08d84', seen=window.WeakSet?new WeakSet():null;
+  function soften(){
+    if(!seen)return;
+    [].forEach.call(document.querySelectorAll('button,a,span,i,b,label,input,div.ksh-cnt,form'),function(e){
+      if(seen.has(e))return; seen.add(e); var s=getComputedStyle(e);
+      if(s.backgroundColor==='rgb(123, 45, 38)')e.style.setProperty('background-color',SOFT_BG,'important');
+      if(s.borderTopColor==='rgb(123, 45, 38)'&&parseFloat(s.borderTopWidth)>0)e.style.setProperty('border-color',SOFT_BD,'important');
+    });
+  }
   /* series box at the top of a post: give each part link the photo of the same part from the carousel lower down */
   function heroTint(){
     var nav=document.querySelector('nav.kser-hero'); if(!nav)return; var map={};
@@ -156,7 +168,7 @@
     var hs=ab.querySelectorAll(':scope>h2'), last=hs[hs.length-1];
     if(last&&/Kafka/i.test(last.textContent)){var wp=last.nextElementSibling;if(wp&&wp.tagName==='P'){var card=document.createElement('div');card.className='kab-why';wp.parentNode.insertBefore(card,wp);card.appendChild(wp)}}
   }
-  function all(){paint();rows();deck();heroTint();onerow();gallery();about()}
+  function all(){paint();rows();deck();heroTint();onerow();gallery();about();soften()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
