@@ -174,10 +174,11 @@
     var html = '<header class="kpl-head">' +
       '<div class="kpl-hgroup"><p class="kpl-ne">हेर्नुहोस् र सुन्नुहोस्</p>' +
       '<p class="kpl-dek">' + (state.lang === "ne" ? "वाचन गरिएका कविता, लेख र चिठी, अनि तिनबाट बनेका चलचित्र।" : "Narrated poems, essays and letters, and the films made from them.") + '</p></div>' +
+      '<div class="kpl-sws" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center">' +
       '<div class="kpl-langsw" role="group" aria-label="Language">' +
         '<button type="button" data-lang="ne"' + (state.lang === "ne" ? ' aria-pressed="true"' : '') + '>नेपाली</button>' +
         '<button type="button" data-lang="en"' + (state.lang === "en" ? ' aria-pressed="true"' : '') + '>English</button>' +
-      '</div>' + voiceSwitch() + '</header>' +
+      '</div>' + voiceSwitch() + '</div></header>' +
       '<nav class="kpl-jump" aria-label="Playlists">' + lists.map(function(L){ return '<a href="#kpl-' + L.pl.id + '">' + esc(state.lang === "ne" ? L.pl.ne : L.pl.en) + '</a>'; }).join("") + '</nav>' +
       '<div class="kpl-film" hidden><div class="kpl-film-stage"><video controls playsinline preload="metadata"></video></div><div class="kpl-film-meta"><b></b><button type="button" class="kpl-film-x" aria-label="Close film">Close</button></div></div>';
     lists.forEach(function(L){
