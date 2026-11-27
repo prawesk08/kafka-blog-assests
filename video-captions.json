@@ -1,348 +1,1388 @@
 {
- "version": 2,
- "updated": "2026-11-27",
- "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list.",
- "videos": {
-  "/2025/05/manusi.html": {
-   "heading": "मानुषी: भुपीसँगका थाँती संवाद",
-   "heading_alt": "Manushi: A Dialogue Left with Bhupi",
-   "title": "मानुषी: भुपीसँगका थाँती संवाद | कविता चलचित्र · बासभ",
-   "caption": "भूपी शेरचनका चोकहरूमा इतिहासले नदेखेकी मानुषीको स्वर।",
-   "description": "भूपी शेरचनसँगको थाँती संवादका रूपमा लेखिएको बासभको कविता ‘मानुषी’ को कविता चलचित्र। सहरका चोक, पुरुषले लेखेको इतिहास र त्यसको छायाँमा बाँचेकी मानुषीको स्वर। A Nepali poetry film by Basava: a reply to the poet Bhupi Sherchan, voiced by the woman his city squares never saw.",
-   "keywords": [
-    "मानुषी कविता",
-    "बासभ कविता",
-    "भूपी शेरचन",
-    "नेपाली कविता चलचित्र",
-    "नारी स्वर कविता",
-    "Manushi poem",
-    "Bhupi Sherchan",
-    "Nepali poetry film",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "‘मानुषी: भुपीसँगका थाँती संवाद’ कविता चलचित्रको आवरण: सहरको चोक र मानुषीको छायाँ।"
-  },
-  "/2025/06/caste.html": {
-   "heading": "परम्पराको कारागार",
-   "heading_alt": "The Prison of Tradition",
-   "title": "परम्पराको कारागार | जातीय विभेदविरुद्ध कविता चलचित्र · बासभ",
-   "caption": "मन्दिरको ढोकामा लेखिएको ‘प्रवेश निषेध’ र मौन ईश्वरमाथिको प्रश्न।",
-   "description": "जात ईश्वरले होइन, मान्छेले बनाएको हो भन्ने बासभको कविता ‘परम्पराको कारागार’ को चलचित्र। मन्दिरको ढोका, छुत-अछुत र परम्पराको नाममा बनेको कारागार। A Nepali poetry film by Basava against caste discrimination: gods stay silent while people write who may enter the temple.",
-   "keywords": [
-    "परम्पराको कारागार",
-    "जातीय विभेद कविता",
-    "छुवाछुत कविता",
-    "दलित चेतना",
-    "बासभ कविता",
-    "anti-caste poem Nepal",
-    "caste discrimination Nepal",
-    "Nepali poetry film",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "‘परम्पराको कारागार’ कविता चलचित्रको आवरण: मन्दिरको बन्द ढोका।"
-  },
-  "/2025/09/chaupadi.html": {
-   "heading": "छाउपडीको छायाँ",
-   "heading_alt": "In the Shadow of Chhaupadi",
-   "title": "छाउपडीको छायाँ | कविता चलचित्र · बासभ",
-   "caption": "चार दिनको गोठ, पाँचौँ दिन फेरि देवी बन्नुपर्ने अभिनय।",
-   "description": "छाउपडी प्रथा, रजस्वलामा गरिने बहिष्कार र शुद्धताको ढोंगमाथि प्रश्न गर्ने बासभको कविता ‘छाउपडीको छायाँ’ को चलचित्र। A Nepali poetry film by Basava on Chhaupadi, the practice of banishing menstruating women to a shed, and the pretence of purity around it.",
-   "keywords": [
-    "छाउपडीको छायाँ",
-    "छाउपडी प्रथा",
-    "महिनावारी विभेद",
-    "नारीवादी कविता",
-    "बासभ कविता",
-    "Chhaupadi poem",
-    "menstruation taboo Nepal",
-    "Nepali poetry film",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "‘छाउपडीको छायाँ’ कविता चलचित्रको आवरण: छाउगोठ।"
-  },
-  "/2025/11/coldsilence.html": {
-   "heading": "मौनताको चिसो",
-   "heading_alt": "The Cold of Silence",
-   "title": "मौनताको चिसो | कविता चलचित्र · बासभ",
-   "caption": "‘पर्खूँ कि फर्कूँ?’ भन्ने प्रश्नमै बाँचेका नबोलिएका शब्द।",
-   "description": "शब्दहरूको छेउमा बसेर मौनको आकार नाप्ने बासभको प्रेम र पर्खाइको कविता ‘मौनताको चिसो’ को चलचित्र। A short Nepali poetry film by Basava about waiting, and the words that stay unsaid.",
-   "keywords": [
-    "मौनताको चिसो",
-    "प्रेम कविता",
-    "मौनता कविता",
-    "नेपाली कविता चलचित्र",
-    "बासभ कविता",
-    "Mauntako Chiso",
-    "Cold Silence poem",
-    "Nepali love poem",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "‘मौनताको चिसो’ कविता चलचित्रको आवरण: चिसो साँझ र मौनता।"
-  },
-  "/2025/06/nosurnames.html": {
-   "heading": "म थर नभएको आत्मा",
-   "heading_alt": "I, a Soul Without a Surname",
-   "title": "म थर नभएको आत्मा | कविता चलचित्र · बासभ",
-   "caption": "जन्मँदा एउटै रगत, एउटै हाँसो; पछि आएको जात र थर।",
-   "description": "जात, थर र पितृसत्तात्मक पहिचानभन्दा पर एउटै मानव रगत खोज्ने बासभको कविता ‘म थर नभएको आत्मा’ को चलचित्र। A Nepali poetry film by Basava: born with one skin and one blood, then cut into castes and stuck with a surname.",
-   "keywords": [
-    "म थर नभएको आत्मा",
-    "थर र जात",
-    "मानवतावादी कविता",
-    "पहिचान कविता",
-    "बासभ कविता",
-    "no surname poem",
-    "caste and identity Nepal",
-    "Nepali poetry film",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "‘म थर नभएको आत्मा’ कविता चलचित्रको आवरण।"
-  },
-  "/2025/07/labkush.html": {
-   "heading": "लव-कुशको नागरिकता",
-   "heading_alt": "The Citizenship of Lav and Kush",
-   "title": "लव-कुशको नागरिकता | कविता चलचित्र · बासभ",
-   "caption": "सीताको स्वरमा आमाको नामबाट नागरिकताको प्रश्न।",
-   "description": "जनकपुरकी छोरी सीताको स्वरमा आमाको नामबाट नागरिकता, अपनत्व र लैङ्गिक विभेदको प्रश्न उठाउने बासभको कविता ‘लव-कुशको नागरिकता’ को चलचित्र। A Nepali poetry film by Basava in Sita's voice, asking why a mother cannot pass citizenship to her sons.",
-   "keywords": [
-    "लव-कुशको नागरिकता",
-    "आमाको नाममा नागरिकता",
-    "सीता कविता",
-    "मिथिला",
-    "बासभ कविता",
-    "citizenship through mother Nepal",
-    "Sita poem",
-    "Nepali feminist poetry",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "‘लव-कुशको नागरिकता’ कविता चलचित्रको आवरण: सीता र दुई बालक।"
-  },
-  "/2026/06/marginalia.html": {
-   "heading": "marginalia",
-   "heading_alt": "मार्जिनालिया",
-   "title": "marginalia | Poetry Film by Basava (बासभ)",
-   "caption": "The light goes out and the room fills with writers: Kafka first, then Woolf.",
-   "description": "A poetry film of 'marginalia' by Basava (बासभ). A poem about loving the letter more than the sending, and the borrowed voices of Kafka, Woolf and other dead writers that we underline in the margins.",
-   "keywords": [
-    "marginalia poem",
-    "Basava poetry film",
-    "Kafka poem",
-    "Virginia Woolf poem",
-    "unsent letters poem",
-    "English poetry film",
-    "बासभ",
-    "Kafkaintherun"
-   ],
-   "alt": "Title frame of the poetry film 'marginalia': a dark writing room."
-  },
-  "/2025/05/echoes-of-faded-love.html": {
-   "heading": "echoes of faded love.",
-   "heading_alt": "मेटिँदै गएको मायाका प्रतिध्वनि",
-   "title": "echoes of faded love. | Poetry Film by Basava (बासभ)",
-   "caption": "Two ghosts of light crossing the same pale sky, and poems written against forgetting.",
-   "description": "A poetry film of 'echoes of faded love.' by Basava (बासभ). Two people who were never possessions of each other, two ghosts of light in the same sky, and poems written to keep a memory alive a little longer.",
-   "keywords": [
-    "echoes of faded love",
-    "love and memory poem",
-    "poems against forgetting",
-    "English poetry film",
-    "Basava poetry",
-    "बासभ",
-    "Kafkaintherun"
-   ],
-   "alt": "Title frame of the poetry film 'echoes of faded love.': pale evening light."
-  },
-  "/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html": {
-   "heading": "भाइरस र क्यान्सर, भाग १: मानिसमा भेटिएको पहिलो अन्कोभाइरस",
-   "heading_alt": "Viruses and Cancer, Part 1: The First Human Oncovirus",
-   "title": "भाइरस र क्यान्सर, भाग १ | नेपाली विज्ञान वृत्तचित्र · बासभ",
-   "caption": "बार्किट लिम्फोमादेखि एपस्टिन-बार भाइरससम्म: भाइरसले पनि क्यान्सर गराउँछ भन्ने खोज।",
-   "description": "शरीरमा डेरा जमाएर बस्ने भाइरस र क्यान्सरबीचको सम्बन्धमाथि बासभको नेपाली विज्ञान वृत्तचित्रको पहिलो भाग: बार्किट लिम्फोमा, एपस्टिन-बार भाइरस (EBV) र मानिसमा भेटिएको पहिलो अन्कोभाइरसको खोज। A Nepali science documentary by Basava on how the first human cancer virus, Epstein-Barr virus, was found.",
-   "keywords": [
-    "भाइरस र क्यान्सर",
-    "अन्कोभाइरस",
-    "एपस्टिन-बार भाइरस",
-    "बार्किट लिम्फोमा",
-    "नेपाली विज्ञान वृत्तचित्र",
-    "oncovirus",
-    "Epstein-Barr virus",
-    "Burkitt lymphoma",
-    "Nepali science documentary",
-    "Basava"
-   ],
-   "alt": "‘भाइरस र क्यान्सर, भाग १’ वृत्तचित्रको आवरण।",
-   "series": {
-    "name": "भाइरस र क्यान्सर",
-    "part": 1,
-    "of": 2
-   }
-  },
-  "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html": {
-   "heading": "Roman Britannia, Part I: The Work of Giants",
-   "heading_alt": "रोमन ब्रिटानिया, भाग १: दैत्यहरूको काम",
-   "title": "Roman Britannia, Part I: The Work of Giants | History Documentary by Basava (बासभ)",
-   "caption": "From Stonehenge and painted Britons to Caesar's landings and Caligula's war on the sea.",
-   "description": "Part I of Roman Britannia, a history documentary by Basava (बासभ): Neolithic Stonehenge, Iron Age Britons and Druids, Julius Caesar's two landings in 55 and 54 BCE, and Caligula's legions gathering seashells. How Rome first reached for Britain.",
-   "keywords": [
-    "Roman Britannia documentary",
-    "The Work of Giants",
-    "enta geweorc",
-    "Julius Caesar invasion of Britain",
-    "Caligula seashells",
-    "Stonehenge",
-    "Iron Age Britons",
-    "Druids",
-    "Roman history documentary",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "Title card of 'Roman Britannia, Part I: The Work of Giants'.",
-   "series": {
-    "name": "Roman Britannia",
-    "part": 1,
-    "of": 4
-   }
-  },
-  "/2026/11/the-story-of-roman-britannia-part-ii.html": {
-   "heading": "Roman Britannia, Part II: The Birth of Roman Britannia",
-   "heading_alt": "रोमन ब्रिटानिया, भाग २: रोमन ब्रिटानियाको जन्म",
-   "title": "Roman Britannia, Part II: The Birth of Roman Britannia | History Documentary by Basava (बासभ)",
-   "caption": "Claudius invades in 43 CE with an elephant; Londinium rises; Boudica burns it.",
-   "description": "Part II of Roman Britannia, a history documentary by Basava (बासभ): Emperor Claudius's invasion in 43 CE with four legions and a war elephant, the founding of Londinium, and Queen Boudica's Iceni revolt that burned it.",
-   "keywords": [
-    "Roman conquest of Britain",
-    "Claudius 43 CE",
-    "Boudica revolt",
-    "Iceni",
-    "Londinium",
-    "Camulodunum Colchester",
-    "Roman Britain documentary",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "Title card of 'Roman Britannia, Part II: The Birth of Roman Britannia'.",
-   "series": {
-    "name": "Roman Britannia",
-    "part": 2,
-    "of": 4
-   }
-  },
-  "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html": {
-   "heading": "Roman Britannia, Part III: The Wall and the Warlords",
-   "heading_alt": "रोमन ब्रिटानिया, भाग ३: पर्खाल र युद्धप्रमुखहरू",
-   "title": "Roman Britannia, Part III: The Wall and the Warlords | History Documentary by Basava (बासभ)",
-   "caption": "Hadrian's Wall, the Vindolanda letters, and governors who reached for Rome's throne.",
-   "description": "Part III of Roman Britannia, a history documentary by Basava (बासभ): Agricola's campaigns, Hadrian's Wall as a 73-mile frontier of forts and checkpoints, the Vindolanda tablets, Clodius Albinus, and Constantine proclaimed emperor at York.",
-   "keywords": [
-    "Hadrian's Wall documentary",
-    "Vindolanda tablets",
-    "Agricola",
-    "Clodius Albinus",
-    "Septimius Severus York",
-    "Constantine Eboracum",
-    "Roman Britain history",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "Title card of 'Roman Britannia, Part III: The Wall and the Warlords'.",
-   "series": {
-    "name": "Roman Britannia",
-    "part": 3,
-    "of": 4
-   }
-  },
-  "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html": {
-   "heading": "Roman Britannia, Part IV: The Long Goodbye",
-   "heading_alt": "रोमन ब्रिटानिया, भाग ४: लामो बिदाइ",
-   "title": "Roman Britannia, Part IV: The Long Goodbye | History Documentary by Basava (बासभ)",
-   "caption": "Usurpers drain the legions; in 410 CE a letter tells Britain to defend itself.",
-   "description": "Part IV of Roman Britannia, a history documentary by Basava (बासभ): the usurpers Carausius, Magnus Maximus and Constantine III, the Rescript of Honorius in 410 CE, and the Old English poem 'The Ruin' looking at Roman Bath.",
-   "keywords": [
-    "end of Roman Britain",
-    "Rescript of Honorius 410",
-    "Constantine III",
-    "Magnus Maximus",
-    "Carausius",
-    "Roman Bath Aquae Sulis",
-    "The Ruin Old English poem",
-    "Basava",
-    "Kafkaintherun"
-   ],
-   "alt": "Title card of 'Roman Britannia, Part IV: The Long Goodbye'.",
-   "series": {
-    "name": "Roman Britannia",
-    "part": 4,
-    "of": 4
-   }
-  },
-  "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html": {
-   "slug": "eel",
-   "type": "documentary",
-   "lang": "en",
-   "src": "https://audio.kafka.blog/videos/eel.mp4",
-   "poster": "https://audio.kafka.blog/videos/eel.jpg",
-   "duration": 157.4,
-   "durationIso": "PT2M37S",
-   "uploadDate": "2026-11-27",
-   "heading": "The Mysterious Life of the Eel: Guests of the River, Children of the Sea",
-   "heading_alt": "बाम माछाको रहस्यमय जीवन",
-   "title": "The Mysterious Life of the Eel | Science Documentary · Basava",
-   "caption": "The eel in a Nepali paddy field was born in the ocean, and one day it will swim back there to spawn and die.",
-   "description": "A short science documentary by Basava on the eel's hidden life cycle: why Aristotle thought eels came from mud, how a young Sigmund Freud dissected some 400 eels in Trieste looking for their sex organs, how Johannes Schmidt traced Atlantic eels to the Sargasso Sea, and how Nepal's Anguilla bengalensis travels from Himalayan streams down the Ganga and Brahmaputra, through the Sundarbans, to the Bay of Bengal and the Indian Ocean.",
-   "keywords": [
-    "eel life cycle",
-    "mysterious life of the eel",
-    "Anguilla bengalensis",
-    "Sargasso Sea",
-    "eel migration",
-    "Freud eels",
-    "Johannes Schmidt",
-    "eels in Nepal",
-    "बाम माछा",
-    "science documentary",
-    "Basava"
-   ],
-   "alt": "Title card of ‘The Mysterious Life of the Eel’: an eel drawn swimming from pale river water into a deep blue ocean."
-  },
-  "/2026/11/cancer-janya-virus-sabaima-bhag-2.html": {
-   "slug": "virus-cancer-2",
-   "type": "documentary",
-   "lang": "ne",
-   "src": "https://audio.kafka.blog/videos/virus-cancer-2.mp4",
-   "poster": "https://audio.kafka.blog/videos/virus-cancer-2.jpg",
-   "duration": 161.0,
-   "durationIso": "PT2M41S",
-   "uploadDate": "2026-11-27",
-   "heading": "भाइरस र क्यान्सर, भाग २: भाइरस धेरैलाई, क्यान्सर थोरैलाई",
-   "heading_alt": "Viruses and Cancer, Part 2: Cancer Viruses Live in Almost All of Us",
-   "title": "भाइरस र क्यान्सर, भाग २ | नेपाली विज्ञान वृत्तचित्र · बासभ",
-   "caption": "क्यान्सरजन्य भाइरस हामी सबैमा हुन्छ, तर सबैलाई किन क्यान्सर लाग्दैन?",
-   "description": "शरीरमा डेरा जमाएर बस्ने भाइरस र क्यान्सरबीचको सम्बन्धमाथि बासभको नेपाली विज्ञान वृत्तचित्रको दोस्रो भाग: दस जनामध्ये करिब नौ जनामा एपस्टिन-बार भाइरस (EBV) हुँदा पनि थोरैलाई मात्र क्यान्सर किन लाग्छ, औलो धेरै लाग्ने ठाउँमा बार्किट लिम्फोमा, अङ्ग प्रत्यारोपण र प्रतिरक्षा, लुकेर बस्ने भाइरस, एचपीभी र हेपाटाइटिस बी विरुद्धका खोप, र कोभिडपछिको अध्ययन। Part 2 of Basava's Nepali science documentary: why cancer-causing viruses live in almost all of us, yet only a few people get cancer.",
-   "keywords": [
-    "भाइरस र क्यान्सर भाग २",
-    "क्यान्सरजन्य भाइरस",
-    "एपस्टिन-बार भाइरस",
-    "बार्किट लिम्फोमा",
-    "एचपीभी खोप",
-    "हेपाटाइटिस बी खोप",
-    "नेपाली विज्ञान वृत्तचित्र",
-    "oncovirus",
-    "Epstein-Barr virus",
-    "HPV vaccine Nepal",
-    "Basava"
-   ],
-   "alt": "‘भाइरस र क्यान्सर, भाग २’ वृत्तचित्रको आवरण: ‘भाइरस धेरैलाई, क्यान्सर थोरैलाई’ लेखिएको गाढा निलो पर्दा।",
-   "series": {
-    "name": "भाइरस र क्यान्सर",
-    "part": 2,
-    "of": 2
-   }
+  "version": 2,
+  "updated": "2026-11-27",
+  "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list.",
+  "videos": {
+    "/2025/05/manusi.html": {
+      "heading": "मानुषी: भुपीसँगका थाँती संवाद",
+      "heading_alt": "Manushi: A Dialogue Left with Bhupi",
+      "title": "मानुषी: भुपीसँगका थाँती संवाद | कविता चलचित्र · बासभ",
+      "caption": "भूपी शेरचनका चोकहरूमा इतिहासले नदेखेकी मानुषीको स्वर।",
+      "description": "भूपी शेरचनसँगको थाँती संवादका रूपमा लेखिएको बासभको कविता ‘मानुषी’ को कविता चलचित्र। सहरका चोक, पुरुषले लेखेको इतिहास र त्यसको छायाँमा बाँचेकी मानुषीको स्वर। A Nepali poetry film by Basava: a reply to the poet Bhupi Sherchan, voiced by the woman his city squares never saw.",
+      "keywords": [
+        "मानुषी कविता",
+        "बासभ कविता",
+        "भूपी शेरचन",
+        "नेपाली कविता चलचित्र",
+        "नारी स्वर कविता",
+        "Manushi poem",
+        "Bhupi Sherchan",
+        "Nepali poetry film",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "‘मानुषी: भुपीसँगका थाँती संवाद’ कविता चलचित्रको आवरण: सहरको चोक र मानुषीको छायाँ।"
+    },
+    "/2025/06/caste.html": {
+      "heading": "परम्पराको कारागार",
+      "heading_alt": "The Prison of Tradition",
+      "title": "परम्पराको कारागार | जातीय विभेदविरुद्ध कविता चलचित्र · बासभ",
+      "caption": "मन्दिरको ढोकामा लेखिएको ‘प्रवेश निषेध’ र मौन ईश्वरमाथिको प्रश्न।",
+      "description": "जात ईश्वरले होइन, मान्छेले बनाएको हो भन्ने बासभको कविता ‘परम्पराको कारागार’ को चलचित्र। मन्दिरको ढोका, छुत-अछुत र परम्पराको नाममा बनेको कारागार। A Nepali poetry film by Basava against caste discrimination: gods stay silent while people write who may enter the temple.",
+      "keywords": [
+        "परम्पराको कारागार",
+        "जातीय विभेद कविता",
+        "छुवाछुत कविता",
+        "दलित चेतना",
+        "बासभ कविता",
+        "anti-caste poem Nepal",
+        "caste discrimination Nepal",
+        "Nepali poetry film",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "‘परम्पराको कारागार’ कविता चलचित्रको आवरण: मन्दिरको बन्द ढोका।"
+    },
+    "/2025/09/chaupadi.html": {
+      "heading": "छाउपडीको छायाँ",
+      "heading_alt": "In the Shadow of Chhaupadi",
+      "title": "छाउपडीको छायाँ | कविता चलचित्र · बासभ",
+      "caption": "चार दिनको गोठ, पाँचौँ दिन फेरि देवी बन्नुपर्ने अभिनय।",
+      "description": "छाउपडी प्रथा, रजस्वलामा गरिने बहिष्कार र शुद्धताको ढोंगमाथि प्रश्न गर्ने बासभको कविता ‘छाउपडीको छायाँ’ को चलचित्र। A Nepali poetry film by Basava on Chhaupadi, the practice of banishing menstruating women to a shed, and the pretence of purity around it.",
+      "keywords": [
+        "छाउपडीको छायाँ",
+        "छाउपडी प्रथा",
+        "महिनावारी विभेद",
+        "नारीवादी कविता",
+        "बासभ कविता",
+        "Chhaupadi poem",
+        "menstruation taboo Nepal",
+        "Nepali poetry film",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "‘छाउपडीको छायाँ’ कविता चलचित्रको आवरण: छाउगोठ।"
+    },
+    "/2025/11/coldsilence.html": {
+      "heading": "मौनताको चिसो",
+      "heading_alt": "The Cold of Silence",
+      "title": "मौनताको चिसो | कविता चलचित्र · बासभ",
+      "caption": "‘पर्खूँ कि फर्कूँ?’ भन्ने प्रश्नमै बाँचेका नबोलिएका शब्द।",
+      "description": "शब्दहरूको छेउमा बसेर मौनको आकार नाप्ने बासभको प्रेम र पर्खाइको कविता ‘मौनताको चिसो’ को चलचित्र। A short Nepali poetry film by Basava about waiting, and the words that stay unsaid.",
+      "keywords": [
+        "मौनताको चिसो",
+        "प्रेम कविता",
+        "मौनता कविता",
+        "नेपाली कविता चलचित्र",
+        "बासभ कविता",
+        "Mauntako Chiso",
+        "Cold Silence poem",
+        "Nepali love poem",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "‘मौनताको चिसो’ कविता चलचित्रको आवरण: चिसो साँझ र मौनता।"
+    },
+    "/2025/06/nosurnames.html": {
+      "heading": "म थर नभएको आत्मा",
+      "heading_alt": "I, a Soul Without a Surname",
+      "title": "म थर नभएको आत्मा | कविता चलचित्र · बासभ",
+      "caption": "जन्मँदा एउटै रगत, एउटै हाँसो; पछि आएको जात र थर।",
+      "description": "जात, थर र पितृसत्तात्मक पहिचानभन्दा पर एउटै मानव रगत खोज्ने बासभको कविता ‘म थर नभएको आत्मा’ को चलचित्र। A Nepali poetry film by Basava: born with one skin and one blood, then cut into castes and stuck with a surname.",
+      "keywords": [
+        "म थर नभएको आत्मा",
+        "थर र जात",
+        "मानवतावादी कविता",
+        "पहिचान कविता",
+        "बासभ कविता",
+        "no surname poem",
+        "caste and identity Nepal",
+        "Nepali poetry film",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "‘म थर नभएको आत्मा’ कविता चलचित्रको आवरण।"
+    },
+    "/2025/07/labkush.html": {
+      "heading": "लव-कुशको नागरिकता",
+      "heading_alt": "The Citizenship of Lav and Kush",
+      "title": "लव-कुशको नागरिकता | कविता चलचित्र · बासभ",
+      "caption": "सीताको स्वरमा आमाको नामबाट नागरिकताको प्रश्न।",
+      "description": "जनकपुरकी छोरी सीताको स्वरमा आमाको नामबाट नागरिकता, अपनत्व र लैङ्गिक विभेदको प्रश्न उठाउने बासभको कविता ‘लव-कुशको नागरिकता’ को चलचित्र। A Nepali poetry film by Basava in Sita's voice, asking why a mother cannot pass citizenship to her sons.",
+      "keywords": [
+        "लव-कुशको नागरिकता",
+        "आमाको नाममा नागरिकता",
+        "सीता कविता",
+        "मिथिला",
+        "बासभ कविता",
+        "citizenship through mother Nepal",
+        "Sita poem",
+        "Nepali feminist poetry",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "‘लव-कुशको नागरिकता’ कविता चलचित्रको आवरण: सीता र दुई बालक।"
+    },
+    "/2026/06/marginalia.html": {
+      "heading": "marginalia",
+      "heading_alt": "मार्जिनालिया",
+      "title": "marginalia | Poetry Film by Basava (बासभ)",
+      "caption": "The light goes out and the room fills with writers: Kafka first, then Woolf.",
+      "description": "A poetry film of 'marginalia' by Basava (बासभ). A poem about loving the letter more than the sending, and the borrowed voices of Kafka, Woolf and other dead writers that we underline in the margins.",
+      "keywords": [
+        "marginalia poem",
+        "Basava poetry film",
+        "Kafka poem",
+        "Virginia Woolf poem",
+        "unsent letters poem",
+        "English poetry film",
+        "बासभ",
+        "Kafkaintherun"
+      ],
+      "alt": "Title frame of the poetry film 'marginalia': a dark writing room."
+    },
+    "/2025/05/echoes-of-faded-love.html": {
+      "heading": "echoes of faded love.",
+      "heading_alt": "मेटिँदै गएको मायाका प्रतिध्वनि",
+      "title": "echoes of faded love. | Poetry Film by Basava (बासभ)",
+      "caption": "Two ghosts of light crossing the same pale sky, and poems written against forgetting.",
+      "description": "A poetry film of 'echoes of faded love.' by Basava (बासभ). Two people who were never possessions of each other, two ghosts of light in the same sky, and poems written to keep a memory alive a little longer.",
+      "keywords": [
+        "echoes of faded love",
+        "love and memory poem",
+        "poems against forgetting",
+        "English poetry film",
+        "Basava poetry",
+        "बासभ",
+        "Kafkaintherun"
+      ],
+      "alt": "Title frame of the poetry film 'echoes of faded love.': pale evening light."
+    },
+    "/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html": {
+      "heading": "भाइरस र क्यान्सर, भाग १: मानिसमा भेटिएको पहिलो अन्कोभाइरस",
+      "heading_alt": "Viruses and Cancer, Part 1: The First Human Oncovirus",
+      "title": "भाइरस र क्यान्सर, भाग १ | नेपाली विज्ञान वृत्तचित्र · बासभ",
+      "caption": "बार्किट लिम्फोमादेखि एपस्टिन-बार भाइरससम्म: भाइरसले पनि क्यान्सर गराउँछ भन्ने खोज।",
+      "description": "शरीरमा डेरा जमाएर बस्ने भाइरस र क्यान्सरबीचको सम्बन्धमाथि बासभको नेपाली विज्ञान वृत्तचित्रको पहिलो भाग: बार्किट लिम्फोमा, एपस्टिन-बार भाइरस (EBV) र मानिसमा भेटिएको पहिलो अन्कोभाइरसको खोज। A Nepali science documentary by Basava on how the first human cancer virus, Epstein-Barr virus, was found.",
+      "keywords": [
+        "भाइरस र क्यान्सर",
+        "अन्कोभाइरस",
+        "एपस्टिन-बार भाइरस",
+        "बार्किट लिम्फोमा",
+        "नेपाली विज्ञान वृत्तचित्र",
+        "oncovirus",
+        "Epstein-Barr virus",
+        "Burkitt lymphoma",
+        "Nepali science documentary",
+        "Basava"
+      ],
+      "alt": "‘भाइरस र क्यान्सर, भाग १’ वृत्तचित्रको आवरण।",
+      "series": {
+        "name": "भाइरस र क्यान्सर",
+        "part": 1,
+        "of": 2
+      }
+    },
+    "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html": {
+      "heading": "Roman Britannia, Part I: The Work of Giants",
+      "heading_alt": "रोमन ब्रिटानिया, भाग १: दैत्यहरूको काम",
+      "title": "Roman Britannia, Part I: The Work of Giants | History Documentary by Basava (बासभ)",
+      "caption": "From Stonehenge and painted Britons to Caesar's landings and Caligula's war on the sea.",
+      "description": "Part I of Roman Britannia, a history documentary by Basava (बासभ): Neolithic Stonehenge, Iron Age Britons and Druids, Julius Caesar's two landings in 55 and 54 BCE, and Caligula's legions gathering seashells. How Rome first reached for Britain.",
+      "keywords": [
+        "Roman Britannia documentary",
+        "The Work of Giants",
+        "enta geweorc",
+        "Julius Caesar invasion of Britain",
+        "Caligula seashells",
+        "Stonehenge",
+        "Iron Age Britons",
+        "Druids",
+        "Roman history documentary",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "Title card of 'Roman Britannia, Part I: The Work of Giants'.",
+      "series": {
+        "name": "Roman Britannia",
+        "part": 1,
+        "of": 4
+      }
+    },
+    "/2026/11/the-story-of-roman-britannia-part-ii.html": {
+      "heading": "Roman Britannia, Part II: The Birth of Roman Britannia",
+      "heading_alt": "रोमन ब्रिटानिया, भाग २: रोमन ब्रिटानियाको जन्म",
+      "title": "Roman Britannia, Part II: The Birth of Roman Britannia | History Documentary by Basava (बासभ)",
+      "caption": "Claudius invades in 43 CE with an elephant; Londinium rises; Boudica burns it.",
+      "description": "Part II of Roman Britannia, a history documentary by Basava (बासभ): Emperor Claudius's invasion in 43 CE with four legions and a war elephant, the founding of Londinium, and Queen Boudica's Iceni revolt that burned it.",
+      "keywords": [
+        "Roman conquest of Britain",
+        "Claudius 43 CE",
+        "Boudica revolt",
+        "Iceni",
+        "Londinium",
+        "Camulodunum Colchester",
+        "Roman Britain documentary",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "Title card of 'Roman Britannia, Part II: The Birth of Roman Britannia'.",
+      "series": {
+        "name": "Roman Britannia",
+        "part": 2,
+        "of": 4
+      }
+    },
+    "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html": {
+      "heading": "Roman Britannia, Part III: The Wall and the Warlords",
+      "heading_alt": "रोमन ब्रिटानिया, भाग ३: पर्खाल र युद्धप्रमुखहरू",
+      "title": "Roman Britannia, Part III: The Wall and the Warlords | History Documentary by Basava (बासभ)",
+      "caption": "Hadrian's Wall, the Vindolanda letters, and governors who reached for Rome's throne.",
+      "description": "Part III of Roman Britannia, a history documentary by Basava (बासभ): Agricola's campaigns, Hadrian's Wall as a 73-mile frontier of forts and checkpoints, the Vindolanda tablets, Clodius Albinus, and Constantine proclaimed emperor at York.",
+      "keywords": [
+        "Hadrian's Wall documentary",
+        "Vindolanda tablets",
+        "Agricola",
+        "Clodius Albinus",
+        "Septimius Severus York",
+        "Constantine Eboracum",
+        "Roman Britain history",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "Title card of 'Roman Britannia, Part III: The Wall and the Warlords'.",
+      "series": {
+        "name": "Roman Britannia",
+        "part": 3,
+        "of": 4
+      }
+    },
+    "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html": {
+      "heading": "Roman Britannia, Part IV: The Long Goodbye",
+      "heading_alt": "रोमन ब्रिटानिया, भाग ४: लामो बिदाइ",
+      "title": "Roman Britannia, Part IV: The Long Goodbye | History Documentary by Basava (बासभ)",
+      "caption": "Usurpers drain the legions; in 410 CE a letter tells Britain to defend itself.",
+      "description": "Part IV of Roman Britannia, a history documentary by Basava (बासभ): the usurpers Carausius, Magnus Maximus and Constantine III, the Rescript of Honorius in 410 CE, and the Old English poem 'The Ruin' looking at Roman Bath.",
+      "keywords": [
+        "end of Roman Britain",
+        "Rescript of Honorius 410",
+        "Constantine III",
+        "Magnus Maximus",
+        "Carausius",
+        "Roman Bath Aquae Sulis",
+        "The Ruin Old English poem",
+        "Basava",
+        "Kafkaintherun"
+      ],
+      "alt": "Title card of 'Roman Britannia, Part IV: The Long Goodbye'.",
+      "series": {
+        "name": "Roman Britannia",
+        "part": 4,
+        "of": 4
+      }
+    },
+    "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html": {
+      "slug": "eel",
+      "type": "documentary",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/eel.mp4",
+      "poster": "https://audio.kafka.blog/videos/eel.jpg",
+      "duration": 157.4,
+      "durationIso": "PT2M37S",
+      "uploadDate": "2026-11-27",
+      "heading": "The Mysterious Life of the Eel: Guests of the River, Children of the Sea",
+      "heading_alt": "बाम माछाको रहस्यमय जीवन",
+      "title": "The Mysterious Life of the Eel | Science Documentary · Basava",
+      "caption": "The eel in a Nepali paddy field was born in the ocean, and one day it will swim back there to spawn and die.",
+      "description": "A short science documentary by Basava on the eel's hidden life cycle: why Aristotle thought eels came from mud, how a young Sigmund Freud dissected some 400 eels in Trieste looking for their sex organs, how Johannes Schmidt traced Atlantic eels to the Sargasso Sea, and how Nepal's Anguilla bengalensis travels from Himalayan streams down the Ganga and Brahmaputra, through the Sundarbans, to the Bay of Bengal and the Indian Ocean.",
+      "keywords": [
+        "eel life cycle",
+        "mysterious life of the eel",
+        "Anguilla bengalensis",
+        "Sargasso Sea",
+        "eel migration",
+        "Freud eels",
+        "Johannes Schmidt",
+        "eels in Nepal",
+        "बाम माछा",
+        "science documentary",
+        "Basava"
+      ],
+      "alt": "Title card of ‘The Mysterious Life of the Eel’: an eel drawn swimming from pale river water into a deep blue ocean."
+    },
+    "/2026/11/cancer-janya-virus-sabaima-bhag-2.html": {
+      "slug": "virus-cancer-2",
+      "type": "documentary",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/virus-cancer-2.mp4",
+      "poster": "https://audio.kafka.blog/videos/virus-cancer-2.jpg",
+      "duration": 161.0,
+      "durationIso": "PT2M41S",
+      "uploadDate": "2026-11-27",
+      "heading": "भाइरस र क्यान्सर, भाग २: भाइरस धेरैलाई, क्यान्सर थोरैलाई",
+      "heading_alt": "Viruses and Cancer, Part 2: Cancer Viruses Live in Almost All of Us",
+      "title": "भाइरस र क्यान्सर, भाग २ | नेपाली विज्ञान वृत्तचित्र · बासभ",
+      "caption": "क्यान्सरजन्य भाइरस हामी सबैमा हुन्छ, तर सबैलाई किन क्यान्सर लाग्दैन?",
+      "description": "शरीरमा डेरा जमाएर बस्ने भाइरस र क्यान्सरबीचको सम्बन्धमाथि बासभको नेपाली विज्ञान वृत्तचित्रको दोस्रो भाग: दस जनामध्ये करिब नौ जनामा एपस्टिन-बार भाइरस (EBV) हुँदा पनि थोरैलाई मात्र क्यान्सर किन लाग्छ, औलो धेरै लाग्ने ठाउँमा बार्किट लिम्फोमा, अङ्ग प्रत्यारोपण र प्रतिरक्षा, लुकेर बस्ने भाइरस, एचपीभी र हेपाटाइटिस बी विरुद्धका खोप, र कोभिडपछिको अध्ययन। Part 2 of Basava's Nepali science documentary: why cancer-causing viruses live in almost all of us, yet only a few people get cancer.",
+      "keywords": [
+        "भाइरस र क्यान्सर भाग २",
+        "क्यान्सरजन्य भाइरस",
+        "एपस्टिन-बार भाइरस",
+        "बार्किट लिम्फोमा",
+        "एचपीभी खोप",
+        "हेपाटाइटिस बी खोप",
+        "नेपाली विज्ञान वृत्तचित्र",
+        "oncovirus",
+        "Epstein-Barr virus",
+        "HPV vaccine Nepal",
+        "Basava"
+      ],
+      "alt": "‘भाइरस र क्यान्सर, भाग २’ वृत्तचित्रको आवरण: ‘भाइरस धेरैलाई, क्यान्सर थोरैलाई’ लेखिएको गाढा निलो पर्दा।",
+      "series": {
+        "name": "भाइरस र क्यान्सर",
+        "part": 2,
+        "of": 2
+      }
+    },
+    "/2025/12/juthi.html": {
+      "slug": "juthi",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/juthi-damini-anim-16x9.mp4",
+      "poster": "",
+      "duration": 263.1,
+      "durationIso": "PT4M23S",
+      "uploadDate": "2026-11-27",
+      "heading": "जुठी दमिनीको छायाँपारि",
+      "title": "जुठी दमिनीको छायाँपारि | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: जुठी दमिनीको छायाँपारि",
+      "description": "बासभको कविता ‘जुठी दमिनीको छायाँपारि’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "जुठी दमिनीको छायाँपारि",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2024/10/aaja-mero-janmadin.html": {
+      "slug": "aaja-mero-janmadin",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/aaja-mero-janmadin-anim-16x9.mp4",
+      "poster": "",
+      "duration": 217.3,
+      "durationIso": "PT3M37S",
+      "uploadDate": "2026-11-27",
+      "heading": "आज मेरो जन्मदिन",
+      "title": "आज मेरो जन्मदिन | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: आज मेरो जन्मदिन",
+      "description": "बासभको कविता ‘आज मेरो जन्मदिन’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "आज मेरो जन्मदिन",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/11/again.html": {
+      "slug": "again",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/again-anim-16x9.mp4",
+      "poster": "",
+      "duration": 267,
+      "durationIso": "PT4M27S",
+      "uploadDate": "2026-11-27",
+      "heading": "फेरि, फेरि, फेरि",
+      "title": "फेरि, फेरि, फेरि | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: फेरि, फेरि, फेरि",
+      "description": "बासभको कविता ‘फेरि, फेरि, फेरि’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "फेरि, फेरि, फेरि",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/03/bhavsunya.html": {
+      "slug": "bhavsunya",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/bhavsunya-anim-16x9.mp4",
+      "poster": "",
+      "duration": 144.6,
+      "durationIso": "PT2M25S",
+      "uploadDate": "2026-11-27",
+      "heading": "भावसुन्य",
+      "title": "भावसुन्य | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: भावसुन्य",
+      "description": "बासभको कविता ‘भावसुन्य’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "भावसुन्य",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/05/buddha.html": {
+      "slug": "buddha",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/buddha-was-born-in-nepal-anim-16x9.mp4",
+      "poster": "",
+      "duration": 104.2,
+      "durationIso": "PT1M44S",
+      "uploadDate": "2026-11-27",
+      "heading": "बुद्ध वाज बर्न इन नेपाल",
+      "title": "बुद्ध वाज बर्न इन नेपाल | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: बुद्ध वाज बर्न इन नेपाल",
+      "description": "बासभको कविता ‘बुद्ध वाज बर्न इन नेपाल’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "बुद्ध वाज बर्न इन नेपाल",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/cat.html": {
+      "slug": "cat",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/cat-anim-16x9.mp4",
+      "poster": "",
+      "duration": 125.1,
+      "durationIso": "PT2M5S",
+      "uploadDate": "2026-11-27",
+      "heading": "कालो बिरालो, हामी",
+      "title": "कालो बिरालो, हामी | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: कालो बिरालो, हामी",
+      "description": "बासभको कविता ‘कालो बिरालो, हामी’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "कालो बिरालो, हामी",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/chaaturey.html": {
+      "slug": "chaaturey",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/chaaturey-anim-16x9.mp4",
+      "poster": "",
+      "duration": 203.8,
+      "durationIso": "PT3M24S",
+      "uploadDate": "2026-11-27",
+      "heading": "चतुरेको दश लाखको सपना",
+      "title": "चतुरेको दश लाखको सपना | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: चतुरेको दश लाखको सपना",
+      "description": "बासभको कविता ‘चतुरेको दश लाखको सपना’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "चतुरेको दश लाखको सपना",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/01/city.html": {
+      "slug": "city",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/city-anim-16x9.mp4",
+      "poster": "",
+      "duration": 260,
+      "durationIso": "PT4M20S",
+      "uploadDate": "2026-11-27",
+      "heading": "सहरभित्रको अलिकति आश",
+      "title": "सहरभित्रको अलिकति आश | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: सहरभित्रको अलिकति आश",
+      "description": "बासभको कविता ‘सहरभित्रको अलिकति आश’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "सहरभित्रको अलिकति आश",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/coldfeeling.html": {
+      "slug": "coldfeeling",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/coldfeeling-anim-16x9.mp4",
+      "poster": "",
+      "duration": 152.4,
+      "durationIso": "PT2M32S",
+      "uploadDate": "2026-11-27",
+      "heading": "चिसो अनुभुति",
+      "title": "चिसो अनुभुति | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: चिसो अनुभुति",
+      "description": "बासभको कविता ‘चिसो अनुभुति’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "चिसो अनुभुति",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/02/coldnepal.html": {
+      "slug": "coldnepal",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/coldnepal-anim-16x9.mp4",
+      "poster": "",
+      "duration": 176,
+      "durationIso": "PT2M56S",
+      "uploadDate": "2026-11-27",
+      "heading": "मिनपचासको जाडोमा कठ्यांग्रिएको देश",
+      "title": "मिनपचासको जाडोमा कठ्यांग्रिएको देश | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: मिनपचासको जाडोमा कठ्यांग्रिएको देश",
+      "description": "बासभको कविता ‘मिनपचासको जाडोमा कठ्यांग्रिएको देश’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "मिनपचासको जाडोमा कठ्यांग्रिएको देश",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/collectivestupidity.html": {
+      "slug": "collectivestupidity",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/collectivestupidity-anim-16x9.mp4",
+      "poster": "",
+      "duration": 196.6,
+      "durationIso": "PT3M17S",
+      "uploadDate": "2026-11-27",
+      "heading": "मेरो निन्द्रा। मेरो देश",
+      "title": "मेरो निन्द्रा। मेरो देश | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: मेरो निन्द्रा। मेरो देश",
+      "description": "बासभको कविता ‘मेरो निन्द्रा। मेरो देश’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "मेरो निन्द्रा। मेरो देश",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/01/comrade.html": {
+      "slug": "comrade",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/comrade-anim-16x9.mp4",
+      "poster": "",
+      "duration": 187.2,
+      "durationIso": "PT3M7S",
+      "uploadDate": "2026-11-27",
+      "heading": "कामरेडसँगको पुनर्मिलन",
+      "title": "कामरेडसँगको पुनर्मिलन | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: कामरेडसँगको पुनर्मिलन",
+      "description": "बासभको कविता ‘कामरेडसँगको पुनर्मिलन’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "कामरेडसँगको पुनर्मिलन",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/01/congress.html": {
+      "slug": "congress",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/congress-anim-16x9.mp4",
+      "poster": "",
+      "duration": 210.3,
+      "durationIso": "PT3M30S",
+      "uploadDate": "2026-11-27",
+      "heading": "कांग्रेस: विरासतको विज्ञापन",
+      "title": "कांग्रेस: विरासतको विज्ञापन | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: कांग्रेस: विरासतको विज्ञापन",
+      "description": "बासभको कविता ‘कांग्रेस: विरासतको विज्ञापन’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "कांग्रेस: विरासतको विज्ञापन",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/deshbhakti.html": {
+      "slug": "deshbhakti",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/deshbhakti-anim-16x9.mp4",
+      "poster": "",
+      "duration": 176.5,
+      "durationIso": "PT2M56S",
+      "uploadDate": "2026-11-27",
+      "heading": "देशभक्ति",
+      "title": "देशभक्ति | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: देशभक्ति",
+      "description": "बासभको कविता ‘देशभक्ति’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "देशभक्ति",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/03/dhuwanma-chaleko-sahar.html": {
+      "slug": "dhuwanma-chaleko-sahar",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/dhuwanma-chaleko-sahar-anim-16x9.mp4",
+      "poster": "",
+      "duration": 124.8,
+      "durationIso": "PT2M5S",
+      "uploadDate": "2026-11-27",
+      "heading": "धुवाँमा चलेको सहर",
+      "title": "धुवाँमा चलेको सहर | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: धुवाँमा चलेको सहर",
+      "description": "बासभको कविता ‘धुवाँमा चलेको सहर’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "धुवाँमा चलेको सहर",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/e-timi.html": {
+      "slug": "e-timi",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/e-timi-anim-16x9.mp4",
+      "poster": "",
+      "duration": 122.5,
+      "durationIso": "PT2M2S",
+      "uploadDate": "2026-11-27",
+      "heading": "ए! तिमि",
+      "title": "ए! तिमि | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: ए! तिमि",
+      "description": "बासभको कविता ‘ए! तिमि’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "ए! तिमि",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/gravidsoul.html": {
+      "slug": "gravidsoul",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/gravidsoul-anim-16x9.mp4",
+      "poster": "",
+      "duration": 247.5,
+      "durationIso": "PT4M8S",
+      "uploadDate": "2026-11-27",
+      "heading": "म गर्भवति मान्छे, मलाई ..",
+      "title": "म गर्भवति मान्छे, मलाई .. | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: म गर्भवति मान्छे, मलाई ..",
+      "description": "बासभको कविता ‘म गर्भवति मान्छे, मलाई ..’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "म गर्भवति मान्छे, मलाई ..",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/ho-ma-bahula-hun.html": {
+      "slug": "ho-ma-bahula-hun",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/ho-ma-bahula-hun-anim-16x9.mp4",
+      "poster": "",
+      "duration": 223.5,
+      "durationIso": "PT3M44S",
+      "uploadDate": "2026-11-27",
+      "heading": "हो, म बहुला हुँ",
+      "title": "हो, म बहुला हुँ | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: हो, म बहुला हुँ",
+      "description": "बासभको कविता ‘हो, म बहुला हुँ’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "हो, म बहुला हुँ",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/karkidai.html": {
+      "slug": "karkidai",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/karkidai-anim-16x9.mp4",
+      "poster": "",
+      "duration": 215.1,
+      "durationIso": "PT3M35S",
+      "uploadDate": "2026-11-27",
+      "heading": "कार्की दाई, राजा, गणतन्त्र",
+      "title": "कार्की दाई, राजा, गणतन्त्र | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: कार्की दाई, राजा, गणतन्त्र",
+      "description": "बासभको कविता ‘कार्की दाई, राजा, गणतन्त्र’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "कार्की दाई, राजा, गणतन्त्र",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/10/lettertome.html": {
+      "slug": "lettertome",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/lettertome-anim-16x9.mp4",
+      "poster": "",
+      "duration": 341.1,
+      "durationIso": "PT5M41S",
+      "uploadDate": "2026-11-27",
+      "heading": "प्रिय म, (ऐनाभित्रको पत्र)",
+      "title": "प्रिय म, (ऐनाभित्रको पत्र) | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: प्रिय म, (ऐनाभित्रको पत्र)",
+      "description": "बासभको कविता ‘प्रिय म, (ऐनाभित्रको पत्र)’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "प्रिय म, (ऐनाभित्रको पत्र)",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/01/love.html": {
+      "slug": "love",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/love-anim-16x9.mp4",
+      "poster": "",
+      "duration": 244.8,
+      "durationIso": "PT4M5S",
+      "uploadDate": "2026-11-27",
+      "heading": "अघोषित माया",
+      "title": "अघोषित माया | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: अघोषित माया",
+      "description": "बासभको कविता ‘अघोषित माया’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "अघोषित माया",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/06/soil.html": {
+      "slug": "soil",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/ma-prashna-sodhne-mato-anim-16x9.mp4",
+      "poster": "",
+      "duration": 157.3,
+      "durationIso": "PT2M37S",
+      "uploadDate": "2026-11-27",
+      "heading": "म प्रश्न सोध्ने माटो",
+      "title": "म प्रश्न सोध्ने माटो | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: म प्रश्न सोध्ने माटो",
+      "description": "बासभको कविता ‘म प्रश्न सोध्ने माटो’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "म प्रश्न सोध्ने माटो",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/10/mapinroom.html": {
+      "slug": "mapinroom",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/mapinroom-anim-16x9.mp4",
+      "poster": "",
+      "duration": 208.4,
+      "durationIso": "PT3M28S",
+      "uploadDate": "2026-11-27",
+      "heading": "कोठाभित्रको मानचित्र",
+      "title": "कोठाभित्रको मानचित्र | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: कोठाभित्रको मानचित्र",
+      "description": "बासभको कविता ‘कोठाभित्रको मानचित्र’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "कोठाभित्रको मानचित्र",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/05/meyouus.html": {
+      "slug": "meyouus",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/meyouus-anim-16x9.mp4",
+      "poster": "",
+      "duration": 139.3,
+      "durationIso": "PT2M19S",
+      "uploadDate": "2026-11-27",
+      "heading": "म, तिमी, हामी",
+      "title": "म, तिमी, हामी | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: म, तिमी, हामी",
+      "description": "बासभको कविता ‘म, तिमी, हामी’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "म, तिमी, हामी",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/mirageofpolitics.html": {
+      "slug": "mirageofpolitics",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/mirageofpolitics-anim-16x9.mp4",
+      "poster": "",
+      "duration": 338,
+      "durationIso": "PT5M38S",
+      "uploadDate": "2026-11-27",
+      "heading": "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा",
+      "title": "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा",
+      "description": "बासभको कविता ‘ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "ओजिमान्डियसको मरुभूमिमा विजयीहरूको गाथा",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/10/misicinnepal.html": {
+      "slug": "misicinnepal",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/misicinnepal-anim-16x9.mp4",
+      "poster": "",
+      "duration": 191.7,
+      "durationIso": "PT3M12S",
+      "uploadDate": "2026-11-27",
+      "heading": "वाद्यहरूको विरोध संगित",
+      "title": "वाद्यहरूको विरोध संगित | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: वाद्यहरूको विरोध संगित",
+      "description": "बासभको कविता ‘वाद्यहरूको विरोध संगित’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "वाद्यहरूको विरोध संगित",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/12/mycity.html": {
+      "slug": "mycity",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/mycity-anim-16x9.mp4",
+      "poster": "",
+      "duration": 280.2,
+      "durationIso": "PT4M40S",
+      "uploadDate": "2026-11-27",
+      "heading": "मैले बाँचेको भ्रमको सहर",
+      "title": "मैले बाँचेको भ्रमको सहर | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: मैले बाँचेको भ्रमको सहर",
+      "description": "बासभको कविता ‘मैले बाँचेको भ्रमको सहर’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "मैले बाँचेको भ्रमको सहर",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/11/nepal-2.html": {
+      "slug": "nepal-2",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/nepal-2-anim-16x9.mp4",
+      "poster": "",
+      "duration": 300.9,
+      "durationIso": "PT5M1S",
+      "uploadDate": "2026-11-27",
+      "heading": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको",
+      "title": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको",
+      "description": "बासभको कविता ‘घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रिय थकानको",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/06/nepal.html": {
+      "slug": "nepal",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/nepal-anim-16x9.mp4",
+      "poster": "",
+      "duration": 193.9,
+      "durationIso": "PT3M14S",
+      "uploadDate": "2026-11-27",
+      "heading": "देश हराएको सपना",
+      "title": "देश हराएको सपना | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: देश हराएको सपना",
+      "description": "बासभको कविता ‘देश हराएको सपना’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "देश हराएको सपना",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/06/nomad.html": {
+      "slug": "nomad",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/nomad-anim-16x9.mp4",
+      "poster": "",
+      "duration": 170.8,
+      "durationIso": "PT2M51S",
+      "uploadDate": "2026-11-27",
+      "heading": "शीर्षकविहीन",
+      "title": "शीर्षकविहीन | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: शीर्षकविहीन",
+      "description": "बासभको कविता ‘शीर्षकविहीन’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "शीर्षकविहीन",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/09/nostalgia.html": {
+      "slug": "nostalgia",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/nostalgia-anim-16x9.mp4",
+      "poster": "",
+      "duration": 293.9,
+      "durationIso": "PT4M54S",
+      "uploadDate": "2026-11-27",
+      "heading": "नोस्टालजिया पसल",
+      "title": "नोस्टालजिया पसल | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: नोस्टालजिया पसल",
+      "description": "बासभको कविता ‘नोस्टालजिया पसल’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "नोस्टालजिया पसल",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/01/prithivi.html": {
+      "slug": "prithivi",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/prithvinarayan-jamkabhet-anim-16x9.mp4",
+      "poster": "",
+      "duration": 327,
+      "durationIso": "PT5M27S",
+      "uploadDate": "2026-11-27",
+      "heading": "पृथ्वीनारायणसँगको जम्काभेट",
+      "title": "पृथ्वीनारायणसँगको जम्काभेट | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: पृथ्वीनारायणसँगको जम्काभेट",
+      "description": "बासभको कविता ‘पृथ्वीनारायणसँगको जम्काभेट’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "पृथ्वीनारायणसँगको जम्काभेट",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/questions.html": {
+      "slug": "questions",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/questions-anim-16x9.mp4",
+      "poster": "",
+      "duration": 114,
+      "durationIso": "PT1M54S",
+      "uploadDate": "2026-11-27",
+      "heading": "अनुत्तरित खल्दुलीहरू",
+      "title": "अनुत्तरित खल्दुलीहरू | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: अनुत्तरित खल्दुलीहरू",
+      "description": "बासभको कविता ‘अनुत्तरित खल्दुलीहरू’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "अनुत्तरित खल्दुलीहरू",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/01/ramita.html": {
+      "slug": "ramita",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/ramita-anim-16x9.mp4",
+      "poster": "",
+      "duration": 222.9,
+      "durationIso": "PT3M43S",
+      "uploadDate": "2026-11-27",
+      "heading": "अब रमिता छ",
+      "title": "अब रमिता छ | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: अब रमिता छ",
+      "description": "बासभको कविता ‘अब रमिता छ’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "अब रमिता छ",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/03/realityofdreams.html": {
+      "slug": "realityofdreams",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/realityofdreams-anim-16x9.mp4",
+      "poster": "",
+      "duration": 203.3,
+      "durationIso": "PT3M23S",
+      "uploadDate": "2026-11-27",
+      "heading": "सपनाका यथार्थहरू",
+      "title": "सपनाका यथार्थहरू | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: सपनाका यथार्थहरू",
+      "description": "बासभको कविता ‘सपनाका यथार्थहरू’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "सपनाका यथार्थहरू",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/10/shadow.html": {
+      "slug": "shadow",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/shadow-anim-16x9.mp4",
+      "poster": "",
+      "duration": 210.5,
+      "durationIso": "PT3M30S",
+      "uploadDate": "2026-11-27",
+      "heading": "छायाँमा लुकेको उज्यालोको सत्य",
+      "title": "छायाँमा लुकेको उज्यालोको सत्य | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: छायाँमा लुकेको उज्यालोको सत्य",
+      "description": "बासभको कविता ‘छायाँमा लुकेको उज्यालोको सत्य’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "छायाँमा लुकेको उज्यालोको सत्य",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/silence.html": {
+      "slug": "silence",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/silence-anim-16x9.mp4",
+      "poster": "",
+      "duration": 253.2,
+      "durationIso": "PT4M13S",
+      "uploadDate": "2026-11-27",
+      "heading": "साँझको मौनता",
+      "title": "साँझको मौनता | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: साँझको मौनता",
+      "description": "बासभको कविता ‘साँझको मौनता’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "साँझको मौनता",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/silentbuddha.html": {
+      "slug": "silentbuddha",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/silentbuddha-anim-16x9.mp4",
+      "poster": "",
+      "duration": 173.7,
+      "durationIso": "PT2M54S",
+      "uploadDate": "2026-11-27",
+      "heading": "मौन बुद्ध",
+      "title": "मौन बुद्ध | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: मौन बुद्ध",
+      "description": "बासभको कविता ‘मौन बुद्ध’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "मौन बुद्ध",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/silentimage.html": {
+      "slug": "silentimage",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/silentimage-anim-16x9.mp4",
+      "poster": "",
+      "duration": 192.2,
+      "durationIso": "PT3M12S",
+      "uploadDate": "2026-11-27",
+      "heading": "मौन प्रतिबिम्ब",
+      "title": "मौन प्रतिबिम्ब | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: मौन प्रतिबिम्ब",
+      "description": "बासभको कविता ‘मौन प्रतिबिम्ब’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "मौन प्रतिबिम्ब",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/storminside.html": {
+      "slug": "storminside",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/storminside-anim-16x9.mp4",
+      "poster": "",
+      "duration": 288.1,
+      "durationIso": "PT4M48S",
+      "uploadDate": "2026-11-27",
+      "heading": "घनघोरका आँधिपुराणहरू",
+      "title": "घनघोरका आँधिपुराणहरू | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: घनघोरका आँधिपुराणहरू",
+      "description": "बासभको कविता ‘घनघोरका आँधिपुराणहरू’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "घनघोरका आँधिपुराणहरू",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/07/sunandflower.html": {
+      "slug": "sunandflower",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/sunandflower-anim-16x9.mp4",
+      "poster": "",
+      "duration": 233,
+      "durationIso": "PT3M53S",
+      "uploadDate": "2026-11-27",
+      "heading": "घाम र फूलको प्रेम गीत",
+      "title": "घाम र फूलको प्रेम गीत | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: घाम र फूलको प्रेम गीत",
+      "description": "बासभको कविता ‘घाम र फूलको प्रेम गीत’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "घाम र फूलको प्रेम गीत",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/03/u-dhruva-ma-parikrama.html": {
+      "slug": "u-dhruva-ma-parikrama",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/u-dhruva-ma-parikrama-anim-16x9.mp4",
+      "poster": "",
+      "duration": 153.7,
+      "durationIso": "PT2M34S",
+      "uploadDate": "2026-11-27",
+      "heading": "ऊ-ध्रुव, म-परिक्रमा",
+      "title": "ऊ-ध्रुव, म-परिक्रमा | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: ऊ-ध्रुव, म-परिक्रमा",
+      "description": "बासभको कविता ‘ऊ-ध्रुव, म-परिक्रमा’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "ऊ-ध्रुव, म-परिक्रमा",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/08/usaka-lagi-kabita.html": {
+      "slug": "usaka-lagi-kabita",
+      "type": "poem",
+      "lang": "ne",
+      "src": "https://audio.kafka.blog/videos/ne_poems/usaka-lagi-kabita-anim-16x9.mp4",
+      "poster": "",
+      "duration": 307.7,
+      "durationIso": "PT5M8S",
+      "uploadDate": "2026-11-27",
+      "heading": "उसका लागि कविता",
+      "title": "उसका लागि कविता | कविता चलचित्र · बासभ",
+      "alt": "कविता चलचित्र: उसका लागि कविता",
+      "description": "बासभको कविता ‘उसका लागि कविता’ को कविता चलचित्र। A Nepali poetry film by Basava.",
+      "keywords": [
+        "उसका लागि कविता",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/blue-ode-to-you_3.html": {
+      "slug": "blue-ode-to-you_3",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/blue-ode-to-you_3-anim-16x9.mp4",
+      "poster": "",
+      "duration": 145.6,
+      "durationIso": "PT2M26S",
+      "uploadDate": "2026-11-27",
+      "heading": "blue.. ode to you.",
+      "title": "blue.. ode to you. | Poetry Film · Basava",
+      "alt": "Poetry film: blue.. ode to you.",
+      "description": "A poetry film of “blue.. ode to you.” by Basava.",
+      "keywords": [
+        "blue.. ode to you.",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/dreams-poetry-sunsets.html": {
+      "slug": "dreams-poetry-sunsets",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/dreams-poetry-sunsets-anim-16x9.mp4",
+      "poster": "",
+      "duration": 113.4,
+      "durationIso": "PT1M53S",
+      "uploadDate": "2026-11-27",
+      "heading": "dreams, poetry, sunsets.",
+      "title": "dreams, poetry, sunsets. | Poetry Film · Basava",
+      "alt": "Poetry film: dreams, poetry, sunsets.",
+      "description": "A poetry film of “dreams, poetry, sunsets.” by Basava.",
+      "keywords": [
+        "dreams, poetry, sunsets.",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/muse.html": {
+      "slug": "muse",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/muse-anim-16x9.mp4",
+      "poster": "",
+      "duration": 116.8,
+      "durationIso": "PT1M57S",
+      "uploadDate": "2026-11-27",
+      "heading": "Muse",
+      "title": "Muse | Poetry Film · Basava",
+      "alt": "Poetry film: Muse",
+      "description": "A poetry film of “Muse” by Basava.",
+      "keywords": [
+        "Muse",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/note-to-self.html": {
+      "slug": "note-to-self",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/note-to-self-anim-16x9.mp4",
+      "poster": "",
+      "duration": 210.2,
+      "durationIso": "PT3M30S",
+      "uploadDate": "2026-11-27",
+      "heading": "note to self.",
+      "title": "note to self. | Poetry Film · Basava",
+      "alt": "Poetry film: note to self.",
+      "description": "A poetry film of “note to self.” by Basava.",
+      "keywords": [
+        "note to self.",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/old-house-across-the-street.html": {
+      "slug": "old-house-across-the-street",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/old-house-across-the-street-anim-16x9.mp4",
+      "poster": "",
+      "duration": 162.4,
+      "durationIso": "PT2M42S",
+      "uploadDate": "2026-11-27",
+      "heading": "old house across the street..",
+      "title": "old house across the street.. | Poetry Film · Basava",
+      "alt": "Poetry film: old house across the street..",
+      "description": "A poetry film of “old house across the street..” by Basava.",
+      "keywords": [
+        "old house across the street..",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/she-is-not-here-but-she-is-everywhere.html": {
+      "slug": "she-is-not-here-but-she-is-everywhere",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/she-is-not-here-but-she-is-everywhere-anim-16x9.mp4",
+      "poster": "",
+      "duration": 149.1,
+      "durationIso": "PT2M29S",
+      "uploadDate": "2026-11-27",
+      "heading": "she is not here- but she is everywhere.",
+      "title": "she is not here- but she is everywhere. | Poetry Film · Basava",
+      "alt": "Poetry film: she is not here- but she is everywhere.",
+      "description": "A poetry film of “she is not here- but she is everywhere.” by Basava.",
+      "keywords": [
+        "she is not here- but she is everywhere.",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2025/04/sunsets-again.html": {
+      "slug": "sunsets-again",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/sunsets-again-anim-16x9.mp4",
+      "poster": "",
+      "duration": 253,
+      "durationIso": "PT4M13S",
+      "uploadDate": "2026-11-27",
+      "heading": "sunset hues, again with the blues.",
+      "title": "sunset hues, again with the blues. | Poetry Film · Basava",
+      "alt": "Poetry film: sunset hues, again with the blues.",
+      "description": "A poetry film of “sunset hues, again with the blues.” by Basava.",
+      "keywords": [
+        "sunset hues, again with the blues.",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/06/the-long-way-back.html": {
+      "slug": "the-long-way-back",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/the-long-way-back-anim-16x9.mp4",
+      "poster": "",
+      "duration": 236.2,
+      "durationIso": "PT3M56S",
+      "uploadDate": "2026-11-27",
+      "heading": "The Long Way Back",
+      "title": "The Long Way Back | Poetry Film · Basava",
+      "alt": "Poetry film: The Long Way Back",
+      "description": "A poetry film of “The Long Way Back” by Basava.",
+      "keywords": [
+        "The Long Way Back",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    },
+    "/2026/04/the-name-i-once-wore.html": {
+      "slug": "the-name-i-once-wore",
+      "type": "poem",
+      "lang": "en",
+      "src": "https://audio.kafka.blog/videos/en_poems/the-name-i-once-wore-anim-16x9.mp4",
+      "poster": "",
+      "duration": 129.5,
+      "durationIso": "PT2M10S",
+      "uploadDate": "2026-11-27",
+      "heading": "The Name I once wore",
+      "title": "The Name I once wore | Poetry Film · Basava",
+      "alt": "Poetry film: The Name I once wore",
+      "description": "A poetry film of “The Name I once wore” by Basava.",
+      "keywords": [
+        "The Name I once wore",
+        "बासभ",
+        "Basava",
+        "Kafkainthe"
+      ]
+    }
   }
- }
 }
