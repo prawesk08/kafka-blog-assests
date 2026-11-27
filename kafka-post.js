@@ -1653,11 +1653,18 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       ".kvid-fs svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}",
       ".kvid-stage video:fullscreen,.kvid-stage:fullscreen video{object-fit:contain;background:#000;width:100%;height:100%}",
       ".kvid-stage:fullscreen{background:#000;display:flex;align-items:center;justify-content:center}",
-      ".kvid-actions{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;align-items:center}",
-      ".kvid-act{appearance:none;border:1px solid rgba(26,26,24,.2);background:rgba(255,255,255,.72);color:var(--ink,#1a1a18);font:600 10.5px/1 var(--sans,system-ui,sans-serif);padding:4px 8px;border-radius:999px;cursor:pointer;text-decoration:none!important;display:inline-flex;align-items:center;gap:4px}",
-      ".kvid-act:hover{background:#fff;border-color:rgba(26,26,24,.4)}",
-      ".kvid-act.kvid-sp{background:#1db954;border-color:#1db954;color:#fff}",
-      ".kvid-act.kvid-sp:hover{background:#17a34a;border-color:#17a34a}",
+      ".kvid-actions{display:inline-flex;flex-wrap:nowrap;gap:3px;align-items:center;margin-left:auto;flex:0 0 auto}",
+      ".kvid-ic{appearance:none;border:1px solid rgba(26,26,24,.18);background:rgba(255,255,255,.72);color:var(--ink,#1a1a18);width:26px;height:26px;border-radius:50%;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0;text-decoration:none!important;flex:0 0 auto}",
+      ".kvid-ic:hover,.kvid-ic:focus-visible{background:#fff;border-color:rgba(26,26,24,.45)}",
+      ".kvid-ic svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;display:block}",
+      ".kvid-ic.kvid-fb svg{fill:currentColor;stroke:none}",
+      ".kvid-ic.kvid-sp{background:#1db954;border-color:#1db954;color:#fff}.kvid-ic.kvid-sp:hover{background:#17a34a;border-color:#17a34a}",
+      ".kvid-bar{flex-wrap:nowrap!important}.kvid-tag{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
+      ".kvid-wrap .kvid-cap{font-style:italic;display:-webkit-box!important;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}",
+      ".kvid-body{display:flex;flex-direction:column;gap:6px;padding-top:6px;font-size:12.5px;line-height:1.5;color:#3d3b37}",
+      ".kvid-h{margin:6px 0 0!important;font:700 11px/1.3 var(--sans,system-ui,sans-serif)!important;letter-spacing:.05em;text-transform:uppercase;color:#a8665b!important}",
+      ".kvid-q,.kvid-rel{margin:0!important;padding:0 0 0 16px!important}.kvid-q li{margin:0 0 4px!important;font-style:italic}.kvid-rel li{margin:0 0 3px!important}",
+      ".kvid-body p{margin:0!important}.kvid-links a,.kvid-rel a{color:#7b2d26;text-decoration:underline}.kvid-blog{font-size:11.5px;color:#6b665e}",
       ".kvid-toast{font:500 12px/1 var(--sans,system-ui,sans-serif);color:#2b6b3a;min-height:12px}",
       ".poem-art.has-kvid{width:clamp(300px,33vw,410px)!important;justify-content:flex-start!important;gap:22px!important}",
       ".poem-art.has-kvid .kvid-wrap{margin:0!important;width:100%!important}",
@@ -1668,8 +1675,8 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       ".poem-art.has-kvid .kvid-meta{padding:9px 11px 10px}",
       ".poem-art.has-kvid .kvid-desc{font-size:12.5px;line-height:1.45}",
       "@media (max-width:820px){.kvid-wrap{margin:1.1em 0 1.4em}}",
-      ".kvid-hold{box-shadow:none}.kvid-hold .kvid-stage{background:#e9e4da}.kvid-hold-meta{min-height:184px}",
-      ".kvid-doc.kvid-hold .kvid-hold-meta{min-height:128px}",
+      ".kvid-hold{box-shadow:none}.kvid-hold .kvid-stage{background:#e9e4da}.kvid-hold-meta{min-height:150px}",
+      ".kvid-doc.kvid-hold .kvid-hold-meta{min-height:150px}",
       "@media (max-width:640px){.kpl-col .kvid-hold-meta{min-height:288px}}"
     ].join("");
     document.head.appendChild(st);
@@ -1714,21 +1721,25 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     upsertMeta("property", "og:image:alt", item.alt);
   }
 
-  /* v194: Spotify show links. Fill these in once the podcast feed is live on Spotify; until then the button
-     opens a Spotify search for the show. */
+  /* v197: Spotify show links (a film's own episode, item.spotify, wins), kind labels, icon row, quotes and links */
   var SPOTIFY = {en: "https://open.spotify.com/show/43tPb3BsR0uvj6YpPSJEwp", ne: "https://open.spotify.com/show/67ic9qmrYOxsSaDknnnCLT"};
-  var SPOTIFY_FALLBACK = "https://open.spotify.com/search/Kafkaintherun/podcasts";
+  var KINDS = {poem: ["कविता", "Poem"], story: ["कथा", "Story"], letter: ["चिठी", "Letter"], science: ["विज्ञान", "Science"], history: ["इतिहास", "History"]};
+  function kindLabel(item, isNe){
+    var k = KINDS[item.kind] || KINDS[item.type === "documentary" ? "history" : item.type === "story" ? "story" : "poem"];
+    return k[isNe ? 0 : 1];
+  }
   function pageUrl(){
     var c = document.querySelector('link[rel="canonical"]');
     var u = (c && c.href) || (location.origin + location.pathname);
     return u.split("#")[0].split("?")[0];
   }
-  /* default message for a film: names the film and ties it to the blog; item.share overrides */
+  /* default share message: a top line, the title, the kind and the blog; item.share overrides */
   function shareMessage(item, isNe){
     if (item.share) return String(item.share);
-    var h = item.heading || item.title;
-    if (isNe) return "\u201c" + h + "\u201d \u2014 बासभ, Kafkaintherun मा हेर्नुहोस्।";
-    return "\u201c" + h + "\u201d \u2014 by Basava (\u092c\u093e\u0938\u092d), on Kafkaintherun.";
+    var h = item.heading || item.title, kn = kindLabel(item, isNe);
+    var q = ""; (item.quotes || []).some(function(x){ if (x && x.length <= 110){ q = x; return true; } return false; });
+    var tail = isNe ? (h + " (" + kn + "), बासभ · Kafkaintherun") : (h + " (" + kn + "), Basava · Kafkaintherun");
+    return (q ? "“" + q + "” — " : "") + tail;
   }
   function enterFs(stage, vid){
     var d = document;
@@ -1737,6 +1748,14 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     else if (stage.webkitRequestFullscreen) stage.webkitRequestFullscreen();
     else if (vid.webkitEnterFullscreen) vid.webkitEnterFullscreen();
   }
+  var IC = {
+    share: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.9l7.6-3.7M8.2 13.1l7.6 3.7"/></svg>',
+    wa: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-7.5 13.4L3.3 20.7l4.2-1.1A8.8 8.8 0 1 0 12 3.2z"/><path d="M9.1 8.4c-.3.7-.2 1.8.8 3.2 1.1 1.5 2.4 2.4 3.6 2.8.8.2 1.5-.2 1.7-.9l-1.5-.9-.7.6c-.9-.4-1.8-1.2-2.3-2.2l.6-.7-.8-1.7c-.5-.1-.9 0-1.4-.2z"/></svg>',
+    fb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 21v-7.6h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.2H8.5v3h2.7V21z"/></svg>',
+    x: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 4.5l15 15M19.5 4.5l-15 15"/></svg>',
+    link: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3A4 4 0 0 0 13 5.3l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg>',
+    sp: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.4 9.8c3.2-1 6.9-.7 9.6.8M8 12.7c2.7-.8 5.5-.5 7.7.7M8.7 15.4c2.1-.6 4.1-.3 5.9.5"/></svg>'
+  };
 
   function buildFigure(item){
     var fig = document.createElement("figure");
@@ -1744,17 +1763,29 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     fig.setAttribute("data-kvid-slug", item.slug);
     fig.id = "kfilm";
     var isNe = item.lang === "ne";
-    var badge = item.type === "poem" ? (isNe ? "कविता चलचित्र" : "Poetry Film")
-      : item.type === "story" ? (isNe ? "वाचन चलचित्र" : "Narrated Film")
-      : (isNe ? "वृत्तचित्र" : "Documentary Film");
+    var badge = kindLabel(item, isNe);
     var shareUrl = pageUrl() + "#kfilm";
     var shareText = shareMessage(item, isNe);
     var L = isNe
-      ? {share: "यो चलचित्र सेयर गर्नुहोस्", copy: "लिङ्क कपी", copied: "लिङ्क कपी भयो", wa: "WhatsApp", fb: "Facebook", x: "X", sp: "बरु Spotify मा सुन्नुहोस्", fs: "पूर्ण स्क्रिनमा हेर्नुहोस्"}
-      : {share: "Share this film", copy: "Copy link", copied: "Link copied", wa: "WhatsApp", fb: "Facebook", x: "X", sp: "Listen on Spotify instead", fs: "View full screen"};
-    var spUrl = SPOTIFY[isNe ? "ne" : "en"] || SPOTIFY_FALLBACK;
+      ? {share: "सेयर गर्नुहोस्", copy: "लिङ्क कपी गर्नुहोस्", copied: "लिङ्क कपी भयो", wa: "WhatsApp", fb: "Facebook", x: "X", sp: item.spotify ? "Spotify मा सुन्नुहोस्" : "Spotify मा बासभका पोडकास्ट", fs: "पूर्ण स्क्रिनमा हेर्नुहोस्", about: "भिडियोबारे", lines: "मुख्य पंक्तिहरू", read: "लेख पढ्नुहोस्", listen: "Spotify मा सुन्नुहोस्", more: "अरू पढ्नुहोस्", blog: "Kafkaintherun बासभको द्विभाषिक (नेपाली/अंग्रेजी) ब्लग हो: कविता, कथा, चिठी र विज्ञान-इतिहासका लेख। kafka.blog मा पढ्नुहोस्, हेर्नुहोस्, सुन्नुहोस्।"}
+      : {share: "Share", copy: "Copy link", copied: "Link copied", wa: "WhatsApp", fb: "Facebook", x: "X", sp: item.spotify ? "Listen on Spotify" : "Basava on Spotify", fs: "View full screen", about: "About this video", lines: "Top lines", read: "Read the article", listen: "Listen on Spotify", more: "More to read", blog: "Kafkaintherun is the bilingual (Nepali and English) blog of Basava (बासभ): poems, stories, letters and essays on science and history. Read, watch and listen at kafka.blog."};
+    var spUrl = item.spotify || SPOTIFY[isNe ? "ne" : "en"];
     var eu = encodeURIComponent(shareUrl), et = encodeURIComponent(shareText);
     var canNative = !!navigator.share;
+    function ic(cls, label, inner, href){
+      return href
+        ? '<a class="kvid-ic ' + cls + '" target="_blank" rel="noopener" href="' + href + '" aria-label="' + esc(label) + '" title="' + esc(label) + '">' + inner + '</a>'
+        : '<button type="button" class="kvid-ic ' + cls + '" aria-label="' + esc(label) + '" title="' + esc(label) + '">' + inner + '</button>';
+    }
+    var quotes = (item.quotes || []).map(function(q){ return '<li>“' + esc(q) + '”</li>'; }).join("");
+    var rel = (item.related || []).map(function(r){ return '<li><a href="' + esc(r.path) + '">' + esc(r.title) + '</a></li>'; }).join("");
+    var lead = item.excerpt || item.caption || "";
+    var body =
+      (quotes ? '<p class="kvid-h">' + esc(L.lines) + '</p><ul class="kvid-q" lang="' + esc(item.lang || "en") + '">' + quotes + '</ul>' : '') +
+      '<p class="kvid-desc">' + esc(item.about || item.description || "") + '</p>' +
+      '<p class="kvid-links"><a href="#" class="kvid-read">' + esc(L.read) + '</a> · <a target="_blank" rel="noopener" href="' + esc(spUrl) + '">' + esc(L.listen) + '</a></p>' +
+      (rel ? '<p class="kvid-h">' + esc(L.more) + '</p><ul class="kvid-rel">' + rel + '</ul>' : '') +
+      '<p class="kvid-blog">' + esc(L.blog) + '</p>';
 
     fig.innerHTML =
       '<div class="kvid-stage">' +
@@ -1766,20 +1797,19 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       '<figcaption class="kvid-meta">' +
         '<div class="kvid-bar">' +
           '<span class="kvid-tag">' + esc(badge) + '<span class="kvid-dur">' + (item.duration ? ' · ' + esc(fmtDur(item.duration)) : '') + '</span>' + (item.series ? ' · ' + (isNe ? "भाग " : "Part ") + item.series.part + (isNe ? " / " : " of ") + item.series.of : '') + '</span>' +
+          '<span class="kvid-actions" role="group" aria-label="' + esc(L.share) + '">' +
+            (canNative ? ic("kvid-native", L.share, IC.share) : '') +
+            ic("kvid-wa", L.wa, IC.wa, "https://wa.me/?text=" + et + "%20" + eu) +
+            ic("kvid-fb", L.fb, IC.fb, "https://www.facebook.com/sharer/sharer.php?u=" + eu + "&quote=" + et) +
+            ic("kvid-x", L.x, IC.x, "https://x.com/intent/post?url=" + eu + "&text=" + et) +
+            ic("kvid-copy", L.copy, IC.link) +
+            ic("kvid-sp", L.sp, IC.sp, esc(spUrl)) +
+          '</span>' +
         '</div>' +
         (item.heading ? '<p class="kvid-head" lang="' + esc(item.lang || "en") + '">' + esc(item.heading) + '</p>' : '') +
-        (item.caption ? '<p class="kvid-cap">' + esc(item.caption) + '</p>' +
-          '<details class="kvid-more"><summary>' + (isNe ? "चलचित्रबारे" : "About this film") + '</summary><p class="kvid-desc">' + esc(item.description) + '</p></details>'
-          : '<p class="kvid-desc">' + esc(item.description) + '</p>') +
-        '<div class="kvid-actions" role="group" aria-label="' + esc(L.share) + '">' +
-          (canNative ? '<button type="button" class="kvid-act kvid-native">' + esc(L.share) + '</button>' : '') +
-          '<a class="kvid-act" target="_blank" rel="noopener" href="https://wa.me/?text=' + et + '%20' + eu + '">' + esc(L.wa) + '</a>' +
-          '<a class="kvid-act" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '&quote=' + et + '">' + esc(L.fb) + '</a>' +
-          '<a class="kvid-act" target="_blank" rel="noopener" href="https://x.com/intent/post?url=' + eu + '&text=' + et + '">' + esc(L.x) + '</a>' +
-          '<button type="button" class="kvid-act kvid-copy">' + esc(L.copy) + '</button>' +
-          '<a class="kvid-act kvid-sp" target="_blank" rel="noopener" href="' + esc(spUrl) + '">' + esc(L.sp) + '</a>' +
-          '<span class="kvid-toast" role="status" aria-live="polite"></span>' +
-        '</div>' +
+        (lead ? '<p class="kvid-cap" lang="' + esc(item.lang || "en") + '">' + esc(lead) + '</p>' : '') +
+        '<details class="kvid-more"><summary>' + esc(L.about) + '</summary><div class="kvid-body">' + body + '</div></details>' +
+        '<span class="kvid-toast" role="status" aria-live="polite"></span>' +
       '</figcaption>';
 
     var vid = fig.querySelector("video");
@@ -1807,6 +1837,11 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       function done(){ toast.textContent = L.copied; setTimeout(function(){ toast.textContent = ""; }, 2200); }
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(full).then(done, function(){ window.prompt(L.copy, full); });
       else window.prompt(L.copy, full);
+    });
+    fig.querySelector(".kvid-read").addEventListener("click", function(ev){
+      ev.preventDefault();
+      var nx = fig.nextElementSibling || document.querySelector(".prose");
+      if (nx && nx.scrollIntoView) nx.scrollIntoView({behavior: "smooth", block: "start"});
     });
     if (location.hash === "#kfilm") setTimeout(function(){ try { fig.scrollIntoView({block: "center"}); } catch(e){} }, 400);
     return fig;
