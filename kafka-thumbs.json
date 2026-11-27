@@ -44,7 +44,10 @@
   "यो जिन्दगी खै के जिन्दगी": "https://assets.kafka.blog/covers/yo-jindagi.svg",
   "बिसे नगर्चीको बयान": "https://assets.kafka.blog/covers/bise-nagarchi.svg",
   "घामका पाइलाहरू": "https://assets.kafka.blog/covers/ghamka-pailaharu.svg",
-  "घनचक्कर": "https://assets.kafka.blog/covers/ghanachakkar.svg"
+  "घनचक्कर": "https://assets.kafka.blog/covers/ghanachakkar.svg",
+  "the brothers karamazov": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Dostoevsky-Brothers_Karamazov.jpg/330px-Dostoevsky-Brothers_Karamazov.jpg",
+  "on the road": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/On_the_Road_%281957%29_front_cover%2C_first_edition.jpg/330px-On_the_Road_%281957%29_front_cover%2C_first_edition.jpg",
+  "amar bondhu rashed (my friend rashed)": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/4f/Amar_Bondhu_Rashed.jpg/330px-Amar_Bondhu_Rashed.jpg"
  },
  "movies": {
   "before midnight": "https://upload.wikimedia.org/wikipedia/en/a/ad/Before_Midnight_poster.jpg",
@@ -82,7 +85,21 @@
   "2001: a space odyssey": "https://upload.wikimedia.org/wikipedia/en/1/11/2001_A_Space_Odyssey_%281968%29.png",
   "once upon a time in the west": "https://upload.wikimedia.org/wikipedia/en/a/a2/Once_upon_a_Time_in_the_West.jpg",
   "cinema paradiso": "https://upload.wikimedia.org/wikipedia/en/8/86/CinemaParadiso.jpg",
-  "incendies": "https://upload.wikimedia.org/wikipedia/en/a/a0/Incendies.jpg"
+  "incendies": "https://upload.wikimedia.org/wikipedia/en/a/a0/Incendies.jpg",
+  "before sunrise": "https://upload.wikimedia.org/wikipedia/en/d/da/Before_Sunrise_poster.jpg",
+  "before sunset": "https://upload.wikimedia.org/wikipedia/en/d/d1/Before_Sunset_poster.jpg",
+  "the lord of the rings: the fellowship of the ring": "https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg",
+  "the lord of the rings: the return of the king": "https://upload.wikimedia.org/wikipedia/en/4/48/Lord_Rings_Return_King.jpg",
+  "the godfather part ii": "https://upload.wikimedia.org/wikipedia/en/0/03/Godfather_part_ii.jpg",
+  "the godfather part iii": "https://upload.wikimedia.org/wikipedia/en/5/55/GodfatherIII2.jpg",
+  "eternal sunshine of the spotless mind": "https://upload.wikimedia.org/wikipedia/en/a/a4/Eternal_Sunshine_of_the_Spotless_Mind.png",
+  "scarface": "https://upload.wikimedia.org/wikipedia/en/7/71/Scarface_-_1983_film.jpg",
+  "scent of a woman": "https://upload.wikimedia.org/wikipedia/en/9/91/Scent_of_a_Woman.jpg",
+  "heat": "https://upload.wikimedia.org/wikipedia/en/6/6c/Heatposter.jpg",
+  "raiders of the lost ark": "https://upload.wikimedia.org/wikipedia/en/4/4c/Raiders_of_the_Lost_Ark.jpg",
+  "batman begins": "https://upload.wikimedia.org/wikipedia/en/a/af/Batman_Begins_Poster.jpg",
+  "the dark knight": "https://upload.wikimedia.org/wikipedia/en/1/1c/The_Dark_Knight_%282008_film%29.jpg",
+  "inception": "https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg"
  },
  "songs": {
   "like a rolling stone": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Bob_Dylan_-_Highway_61_Revisited.jpg/330px-Bob_Dylan_-_Highway_61_Revisited.jpg",
@@ -116,7 +133,18 @@
   "love is a losing game": "https://upload.wikimedia.org/wikipedia/en/6/69/Loveisalosinggamesingle.jpg",
   "white gloves": "https://upload.wikimedia.org/wikipedia/en/0/06/Khruangbin_The_Universe_Smiles_Upon_You_Cover.png",
   "maría también": "https://upload.wikimedia.org/wikipedia/en/9/94/Khruangbin_Con_Todo_El_Mundo_Cover.png",
-  "time (you and i)": "https://upload.wikimedia.org/wikipedia/en/5/5d/Khruangbin_Mordechai_Cover.png"
+  "time (you and i)": "https://upload.wikimedia.org/wikipedia/en/5/5d/Khruangbin_Mordechai_Cover.png",
+  "blowin' in the wind": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Bob_Dylan_-_The_Freewheelin%27_Bob_Dylan.jpg/330px-Bob_Dylan_-_The_Freewheelin%27_Bob_Dylan.jpg",
+  "the times they are a-changin'": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Bob_Dylan_-_The_Times_They_Are_a-Changin%27.jpg/330px-Bob_Dylan_-_The_Times_They_Are_a-Changin%27.jpg",
+  "mr. tambourine man": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Bringing_It_All_Back_Home.jpg/330px-Bringing_It_All_Back_Home.jpg",
+  "within you without you": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Sgt._Pepper%27s_Lonely_Hearts_Club_Band_album_art.jpg/330px-Sgt._Pepper%27s_Lonely_Hearts_Club_Band_album_art.jpg",
+  "a day in the life": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Sgt._Pepper%27s_Lonely_Hearts_Club_Band_album_art.jpg/330px-Sgt._Pepper%27s_Lonely_Hearts_Club_Band_album_art.jpg",
+  "here comes the sun": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Beatles_Abbey_Road_album_cover.jpg/330px-The_Beatles_Abbey_Road_album_cover.jpg",
+  "light my fire": "https://upload.wikimedia.org/wikipedia/en/9/98/TheDoorsTheDoorsalbumcover.jpg",
+  "riders on the storm": "https://upload.wikimedia.org/wikipedia/en/4/41/The_Doors_-_L.A._Woman.jpg",
+  "purple haze": "https://upload.wikimedia.org/wikipedia/en/1/17/AreyouexpUK.jpg",
+  "nothing else matters": "https://upload.wikimedia.org/wikipedia/en/2/2c/Metallica_-_Metallica_cover.jpg",
+  "rehab": "https://upload.wikimedia.org/wikipedia/en/6/67/Amy_Winehouse_-_Back_to_Black_%28album%29.png"
  },
  "series": {
   "malgudi days": "https://upload.wikimedia.org/wikipedia/en/e/ea/DVD_Cover_of_Malgudi_Days.jpeg",
@@ -148,6 +176,17 @@
   "civilisations": "https://upload.wikimedia.org/wikipedia/en/e/eb/Civilisations_2018.jpg",
   "turning point: the bomb and the cold war": "https://upload.wikimedia.org/wikipedia/en/0/07/Turning_Point_The_Bomb_And_The_Cold_War.jpg",
   "the blue planet": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/89/BBC_Blue_Planet_title.jpg/330px-BBC_Blue_Planet_title.jpg",
-  "planet earth": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/e3/BBC_PE_title.jpg/330px-BBC_PE_title.jpg"
+  "planet earth": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/e3/BBC_PE_title.jpg/330px-BBC_PE_title.jpg",
+  "bojack horseman": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/BoJack_Horseman_Logo.svg/330px-BoJack_Horseman_Logo.svg.png",
+  "love, death & robots": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/cb/Love%2C_Death_%26_Robots_Logo.png/330px-Love%2C_Death_%26_Robots_Logo.png",
+  "peaky blinders": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/e8/Peaky_Blinders_titlecard.jpg/330px-Peaky_Blinders_titlecard.jpg",
+  "vikings": "https://thumb.wikimedia.org/wikipedia/en/thumb/9/99/Vikings_Title.png/330px-Vikings_Title.png",
+  "guns, germs and steel": "https://upload.wikimedia.org/wikipedia/en/f/fc/Ggas_human_soc.jpg",
+  "meet the romans with mary beard": "https://upload.wikimedia.org/wikipedia/en/5/55/Meet_the_Romans_with_Mary_Beard_tv_titlecard.jpg",
+  "fall of civilizations": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Fall_of_Civilizations_Podcast_logo.webp/330px-Fall_of_Civilizations_Podcast_logo.webp",
+  "life": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/83/BBC_Life_title_card.png/330px-BBC_Life_title_card.png",
+  "cosmos: a spacetime odyssey": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8e/Cosmos_spacetime_odyssey_titlecard.jpg/330px-Cosmos_spacetime_odyssey_titlecard.jpg",
+  "planet earth ii": "https://thumb.wikimedia.org/wikipedia/en/thumb/b/ba/Planet_Earth_II.png/330px-Planet_Earth_II.png",
+  "jane": "https://upload.wikimedia.org/wikipedia/en/c/cc/Jane_%282017_film%29.png"
  }
 }
