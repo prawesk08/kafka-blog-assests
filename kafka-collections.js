@@ -180,7 +180,9 @@
   /* sidebar Lists: a short note beside each list (edit the lines here) */
   var LNOTE={books:'The ones I go back to, not the ones I finished.',movies:'Films that stayed after the credits.',photos:'Small moments I did not want to lose.',series:'What I watch when the writing stops.',songs:'Whatever will not leave my head this month.'};
   function listNotes(){[].forEach.call(document.querySelectorAll('nav.box.lists>a'),function(a){if(a.querySelector('.kl-c'))return;var m=(a.getAttribute('href')||'').match(/\/p\/(\w+)\.html/);var n=m&&LNOTE[m[1]];if(!n)return;var c=document.createElement('span');c.className='kl-c';c.textContent=n;a.appendChild(c)})}
-  function all(){paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();danda()}
+  /* tag strip: let a mouse wheel scroll it sideways */
+  function tagWheel(){var k=document.querySelector('.ktagstrip .ktags');if(!k||k.getAttribute('data-kw'))return;k.setAttribute('data-kw','1');k.addEventListener('wheel',function(e){if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&k.scrollWidth>k.clientWidth){var max=k.scrollWidth-k.clientWidth;if((e.deltaY>0&&k.scrollLeft<max)||(e.deltaY<0&&k.scrollLeft>0)){k.scrollLeft+=e.deltaY;e.preventDefault()}}},{passive:false})}
+  function all(){paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();danda()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
