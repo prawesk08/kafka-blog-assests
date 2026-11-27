@@ -1,6 +1,7 @@
 /* kafka-collections.js v2
    1. gives each list block (ol.klist, ol.kser-items rows, article.kcard) its featured photo as --kbg, for the blurred photo canvas
-   2. post rows (ol.kser-items on category/series/literature pages, article.kcard on home/label/search pages):
+   2. series carousel cards on post pages (.kser-deck a.kser-card) get --kbg the same way
+   3. post rows (ol.kser-items on category/series/literature pages, article.kcard on home/label/search pages):
       moves the number out of the photo into its own column, splits "Title: Subtitle" so the two get different type,
       and marks Devanagari titles/subtitles with .kt-ne (the li lang attribute is not reliable) */
 (function(){
@@ -11,6 +12,14 @@
       var src=img.currentSrc||img.getAttribute('src'); if(!src||/^data:/.test(src))return;
       var v='url("'+src.replace(/"/g,'%22')+'")'; el.style.setProperty('--kbg',v); el.setAttribute('data-kbg','1');
       var pic=el.querySelector('a.pic'); if(pic)pic.style.setProperty('--kbg',v);
+    });
+  }
+  /* series carousel cards on post pages: tint from the card's own photo */
+  function deck(root){
+    [].forEach.call((root||document).querySelectorAll('.kser-deck a.kser-card'),function(c){
+      if(c.getAttribute('data-kbg'))return; var img=c.querySelector('.kser-thumb img'); if(!img)return;
+      var src=img.currentSrc||img.getAttribute('src'); if(!src||/^data:/.test(src))return;
+      c.style.setProperty('--kbg','url("'+src.replace(/"/g,'%22')+'")'); c.setAttribute('data-kbg','1');
     });
   }
   function split(a){
@@ -37,7 +46,7 @@
       else c.classList.add('kt-nosub');
     });
   }
-  function all(){paint();rows()}
+  function all(){paint();rows();deck()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
