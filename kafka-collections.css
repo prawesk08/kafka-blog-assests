@@ -1114,3 +1114,9 @@ html body ol.kser-items:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#k
 html body ol.kser-items:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12):not(#kr13):not(#kr14):not(#kr15):not(#kr16)>li.has-pic>.kser-date{grid-column:3!important;grid-row:3!important;margin:0!important;font-size:12.5px!important}
 html body ol.kser-items:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(#kr6):not(#kr7):not(#kr8):not(#kr9):not(#kr10):not(#kr11):not(#kr12):not(#kr13):not(#kr14):not(#kr15):not(#kr16)>li.has-pic>.kser-acts{grid-column:4!important;grid-row:1/span 3!important;align-self:center!important;display:flex!important;flex-direction:column!important;gap:6px!important;margin:0!important;position:static!important}
 }
+
+@media (max-width:700px){
+html body #kafka-home .pin-pair:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13):not(#kq14):not(#kq15):not(#kq16) ol.kps-parts .kps-pt>a.tt{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+html body #kafka-home .pin-pair:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13):not(#kq14):not(#kq15):not(#kq16) ol.kps-parts .kps-meta{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;gap:6px!important;white-space:nowrap!important;margin:0!important}
+html body #kafka-home .pin-pair:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13):not(#kq14):not(#kq15):not(#kq16) ol.kps-parts .kps-meta>*{margin:0!important;display:inline!important}
+}
