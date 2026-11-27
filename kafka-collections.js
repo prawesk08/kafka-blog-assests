@@ -186,7 +186,12 @@
   function serCounts(){[].forEach.call(document.querySelectorAll('.kserlist a.kser-row>.cnt:not([data-n])'),function(c){var m=c.textContent.match(/\d+/);c.setAttribute('data-n',m?m[0]:'')})}
   /* homepage start rows: copy each row's photo into --kbg for the tinted canvas */
   function startTint(){[].forEach.call(document.querySelectorAll('.kstart5>a.k5:not([data-kt])'),function(a){var s=a.querySelector('.k5-img');var m=s&&(s.getAttribute('style')||'').match(/url\((['"]?)(.*?)\1\)/);if(!m)return;a.setAttribute('data-kt','1');a.style.setProperty('--kbg','url("'+m[2].replace(/"/g,'%22')+'")')})}
-  function all(){paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();danda()}
+  /* homepage start rows: add the opening line of each post (from the summary feed) on the right */
+  var subFeed=null;
+  function startSubs(){var rows=document.querySelectorAll('.kstart5>a.k5:not([data-ks])');if(!rows.length||!window.fetch)return;[].forEach.call(rows,function(a){a.setAttribute('data-ks','1')});
+    if(!subFeed)subFeed=fetch('/feeds/posts/summary?alt=json&max-results=25').then(function(r){return r.json()}).then(function(j){var m={};(j.feed.entry||[]).forEach(function(e){var l=(e.link||[]).filter(function(x){return x.rel==='alternate'})[0];if(l)m[l.href.replace(/^https?:\/\/[^\/]+/,'')]=((e.summary&&e.summary.$t)||'').replace(/\s+/g,' ').trim()});return m}).catch(function(){return {}});
+    subFeed.then(function(m){[].forEach.call(rows,function(a){if(a.querySelector('.k5-s'))return;var s=m[a.getAttribute('href').replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0]];if(!s)return;var cut=s.match(/^(.{40,160}?[.।?!])(\s|$)/);s=cut?cut[1]:(s.length>150?s.slice(0,150).replace(/\s+\S*$/,'')+'…':s);var sp=document.createElement('span');sp.className='k5-s'+(/[\u0900-\u097F]/.test(s)?' kt-ne':'');sp.textContent=s;a.appendChild(sp)})})}
+  function all(){paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();danda()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
