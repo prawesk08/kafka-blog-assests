@@ -2008,3 +2008,72 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     .catch(dropHold);
   function dropHold(){ kvidGone = true; var h = document.querySelector(".kvid-hold"); if (h && h.parentNode) h.parentNode.removeChild(h); }
 })();
+
+/* v198: share card and Spotify for the narration (the Listen panel on a post).
+   The card always links back to this post (#klisten scrolls to the panel) and offers the post's Spotify episode. */
+(function(){
+  var kv = document.getElementById("kview");
+  if (!kv || (kv.getAttribute("data-view") || "") !== "post") return;
+  var ne = (document.documentElement.lang || "") === "ne";
+  function loadShare(cb){
+    if (window.KShare) return cb();
+    var s = document.createElement("script");
+    s.src = "https://assets.kafka.blog/kafka-share.js?v=1"; s.async = true; s.onload = cb;
+    document.head.appendChild(s);
+  }
+  function meta(sel){ var m = document.head.querySelector(sel); return m ? (m.getAttribute("content") || "") : ""; }
+  function pageUrl(){
+    var c = document.querySelector('link[rel="canonical"]');
+    return ((c && c.href) || (location.origin + location.pathname)).split("#")[0].split("?")[0];
+  }
+  function postTitle(){
+    var h = document.querySelector(".post-head h1") || document.querySelector("h1");
+    return h ? h.textContent.replace(/\s+/g, " ").trim() : document.title.replace(/\s*\|.*$/, "");
+  }
+  var ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.9l7.6-3.7M8.2 13.1l7.6 3.7"/></svg>';
+  function openCard(){
+    loadShare(function(){
+      var t = postTitle();
+      window.KShare.spotify(location.pathname, ne ? "ne" : "en", function(sp){
+        window.KShare.open({
+          title: t, lang: ne ? "ne" : "en", img: meta('meta[property="og:image"]'),
+          kind: ne ? "वाचन सेयर गर्नुहोस्" : "Share this narration",
+          url: pageUrl() + "#klisten",
+          text: ne ? t + " (वाचन) — बासभ · Kafkaintherun" : t + " (narration) — Basava · Kafkaintherun",
+          spotify: sp
+        });
+      });
+    });
+  }
+  var loadingShare = false;
+  function decorate(){
+    var rights = document.querySelectorAll(".klisten .kl-right");
+    if (!rights.length) return false;
+    /* only posts that have a narration load kafka-share.js (it carries the button styles) */
+    if (!window.KShare){
+      if (!loadingShare){ loadingShare = true; loadShare(function(){ decorate(); }); }
+      return false;
+    }
+    var found = false;
+    Array.prototype.forEach.call(rights, function(r){
+      found = true;
+      if (r.querySelector(".kl-share")) return;
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "ksh-ic kl-share";
+      var lb = ne ? "वाचन सेयर गर्नुहोस्" : "Share this narration";
+      b.setAttribute("aria-label", lb); b.title = lb; b.innerHTML = ICON;
+      b.addEventListener("click", function(ev){ ev.stopPropagation(); openCard(); });
+      r.insertBefore(b, r.firstChild);
+    });
+    return found;
+  }
+  /* the Listen panel is built a moment after load; keep looking for it for half a minute */
+  var tries = 0, iv = setInterval(function(){
+    tries++;
+    if (decorate() && tries > 6 || tries > 60) clearInterval(iv);
+  }, 500);
+  if (location.hash === "#klisten") setTimeout(function(){
+    var el = document.querySelector(".klrow") || document.querySelector(".klisten");
+    if (el && el.scrollIntoView) el.scrollIntoView({block: "center", behavior: "smooth"});
+  }, 1000);
+})();
