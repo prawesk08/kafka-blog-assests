@@ -1042,3 +1042,10 @@ html body .kd-grid.kd-stack .kd-door:not(#kz)>.kd-en{flex:0 0 100%!important;mar
 html body .kd-grid.kd-stack .kd-door:not(#kz)>.kd-ne::after{content:none!important}
 html body .kstart3:not(#kz):not(#kz2) .k5{height:auto!important;min-height:70px!important}
 html body .kstart3:not(#kz):not(#kz2) .k5>.k5-b{min-width:0}
+/* v8: listen/share sit in a fixed right rail on every row; translate tag sits on the photo, same spot every time */
+html body a.k5:not(#kz){position:relative!important}
+html body a.k5:not(#kz)>.k5-b{padding-right:32px!important;box-sizing:border-box}
+html body a.k5:not(#kz) .k5-d .k5-ic{position:absolute!important;right:9px!important;margin:0!important}
+html body a.k5:not(#kz) .k5-d .k5-ic.k5-listen{top:calc(50% - 27px)!important}
+html body a.k5:not(#kz) .k5-d .k5-ic.kact-share{top:calc(50% + 3px)!important}
+html body a.k5:not(#kz) .k5-d .ktr-b{position:absolute!important;left:11px!important;top:calc(50% + 4px)!important;margin:0!important;transform:scale(.86);transform-origin:left top;z-index:2}
