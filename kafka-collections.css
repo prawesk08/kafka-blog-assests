@@ -275,3 +275,4 @@ html body nav.kser-hero:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) ol>li>a.has
 /* softer red highlights, CSS side (kafka-collections.js handles fills set inline or by other scripts) */
 :root{--red:#9a5047}
 html body a.kab-so:hover,.kab-so a:hover{background:#a8665b!important;border-color:#a8665b!important}
+html body .kl-voice:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5):not(#c6):not(#c7):not(#c8):not(#c9):not(#c10):not(#c11):not(#c12):not(#c13) button.on{background:#a8665b!important;border-color:#a8665b!important}

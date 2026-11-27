@@ -72,7 +72,7 @@
   function soften(){
     if(!seen)return;
     [].forEach.call(document.querySelectorAll('button,a,span,i,b,label,input,div.ksh-cnt,form'),function(e){
-      if(seen.has(e))return; seen.add(e); var s=getComputedStyle(e);
+      if(seen.has(e))return; seen.add(e); if(e.closest('.kl-voice,[aria-pressed],[role=tab],.tabs-items'))return; var s=getComputedStyle(e);
       if(s.backgroundColor==='rgb(123, 45, 38)')e.style.setProperty('background-color',SOFT_BG,'important');
       if(s.borderTopColor==='rgb(123, 45, 38)'&&parseFloat(s.borderTopWidth)>0)e.style.setProperty('border-color',SOFT_BD,'important');
     });
