@@ -3331,7 +3331,11 @@
     }
    ],
    "about": "A video version of “Hippies: Music, Marijuana, Magic Bus and Kathmandu”, a history article by Basava (बासभ). Running time: 5 min 26 sec. The full text is on the blog, and the audio is on Spotify.",
-   "spotify": "https://open.spotify.com/episode/1Csnb0qdm6Z9iwR4VY7Hbn"
+   "spotify": "https://open.spotify.com/episode/1Csnb0qdm6Z9iwR4VY7Hbn",
+   "slug": "hippies",
+   "type": "documentary",
+   "src": "https://assets.kafka.blog/videos/hippies.mp4",
+   "poster": "https://assets.kafka.blog/videos/hippies.jpg"
   },
   "/2025/10/dear-you-i-hope-you.html": {
    "heading": "Dear you, I hope you.",
