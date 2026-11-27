@@ -146,3 +146,9 @@ html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq
 html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten,html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kl-ph{flex:1 1 0!important}
 html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kfollow{flex:0 0 30%!important}
 }
+/* sidebar "Currently": the label sits above each item (small kicker) instead of in a left column, so the item uses the full width and the empty gutter under the labels is gone */
+html body .box.nowbox:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) .now-row{display:block!important;margin:0!important;padding:10px 0!important;border-top:1px dashed rgba(184,144,74,.45)!important}
+html body .box.nowbox:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) p.h+.now-row{border-top:0!important;padding-top:4px!important}
+html body .box.nowbox:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) .now-row>b{display:block!important;width:auto!important;min-width:0!important;margin:0 0 3px!important;font-size:10.5px!important;line-height:1.2!important;letter-spacing:.14em!important}
+html body .box.nowbox:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) .now-row>.now-body{display:block!important;margin:0!important;padding:0!important;width:auto!important}
+html body .box.nowbox:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) .now-row .quip{display:block!important;margin-top:2px!important}
