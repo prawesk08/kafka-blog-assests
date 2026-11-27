@@ -181,7 +181,7 @@ html body .kphotos:not(#c1):not(#c2):not(#c3) .kgrid>a:hover::before{opacity:1}
 /* ---------- About page (/p/about.html): portrait card, pull quote, topic cards, callouts ---------- */
 html body .kafka-about.kab:not(#c1):not(#c2):not(#c3)>p:empty,html body .kafka-about.kab:not(#c1):not(#c2):not(#c3)>p.kab-blank{display:none!important}
 .kab-hero{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:150px minmax(0,1fr);gap:26px;align-items:center;margin:4px 0 28px;padding:26px 28px;border:1px solid rgba(123,45,38,.16);border-radius:6px;background:linear-gradient(135deg,#fbf6ec 0%,#f4ead8 100%)}
-.kab-hero::before{content:"";position:absolute;inset:-40px;z-index:-1;background:url("https://assets.kafka.blog/basava-priest-king-400.jpg") center/cover;filter:blur(40px) saturate(1.2);opacity:.10}
+.kab-hero::before{content:"";position:absolute;inset:-40px;z-index:-1;background:url("https://assets.kafka.blog/basava-priest-king-160.jpg") center/cover;filter:blur(40px) saturate(1.2);opacity:.10}
 .kab-hero::after{content:"";position:absolute;right:-30px;top:-30px;width:160px;height:160px;border:1px solid rgba(184,144,74,.35);border-radius:50%;box-shadow:0 0 0 14px rgba(184,144,74,.06),0 0 0 30px rgba(184,144,74,.04);pointer-events:none}
 .kab-face{width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid #fffdf8;box-shadow:0 0 0 2px #b8904a,0 14px 26px -14px rgba(60,40,20,.6)}
 .kab-name{margin:0;font:600 32px/1.1 Fraunces,Georgia,serif;color:#1f1a14}

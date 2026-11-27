@@ -504,7 +504,13 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
             a.innerHTML='<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H6l-3 2 1-4.5A8 8 0 1 1 21 12z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg>';
             bar.appendChild(a);
           }
+          /* v192: keep the bar invisible until the narration styles have placed it, so it never counts as a layout jump */
+          bar.style.visibility='hidden';
           document.body.appendChild(bar);
+          (function kfReveal(n){
+            if(document.getElementById('kl-v2-css')||n>=25){requestAnimationFrame(function(){requestAnimationFrame(function(){bar.style.visibility='';});});return;}
+            setTimeout(function(){kfReveal(n+1);},100);
+          })(0);
           var ticking=false;
           function updateVis(){
             ticking=false;
@@ -1647,7 +1653,7 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       "uploadDate": item.uploadDate + "T00:00:00Z",
       "duration": item.durationIso,
       "contentUrl": item.src,
-      "embedUrl": location.href,
+      "url": (document.querySelector("link[rel=canonical]") || {}).href || (location.origin + location.pathname),
       "inLanguage": item.lang || "en",
       "keywords": (item.keywords || []).join(", "),
       "author": {"@type": "Person", "name": "बासभ (Basava)", "alternateName": "@naharchowck"},
