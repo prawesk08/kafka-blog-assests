@@ -1,7 +1,8 @@
 /* kafka-collections.js v2
    1. gives each list block (ol.klist, ol.kser-items rows, article.kcard) its featured photo as --kbg, for the blurred photo canvas
    2. series carousel cards on post pages (.kser-deck .kser-card) get --kbg the same way
-   3. post rows (ol.kser-items on category/series/literature pages, article.kcard on home/label/search pages):
+   3. post header: Share (opens on tap), Listen and the बासभ follow box in one row of one panel
+   4. post rows (ol.kser-items on category/series/literature pages, article.kcard on home/label/search pages):
       moves the number out of the photo into its own column, splits "Title: Subtitle" so the two get different type,
       and marks Devanagari titles/subtitles with .kt-ne (the li lang attribute is not reliable) */
 (function(){
@@ -46,7 +47,20 @@
       else c.classList.add('kt-nosub');
     });
   }
-  function all(){paint();rows();deck()}
+  /* post header: Share, Listen and Follow in one row of one panel; Share shows its icons only when tapped */
+  function onerow(){
+    var head=document.querySelector('header.post-head'); if(!head)return;
+    var row=head.querySelector('.klrow'), sh=head.querySelector('.kshare.top'); if(!row||!sh)return;
+    if(sh.parentNode!==row){row.insertBefore(sh,row.firstChild);row.classList.add('k1row');}
+    var lbl=sh.querySelector('.lbl'); if(!lbl||lbl.getAttribute('data-k1'))return; lbl.setAttribute('data-k1','1');
+    lbl.setAttribute('role','button');lbl.setAttribute('tabindex','0');lbl.setAttribute('aria-expanded','false');
+    function set(o){sh.classList.toggle('is-open',o);lbl.setAttribute('aria-expanded',o?'true':'false')}
+    lbl.addEventListener('click',function(e){e.preventDefault();set(!sh.classList.contains('is-open'))});
+    lbl.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();set(!sh.classList.contains('is-open'))}});
+    document.addEventListener('click',function(e){if(!sh.contains(e.target))set(false)});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+  }
+  function all(){paint();rows();deck();onerow()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
