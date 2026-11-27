@@ -188,7 +188,9 @@
     "Kafkaintherun"
    ],
    "lang": "en",
-   "type": "poem"
+   "type": "poem",
+   "duration": 359,
+   "durationIso": "PT5M59S"
   },
   "/2025/05/echoes-of-faded-love.html": {
    "heading": "echoes of faded love.",
@@ -206,7 +208,9 @@
     "Kafkaintherun"
    ],
    "lang": "en",
-   "type": "poem"
+   "type": "poem",
+   "duration": 262,
+   "durationIso": "PT4M22S"
   },
   "/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html": {
    "heading": "भाइरस र क्यान्सर, भाग १: मानिसमा भेटिएको पहिलो अन्कोभाइरस",
@@ -1668,6 +1672,27 @@
    "lang": "en",
    "duration": 326,
    "durationIso": "PT5M26S",
+   "uploadDate": "2026-11-27"
+  },
+  "/2025/10/dear-you-i-hope-you.html": {
+   "heading": "Dear you, I hope you.",
+   "title": "Dear you, I hope you. | Narrated Letter Film by Basava (बासभ)",
+   "caption": "A letter written at 3:13 AM, to someone it may never reach.",
+   "description": "A narrated letter film by Basava. It is 3:13 AM, the night has no mercy, and a letter to ‘you’ gets written that may never be sent: love that is killing and keeping alive, and the ghosts of old lovers that keep dragging behind.",
+   "keywords": [
+    "Dear you, I hope you",
+    "letter to a lover",
+    "unsent love letter",
+    "narrated letter",
+    "love and loneliness",
+    "English letter film",
+    "Basava",
+    "बासभ",
+    "Kafkaintherun"
+   ],
+   "lang": "en",
+   "duration": 966,
+   "durationIso": "PT16M6S",
    "uploadDate": "2026-11-27"
   }
  }
