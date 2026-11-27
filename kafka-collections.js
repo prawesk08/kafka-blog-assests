@@ -54,6 +54,7 @@
     var head=document.querySelector('header.post-head'); if(!head)return;
     var row=head.querySelector('.klrow'), sh=head.querySelector('.kshare.top'); if(!row||!sh)return;
     if(sh.parentNode!==row){row.insertBefore(sh,row.firstChild);row.classList.add('k1row');}
+    var kf=row.querySelector('.kfollow');if(kf&&!kf.querySelector('.kf-face')){var f=document.createElement('img');f.className='kf-face';f.alt='';f.width=34;f.height=34;f.loading='lazy';f.src='https://assets.kafka.blog/basava-priest-king-400.jpg';kf.insertBefore(f,kf.firstChild)}
     var lbl=sh.querySelector('.lbl'); if(!lbl||lbl.getAttribute('data-k1'))return; lbl.setAttribute('data-k1','1');
     lbl.setAttribute('role','button');lbl.setAttribute('tabindex','0');lbl.setAttribute('aria-expanded','false');
     function set(o){sh.classList.toggle('is-open',o);lbl.setAttribute('aria-expanded',o?'true':'false')}
