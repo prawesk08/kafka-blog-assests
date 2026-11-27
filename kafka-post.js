@@ -1603,6 +1603,10 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       ".kvid-capbox.open{display:block}",
       ".poem-art.has-kvid{width:clamp(300px,33vw,410px)!important;justify-content:flex-start!important;gap:22px!important}",
       ".poem-art.has-kvid .kvid-wrap{margin:0!important;width:100%!important}",
+      ".kpl-col.has-kvid .kvid-wrap{margin:0 0 14px!important;width:100%!important;flex:0 0 auto}",
+      ".kpl-col.has-kvid .kvid-meta{padding:9px 11px 10px}",
+      ".kpl-col.has-kvid .kvid-desc{font-size:12.5px;line-height:1.45}",
+      "@media (max-width:640px){.kpl-col.has-kvid .kvid-meta{padding:7px 8px 8px;gap:4px}.kpl-col.has-kvid .kvid-tag{font-size:10px}.kpl-col.has-kvid .kvid-share{padding:4px 7px;font-size:10.5px}.kpl-col.has-kvid .kvid-desc{font-size:11.5px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}}",
       ".poem-art.has-kvid .kvid-meta{padding:9px 11px 10px}",
       ".poem-art.has-kvid .kvid-desc{font-size:12.5px;line-height:1.45}",
       "@media (max-width:820px){.kvid-wrap{margin:1.1em 0 1.4em}}"
@@ -1715,6 +1719,14 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       if (!prose) return;
       var isPoem = item.type === "poem" || prose.classList.contains("poem") || !!prose.querySelector(".poem-row, .verse");
       if (isPoem){
+        // Poem layout with the photo column: the film goes at the top of that column, the photo below it, the poem stays in front.
+        var kin = document.querySelector(".poem-row .kpl-in");
+        var kcol = kin && kin.closest(".kpl-col");
+        if (kin && kcol && getComputedStyle(kcol).display !== "none"){
+          kcol.classList.add("has-kvid");
+          if (fig.parentNode !== kin || kin.firstChild !== fig) kin.insertBefore(fig, kin.firstChild);
+          return;
+        }
         var col = document.querySelector(".poem-art");
         var colVis = col && getComputedStyle(col).display !== "none";
         if (colVis){
