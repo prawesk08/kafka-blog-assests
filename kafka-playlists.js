@@ -180,8 +180,8 @@
   function total(items){ return items.reduce(function(t,e){ var p = side(e, state.lang); return t + (p.sf || 0); }, 0); }
   function secHead(pl, n, sec, sortable){
     var ne = state.lang === "ne";
-    return '<div class="kpl-sec-head"><div><h2>' + esc(ne ? pl.ne : pl.en) + ' <span>' + esc(ne ? pl.en : pl.ne) + '</span></h2>' +
-      '<p>' + npNum(n, state.lang) + (ne ? " वटा · " : " pieces · ") + hours(sec) + '</p></div><div class="kpl-sec-ctl">' +
+    return '<div class="kpl-sec-head"><h2>' + esc(ne ? pl.ne : pl.en) + ' <span>' + esc(ne ? pl.en : pl.ne) + '</span></h2>' +
+      '<p>' + npNum(n, state.lang) + (ne ? " वटा · " : " pieces · ") + hours(sec) + '</p><div class="kpl-sec-ctl">' +
       (sortable ? '<div class="kpl-sort" role="group" aria-label="Order"><button type="button" data-sort="new" aria-pressed="true">' + (ne ? "नयाँ" : "Newest") + '</button><button type="button" data-sort="old">' + (ne ? "पुरानो" : "Oldest") + '</button></div>' : '') +
       (sortable ? '<button type="button" class="kpl-play-all" data-list="' + pl.id + '">' + (ne ? "सबै बजाउनुहोस्" : "Play all") + '</button>' : '') + '</div></div>';
   }
