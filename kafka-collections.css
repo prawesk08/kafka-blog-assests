@@ -1040,3 +1040,5 @@ html body .three .karchive .ka-year{box-sizing:border-box!important}
 @media (min-width:561px){html body .kd-grid .kd-door:not(#kz)>.kd-sub{min-height:2.8em!important}}
 html body .kd-grid.kd-stack .kd-door:not(#kz)>.kd-en{flex:0 0 100%!important;margin-top:1px!important}
 html body .kd-grid.kd-stack .kd-door:not(#kz)>.kd-ne::after{content:none!important}
+html body .kstart3:not(#kz):not(#kz2) .k5{height:auto!important;min-height:70px!important}
+html body .kstart3:not(#kz):not(#kz2) .k5>.k5-b{min-width:0}
