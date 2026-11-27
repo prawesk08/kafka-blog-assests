@@ -258,3 +258,16 @@ html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq
 }
 /* Photos page: the grid fills holes left by tall photos (the last photo of a section is stretched to the row's end by kafka-collections.js) */
 html body .kphotos:not(#c1):not(#c2):not(#c3) .kgrid{grid-auto-flow:row dense!important}
+
+/* Listen bar inside the one-row panel: the middle (label, time, track) shrinks instead of running under the voice/speed buttons */
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten{display:flex!important;align-items:center!important;gap:8px!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-mid{flex:1 1 auto!important;min-width:0!important;overflow:hidden!important;grid-template-columns:minmax(0,1fr) auto!important;column-gap:6px!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-label{min-width:0!important;overflow:hidden!important;white-space:nowrap!important;text-overflow:ellipsis!important;font-size:13px!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-time{font-size:11.5px!important;white-space:nowrap!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-right{flex:none!important;display:flex!important;align-items:center!important;gap:4px!important;margin:0!important;position:static!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-left,html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-play{flex:none!important}
+@media (max-width:900px){html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-label{display:none!important}}
+/* series box: every part gets its own photo tint (the photos come from the series carousel lower on the page) */
+html body nav.kser-hero:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) ol>li>a.has-kbg{background:#f8f2e7!important;border-color:rgba(123,45,38,.16)!important}
+html body nav.kser-hero:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) ol>li>a.has-kbg::before{content:""!important;display:block!important;position:absolute!important;inset:-30px!important;z-index:-1!important;background-image:var(--kbg,none)!important;background-size:cover!important;background-position:center!important;filter:blur(30px) saturate(1.25)!important;opacity:.42!important;pointer-events:none!important}
+html body nav.kser-hero:not(#c1):not(#c2):not(#c3):not(#c4):not(#c5) ol>li>a.has-kbg:hover{border-color:rgba(123,45,38,.4)!important}

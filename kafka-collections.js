@@ -64,6 +64,16 @@
   }
 
 
+
+  /* series box at the top of a post: give each part link the photo of the same part from the carousel lower down */
+  function heroTint(){
+    var nav=document.querySelector('nav.kser-hero'); if(!nav)return; var map={};
+    [].forEach.call(document.querySelectorAll('.kser-deck a.kser-card'),function(c){var img=c.querySelector('.kser-thumb img');if(img)map[c.getAttribute('href').replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0]]=img.getAttribute('src')});
+    [].forEach.call(nav.querySelectorAll('ol>li>a'),function(a){
+      if(a.classList.contains('has-kbg'))return; var src=map[a.getAttribute('href').replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0]]; if(!src)return;
+      a.style.setProperty('--kbg','url("'+src.replace(/"/g,'%22')+'")'); a.classList.add('has-kbg');
+    });
+  }
   /* Photos page: stretch the last photo of each section to the end of its row, so a section never ends with a hole */
   function fillEnds(){
     [].forEach.call(document.querySelectorAll('.kphotos .kgrid'),function(g){
@@ -146,7 +156,7 @@
     var hs=ab.querySelectorAll(':scope>h2'), last=hs[hs.length-1];
     if(last&&/Kafka/i.test(last.textContent)){var wp=last.nextElementSibling;if(wp&&wp.tagName==='P'){var card=document.createElement('div');card.className='kab-why';wp.parentNode.insertBefore(card,wp);card.appendChild(wp)}}
   }
-  function all(){paint();rows();deck();onerow();gallery();about()}
+  function all(){paint();rows();deck();heroTint();onerow();gallery();about()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
