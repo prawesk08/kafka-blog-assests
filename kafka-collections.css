@@ -235,3 +235,6 @@ html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3){grid-template-colu
 html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))!important;gap:16px!important;align-items:start!important;width:auto!important;max-width:none!important;position:static!important;margin:28px 0 0!important;padding:24px 0 0!important;border-top:1px solid rgba(184,144,74,.45)!important}
 html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side>*{margin:0!important;width:auto!important;max-width:none!important}
 html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side>.side-tail,html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side>.sbio{display:none!important}
+html.k-photos-page body article.static-page .prose:not(#c1):not(#c2):not(#c3){max-width:none!important}
+html.k-photos-page body .kphotos:not(#c1):not(#c2):not(#c3) .kgrid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))!important}
+@media (max-width:640px){html.k-photos-page body .kphotos:not(#c1):not(#c2):not(#c3) .kgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
