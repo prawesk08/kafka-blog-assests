@@ -65,7 +65,7 @@
 
   /* Photos page: numbered section heads with counts, a caption on each print, and a lightbox */
   function gallery(){
-    var root=document.querySelector('.kphotos'); if(!root||root.getAttribute('data-kg'))return; root.setAttribute('data-kg','1');
+    var root=document.querySelector('.kphotos'); if(!root||root.getAttribute('data-kg'))return; root.setAttribute('data-kg','1'); document.documentElement.classList.add('k-photos-page');
     var ROM=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'], all=[];
     [].forEach.call(root.querySelectorAll('h2'),function(h,i){
       var g=h.nextElementSibling; while(g&&!g.classList.contains('kgrid'))g=g.nextElementSibling;
@@ -131,7 +131,7 @@
     [].forEach.call(ab.querySelectorAll(':scope>p'),function(p){var s=p.textContent;if(/press\s+Listen/i.test(s))p.classList.add('kab-note');else if(/Subscribe/.test(s)&&/inbox/.test(s)){p.classList.add('kab-note');p.classList.add('kab-mail')}});
     /* "Why" section as a dark card with the Kafka line on top */
     var hs=ab.querySelectorAll(':scope>h2'), last=hs[hs.length-1];
-    if(last&&/Kafka/i.test(last.textContent)){var wp=last.nextElementSibling;if(wp&&wp.tagName==='P'){var card=document.createElement('div');card.className='kab-why';var qi=wp.querySelector('i');if(qi){var big=document.createElement('i');big.textContent=qi.textContent;card.appendChild(big)}wp.parentNode.insertBefore(card,wp);card.appendChild(wp)}}
+    if(last&&/Kafka/i.test(last.textContent)){var wp=last.nextElementSibling;if(wp&&wp.tagName==='P'){var card=document.createElement('div');card.className='kab-why';wp.parentNode.insertBefore(card,wp);card.appendChild(wp)}}
   }
   function all(){paint();rows();deck();onerow();gallery();about()}
   var t=0;

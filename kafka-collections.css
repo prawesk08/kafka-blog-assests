@@ -195,8 +195,8 @@ html body .kafka-about.kab:not(#c1):not(#c2):not(#c3)>p.kab-lead{font-size:1.16e
 html body .kafka-about.kab:not(#c1):not(#c2):not(#c3)>p.kab-lead::first-letter{float:left;margin:6px 10px 0 0;font:600 3.4em/.8 Fraunces,Georgia,serif;color:#7B2D26}
 .kab-pull{position:relative;margin:26px 0;padding:18px 24px 18px 64px;border-left:3px solid #b8904a;background:rgba(184,144,74,.07);font:italic 400 21px/1.45 Spectral,Georgia,serif;color:#3a2f25}
 .kab-pull::before{content:"\201C";position:absolute;left:16px;top:2px;font:600 64px/1 Fraunces,Georgia,serif;color:#b8904a}
-html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) h2{display:flex!important;align-items:center!important;gap:12px!important;margin:38px 0 16px!important;font:600 25px/1.2 Fraunces,Georgia,serif!important}
-html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) h2::after{content:"";flex:1 1 auto;height:1px;background:linear-gradient(90deg,rgba(184,144,74,.6),rgba(184,144,74,0))}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3)>h2{display:flex!important;align-items:center!important;gap:12px!important;margin:38px 0 16px!important;font:600 25px/1.2 Fraunces,Georgia,serif!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3)>h2::after{content:"";flex:1 1 auto;height:1px;background:linear-gradient(90deg,rgba(184,144,74,.6),rgba(184,144,74,0))}
 .kab-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 18px;padding:0;list-style:none}
 .kab-topic{position:relative;display:flex;gap:14px;align-items:flex-start;padding:16px 16px 16px 14px;border:1px solid rgba(123,45,38,.14);border-radius:6px;background:#fbf7ef;transition:border-color .2s ease,transform .2s ease}
 .kab-topic:hover{border-color:rgba(123,45,38,.4);transform:translateY(-2px)}
@@ -218,3 +218,20 @@ html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) h2::after{content:"";flex:
 html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kfollow .kf-lbl{background:none!important;padding:0!important;border-radius:0!important;color:#7b2d26!important;font-weight:700!important}
 html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kfollow .kf-h{color:#7b2d26!important;font-weight:500!important}
 html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kfollow .kf-h:hover{text-decoration:underline!important}
+
+/* About fixes: hero pieces win over the page's own type rules */
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-hero h2.kab-name{display:block!important;margin:0!important;font:600 32px/1.1 Fraunces,Georgia,serif!important;color:#1f1a14!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-hero h2.kab-name span{display:block!important;margin-top:6px!important;font:italic 400 16px/1.3 Spectral,Georgia,serif!important;color:#6b5f52!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-hero img.kab-face{width:150px!important;height:150px!important;max-width:none!important;margin:0!important;border-radius:50%!important;object-fit:cover!important;object-position:50% 30%!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-roles span{font:600 11.5px/1.2 system-ui,sans-serif!important;padding:4px 10px!important;margin:0!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-so a{font:500 12.5px/1.2 system-ui,sans-serif!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-topic p{text-align:left!important;hyphens:none!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3)>p.kab-note{display:block!important;position:relative!important;padding:12px 16px 12px 58px!important;text-align:left!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3)>p.kab-note::before{position:absolute!important;left:16px!important;top:50%!important;transform:translateY(-50%)!important}
+.kab-why p i{color:#e8c98a;font-size:1.08em}
+@media (max-width:640px){html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-hero img.kab-face{width:120px!important;height:120px!important}html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-hero h2.kab-name{font-size:27px!important}}
+/* Photos page: no sidebar column; the sidebar blocks sit below the gallery, above the footer, in a row of cards */
+html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3){grid-template-columns:minmax(0,1fr)!important}
+html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))!important;gap:16px!important;align-items:start!important;width:auto!important;max-width:none!important;position:static!important;margin:28px 0 0!important;padding:24px 0 0!important;border-top:1px solid rgba(184,144,74,.45)!important}
+html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side>*{margin:0!important;width:auto!important;max-width:none!important}
+html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side>.side-tail,html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side>.sbio{display:none!important}
