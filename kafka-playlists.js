@@ -100,7 +100,7 @@
       var a = audio[p.path];
       if (a){ p.role = a.role; p.f = a.f; p.m = a.m; p.sf = a.sf; p.sm = a.sm; }
       var v = films[p.path];
-      if (v) p.film = v;
+      if (v){ p.film = v; if (!v.img) v.img = p.img; }
       byPath[p.path] = p;
     });
     /* join Nepali and English versions */
@@ -143,17 +143,42 @@
   /* which side of an entry to show */
   function side(e, lang){ return lang === "en" ? (e.en || e.ne) : (e.ne || e.en); }
 
-  var state = {queue:[], idx:-1, lang:pref, voice:"f", listName:""};
+  /* v3: the reader picks the narrator (female or male voice); remembered like the language */
+  var VS = "kpl-voice", vpref = "f";
+  try { vpref = localStorage.getItem(VS) === "m" ? "m" : "f"; } catch(x){}
+  var state = {queue:[], idx:-1, lang:pref, voice:vpref, listName:""};
+  function dur(p){ return (state.voice === "m" && p.sm) ? p.sm : (p.sf || 0); }
+  function voiceSwitch(){
+    var ne = state.lang === "ne";
+    return '<div class="kpl-langsw kpl-voicesw" role="group" aria-label="' + (ne ? "वाचकको स्वर" : "Narrator voice") + '">' +
+      '<button type="button" data-voice="f"' + (state.voice === "f" ? ' aria-pressed="true"' : ' aria-pressed="false"') + '>♀ ' + (ne ? "महिला स्वर" : "Female voice") + '</button>' +
+      '<button type="button" data-voice="m"' + (state.voice === "m" ? ' aria-pressed="true"' : ' aria-pressed="false"') + '>♂ ' + (ne ? "पुरुष स्वर" : "Male voice") + '</button>' +
+    '</div>';
+  }
+  function setVoice(v){
+    if (v === state.voice) return;
+    state.voice = v;
+    try { localStorage.setItem(VS, v); } catch(x){}
+    var playing = state.idx > -1 && !root.querySelector(".kpl-bar").hidden;
+    var pos = playing ? audioEl.currentTime / (audioEl.duration || 1) : 0, wasPaused = audioEl.paused;
+    render(root.__lists, true);
+    if (playing){
+      start();
+      if (wasPaused) audioEl.pause();
+      audioEl.addEventListener("loadedmetadata", function once(){ audioEl.currentTime = pos * audioEl.duration; audioEl.removeEventListener("loadedmetadata", once); });
+    }
+  }
   var audioEl = new Audio(); audioEl.preload = "none";
 
-  function render(lists){
+  function render(lists, keepBar){
     var html = '<header class="kpl-head">' +
       '<div class="kpl-hgroup"><p class="kpl-ne">हेर्नुहोस् र सुन्नुहोस्</p>' +
       '<p class="kpl-dek">' + (state.lang === "ne" ? "वाचन गरिएका कविता, लेख र चिठी, अनि तिनबाट बनेका चलचित्र।" : "Narrated poems, essays and letters, and the films made from them.") + '</p></div>' +
+      '<div class="kpl-sws" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center">' +
       '<div class="kpl-langsw" role="group" aria-label="Language">' +
         '<button type="button" data-lang="ne"' + (state.lang === "ne" ? ' aria-pressed="true"' : '') + '>नेपाली</button>' +
         '<button type="button" data-lang="en"' + (state.lang === "en" ? ' aria-pressed="true"' : '') + '>English</button>' +
-      '</div></header>' +
+      '</div>' + voiceSwitch() + '</div></header>' +
       '<nav class="kpl-jump" aria-label="Playlists">' + lists.map(function(L){ return '<a href="#kpl-' + L.pl.id + '">' + esc(state.lang === "ne" ? L.pl.ne : L.pl.en) + '</a>'; }).join("") + '</nav>' +
       '<div class="kpl-film" hidden><div class="kpl-film-stage"><video controls playsinline preload="metadata"></video></div><div class="kpl-film-meta"><b></b><button type="button" class="kpl-film-x" aria-label="Close film">Close</button></div></div>';
     lists.forEach(function(L){
@@ -172,12 +197,12 @@
     html += '<div class="kpl-bar" hidden><img class="kpl-bar-img" alt=""/><div class="kpl-bar-txt"><b></b><span></span></div>' +
       '<div class="kpl-bar-ctl"><button type="button" data-act="prev" aria-label="Previous">&#9198;</button><button type="button" data-act="toggle" class="kpl-bar-main" aria-label="Play or pause">&#9654;</button><button type="button" data-act="next" aria-label="Next">&#9197;</button></div>' +
       '<div class="kpl-bar-time"><span class="kpl-cur">0:00</span><input type="range" min="0" max="1000" value="0" aria-label="Seek"/><span class="kpl-dur">0:00</span></div>' +
-      '<button type="button" data-act="voice" class="kpl-bar-voice" title="Switch narrator voice">♀</button><button type="button" data-act="close" class="kpl-bar-x" aria-label="Close player">×</button></div>';
+      '<button type="button" data-act="voice" class="kpl-bar-voice" title="Switch narrator voice">' + (state.voice === "m" ? "♂" : "♀") + '</button><button type="button" data-act="close" class="kpl-bar-x" aria-label="Close player">×</button></div>';
     root.innerHTML = html;
     root.__lists = lists;
     wire();
   }
-  function total(items){ return items.reduce(function(t,e){ var p = side(e, state.lang); return t + (p.sf || 0); }, 0); }
+  function total(items){ return items.reduce(function(t,e){ var p = side(e, state.lang); return t + dur(p); }, 0); }
   function secHead(pl, n, sec, sortable){
     var ne = state.lang === "ne";
     return '<div class="kpl-sec-head"><h2>' + esc(ne ? pl.ne : pl.en) + ' <span>' + esc(ne ? pl.en : pl.ne) + '</span></h2>' +
@@ -198,8 +223,8 @@
       '<span class="kpl-pic">' + (p.img ? '<img loading="lazy" alt="" src="' + esc(p.img) + '"/>' : '') + '<i aria-hidden="true">&#9654;</i></span>' +
       '<span class="kpl-num">' + npNum(i + 1, state.lang) + '</span>' +
       '<span class="kpl-txt"><b lang="' + p.lang + '">' + esc(p.title) + '</b>' +
-      '<span class="kpl-meta">' + (p.sf ? clock(p.sf) : "") + (both ? ' · <span class="kpl-pair">नेपाली + English</span>' : (p.lang === "ne" ? " · नेपाली" : " · English")) + '</span></span>' +
-      '<span class="kpl-acts">' + (film ? '<button type="button" class="kpl-filmbtn" data-film="' + esc(film.path) + '">Film ' + clock(film.duration) + '</button>' : '') +
+      '<span class="kpl-meta">' + (dur(p) ? clock(dur(p)) : "") + (both ? ' · <span class="kpl-pair">नेपाली + English</span>' : (p.lang === "ne" ? " · नेपाली" : " · English")) + '</span></span>' +
+      '<span class="kpl-acts">' + (film ? '<button type="button" class="kpl-filmbtn" data-film="' + esc(film.path) + '">Film' + (film.duration ? ' ' + clock(film.duration) : '') + '</button>' : '') +
       '<a class="kpl-read" href="' + esc(p.path) + '">' + (p.lang === "ne" ? "पढ्नुहोस्" : "Read") + '</a></span></li>';
   }
 
@@ -225,6 +250,10 @@
     var file = state.voice === "m" && p.m ? p.m : p.f;
     audioEl.src = AUDIO + file;
     audioEl.play().catch(function(){});
+    fillBar(p);
+  }
+  function fillBar(p){
+    if (!p) return;
     var bar = root.querySelector(".kpl-bar"); bar.hidden = false;
     bar.querySelector(".kpl-bar-img").src = p.img || "";
     bar.querySelector(".kpl-bar-txt b").textContent = p.title;
@@ -243,16 +272,19 @@
     var v = filmsByPath[path]; if (!v) return;
     var box = root.querySelector(".kpl-film"), vid = box.querySelector("video");
     audioEl.pause();
-    vid.poster = v.poster || ""; vid.src = v.src; box.hidden = false;
+    vid.poster = v.poster || String(v.img || "").replace(/=s\d+(-c)?$/, "=w1280").replace(/\/s\d+(-c)?\//, "/w1280/"); vid.src = v.src; box.hidden = false;
     box.querySelector("b").textContent = v.title;
     box.scrollIntoView({behavior:"smooth", block:"center"});
     vid.play().catch(function(){});
   }
 
   function wire(){
-    root.addEventListener("click", function(ev){
+    /* render() runs again on a language or voice change; the click handler must only be added once */
+    if (!root.__kplClick){ root.__kplClick = 1; root.addEventListener("click", function(ev){
       var t = ev.target;
       var lang = t.closest("[data-lang]");
+      var vsw = t.closest("[data-voice]");
+      if (vsw){ setVoice(vsw.getAttribute("data-voice")); return; }
       if (lang){ state.lang = lang.getAttribute("data-lang"); try { localStorage.setItem(LS, state.lang); } catch(x){} render(root.__lists); return; }
       var srt = t.closest("[data-sort]");
       if (srt){
@@ -274,8 +306,8 @@
         if (a === "toggle"){ if (audioEl.paused) audioEl.play(); else audioEl.pause(); }
         else if (a === "next") step(1);
         else if (a === "prev"){ if (audioEl.currentTime > 5) audioEl.currentTime = 0; else step(-1); }
-        else if (a === "voice"){ var pos = audioEl.currentTime / (audioEl.duration || 1); state.voice = state.voice === "f" ? "m" : "f"; act.textContent = state.voice === "f" ? "♀" : "♂"; start(); audioEl.addEventListener("loadedmetadata", function once(){ audioEl.currentTime = pos * audioEl.duration; audioEl.removeEventListener("loadedmetadata", once); }); }
-        else if (a === "close"){ audioEl.pause(); root.querySelector(".kpl-bar").hidden = true; }
+        else if (a === "voice") setVoice(state.voice === "f" ? "m" : "f");
+        else if (a === "close"){ audioEl.pause(); root.querySelector(".kpl-bar").hidden = true; state.idx = -1; }
         return;
       }
       var li = t.closest(".kpl-item");
@@ -283,19 +315,39 @@
         if (li.classList.contains("is-on")){ if (audioEl.paused) audioEl.play(); else audioEl.pause(); return; }
         play(li.getAttribute("data-list"), +li.getAttribute("data-i"));
       }
-    });
+    }); }
     var bar = root.querySelector(".kpl-bar"), rng = bar.querySelector("input"), main = bar.querySelector(".kpl-bar-main");
     audioEl.ontimeupdate = function(){ if (!audioEl.duration) return; rng.value = Math.round(1000 * audioEl.currentTime / audioEl.duration); bar.querySelector(".kpl-cur").textContent = clock(audioEl.currentTime); bar.querySelector(".kpl-dur").textContent = clock(audioEl.duration); };
     audioEl.onplay = function(){ main.innerHTML = "&#10074;&#10074;"; root.classList.add("kpl-playing"); var v = root.querySelector(".kpl-film video"); if (v && !v.paused) v.pause(); };
     audioEl.onpause = function(){ main.innerHTML = "&#9654;"; root.classList.remove("kpl-playing"); };
     audioEl.onended = function(){ step(1); };
     rng.oninput = function(){ if (audioEl.duration) audioEl.currentTime = audioEl.duration * rng.value / 1000; };
+    /* keep the player bar showing the current piece after a re-render */
+    if (state.idx > -1 && audioEl.src){ fillBar(state.queue[state.idx]); main.innerHTML = audioEl.paused ? "&#9654;" : "&#10074;&#10074;"; }
   }
 
   var filmsByPath = {};
   root.innerHTML = '<p class="kpl-loading">Loading playlists…</p>';
-  Promise.all([loadFeed(), getJSON(AUDIO + "manifest.json"), getJSON(AUDIO + "video-manifest.json")]).then(function(r){
-    var films = (r[2] && r[2].videos) || {};
+  /* v2 (2026-11-27): R2's video manifest is now flat, {"/path.html": {slug, title, l, category, v16, v9}}.
+     The older shape was {videos: {path: {src, poster, duration, ...}}}. Films that R2 no longer lists keep their
+     src in video-captions.json on assets, so both files are read and merged. */
+  var FILM_SKIP = {"/2025/04/hippies.html": 1};
+  function filmList(man, cap){
+    var out = {}, k;
+    if (man && man.videos){ for (k in man.videos) out[k] = man.videos[k]; }
+    else if (man){ for (k in man){ var e = man[k]; if (k.charAt(0) === "/" && e && e.v16) out[k] = {slug: e.slug, title: e.title, lang: e.l, src: AUDIO + e.v16}; } }
+    var cv = (cap && cap.videos) || {};
+    for (k in cv){
+      if (!out[k] && !cv[k].src) continue;
+      var m = out[k] || {}, c = cv[k], f;
+      for (f in c) m[f] = c[f];
+      out[k] = m;
+    }
+    for (k in FILM_SKIP) delete out[k];
+    return out;
+  }
+  Promise.all([loadFeed(), getJSON(AUDIO + "manifest.json"), getJSON(AUDIO + "video-manifest.json"), getJSON("https://assets.kafka.blog/video-captions.json")]).then(function(r){
+    var films = filmList(r[2], r[3]);
     Object.keys(films).forEach(function(k){ films[k].path = k; filmsByPath[k] = films[k]; });
     build(r[0], r[1] || {}, films);
     /* v2: search engines get the list of films on this page (ItemList pointing at each film's post) */

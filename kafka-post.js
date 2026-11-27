@@ -1594,6 +1594,27 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
   var CAPTIONS_URL = "https://assets.kafka.blog/video-captions.json";
   var path = location.pathname;
 
+  /* v193: since 2026-11-27 the R2 manifest is a flat list, {"/path.html": {slug, title, l, category, v16, v9}},
+     with paths relative to audio.kafka.blog. The older shape was {videos: {path: {src, poster, ...}}}. Read both. */
+  var AUDIO_BASE = "https://audio.kafka.blog/";
+  /* films the owner has said not to show on the blog, even if R2 lists them */
+  var FILM_SKIP = {"/2025/04/hippies.html": 1};
+  function fromFlat(e){
+    if (!e || !e.v16) return null;
+    var cat = String(e.category || "");
+    return {
+      slug: e.slug, title: e.title, lang: e.l || "en", category: cat,
+      type: cat === "documentaries" ? "documentary" : (/^letters/.test(cat) ? "story" : "poem"),
+      src: AUDIO_BASE + e.v16, src9: e.v9 ? AUDIO_BASE + e.v9 : ""
+    };
+  }
+  function manifestEntry(m, p){
+    if (!m || FILM_SKIP[p]) return null;
+    if (m.videos) return m.videos[p] || null;
+    return fromFlat(m[p]);
+  }
+  function metaContent(sel){ var el = document.head.querySelector(sel); return el ? (el.getAttribute("content") || "") : ""; }
+
   function esc(s){
     return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
   }
@@ -1650,7 +1671,7 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       "name": item.title,
       "description": item.description,
       "thumbnailUrl": [item.poster],
-      "uploadDate": item.uploadDate + "T00:00:00Z",
+      "uploadDate": (item.uploadDate || "2026-11-27") + "T00:00:00Z",
       "duration": item.durationIso,
       "contentUrl": item.src,
       "url": (document.querySelector("link[rel=canonical]") || {}).href || (location.origin + location.pathname),
@@ -1686,7 +1707,9 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     fig.className = "kvid-wrap" + (item.type === "poem" ? " kvid-poem" : " kvid-doc");
     fig.setAttribute("data-kvid-slug", item.slug);
     var isNe = item.lang === "ne";
-    var badge = item.type === "poem" ? (isNe ? "कविता चलचित्र" : "Poetry Film") : (isNe ? "वृत्तचित्र" : "Documentary Film");
+    var badge = item.type === "poem" ? (isNe ? "कविता चलचित्र" : "Poetry Film")
+      : item.type === "story" ? (isNe ? "वाचन चलचित्र" : "Narrated Film")
+      : (isNe ? "वृत्तचित्र" : "Documentary Film");
     var shareLabel = isNe ? "सेयर क्याप्सन" : "Share caption";
     var capText = (item.social && item.social.short) ? item.social.short : (item.title + " " + location.href);
 
@@ -1698,7 +1721,7 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       '</div>' +
       '<figcaption class="kvid-meta">' +
         '<div class="kvid-bar">' +
-          '<span class="kvid-tag">' + esc(badge) + ' · ' + esc(fmtDur(item.duration)) + (item.series ? ' · ' + (isNe ? "भाग " : "Part ") + item.series.part + (isNe ? " / " : " of ") + item.series.of : '') + '</span>' +
+          '<span class="kvid-tag">' + esc(badge) + '<span class="kvid-dur">' + (item.duration ? ' · ' + esc(fmtDur(item.duration)) : '') + '</span>' + (item.series ? ' · ' + (isNe ? "भाग " : "Part ") + item.series.part + (isNe ? " / " : " of ") + item.series.of : '') + '</span>' +
           '<button type="button" class="kvid-share" aria-label="' + esc(shareLabel) + '">' + esc(shareLabel) + '</button>' +
         '</div>' +
         (item.heading ? '<p class="kvid-head" lang="' + esc(item.lang || "en") + '">' + esc(item.heading) + '</p>' : '') +
@@ -1709,6 +1732,11 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       '</figcaption>';
 
     var vid = fig.querySelector("video");
+    /* v193: R2's flat manifest has no running time; show it once the browser knows it */
+    if (!item.duration) vid.addEventListener("loadedmetadata", function(){
+      var d = fig.querySelector(".kvid-dur");
+      if (d && isFinite(vid.duration) && vid.duration > 0) d.textContent = " · " + fmtDur(vid.duration);
+    });
     vid.addEventListener("play", function(){
       Array.prototype.forEach.call(document.querySelectorAll("audio"), function(a){ try { if (!a.paused) a.pause(); } catch(e){} });
     });
@@ -1756,11 +1784,31 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     "/2026/11/the-story-of-roman-britannia-part-ii.html":"documentary",
     "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html":"documentary",
     "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html":"documentary",
-    "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html":"documentary"
+    "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html":"documentary",
+    /* v193: narrated poem and letter films uploaded to R2 on 2026-11-27 */
+    "/2025/12/juthi.html":"poem", "/2024/10/aaja-mero-janmadin.html":"poem", "/2025/11/again.html":"poem",
+    "/2025/03/bhavsunya.html":"poem", "/2025/05/buddha.html":"poem", "/2025/04/cat.html":"poem",
+    "/2025/04/chaaturey.html":"poem", "/2026/01/city.html":"poem", "/2025/04/coldfeeling.html":"poem",
+    "/2026/02/coldnepal.html":"poem", "/2025/04/collectivestupidity.html":"poem", "/2026/01/comrade.html":"poem",
+    "/2026/01/congress.html":"poem", "/2025/04/deshbhakti.html":"poem", "/2025/03/dhuwanma-chaleko-sahar.html":"poem",
+    "/2025/04/e-timi.html":"poem", "/2025/04/gravidsoul.html":"poem", "/2025/04/ho-ma-bahula-hun.html":"poem",
+    "/2025/04/karkidai.html":"poem", "/2025/10/lettertome.html":"poem", "/2026/01/love.html":"poem",
+    "/2025/06/soil.html":"poem", "/2025/10/mapinroom.html":"poem", "/2025/05/meyouus.html":"poem",
+    "/2025/04/mirageofpolitics.html":"poem", "/2025/10/misicinnepal.html":"poem", "/2025/12/mycity.html":"poem",
+    "/2025/11/nepal-2.html":"poem", "/2025/06/nepal.html":"poem", "/2026/06/nomad.html":"poem",
+    "/2025/09/nostalgia.html":"poem", "/2026/01/prithivi.html":"poem", "/2025/04/questions.html":"poem",
+    "/2026/01/ramita.html":"poem", "/2025/03/realityofdreams.html":"poem", "/2025/10/shadow.html":"poem",
+    "/2025/04/silence.html":"poem", "/2025/04/silentbuddha.html":"poem", "/2025/04/silentimage.html":"poem",
+    "/2025/04/storminside.html":"poem", "/2025/07/sunandflower.html":"poem", "/2025/03/u-dhruva-ma-parikrama.html":"poem",
+    "/2025/08/usaka-lagi-kabita.html":"poem", "/2025/04/blue-ode-to-you_3.html":"poem", "/2025/04/dreams-poetry-sunsets.html":"poem",
+    "/2025/04/muse.html":"poem", "/2025/04/note-to-self.html":"poem", "/2025/04/old-house-across-the-street.html":"poem",
+    "/2025/04/she-is-not-here-but-she-is-everywhere.html":"poem", "/2025/04/sunsets-again.html":"poem", "/2026/06/the-long-way-back.html":"poem",
+    "/2026/04/the-name-i-once-wore.html":"poem", "/2026/02/happy-birthday.html":"story", "/2025/03/poetry.html":"story"
   };
+  var kvidGone = false;
   function holdPlace(){
     var t = KVID_PATHS[path];
-    if (!t || document.querySelector(".kvid-wrap:not(.kvid-hold)")) return;
+    if (!t || kvidGone || document.querySelector(".kvid-wrap:not(.kvid-hold)")) return;
     injectStyles();
     var hold = document.querySelector(".kvid-hold");
     if (!hold){
@@ -1850,14 +1898,18 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
   function getJSON(u){ return fetch(u, {cache: "default"}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
   Promise.all([getJSON(MANIFEST_URL), getJSON(CAPTIONS_URL)])
     .then(function(res){
-      var base = (res[0] && res[0].videos && res[0].videos[path]) || null;
+      var base = manifestEntry(res[0], path);
       var over = (res[1] && res[1].videos && res[1].videos[path]) || null;
       if (!base && !(over && over.src)){ dropHold(); return; }
       var item = {}, k;
       for (k in (base || {})) item[k] = base[k];
       for (k in (over || {})) item[k] = over[k];
+      /* entries from the flat manifest carry only a title: borrow the post's own picture and summary */
+      if (!item.poster) item.poster = metaContent('meta[property="og:image"]');
+      if (!item.description) item.description = metaContent('meta[name="description"]') || metaContent('meta[property="og:description"]');
+      if (!item.alt) item.alt = item.title || "";
       mountVideo(item);
     })
     .catch(dropHold);
-  function dropHold(){ var h = document.querySelector(".kvid-hold"); if (h && h.parentNode) h.parentNode.removeChild(h); }
+  function dropHold(){ kvidGone = true; var h = document.querySelector(".kvid-hold"); if (h && h.parentNode) h.parentNode.removeChild(h); }
 })();
