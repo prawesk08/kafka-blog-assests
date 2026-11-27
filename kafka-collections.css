@@ -469,6 +469,7 @@ html body #kafka-home article.plane.pinned:not(#kp1):not(#kp2):not(#kp3):not(#kp
 
 
 
+
 /* ===== Homepage compaction: less scrolling (v2) ===== */
 html body #kafka-home .sec-h:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14){margin:12px 0 6px!important;padding-top:4px!important;min-height:0!important}
 html body #kafka-home .sec-h:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14)>img{width:36px!important;height:36px!important}
@@ -935,8 +936,8 @@ html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):n
 }
 /* Phones: header keeps the desktop layout (text left, art right), art smaller */
 @media (max-width:640px){
-html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20){background-size:auto,auto 100%!important;background-position:0 0,100% 50%!important;background-repeat:no-repeat!important}
-html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .who{max-width:60%!important;width:60%!important}
+html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20){background-image:linear-gradient(90deg,rgba(251,250,247,.97) 0%,rgba(251,250,247,.93) 50%,rgba(251,250,247,0) 74%),url("https://lh3.googleusercontent.com/d/1m8m6ip29R8rhCm4OPeqmzG-_a40A07xs=w1000-rw")!important;background-size:auto,cover!important;background-position:0 0,72% 50%!important;background-repeat:no-repeat!important}
+html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .who{max-width:58%!important;width:58%!important}
 html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .kbio p.tags{display:flex!important;flex-wrap:wrap!important;gap:3px!important;margin:0 0 5px!important}
 html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .kbio p.tags>*{font-size:9px!important;padding:1px 6px!important;margin:0!important;line-height:1.4!important}
 html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .kbio p.line{display:block!important;font-size:12.5px!important;line-height:1.35!important;margin:0 0 3px!important;max-width:none!important;width:auto!important}
@@ -944,4 +945,4 @@ html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):n
 html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .kbio p.kq img,html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .kbio p.kq svg{width:18px!important;height:18px!important}
 }
 
-/* sidephone-v7 */
+/* sidephone-v8 */
