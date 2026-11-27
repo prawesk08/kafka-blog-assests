@@ -432,3 +432,8 @@ html body ol.klist.ranked:not(#kr1):not(#kr2):not(#kr3):not(#kr4):not(#kr5):not(
 html body aside.side:not(#ka1):not(#ka2):not(#ka3):not(#ka4):not(#ka5):not(#ka6):not(#ka7):not(#ka8):not(#ka9):not(#ka10):not(#ka11)>nav.box.lists{align-self:stretch!important}
 html body nav.box.lists:not(#kl1):not(#kl2):not(#kl3):not(#kl4):not(#kl5):not(#kl6):not(#kl7):not(#kl8):not(#kl9):not(#kl10):not(#kl11):not(#kl12):not(#kl13):not(#kl14):not(#kl15)>a{flex:1 1 auto!important}
 }
+
+/* homepage "where to start" rows: cream canvas tinted by each row's photo, like the other lists */
+html body .kstart5:not(#k5x1):not(#k5x2):not(#k5x3):not(#k5x4):not(#k5x5):not(#k5x6):not(#k5x7):not(#k5x8):not(#k5x9):not(#k5x10):not(#k5x11)>a.k5{position:relative!important;isolation:isolate!important;overflow:hidden!important;background:#f8f2e7!important;border:1px solid rgba(80,60,40,.12)!important}
+html body .kstart5:not(#k5x1):not(#k5x2):not(#k5x3):not(#k5x4):not(#k5x5):not(#k5x6):not(#k5x7):not(#k5x8):not(#k5x9):not(#k5x10):not(#k5x11)>a.k5::before{content:""!important;display:block!important;position:absolute!important;inset:-40px!important;z-index:-1!important;background-image:var(--kbg,none)!important;background-size:cover!important;background-position:center!important;filter:blur(38px) saturate(1.25)!important;opacity:.42!important;pointer-events:none!important}
+html body .kstart5:not(#k5x1):not(#k5x2):not(#k5x3):not(#k5x4):not(#k5x5):not(#k5x6):not(#k5x7):not(#k5x8):not(#k5x9):not(#k5x10):not(#k5x11)>a.k5:hover{border-color:rgba(80,60,40,.24)!important;box-shadow:0 3px 10px rgba(60,40,20,.10)!important}
