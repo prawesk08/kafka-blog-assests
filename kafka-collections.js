@@ -268,6 +268,7 @@
             [['‹','Previous',-1],['›','More',1]].forEach(function(d){var b=document.createElement('button');b.type='button';b.textContent=d[0];b.setAttribute('aria-label',d[1]);b.addEventListener('click',function(){st.scrollBy({left:d[2]*Math.max(200,st.clientWidth*.8),behavior:'smooth'})});nav.appendChild(b)});
             head.appendChild(nav);function fit(){nav.style.visibility=st.scrollWidth>st.clientWidth+4?'':'hidden'}setTimeout(fit,300);window.addEventListener('resize',fit);window.addEventListener('load',fit)})(strip)}}
         strip.appendChild(k);
+        var im=k.querySelector('.kt-art img'); if(im&&!k.style.getPropertyValue('--kbg'))k.style.setProperty('--kbg','url("'+(im.currentSrc||im.src).replace(/"/g,'%22')+'")');
       });
     });
   }
