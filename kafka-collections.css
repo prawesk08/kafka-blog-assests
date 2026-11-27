@@ -242,3 +242,5 @@ html.k-photos-page body .kphotos:not(#c1):not(#c2):not(#c3) .kgrid{grid-template
 html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side:not(#c4){display:block!important;columns:4 250px!important;column-gap:16px!important}
 html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side:not(#c4)>*{display:block!important;width:100%!important;break-inside:avoid!important;-webkit-column-break-inside:avoid!important;margin:0 0 16px!important;box-sizing:border-box!important}
 html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side:not(#c4)>.side-tail,html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side:not(#c4)>.sbio,html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side:not(#c4)>:empty{display:none!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-ic svg{display:block!important;width:22px!important;height:22px!important;stroke:#fff!important;fill:none!important;color:#fff!important;opacity:1!important}
+html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-ic svg *{stroke:#fff!important}
