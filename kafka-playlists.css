@@ -115,3 +115,4 @@
   #kplaylists .kpl-play-all{padding:5px 10px!important}
   #kplaylists .kpl-item{grid-template-columns:62px 22px minmax(0,1fr)!important;column-gap:6px!important}
 }
+#kplaylists .kpl-sec-head p{white-space:nowrap!important}
