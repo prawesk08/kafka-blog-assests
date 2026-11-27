@@ -66,7 +66,7 @@
   function hours(sec){ var m = Math.round(sec/60); return m < 60 ? m + " min" : Math.floor(m/60) + " h " + (m % 60) + " min"; }
   function npNum(n, lang){ var s = String(n); return lang === "ne" ? s.replace(/\d/g, function(d){ return "०१२३४५६७८९"[d]; }) : s; }
   function cleanTitle(t){ return String(t || "").replace(/[।.]+\s*$/,"").trim(); }
-  function bigThumb(u){ return u ? u.replace(/\/s\d+(-c)?\//, "/s240-c/").replace(/=s\d+(-c)?$/, "=s240-c") : ""; }
+  function bigThumb(u){ return u ? u.replace(/\/s\d+(-[a-z0-9-]+)?\//, "/s240-c/").replace(/=s\d+[^\/=]*$/, "=s240-c") : ""; }
 
   function loadFeed(){
     var out = [], step = 150;
@@ -86,7 +86,8 @@
             lang: labels.indexOf("lang-ne") > -1 ? "ne" : labels.indexOf("lang-en") > -1 ? "en" : (/[ऀ-ॿ]/.test(e.title.$t) ? "ne" : "en")
           });
         });
-        return ents.length === step ? page(start + step) : out;
+        var total = +((j.feed.openSearch$totalResults || {}).$t || 0);
+        return (ents.length && start - 1 + ents.length < total) ? page(start + ents.length) : out;
       });
     }
     return page(1);
