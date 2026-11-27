@@ -36,7 +36,7 @@
 #kplaylists .kpl-sub h3 span{font-size:12.5px!important}
 
 /* strip: one row, or two rows from 8 items; scrolls sideways */
-#kplaylists ol.kpl-strip{list-style:none!important;margin:0!important;padding:2px 0 10px!important;display:grid!important;grid-auto-flow:column!important;grid-auto-columns:minmax(300px,330px)!important;grid-template-rows:auto!important;gap:10px!important;overflow-x:auto!important;scroll-snap-type:x proximity!important;scrollbar-width:thin!important}
+#kplaylists ol.kpl-strip{list-style:none!important;margin:0!important;padding:2px 0 10px!important;display:grid!important;grid-auto-flow:column!important;grid-auto-columns:calc((100% - 10px) / 2)!important;grid-template-rows:auto!important;gap:10px!important;overflow-x:auto!important;scroll-snap-type:x proximity!important;scrollbar-width:thin!important}
 #kplaylists ol.kpl-strip.kpl-two{grid-template-rows:auto auto!important}
 
 /* row card: small photo left, centred; translucent canvas tinted by the photo */
@@ -85,7 +85,7 @@
 
 @media (max-width:640px){
   #kplaylists .kpl-h1{font-size:23px!important}
-  #kplaylists ol.kpl-strip{grid-auto-columns:84%!important}
+  #kplaylists ol.kpl-strip{grid-auto-columns:100%!important}
   #kplaylists .kpl-item{min-height:80px!important;grid-template-columns:62px 26px minmax(0,1fr)!important}
   #kplaylists .kpl-pic{width:62px!important;height:62px!important}
   #kplaylists .kpl-num{font-size:15px!important}
