@@ -296,6 +296,7 @@ window.kTiny=window.kTiny||function(u,n){
   function kSet(cols,H,root){cols.forEach(function(c){c.forEach(function(e,i){if(e&&H[i]>kH(e)+0.5){kRule(e,root,'min-height:'+H[i].toFixed(2)+'px!important');kRule(e,root,'align-self:stretch!important;justify-content:space-between!important','>.k5-b')}})})}
   function rowSync(){
     kRules=[];if(kSheet)kSheet.textContent='';
+    if(window.innerWidth<=700){kFlush();return}
     var k3=document.querySelector('.kstart3');
     if(k3){var c3=Array.prototype.map.call(k3.querySelectorAll(':scope>.k3col'),function(c){return Array.prototype.slice.call(c.querySelectorAll(':scope>.k5'))});
       if(!kOneCol(c3)){var n3=Math.max.apply(null,c3.map(function(c){return c.length})),H3=[];for(var i=0;i<n3;i++){H3[i]=0;c3.forEach(function(c){H3[i]=Math.max(H3[i],kH(c[i]))})}kSet(c3,H3,k3)}}
