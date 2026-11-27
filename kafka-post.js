@@ -1815,6 +1815,9 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     }
 
     place();
+    /* v191: lists link films as post#kfilm; bring the film into view */
+    fig.id = fig.id || "kfilm";
+    if (location.hash === "#kfilm") setTimeout(function(){ try { fig.scrollIntoView({block: "center"}); } catch (e) {} }, 700);
     if (document.readyState !== "complete") window.addEventListener("load", place);
     setTimeout(place, 500); setTimeout(place, 1600); setTimeout(place, 3500);
     var rt;

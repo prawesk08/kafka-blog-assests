@@ -1049,3 +1049,6 @@ html body a.k5:not(#kz) .k5-d .k5-ic{position:absolute!important;right:9px!impor
 html body a.k5:not(#kz) .k5-d .k5-ic.k5-listen{top:calc(50% - 27px)!important}
 html body a.k5:not(#kz) .k5-d .k5-ic.kact-share{top:calc(50% + 3px)!important}
 html body a.k5:not(#kz) .k5-d .ktr-b{position:absolute!important;left:11px!important;top:calc(50% + 4px)!important;margin:0!important;transform:scale(.86);transform-origin:left top;z-index:2}
+html body a.k5:not(#kz) .k5-d .k5-ic.k5-film{top:calc(50% + 3px)!important;cursor:pointer}
+html body a.k5:not(#kz) .k5-d .k5-ic.k5-film svg{width:14px;height:14px}
+html body a.k5:not(#kz) .k5-d .k5-ic.k5-film.is-off{opacity:.32;cursor:default;pointer-events:none}

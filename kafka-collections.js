@@ -330,7 +330,25 @@ window.kTiny=window.kTiny||function(u,n){
     Array.prototype.forEach.call(document.querySelectorAll('.kstart3>.k3col .k5-t,.three ol.klist>li .kl-t,.three ol.klist>li>div,.kd-door'),function(e){if(kSeen.indexOf(e)<0){kSeen.push(e);kRO.observe(e)}});
     kSeen=kSeen.filter(function(e){if(document.contains(e))return true;kRO.unobserve(e);return false})}
   window.addEventListener('resize',evenUp);window.addEventListener('load',evenUp);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(evenUp);
-  function all(){shelves();order();paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();homeTint();partThumbs();danda();evenUp()}
+  /* v8: in list rows the share button becomes a film button; faded until that post has a film */
+  var kFilms=null,kFilmP=null;
+  function kFilmList(){if(!kFilmP)kFilmP=Promise.all(['https://audio.kafka.blog/video-manifest.json','https://assets.kafka.blog/video-captions.json'].map(function(u){return fetch(u).then(function(r){return r.ok?r.json():null}).catch(function(){return null})})).then(function(r){var m={};r.forEach(function(j){if(j&&j.videos)Object.keys(j.videos).forEach(function(k){if(j.videos[k]&&(j.videos[k].src||j===r[0]))m[k]=1})});kFilms=m;return m});return kFilmP}
+  var FILM_SVG='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M10 9.2v5.6l4.6-2.8z" fill="currentColor"></path></svg>';
+  function filmButtons(){
+    var sh=document.querySelectorAll('a.k5 .k5-d .kact-share');if(!sh.length)return;
+    kFilmList().then(function(m){
+      Array.prototype.forEach.call(document.querySelectorAll('a.k5 .k5-d .kact-share'),function(b){
+        var a=b.closest('a.k5'),u=a&&a.getAttribute('href')||'',p=u.replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0],has=!!m[p];
+        var v=document.createElement('span');v.className='k5-ic k5-film'+(has?'':' is-off');v.innerHTML=FILM_SVG;
+        if(has){v.setAttribute('role','link');v.tabIndex=0;v.setAttribute('data-to',p+'#kfilm');v.title='Watch the film';v.setAttribute('aria-label','Watch the film')}
+        else{v.title='Film coming later';v.setAttribute('aria-hidden','true')}
+        b.parentNode.replaceChild(v,b);
+      });
+    });
+  }
+  document.addEventListener('click',function(e){var v=e.target.closest&&e.target.closest('.k5-film');if(!v)return;e.preventDefault();e.stopPropagation();var to=v.getAttribute('data-to');if(to)location.href=to},true);
+  document.addEventListener('keydown',function(e){if(e.key!=='Enter')return;var v=e.target.closest&&e.target.closest('.k5-film[data-to]');if(v){e.preventDefault();location.href=v.getAttribute('data-to')}},true);
+  function all(){shelves();order();paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();listNotes();tagWheel();serCounts();startTint();startSubs();homeTint();partThumbs();danda();filmButtons();evenUp()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
