@@ -12,6 +12,36 @@
   root.setAttribute("data-kpl-ready", "1");
 
   var AUDIO = "https://audio.kafka.blog/";
+  /* v4: share card (always links back to the post), full screen and Spotify come from kafka-share.js */
+  function loadShare(cb){
+    if (window.KShare) return cb();
+    var sc = document.createElement("script"); sc.src = "https://assets.kafka.blog/kafka-share.js?v=1"; sc.async = true; sc.onload = cb;
+    document.head.appendChild(sc);
+  }
+  var SH_IC = {
+    share: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.9l7.6-3.7M8.2 13.1l7.6 3.7"/></svg>',
+    fs: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+    sp: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.4 9.8c3.2-1 6.9-.7 9.6.8M8 12.7c2.7-.8 5.5-.5 7.7.7M8.7 15.4c2.1-.6 4.1-.3 5.9.5"/></svg>'
+  };
+  function shareText(title, lang, what){
+    var ne = lang === "ne";
+    return what === "film" ? (ne ? title + " (चलचित्र) — बासभ · Kafkaintherun" : title + " (film) — Basava · Kafkaintherun")
+                           : (ne ? title + " (वाचन) — बासभ · Kafkaintherun" : title + " (narration) — Basava · Kafkaintherun");
+  }
+  function openShare(o){
+    loadShare(function(){
+      window.KShare.spotify(o.path, o.lang, function(sp){
+        var ne = o.lang === "ne";
+        window.KShare.open({
+          title: o.title, lang: o.lang, img: o.img, spotify: sp,
+          kind: o.what === "film" ? (ne ? "चलचित्र सेयर गर्नुहोस्" : "Share this film") : (ne ? "वाचन सेयर गर्नुहोस्" : "Share this narration"),
+          url: "https://www.kafka.blog" + o.path + (o.what === "film" ? "#kfilm" : "#klisten"),
+          text: shareText(o.title, o.lang, o.what)
+        });
+      });
+    });
+  }
+  loadShare(function(){});
   var LS = "kpl-lang";
 
   /* Pairs that the blog does not mark with a pair-* label yet (English path, Nepali path) */
@@ -180,7 +210,11 @@
         '<button type="button" data-lang="en"' + (state.lang === "en" ? ' aria-pressed="true"' : '') + '>English</button>' +
       '</div>' + voiceSwitch() + '</div></header>' +
       '<nav class="kpl-jump" aria-label="Playlists">' + lists.map(function(L){ return '<a href="#kpl-' + L.pl.id + '">' + esc(state.lang === "ne" ? L.pl.ne : L.pl.en) + '</a>'; }).join("") + '</nav>' +
-      '<div class="kpl-film" hidden><div class="kpl-film-stage"><video controls playsinline preload="metadata"></video></div><div class="kpl-film-meta"><b></b><button type="button" class="kpl-film-x" aria-label="Close film">Close</button></div></div>';
+      '<div class="kpl-film" hidden><div class="kpl-film-stage"><video controls playsinline preload="metadata"></video></div><div class="kpl-film-meta"><b></b><span class="kpl-film-acts" style="display:inline-flex;gap:6px;align-items:center;margin-left:auto;flex:0 0 auto">' +
+        '<button type="button" class="ksh-ic" data-fshare aria-label="' + (state.lang === "ne" ? "चलचित्र सेयर गर्नुहोस्" : "Share video") + '" title="' + (state.lang === "ne" ? "चलचित्र सेयर गर्नुहोस्" : "Share video") + '">' + SH_IC.share + '</button>' +
+        '<button type="button" class="ksh-ic" data-ffs aria-label="' + (state.lang === "ne" ? "पूर्ण स्क्रिन" : "Full screen") + '" title="' + (state.lang === "ne" ? "पूर्ण स्क्रिन" : "Full screen") + '">' + SH_IC.fs + '</button>' +
+        '<a class="ksh-ic ksh-sp" data-fsp target="_blank" rel="noopener" aria-label="Listen on Spotify" title="Listen on Spotify" href="https://open.spotify.com/show/43tPb3BsR0uvj6YpPSJEwp">' + SH_IC.sp + '</a>' +
+      '</span><button type="button" class="kpl-film-x" aria-label="Close film">Close</button></div></div>';
     lists.forEach(function(L){
       var pl = L.pl;
       if (L.shelves){
@@ -224,7 +258,8 @@
       '<span class="kpl-num">' + npNum(i + 1, state.lang) + '</span>' +
       '<span class="kpl-txt"><b lang="' + p.lang + '">' + esc(p.title) + '</b>' +
       '<span class="kpl-meta">' + (dur(p) ? clock(dur(p)) : "") + (both ? ' · <span class="kpl-pair">नेपाली + English</span>' : (p.lang === "ne" ? " · नेपाली" : " · English")) + '</span></span>' +
-      '<span class="kpl-acts">' + (film ? '<button type="button" class="kpl-filmbtn" data-film="' + esc(film.path) + '">Film' + (film.duration ? ' ' + clock(film.duration) : '') + '</button>' : '') +
+      '<span class="kpl-acts" style="justify-content:flex-end">' + (film ? '<button type="button" class="kpl-filmbtn" data-film="' + esc(film.path) + '">Film' + (film.duration ? ' ' + clock(film.duration) : '') + '</button>' : '') +
+      '<button type="button" class="ksh-ic kpl-share" data-path="' + esc(p.path) + '" data-title="' + esc(p.title) + '" data-sl="' + esc(p.lang) + '" data-img="' + esc(p.img || "") + '" aria-label="' + (state.lang === "ne" ? "सेयर गर्नुहोस्" : "Share") + ' ' + esc(p.title) + '" title="' + (state.lang === "ne" ? "सेयर गर्नुहोस्" : "Share") + '">' + SH_IC.share + '</button>' +
       '<a class="kpl-read" href="' + esc(p.path) + '">' + (p.lang === "ne" ? "पढ्नुहोस्" : "Read") + '</a></span></li>';
   }
 
@@ -274,6 +309,8 @@
     audioEl.pause();
     vid.poster = v.poster || String(v.img || "").replace(/=s\d+(-c)?$/, "=w1280").replace(/\/s\d+(-c)?\//, "/w1280/"); vid.src = v.src; box.hidden = false;
     box.querySelector("b").textContent = v.title;
+    box.__film = v;
+    loadShare(function(){ window.KShare.spotify(v.path, v.lang === "ne" ? "ne" : "en", function(u){ var a = box.querySelector("[data-fsp]"); if (a) a.href = u; }); });
     box.scrollIntoView({behavior:"smooth", block:"center"});
     vid.play().catch(function(){});
   }
@@ -299,6 +336,11 @@
       var all = t.closest(".kpl-play-all"); if (all){ play(all.getAttribute("data-list"), 0); return; }
       var fb = t.closest(".kpl-filmbtn"); if (fb){ showFilm(fb.getAttribute("data-film")); return; }
       if (t.closest(".kpl-film-x")){ var box = root.querySelector(".kpl-film"); box.querySelector("video").pause(); box.hidden = true; return; }
+      var shb = t.closest(".kpl-share");
+      if (shb){ openShare({what: "audio", path: shb.getAttribute("data-path"), title: shb.getAttribute("data-title"), lang: shb.getAttribute("data-sl"), img: shb.getAttribute("data-img")}); return; }
+      var fbx = t.closest(".kpl-film");
+      if (fbx && t.closest("[data-fshare]")){ var fv = fbx.__film; if (fv) openShare({what: "film", path: fv.path, title: fv.heading || fv.title, lang: fv.lang === "ne" ? "ne" : "en", img: fv.poster || fv.img || ""}); return; }
+      if (fbx && t.closest("[data-ffs]")){ loadShare(function(){ window.KShare.fullscreen(fbx.querySelector(".kpl-film-stage"), fbx.querySelector("video")); }); return; }
       if (t.closest("a")) return;
       var act = t.closest("[data-act]");
       if (act){
