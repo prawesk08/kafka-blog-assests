@@ -1,12 +1,12 @@
 /* kafka-collections.js v2
-   1. gives each small list card (sidebar/footer ol.klist) its featured photo as --kbg, for the blurred photo canvas
+   1. gives each list block (ol.klist, ol.kser-items rows, article.kcard) its featured photo as --kbg, for the blurred photo canvas
    2. post rows (ol.kser-items on category/series/literature pages, article.kcard on home/label/search pages):
       moves the number out of the photo into its own column, splits "Title: Subtitle" so the two get different type,
       and marks Devanagari titles/subtitles with .kt-ne (the li lang attribute is not reliable) */
 (function(){
   var DEV=/[ऀ-ॿ]/;
   function paint(root){
-    [].forEach.call((root||document).querySelectorAll('ol.klist>li'),function(el){
+    [].forEach.call((root||document).querySelectorAll('ol.klist>li, ol.kser-items>li, article.kcard'),function(el){
       if(el.getAttribute('data-kbg'))return; var img=el.querySelector('img'); if(!img)return;
       var src=img.currentSrc||img.getAttribute('src'); if(!src||/^data:/.test(src))return;
       var v='url("'+src.replace(/"/g,'%22')+'")'; el.style.setProperty('--kbg',v); el.setAttribute('data-kbg','1');
