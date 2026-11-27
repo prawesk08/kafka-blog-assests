@@ -1052,3 +1052,18 @@ html body a.k5:not(#kz) .k5-d .ktr-b{position:absolute!important;left:11px!impor
 html body a.k5:not(#kz) .k5-d .k5-ic.k5-film{top:calc(50% + 3px)!important;cursor:pointer}
 html body a.k5:not(#kz) .k5-d .k5-ic.k5-film svg{width:14px;height:14px}
 html body a.k5:not(#kz) .k5-d .k5-ic.k5-film.is-off{opacity:.32;cursor:default;pointer-events:none}
+/* v8: pinned series - more room for the parts, smaller explainer text, photos centred on the left */
+@media (min-width:701px){
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) article.kps{grid-template-columns:140px minmax(0,1fr) minmax(0,1.2fr)!important;align-items:center!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) article.kps>.kps-pic{align-self:center!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts{align-self:center!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts>li{display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;grid-template-rows:auto 1fr!important;column-gap:12px!important;row-gap:4px!important;align-items:center!important;overflow:visible!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts>li>.kps-th{grid-column:1!important;grid-row:1/span 2!important;align-self:center!important;margin:0!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts>li>.kps-no{grid-column:2!important;grid-row:1!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) ol.kps-parts>li>.kps-pt{grid-column:2!important;grid-row:2!important}
+}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-lede{font-size:13.5px!important;line-height:1.5!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-bhajan blockquote,html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-bhajan blockquote *{font-size:14px!important;line-height:1.5!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-parts .kps-d{font-size:12.5px!important;line-height:1.5!important}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-parts .kps-row{flex-wrap:nowrap!important;min-width:0}
+html body .pin-pair:not(#kz):not(#kz2):not(#kz3) .kps-parts .kps-en{display:none!important}
