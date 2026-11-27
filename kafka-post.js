@@ -79,6 +79,10 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       {p:'/2026/11/bifar-nepali-itihas-bhag-1-shitala-maju.html',t:'\u092d\u093e\u0917 \u0967: \u0930\u0923\u092c\u0939\u093e\u0926\u0941\u0930 \u0936\u093e\u0939 \u0930 \u0936\u0940\u0924\u0932\u093e \u092e\u093e\u091c\u0941'},
       {p:'/2026/11/bifar-nepali-itihas-bhag-2-khop.html',t:'\u092d\u093e\u0917 \u0968: \u0916\u094b\u092a \u0930 \u0967\u096b\u096f \u0935\u0930\u094d\u0937\u0915\u094b \u092f\u093e\u0924\u094d\u0930\u093e'}
     ]},
+    {id:'memoir-ne',name:'\u0906\u092b\u094d\u0928\u0948 \u0938\u0902\u0938\u094d\u092e\u0930\u0923 (Memoir)',url:'/search/label/Stories',art:'header-stories',lang:'ne',items:[
+      {p:'/2025/03/booksandauthors.html',t:'\u092d\u093e\u0917 \u0967: \u0915\u093f\u0924\u093e\u092c\u0915\u093e \u0915\u0941\u0930\u093e'},
+      {p:'/2025/03/poetry.html',t:'\u092d\u093e\u0917 \u0968: \u0915\u0935\u093f\u0924\u093e\u0915\u093e \u0915\u0941\u0930\u093e'}
+    ]},
     {id:'viruses-en',name:'Viruses and Cancer',url:'/p/biology-and-cancer.html',art:'header-science',lang:'en',items:[
       {p:'/2026/11/viruses-that-live-in-us-and-cancer-part-1.html',t:'Part I: Viruses, Cancer and the First Human Oncovirus'},
       {p:'/2026/11/viruses-that-live-in-us-and-cancer-part-2.html',t:'Part II: Why Not Everyone Gets Cancer'}
