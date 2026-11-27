@@ -3,6 +3,7 @@
   try{
     var p=location.pathname;
     if(!/^\/\d{4}\/\d{2}\/.+\.html$/.test(p))return;
+    if(document.getElementById("kaudio-schema"))return; /* v5: the build already wrote it into the page */
     fetch("https://audio.kafka.blog/manifest.json").then(function(r){return r.ok?r.json():null}).then(function(m){
       var e=m&&m[p];if(!e)return;
       function iso(s){s=Math.round(s);var h=Math.floor(s/3600),mi=Math.floor(s%3600/60),se=s%60;
@@ -16,7 +17,7 @@
           "duration":iso(e[k[1]]),"inLanguage":lang,"isPartOf":{"@type":"BlogPosting","@id":url+"#post","url":url}});
       });
       if(!out.length)return;
-      var s=document.createElement("script");s.type="application/ld+json";
+      var s=document.createElement("script");s.type="application/ld+json";s.id="kaudio-schema";
       s.text=JSON.stringify({"@context":"https://schema.org","@graph":out});
       document.head.appendChild(s);
     }).catch(function(){});
@@ -125,7 +126,7 @@
       ["ig","Instagram","https://www.instagram.com/naharchowck/"],
       ["tt","TikTok","https://www.tiktok.com/@naharchowck"],
       ["ap","Apple Podcasts","https://podcasts.apple.com/us/podcast/kafkaintherun/id6839536736"],
-      ["sp","Spotify","https://open.spotify.com/search/Kafkaintherun/podcasts"]
+      ["sp","Spotify","https://open.spotify.com/show/43tPb3BsR0uvj6YpPSJEwp"]
     ];
     function listen(){
       var li=document.querySelector(".post-head .klisten.top-of-post")||document.querySelector(".post-head .kl-ph");
