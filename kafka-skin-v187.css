@@ -215,3 +215,10 @@ header.post-head>.klisten.top-of-post{min-height:44px}
 header.post-head>.kser-mini,.kser-mini{min-height:38px}
 header.post-head>.kshare.top{min-height:36px}
 @media (max-width:700px){header.post-head{min-height:132px}}
+
+/* v188: post header settles before it shows. The scripts add the kicker, subtitle and the Share/Listen/Follow row after first paint,
+   which pushed the poem or essay down on phones. The header and everything after it stay invisible (space still laid out) until
+   kafka-collections.js sees the header stop changing and adds body.k-hd-ok; the animation is a fallback if scripts fail. */
+@keyframes k-hd-show{to{visibility:visible}}
+body.is-post:not(.k-hd-ok) #Blog1>header.post-head,
+body.is-post:not(.k-hd-ok) #Blog1>header.post-head~*{visibility:hidden;animation:k-hd-show 0s linear 2.5s forwards}

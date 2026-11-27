@@ -360,3 +360,16 @@ window.kTiny=window.kTiny||function(u,n){
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
 })();
+
+/* v10: show the post header only once it has settled (see the k-hd-ok rule in kafka-skin). Watches the header height, the title
+   height and where the text starts; reveals after 350 ms without change, or at 1.5 s whatever happens. */
+(function(){
+  var b=document.body;if(!b||!b.classList.contains('is-post')||b.classList.contains('k-hd-ok'))return;
+  var t0=Date.now(),last='',since=t0;
+  function sig(){var h=document.querySelector('#Blog1>header.post-head');if(!h)return'x';var t=h.querySelector('h1'),p=document.querySelector('#Blog1>.prose,#Blog1>article');
+    return [h.offsetHeight,t?t.offsetHeight:0,p?Math.round(p.getBoundingClientRect().top+scrollY):0,h.childElementCount].join(',')}
+  function done(){b.classList.add('k-hd-ok')}
+  (function tick(){var now=Date.now(),s=sig();if(s!==last){last=s;since=now}
+    if(now-since>=350||now-t0>=1500)return done();
+    setTimeout(tick,50)})();
+})();
