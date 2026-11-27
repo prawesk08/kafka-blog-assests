@@ -470,6 +470,7 @@ html body #kafka-home article.plane.pinned:not(#kp1):not(#kp2):not(#kp3):not(#kp
 
 
 
+
 /* ===== Homepage compaction: less scrolling (v2) ===== */
 html body #kafka-home .sec-h:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14){margin:12px 0 6px!important;padding-top:4px!important;min-height:0!important}
 html body #kafka-home .sec-h:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14)>img{width:36px!important;height:36px!important}
@@ -944,5 +945,10 @@ html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):n
 html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .kbio p.kq{max-width:none!important;font-size:12px!important;padding:4px 8px!important;margin:4px 0 0!important;gap:6px!important}
 html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .kbio p.kq img,html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .kbio p.kq svg{width:18px!important;height:18px!important}
 }
+/* Phones: shelf headings on one line */
+@media (max-width:640px){
+html body .static-page:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) h2.kafka-list-shelf{font-size:18px!important;line-height:1.25!important;padding:7px 4px!important;margin:10px 0 0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+html body .static-page:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) h2.kafka-list-shelf::before{font-size:9.5px!important;letter-spacing:.14em!important}
+}
 
-/* sidephone-v8 */
+/* sidephone-v9 */
