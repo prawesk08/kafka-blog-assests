@@ -508,7 +508,7 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
           bar.style.visibility='hidden';
           document.body.appendChild(bar);
           (function kfReveal(n){
-            if(document.getElementById('kl-v2-css')||n>=25){requestAnimationFrame(function(){requestAnimationFrame(function(){bar.style.visibility='';});});return;}
+            if(document.getElementById('kl-v2-css')||n>=25){setTimeout(function(){bar.style.visibility='';},60);return;}
             setTimeout(function(){kfReveal(n+1);},100);
           })(0);
           var ticking=false;
