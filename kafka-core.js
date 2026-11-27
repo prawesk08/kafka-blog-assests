@@ -1210,9 +1210,12 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
 
 /* v204: share buttons - one set, one order, top bar and floating bar alike */
 (function () {
-  var ORDER = ['copy', 'facebook', 'x', 'reddit', 'substack', 'email', 'sms', 'instagram', 'snapchat', 'tiktok', 'medium', 'tumblr'];
-  var LABEL = { reddit: 'Share on Reddit', substack: 'Share on Substack', email: 'Share by email', sms: 'Share by text message', medium: 'Share on Medium' };
+  var ORDER = ['copy', 'facebook', 'x', 'whatsapp', 'telegram', 'linkedin', 'reddit', 'substack', 'email', 'sms', 'instagram', 'snapchat', 'tiktok', 'medium', 'tumblr'];
+  var LABEL = { whatsapp: 'Share on WhatsApp', telegram: 'Share on Telegram', linkedin: 'Share on LinkedIn', reddit: 'Share on Reddit', substack: 'Share on Substack', email: 'Share by email', sms: 'Share by text message', medium: 'Share on Medium' };
   var ICON = {
+    whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#25D366"/><path d="M12 5.2a6.8 6.8 0 0 0-5.8 10.3L5.3 18.7l3.3-.9A6.8 6.8 0 1 0 12 5.2z" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.6 9.2c.2-.4.5-.4.7-.3l.5 1.1c.1.2 0 .4-.2.6l-.3.4c.5 1 1.3 1.7 2.3 2.2l.4-.4c.2-.2.4-.2.6-.1l1.1.5c.2.1.2.4.1.7-.4.9-1.3 1.1-2.2.8-1.7-.6-3.1-2-3.6-3.7-.1-.6 0-1.2.6-1.8z" fill="#fff"/></svg>',
+    telegram: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#29A9EB"/><path d="M5.6 11.7l11.6-4.5c.5-.2 1 .1.8.9l-2 9.3c-.1.6-.5.8-1 .5l-3-2.2-1.4 1.4c-.2.2-.3.3-.6.3l.2-3.1 5.6-5c.2-.2 0-.3-.4-.1l-6.9 4.3-3-.9c-.6-.2-.6-.6.1-.9z" fill="#fff"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#0A66C2"/><rect x="6" y="9.6" width="2.4" height="8" fill="#fff"/><circle cx="7.2" cy="6.9" r="1.4" fill="#fff"/><path d="M10.6 9.6H13v1.1c.4-.7 1.2-1.3 2.4-1.3 2.2 0 2.9 1.4 2.9 3.4v4.8h-2.4v-4.3c0-1-.3-1.7-1.2-1.7-1 0-1.5.7-1.5 1.8v4.2h-2.4z" fill="#fff"/></svg>',
     reddit: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#FF4500"/><ellipse cx="12" cy="14" rx="6" ry="4.2" fill="#fff"/><circle cx="9.6" cy="13.6" r="1.1" fill="#FF4500"/><circle cx="14.4" cy="13.6" r="1.1" fill="#FF4500"/><path d="M9.6 16.2c1.4.9 3.4.9 4.8 0" stroke="#FF4500" stroke-width="1" fill="none" stroke-linecap="round"/><circle cx="17.2" cy="8.4" r="1.2" fill="#fff"/><path d="M12 9.8l.9-3.6 3.4.9" stroke="#fff" stroke-width="1.1" fill="none"/></svg>',
     substack: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#FF6719"/><path d="M6.5 6.5h11M6.5 10h11M6.5 13.5V18.5l5.5-3 5.5 3v-5z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>',
     email: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#4A4540"/><rect x="5" y="7.5" width="14" height="9.5" rx="1.6" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M5.6 8.6l6.4 5 6.4-5" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>',
@@ -1232,6 +1235,9 @@ window.KAFKA_LINKFIX={"/search/label/Excavating Time":"/p/sumer.html","/search/l
     return (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function () { toast(box, msg); }, function () { toast(box, u); });
   }
   var NEWNET = {
+    whatsapp: function () { var p = pageInfo(); window.open('https://wa.me/?text=' + encodeURIComponent(p.title + ' ' + p.url), '_blank', 'noopener'); },
+    telegram: function () { var p = pageInfo(); window.open('https://t.me/share/url?url=' + encodeURIComponent(p.url) + '&text=' + encodeURIComponent(p.title), '_blank', 'noopener'); },
+    linkedin: function () { var p = pageInfo(); window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(p.url), '_blank', 'noopener,width=620,height=640'); },
     reddit: function () { var p = pageInfo(); window.open('https://www.reddit.com/submit?url=' + encodeURIComponent(p.url) + '&title=' + encodeURIComponent(p.title), '_blank', 'noopener,width=620,height=640'); },
     email: function () { var p = pageInfo(); location.href = 'mailto:?subject=' + encodeURIComponent(p.title) + '&body=' + encodeURIComponent(p.url); },
     sms: function () { var p = pageInfo(); location.href = 'sms:?&body=' + encodeURIComponent(p.title + ' ' + p.url); },
