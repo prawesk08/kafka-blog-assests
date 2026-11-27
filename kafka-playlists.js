@@ -243,7 +243,7 @@
     var v = filmsByPath[path]; if (!v) return;
     var box = root.querySelector(".kpl-film"), vid = box.querySelector("video");
     audioEl.pause();
-    vid.poster = v.poster || v.img || ""; vid.src = v.src; box.hidden = false;
+    vid.poster = v.poster || String(v.img || "").replace(/=s\d+(-c)?$/, "=w1280").replace(/\/s\d+(-c)?\//, "/w1280/"); vid.src = v.src; box.hidden = false;
     box.querySelector("b").textContent = v.title;
     box.scrollIntoView({behavior:"smooth", block:"center"});
     vid.play().catch(function(){});
