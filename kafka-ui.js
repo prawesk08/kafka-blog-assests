@@ -1,3 +1,15 @@
+/* v7: the tinted canvases are blurred 10-38px, so they only need a tiny copy of the photo.
+   Using the full-size photo there cost ~7.7 MB on the homepage (PageSpeed, 2026-11-27). */
+window.kTiny=window.kTiny||function(u,n){
+  if(!u||/^data:/.test(u))return u;n=n||96;var W='=w'+n+'-rw';
+  if(/googleusercontent\.com|blogspot\.com|ggpht\.com/.test(u)){
+    if(/\/d\/[^\/=?]+(=[^\/?]*)?$/.test(u))return u.replace(/(\/d\/[^\/=?]+)(=[^\/?]*)?$/,'$1'+W);
+    if(/\/(s|w)\d+[^\/]*\/[^\/]+$/.test(u))return u.replace(/\/(s|w)\d+[^\/]*\/([^\/]+)$/,'/w'+n+'/$2');
+    if(/=[swh]\d+[^\/?]*$/.test(u))return u.replace(/=[swh]\d+[^\/?]*$/,W);
+    return u+W;
+  }
+  return u;
+};
 (function(){
   var CHEV='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
   function artUrl(key,w){
@@ -521,7 +533,7 @@ try{(function(){
     pending=all(1).then(function(){map=m;try{sessionStorage.setItem(KEY,JSON.stringify({t:Date.now(),m:m}))}catch(e){}return m}).catch(function(){return m});
     return pending;
   }
-  function paint(el,url){el.style.setProperty('--kbg','url("'+String(url).replace(/"/g,'%22')+'")');el.classList.add('has-kbg')}
+  function paint(el,url){url=String(url);if(window.kTiny)url=kTiny(url,el.matches('.kmore-link,.kser-hero span')?240:96);el.style.setProperty('--kbg','url("'+url.replace(/"/g,'%22')+'")');el.classList.add('has-kbg')}
   function run(){
     var cur=document.querySelector('.kser-hero li.is-cur>span:not(.has-kbg)');
     var og=document.querySelector('meta[property="og:image"]');

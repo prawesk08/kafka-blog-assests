@@ -7,13 +7,25 @@
    6. post rows (ol.kser-items on category/series/literature pages, article.kcard on home/label/search pages):
       moves the number out of the photo into its own column, splits "Title: Subtitle" so the two get different type,
       and marks Devanagari titles/subtitles with .kt-ne (the li lang attribute is not reliable) */
+/* v7: the tinted canvases are blurred 10-38px, so they only need a tiny copy of the photo.
+   Using the full-size photo there cost ~7.7 MB on the homepage (PageSpeed, 2026-11-27). */
+window.kTiny=window.kTiny||function(u,n){
+  if(!u||/^data:/.test(u))return u;n=n||96;var W='=w'+n+'-rw';
+  if(/googleusercontent\.com|blogspot\.com|ggpht\.com/.test(u)){
+    if(/\/d\/[^\/=?]+(=[^\/?]*)?$/.test(u))return u.replace(/(\/d\/[^\/=?]+)(=[^\/?]*)?$/,'$1'+W);
+    if(/\/(s|w)\d+[^\/]*\/[^\/]+$/.test(u))return u.replace(/\/(s|w)\d+[^\/]*\/([^\/]+)$/,'/w'+n+'/$2');
+    if(/=[swh]\d+[^\/?]*$/.test(u))return u.replace(/=[swh]\d+[^\/?]*$/,W);
+    return u+W;
+  }
+  return u;
+};
 (function(){
   var DEV=/[ऀ-ॿ]/;
   function paint(root){
     [].forEach.call((root||document).querySelectorAll('ol.klist>li, ol.kser-items>li, article.kcard'),function(el){
       if(el.getAttribute('data-kbg'))return; var img=el.querySelector('img'); if(!img)return;
       var src=img.currentSrc||img.getAttribute('src'); if(!src||/^data:/.test(src))return;
-      var v='url("'+src.replace(/"/g,'%22')+'")'; el.style.setProperty('--kbg',v); el.setAttribute('data-kbg','1');
+      var v='url("'+kTiny(src).replace(/"/g,'%22')+'")'; el.style.setProperty('--kbg',v); el.setAttribute('data-kbg','1');
       var pic=el.querySelector('a.pic'); if(pic)pic.style.setProperty('--kbg',v);
     });
   }
@@ -22,7 +34,7 @@
     [].forEach.call((root||document).querySelectorAll('.kser-deck .kser-card'),function(c){
       if(c.getAttribute('data-kbg'))return; var img=c.querySelector('.kser-thumb img'); if(!img)return;
       var src=img.currentSrc||img.getAttribute('src'); if(!src||/^data:/.test(src))return;
-      c.style.setProperty('--kbg','url("'+src.replace(/"/g,'%22')+'")'); c.setAttribute('data-kbg','1');
+      c.style.setProperty('--kbg','url("'+kTiny(src).replace(/"/g,'%22')+'")'); c.setAttribute('data-kbg','1');
     });
   }
   function split(a){
@@ -86,7 +98,7 @@
     [].forEach.call(document.querySelectorAll('.kser-deck a.kser-card'),function(c){var img=c.querySelector('.kser-thumb img');if(img)map[c.getAttribute('href').replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0]]=img.getAttribute('src')});
     [].forEach.call(nav.querySelectorAll('ol>li>a'),function(a){
       if(a.classList.contains('has-kbg'))return; var src=map[a.getAttribute('href').replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0]]; if(!src)return;
-      a.style.setProperty('--kbg','url("'+src.replace(/"/g,'%22')+'")'); a.classList.add('has-kbg');
+      a.style.setProperty('--kbg','url("'+kTiny(src).replace(/"/g,'%22')+'")'); a.classList.add('has-kbg');
     });
   }
   /* Photos page: stretch the last photo of each section to the end of its row, so a section never ends with a hole */
@@ -195,7 +207,7 @@
   /* series list: copy the piece count into data-n so CSS can show it as a tile */
   function serCounts(){[].forEach.call(document.querySelectorAll('.kserlist a.kser-row>.cnt:not([data-n])'),function(c){var m=c.textContent.match(/\d+/);c.setAttribute('data-n',m?m[0]:'')})}
   /* homepage start rows: copy each row's photo into --kbg for the tinted canvas */
-  function startTint(){[].forEach.call(document.querySelectorAll('.kstart5>a.k5:not([data-kt]),.k3col>a.k5:not([data-kt])'),function(a){var s=a.querySelector('.k5-img');var m=s&&(s.getAttribute('style')||'').match(/url\((['"]?)(.*?)\1\)/);if(!m)return;a.setAttribute('data-kt','1');a.style.setProperty('--kbg','url("'+m[2].replace(/"/g,'%22')+'")')})}
+  function startTint(){[].forEach.call(document.querySelectorAll('.kstart5>a.k5:not([data-kt]),.k3col>a.k5:not([data-kt])'),function(a){var s=a.querySelector('.k5-img');var m=s&&(s.getAttribute('style')||'').match(/url\((['"]?)(.*?)\1\)/);if(!m)return;a.setAttribute('data-kt','1');a.style.setProperty('--kbg','url("'+kTiny(m[2]).replace(/"/g,'%22')+'")')})}
   /* homepage start rows: add the opening line of each post (from the summary feed) on the right */
   var subFeed=null;
   function startSubs(){var rows=document.querySelectorAll('.kstart5>a.k5:not([data-ks])');if(!rows.length||!window.fetch)return;[].forEach.call(rows,function(a){a.setAttribute('data-ks','1')});
@@ -203,11 +215,11 @@
     subFeed.then(function(m){[].forEach.call(rows,function(a){if(a.querySelector('.k5-s'))return;var s=m[a.getAttribute('href').replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0]];if(!s)return;var cut=s.match(/^(.{40,160}?[.।?!])(\s|$)/);s=cut?cut[1]:(s.length>150?s.slice(0,150).replace(/\s+\S*$/,'')+'…':s);var sp=document.createElement('span');sp.className='k5-s'+(/[\u0900-\u097F]/.test(s)?' kt-ne':'');sp.textContent=s;a.appendChild(sp)});danda()})}
   /* pinned-series part cards: small photo + tinted canvas from the feed thumbnail */
   var thFeed=null;
-  function partThumbs(){[].forEach.call(document.querySelectorAll('article.kps:not([data-kt])'),function(k){var im=k.querySelector('.kps-pic img');var u=im&&(im.currentSrc||im.src);if(!u)return;k.setAttribute('data-kt','1');k.style.setProperty('--kbg','url("'+u.replace(/"/g,'%22')+'")')});var lis=document.querySelectorAll('ol.kps-parts>li:not([data-kt])');if(!lis.length||!window.fetch)return;[].forEach.call(lis,function(li){li.setAttribute('data-kt','1')});
+  function partThumbs(){[].forEach.call(document.querySelectorAll('article.kps:not([data-kt])'),function(k){var im=k.querySelector('.kps-pic img');var u=im&&(im.currentSrc||im.src);if(!u)return;k.setAttribute('data-kt','1');k.style.setProperty('--kbg','url("'+kTiny(u).replace(/"/g,'%22')+'")')});var lis=document.querySelectorAll('ol.kps-parts>li:not([data-kt])');if(!lis.length||!window.fetch)return;[].forEach.call(lis,function(li){li.setAttribute('data-kt','1')});
     if(!thFeed)thFeed=fetch('/feeds/posts/summary?alt=json&max-results=60').then(function(r){return r.json()}).then(function(j){var m={};(j.feed.entry||[]).forEach(function(e){var l=(e.link||[]).filter(function(x){return x.rel==='alternate'})[0];var t=e.media$thumbnail&&e.media$thumbnail.url;if(l&&t)m[l.href.replace(/^https?:\/\/[^\/]+/,'')]=t.replace(/\/s72(-[a-z])?\//,'/w320/').replace(/=s72[^\/]*$/,'=w320')});return m}).catch(function(){return {}});
-    thFeed.then(function(m){[].forEach.call(lis,function(li){var a=li.querySelector('a.tt');if(!a||li.querySelector('.kps-th'))return;var u=m[a.getAttribute('href').replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0]];if(!u)return;var th=document.createElement('a');th.className='kps-th';th.href=a.href;th.setAttribute('aria-hidden','true');th.tabIndex=-1;var im=document.createElement('img');im.loading='lazy';im.alt='';im.src=u;th.appendChild(im);li.insertBefore(th,li.firstChild);li.style.setProperty('--kbg','url("'+u.replace(/"/g,'%22')+'")')})})}
+    thFeed.then(function(m){[].forEach.call(lis,function(li){var a=li.querySelector('a.tt');if(!a||li.querySelector('.kps-th'))return;var u=m[a.getAttribute('href').replace(/^https?:\/\/[^\/]+/,'').split(/[?#]/)[0]];if(!u)return;var th=document.createElement('a');th.className='kps-th';th.href=a.href;th.setAttribute('aria-hidden','true');th.tabIndex=-1;var im=document.createElement('img');im.loading='lazy';im.alt='';im.src=u;th.appendChild(im);li.insertBefore(th,li.firstChild);li.style.setProperty('--kbg','url("'+kTiny(u).replace(/"/g,'%22')+'")')})})}
   /* homepage feature cards: photo into --kbg for the tinted canvas */
-  function homeTint(){[].forEach.call(document.querySelectorAll('#kafka-home article.plane.pinned:not([data-kt]),#kafka-home .wheel-plane article.mini:not([data-kt]),#kafka-home .sq-grid article.sq:not([data-kt])'),function(a){var p=a.querySelector('a.pic');var m=p&&(p.getAttribute('style')||'').match(/--pic-bg:\s*url\((&quot;|["']?)(.*?)\1\)/);var src=m?m[2]:((p&&p.querySelector('img'))||{}).currentSrc;if(!src)return;a.setAttribute('data-kt','1');a.style.setProperty('--kbg','url("'+src.replace(/"/g,'%22')+'")')})}
+  function homeTint(){[].forEach.call(document.querySelectorAll('#kafka-home article.plane.pinned:not([data-kt]),#kafka-home .wheel-plane article.mini:not([data-kt]),#kafka-home .sq-grid article.sq:not([data-kt])'),function(a){var p=a.querySelector('a.pic');var m=p&&(p.getAttribute('style')||'').match(/--pic-bg:\s*url\((&quot;|["']?)(.*?)\1\)/);var src=m?m[2]:((p&&p.querySelector('img'))||{}).currentSrc;if(!src)return;a.setAttribute('data-kt','1');a.style.setProperty('--kbg','url("'+kTiny(src).replace(/"/g,'%22')+'")')})}
   /* List order: series pages start at part 1 (positions from the page's ItemList data); list, category and label pages get numbers and a switch between the two directions */
   function order(){
     var art=document.querySelector('.static-page'), groups=[], series=false, pos=null, host=null, off=0;
@@ -268,7 +280,7 @@
             [['‹','Previous',-1],['›','More',1]].forEach(function(d){var b=document.createElement('button');b.type='button';b.textContent=d[0];b.setAttribute('aria-label',d[1]);b.addEventListener('click',function(){st.scrollBy({left:d[2]*Math.max(200,st.clientWidth*.8),behavior:'smooth'})});nav.appendChild(b)});
             head.appendChild(nav);function fit(){nav.style.visibility=st.scrollWidth>st.clientWidth+4?'':'hidden'}setTimeout(fit,300);window.addEventListener('resize',fit);window.addEventListener('load',fit)})(strip)}}
         strip.appendChild(k);
-        var im=k.querySelector('.kt-art img'); if(im&&!k.style.getPropertyValue('--kbg'))k.style.setProperty('--kbg','url("'+(im.currentSrc||im.src).replace(/"/g,'%22')+'")');
+        var im=k.querySelector('.kt-art img'); if(im&&!k.style.getPropertyValue('--kbg'))k.style.setProperty('--kbg','url("'+kTiny(im.currentSrc||im.src).replace(/"/g,'%22')+'")');
       });
     });
   }
