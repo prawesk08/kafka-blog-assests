@@ -814,7 +814,7 @@ html body .kafka-list:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6
 html body .kafka-list:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14) .kshelf-strip>.kafka-item{flex:0 0 288px!important;width:288px!important;grid-template-columns:76px minmax(0,1fr)!important;column-gap:12px!important;padding:10px 12px 10px 10px!important}
 html body .kafka-list:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14) .kshelf-strip>.kafka-item>.kt-art{width:76px!important}
 html body .kafka-list:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14) .kshelf-strip>.kafka-item>h3{font-size:15.5px!important}
-html body .kafka-list:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14) .kshelf-strip:has(>.kafka-item:nth-child(8)){grid-auto-columns:288px!important}
+html body .kafka-list:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14) .kshelf-strip:has(>.kafka-item:nth-child(8)){display:flex!important}
 }
 
-/* shelves-v7 */
+/* shelves-v8 */
