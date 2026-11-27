@@ -1597,7 +1597,7 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       ".kvid-stage video{display:block;width:100%;height:100%;object-fit:cover;background:#141618}",
       ".kvid-meta{padding:11px 14px 12px;display:flex;flex-direction:column;gap:6px;font-family:var(--sans,system-ui,sans-serif)}",
       ".kvid-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}",
-      ".kvid-wrap .kvid-tag{font-size:11px!important;line-height:1.3!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:#a8665b!important;font-family:var(--sans,'Inter',system-ui,sans-serif)!important}",
+      ".kvid-wrap span.kvid-tag:not(#kv1):not(#kv2){font-size:11px!important;line-height:1.3!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:#a8665b!important;font-family:var(--sans,'Inter',system-ui,sans-serif)!important}",
       ".kvid-wrap .kvid-head{margin:0!important;font:600 17px/1.3 var(--serif,'Lora',Georgia,serif)!important;color:var(--ink,#1a1a18)!important;text-align:left!important}",
       ".kvid-wrap .kvid-head[lang=ne]{font-family:'Martel',var(--serif,serif)!important;font-size:16px!important;line-height:1.45!important}",
       ".kvid-wrap .kvid-cap{margin:0!important;font-size:13.5px!important;line-height:1.45!important;color:#4a4843!important;text-align:left!important}",
