@@ -258,7 +258,7 @@
     [].forEach.call(document.querySelectorAll('.kafka-list'),function(L){
       if(L.getAttribute('data-kstrip'))return;
       var kids=[].slice.call(L.children); if(!kids.some(function(k){return k.classList.contains('kafka-item')}))return;
-      L.setAttribute('data-kstrip','1');
+      L.setAttribute('data-kstrip','1'); if(L.closest('.static-page'))document.documentElement.classList.add('k-photos-page','k-shelf-page');
       var head=null, strip=null;
       kids.forEach(function(k){
         if(k.classList.contains('kafka-list-shelf')){head=k;strip=null;return}
