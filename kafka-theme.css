@@ -233,7 +233,7 @@ details.ktoc-box>summary{padding:6px 10px!important}
 .site-header .top{background:none!important}
 @media (max-width:700px){
 header.site-header{position:relative;isolation:isolate;background:#FBFAF7!important;border-bottom:1px solid rgba(25,25,24,.08)}
-header.site-header::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--kcat-art,url("https://lh3.googleusercontent.com/d/1MI5eUhUk92qsXnV71Qraa94USqGbCIu0=w1600")) no-repeat center top 24%/auto 250%;filter:saturate(.25)}
+header.site-header::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--kcat-art,url("https://img.kafka.blog/googleusercontent.com/d/1MI5eUhUk92qsXnV71Qraa94USqGbCIu0=w1600")) no-repeat center top 24%/auto 250%;filter:saturate(.25)}
 header.site-header::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(251,250,247,.55) 0%,rgba(251,250,247,.9) 30%,rgba(251,250,247,.9) 70%,rgba(251,250,247,.55) 100%)}
 header.site-header .top{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;max-width:none!important;width:100%!important;box-sizing:border-box;padding:7px 10px!important;border-radius:0!important}
 header.site-header .top>.logo{order:0!important;flex:0 0 auto}
