@@ -330,7 +330,7 @@ window.kTiny=window.kTiny||function(u,n){
  if(arts.length!==2||!arts.every(function(a){var h=a.querySelector('h3 a');return h&&/bifar/.test(h.getAttribute('href'))}))return;
  arts.sort(function(a,b){return /bhag-1/.test(a.querySelector('h3 a').href)?-1:1});
  var EN={'bhag-1':'https://www.kafka.blog/2026/11/smallpox-in-nepal-part-1-rana-bahadur-shitala-maju.html','bhag-2':'https://www.kafka.blog/2026/11/smallpox-in-nepal-part-2-vaccine-159-years.html'};
- var IMG='https://lh3.googleusercontent.com/d/1qEaYs8sB7xAtbPbDOT0rzzbj-WtTBXYy=w700';
+ var IMG='https://img.kafka.blog/googleusercontent.com/d/1qEaYs8sB7xAtbPbDOT0rzzbj-WtTBXYy=w700';
  var wrap=document.createElement('article');wrap.className='kps';wrap.setAttribute('lang','ne');
  var first=arts[0].querySelector('h3 a').getAttribute('href');
  var chip=arts[0].querySelector('.chip');
@@ -404,7 +404,7 @@ try{(function(){var D={'bhag-1':'सन् १७९९ मा बिफर द�
 /* v160 landing: where to start, language switch, part 1 buttons, first visit */
 (function(){function go(){try{(function(){
  if(!document.querySelector('#kview[data-view="home"]'))return;
- var A=window.KAFKA_ART||{};function art(k,w){return A[k]?'https://lh3.googleusercontent.com/d/'+A[k]+'=w'+(w||600):''}
+ var A=window.KAFKA_ART||{};function art(k,w){return A[k]?'https://img.kafka.blog/googleusercontent.com/d/'+A[k]+'=w'+(w||600):''}
  var LS={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
  var SS={get:function(k){try{return sessionStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{sessionStorage.setItem(k,v)}catch(e){}}};
  var first=false;if(!LS.get('kafka-seen')){LS.set('kafka-seen',String(Date.now()));SS.set('kafka-first','1')}if(SS.get('kafka-first')&&!LS.get('kafka-welcome-off'))first=true;
@@ -413,7 +413,7 @@ try{(function(){var D={'bhag-1':'सन् १७९९ मा बिफर द�
  var D=[['/p/history.html','header-history','इतिहास','History','Sumer, Roman Britannia, smallpox in Nepal'],['/p/science.html','header-science','विज्ञान','Science','Cancer and viruses, eels and lobsters'],['/p/nepali-kavita.html','header-poetry','कविता','Poetry','Poems in Nepali and English'],['/p/letters.html','header-letters','चिठी र कथा','Letters & stories','Letters, mostly unsent, and short stories']];
  var s=document.createElement('section');s.className='kdoors';s.setAttribute('aria-label','Where to start');
  var h='<div class="kd-top"><div><p class="kd-eyebrow">Where to start · कहाँबाट सुरु गर्ने?</p><p class="kd-line">History, science, poems and letters, in Nepali and English, by बासभ.</p></div><div class="kd-lang" role="group" aria-label="Language"><button type="button" data-l="all">All</button><button type="button" data-l="ne" lang="ne">नेपाली</button><button type="button" data-l="en">English</button></div></div>';
- var PICKS=[['/2025/04/hippies.html','History · English','Hippies: Music, Marijuana, Magic Bus and Kathmandu','How Kathmandu became the last stop of the hippie dream',''],['/2026/11/bifar-nepali-itihas-bhag-1-shitala-maju.html','History · नेपाली','बिफरको नेपाली इतिहास (भाग १): शीतला माजु','दरबारबाट लखेटिएकाहरूको पीडा, एउटा भजनमा','https://lh3.googleusercontent.com/d/1qEaYs8sB7xAtbPbDOT0rzzbj-WtTBXYy=w700'],['/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html','Science · English','The Mysterious Life of the Eel','Born in the ocean, raised in rivers, back to the sea','https://lh3.googleusercontent.com/d/1d3rkxX9NWDjsoSyS7Kwph0bUGPRy3kBy=w240']];
+ var PICKS=[['/2025/04/hippies.html','History · English','Hippies: Music, Marijuana, Magic Bus and Kathmandu','How Kathmandu became the last stop of the hippie dream',''],['/2026/11/bifar-nepali-itihas-bhag-1-shitala-maju.html','History · नेपाली','बिफरको नेपाली इतिहास (भाग १): शीतला माजु','दरबारबाट लखेटिएकाहरूको पीडा, एउटा भजनमा','https://img.kafka.blog/googleusercontent.com/d/1qEaYs8sB7xAtbPbDOT0rzzbj-WtTBXYy=w700'],['/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html','Science · English','The Mysterious Life of the Eel','Born in the ocean, raised in rivers, back to the sea','https://img.kafka.blog/googleusercontent.com/d/1d3rkxX9NWDjsoSyS7Kwph0bUGPRy3kBy=w240']];
  if(first)h+='<div class="kd-welcome"><button type="button" class="kd-x" aria-label="Close">×</button><div class="kd-wh"><span class="kd-wbadge">New here?</span><span class="kd-wt">Three good places to begin</span></div><div class="kd-picks">'+PICKS.map(function(p,i){return '<a class="kd-pick" href="'+p[0]+'"'+(/नेपाली/.test(p[1])?' lang="ne"':'')+'><span class="kd-pth" data-src="'+p[4]+'"><b>'+(i+1)+'</b></span><span class="kd-ptx"><span class="kd-pk" lang="en">'+p[1]+'</span><span class="kd-ptt">'+p[2]+'</span><span class="kd-pds">'+p[3]+'</span></span></a>'}).join('')+'</div></div>';
  h+='<div class="kd-grid">'+D.map(function(d){return '<a class="kd-door" href="'+d[0]+'" style="--dart:url('+art(d[1],700)+')"><span class="kd-ne" lang="ne">'+d[2]+'</span><span class="kd-en">'+d[3]+'</span><span class="kd-sub">'+d[4]+'</span><span class="kd-go">Explore ›</span></a>'}).join('')+'</div>';
  s.innerHTML=h;var sl=document.getElementById('kdoors-slot');if(sl)sl.replaceWith(s);else hero.insertAdjacentElement('afterend',s);
