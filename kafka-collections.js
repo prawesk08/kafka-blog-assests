@@ -373,3 +373,21 @@ window.kTiny=window.kTiny||function(u,n){
     if(now-since>=350||now-t0>=1500)return done();
     setTimeout(tick,50)})();
 })();
+
+/* v12: tap an item on a phone to show why it is on the shelf; tap again (or another item) to close */
+(function(){
+  var SEL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item', cur=null;
+  function why(it){return it.querySelector('.kafka-item-note,.kafka-item-quote')}
+  function mark(){[].forEach.call(document.querySelectorAll(SEL),function(it){if(why(it)&&!it.hasAttribute('tabindex'))it.setAttribute('tabindex','0')})}
+  document.addEventListener('click',function(e){
+    var it=e.target.closest&&e.target.closest(SEL);
+    if(cur&&cur!==it){cur.classList.remove('k-hl');cur=null}
+    if(!it||(e.target.closest&&e.target.closest('a'))||!why(it))return;
+    it.classList.toggle('k-hl');cur=it.classList.contains('k-hl')?it:null;
+  },true);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&cur){cur.classList.remove('k-hl');cur=null}
+    if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches(SEL)&&why(e.target)){e.preventDefault();e.target.click()}
+  });
+  mark();setTimeout(mark,800);setTimeout(mark,2500);window.addEventListener('load',mark);
+})();
