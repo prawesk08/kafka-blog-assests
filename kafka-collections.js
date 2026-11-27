@@ -108,6 +108,16 @@
       var g=h.nextElementSibling; while(g&&!g.classList.contains('kgrid'))g=g.nextElementSibling;
       var n=g?g.querySelectorAll('a').length:0;
       h.setAttribute('data-kn',ROM[i]||String(i+1)); h.setAttribute('data-kc',n+(n===1?' photograph':' photographs'));
+      /* each section scrolls sideways; arrows on the heading move it one screen at a time */
+      if(g&&n>3&&!h.querySelector('.kg-nav')){
+        var nav=document.createElement('span'); nav.className='kg-nav';
+        [['‹','Previous photos',-1],['›','More photos',1]].forEach(function(d){
+          var b=document.createElement('button'); b.type='button'; b.textContent=d[0]; b.setAttribute('aria-label',d[1]);
+          b.addEventListener('click',function(){g.scrollBy({left:d[2]*Math.max(200,g.clientWidth*.8),behavior:'smooth'})});
+          nav.appendChild(b);
+        });
+        h.appendChild(nav);
+      }
     });
     [].forEach.call(root.querySelectorAll('.kgrid>a'),function(a){
       var img=a.querySelector('img'); if(!img)return; var k=all.length;
