@@ -741,5 +741,6 @@ html body aside.side:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6)
 html body aside.side:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14)>.box.nowbox .now-row{margin:0!important;padding:6px 0!important}
 html body aside.side:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14)>.box.nowbox .now-row:first-of-type{padding-top:0!important}
 html body aside.side:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14)>.box.nowbox .now-row:last-child{padding-bottom:0!important}
+@media (max-width:640px){html body nav.box.lists:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16)>a .kl-c{display:none!important}html body nav.box.lists:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16)>a{padding:6px 10px!important;margin-bottom:5px!important;min-height:0!important}}
 
-/* side-v1 */
+/* side-v2 */
