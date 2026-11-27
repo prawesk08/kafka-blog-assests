@@ -172,7 +172,9 @@
   var DR=/[ \u00a0\u2009\u200a\u202f]+([\u0964\u0965])/g,DS=/^[\u0964\u0965]/,DE=/[ \u00a0\u2009\u200a\u202f]+$/;
   function danda(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentNode;return p&&/^(SCRIPT|STYLE|TEXTAREA|CODE|PRE)$/.test(p.nodeName)||p.isContentEditable?2:1}}),n,prev=null,v;
     while((n=w.nextNode())){v=n.nodeValue;if(v.indexOf('\u0964')>-1||v.indexOf('\u0965')>-1){if(DR.test(v)){DR.lastIndex=0;n.nodeValue=v=v.replace(DR,'$1')}DR.lastIndex=0;if(prev&&DS.test(v)&&DE.test(prev.nodeValue))prev.nodeValue=prev.nodeValue.replace(DE,'')}if(/\S/.test(v))prev=n}}
-  function all(){paint();rows();deck();heroTint();onerow();gallery();about();soften();danda()}
+  /* A short line typed right under a photo is its caption: centre it with the photo */
+  function caps(){[].forEach.call(document.querySelectorAll('article.prose>p,.post-body>p'),function(p){if(p.getAttribute('data-kcap'))return;var im=p.querySelector('img');if(!im||p.textContent.trim()!=='')return;p.setAttribute('data-kcap','1');var w=+im.getAttribute('width')||im.naturalWidth||0;if(w&&w<200)return;var n=p.nextElementSibling;while(n&&n.tagName==='P'&&!n.textContent.trim()&&!n.querySelector('img'))n=n.nextElementSibling;if(!n||n.tagName!=='P'||n.querySelector('img'))return;var t=n.textContent.trim();if(t.length<3||t.length>140)return;p.classList.add('k-hascap');n.classList.add('k-cap');if(/[\u0900-\u097F]/.test(t))n.classList.add('kt-ne')})}
+  function all(){paint();rows();deck();heroTint();onerow();gallery();about();soften();caps();danda()}
   var t=0;
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},60)}).observe(document.body,{childList:true,subtree:true})}}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
