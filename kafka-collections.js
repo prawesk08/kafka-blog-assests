@@ -63,6 +63,18 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
   }
 
+
+  /* Photos page: stretch the last photo of each section to the end of its row, so a section never ends with a hole */
+  function fillEnds(){
+    [].forEach.call(document.querySelectorAll('.kphotos .kgrid'),function(g){
+      var last=g.lastElementChild; if(!last)return; last.style.gridColumnEnd='';
+      var cols=getComputedStyle(g).gridTemplateColumns.split(' ').filter(Boolean).length; if(cols<2)return;
+      var gr=g.getBoundingClientRect(), lr=last.getBoundingClientRect();
+      if(gr.right-lr.right>40){last.style.gridColumnEnd='-1';}
+      /* any other photo ending the final row early */
+    });
+  }
+  var fe=0; window.addEventListener('resize',function(){clearTimeout(fe);fe=setTimeout(fillEnds,150)});
   /* Photos page: numbered section heads with counts, a caption on each print, and a lightbox */
   function gallery(){
     var root=document.querySelector('.kphotos'); if(!root||root.getAttribute('data-kg'))return; root.setAttribute('data-kg','1'); document.documentElement.classList.add('k-photos-page');
@@ -78,6 +90,7 @@
       all.push({src:a.getAttribute('href'),cap:img.getAttribute('alt')||''});
       a.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();open(k)});
     });
+    fillEnds(); window.addEventListener('load',fillEnds);
     var box,im,cap,cur=0,tx=null;
     function show(i){cur=(i+all.length)%all.length;im.src=all[cur].src;im.alt=all[cur].cap;cap.innerHTML='';var b=document.createElement('b');b.textContent='Nº '+(cur+1)+' / '+all.length;cap.appendChild(b);cap.appendChild(document.createTextNode(all[cur].cap))}
     function close(){if(!box)return;box.classList.remove('on');document.documentElement.style.overflow='';var b=box;box=null;setTimeout(function(){b.remove()},200);document.removeEventListener('keydown',key)}

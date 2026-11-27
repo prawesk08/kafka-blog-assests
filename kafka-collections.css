@@ -245,3 +245,16 @@ html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side:not(#c4
 html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-ic svg{display:block!important;width:22px!important;height:22px!important;stroke:#fff!important;fill:none!important;color:#fff!important;opacity:1!important}
 html body .kafka-about.kab:not(#c1):not(#c2):not(#c3) .kab-ic svg *{stroke:#fff!important}
 html.k-photos-page body .with-side:not(#c1):not(#c2):not(#c3)>aside.side:not(#c4)>.nowsec{display:none!important}
+
+/* phones: Share becomes a round icon button, the Listen bar keeps play + track + voice + speed, the follow box keeps the name line and icons */
+@media (max-width:640px){
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kshare.top>.lbl{font-size:0!important;width:32px!important;height:32px!important;padding:0!important;justify-content:center!important;gap:0!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kshare.top>.lbl::after{display:none!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kshare.top>.lbl::before{content:""!important;display:block!important;width:16px!important;height:16px!important;background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v12'/%3E%3Cpath d='m7 8 5-5 5 5'/%3E%3Cpath d='M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6'/%3E%3C/svg%3E") center/contain no-repeat!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-label,html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-note,html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-time{display:none!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.klisten .kl-mid{min-width:0!important;flex:1 1 auto!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kfollow{flex:0 0 31%!important}
+html body .klrow.k1row:not(#kq1):not(#kq2):not(#kq3):not(#kq4):not(#kq5):not(#kq6):not(#kq7):not(#kq8):not(#kq9):not(#kq10):not(#kq11):not(#kq12):not(#kq13)>.kshare.top.is-open>.btns{left:-2px!important;max-width:calc(100vw - 28px)!important}
+}
+/* Photos page: the grid fills holes left by tall photos (the last photo of a section is stretched to the row's end by kafka-collections.js) */
+html body .kphotos:not(#c1):not(#c2):not(#c3) .kgrid{grid-auto-flow:row dense!important}
