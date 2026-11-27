@@ -471,6 +471,7 @@ html body #kafka-home article.plane.pinned:not(#kp1):not(#kp2):not(#kp3):not(#kp
 
 
 
+
 /* ===== Homepage compaction: less scrolling (v2) ===== */
 html body #kafka-home .sec-h:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14){margin:12px 0 6px!important;padding-top:4px!important;min-height:0!important}
 html body #kafka-home .sec-h:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14)>img{width:36px!important;height:36px!important}
@@ -950,5 +951,7 @@ html body section.wrap>.hero:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):n
 html body .static-page:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) h2.kafka-list-shelf{font-size:18px!important;line-height:1.25!important;padding:7px 4px!important;margin:10px 0 0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
 html body .static-page:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) h2.kafka-list-shelf::before{font-size:9.5px!important;letter-spacing:.14em!important}
 }
+/* Menu-bar search: open directly under the bar (the bar is the containing block, so fixed+top double-counted) */
+html body .knav-sticky:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20)>.ksearch-pop,html body .knav-sticky:not(#kc1):not(#kc2):not(#kc3):not(#kc4):not(#kc5):not(#kc6):not(#kc7):not(#kc8):not(#kc9):not(#kc10):not(#kc11):not(#kc12):not(#kc13):not(#kc14):not(#kc15):not(#kc16):not(#kc17):not(#kc18):not(#kc19):not(#kc20) .ksearch-pop{position:absolute!important;top:100%!important;left:0!important;right:0!important;margin:0!important;padding:6px 12px 8px!important;border-bottom:1px solid rgba(120,90,60,.16)!important;box-shadow:0 6px 14px rgba(60,40,20,.08)!important}
 
-/* sidephone-v9 */
+/* sidephone-v10 */
