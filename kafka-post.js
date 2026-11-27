@@ -1620,7 +1620,10 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       "@media (max-width:640px){.kpl-col.has-kvid .kvid-meta{padding:7px 8px 8px;gap:4px}.kpl-col.has-kvid .kvid-tag{font-size:10px}.kpl-col.has-kvid .kvid-share{padding:4px 7px;font-size:10.5px}.kpl-col.has-kvid .kvid-desc{font-size:11.5px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.kpl-col.has-kvid .kvid-head{font-size:13.5px}.kpl-col.has-kvid .kvid-cap{font-size:12px}}",
       ".poem-art.has-kvid .kvid-meta{padding:9px 11px 10px}",
       ".poem-art.has-kvid .kvid-desc{font-size:12.5px;line-height:1.45}",
-      "@media (max-width:820px){.kvid-wrap{margin:1.1em 0 1.4em}}"
+      "@media (max-width:820px){.kvid-wrap{margin:1.1em 0 1.4em}}",
+      ".kvid-hold{box-shadow:none}.kvid-hold .kvid-stage{background:#e9e4da}.kvid-hold-meta{min-height:150px}",
+      ".kvid-doc.kvid-hold .kvid-hold-meta{min-height:96px}",
+      "@media (max-width:640px){.kpl-col .kvid-hold-meta{min-height:232px}}"
     ].join("");
     document.head.appendChild(st);
   }
@@ -1726,45 +1729,81 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     return null;
   }
 
+  /* v189: films are known by path, so a box of about the film's size is reserved at once.
+     Inserting the film later used to push the poem's painting and the text down
+     (PageSpeed layout shift 0.77 on Manusi, 2026-11-27). Add new film pages here. */
+  var KVID_PATHS = {
+    "/2025/05/manusi.html":"poem", "/2025/06/caste.html":"poem", "/2025/09/chaupadi.html":"poem",
+    "/2025/11/coldsilence.html":"poem", "/2025/06/nosurnames.html":"poem", "/2025/07/labkush.html":"poem",
+    "/2026/06/marginalia.html":"poem", "/2025/05/echoes-of-faded-love.html":"poem",
+    "/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html":"documentary",
+    "/2026/11/cancer-janya-virus-sabaima-bhag-2.html":"documentary",
+    "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html":"documentary",
+    "/2026/11/the-story-of-roman-britannia-part-ii.html":"documentary",
+    "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html":"documentary",
+    "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html":"documentary",
+    "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html":"documentary"
+  };
+  function holdPlace(){
+    var t = KVID_PATHS[path];
+    if (!t || document.querySelector(".kvid-wrap:not(.kvid-hold)")) return;
+    injectStyles();
+    var hold = document.querySelector(".kvid-hold");
+    if (!hold){
+      hold = document.createElement("figure");
+      hold.className = "kvid-wrap kvid-hold" + (t === "poem" ? " kvid-poem" : " kvid-doc");
+      hold.setAttribute("aria-hidden", "true");
+      hold.innerHTML = '<div class="kvid-stage"></div><div class="kvid-meta kvid-hold-meta"></div>';
+    }
+    placeNode(hold, {type: t});
+  }
+
+  function placeNode(fig, item){
+    var prose = document.querySelector(".prose");
+    if (!prose) return;
+    var isPoem = item.type === "poem" || prose.classList.contains("poem") || !!prose.querySelector(".poem-row, .verse");
+    if (isPoem){
+      // Poem layout with the photo column: the film goes at the top of that column, the photo below it, the poem stays in front.
+      var kin = document.querySelector(".poem-row .kpl-in");
+      var kcol = kin && kin.closest(".kpl-col");
+      if (kin && kcol && getComputedStyle(kcol).display !== "none"){
+        kcol.classList.add("has-kvid");
+        if (fig.parentNode !== kin || kin.firstChild !== fig) kin.insertBefore(fig, kin.firstChild);
+        return;
+      }
+      var col = document.querySelector(".poem-art");
+      var colVis = col && getComputedStyle(col).display !== "none";
+      if (colVis){
+        col.removeAttribute("aria-hidden");
+        col.classList.add("has-kvid");
+        if (fig.parentNode !== col || col.firstChild !== fig) col.insertBefore(fig, col.firstChild);
+      } else {
+        if (col) col.classList.remove("has-kvid");
+        var body = prose.querySelector(".poem-body") || prose;
+        var syn = body.querySelector(".synopsis") || prose.querySelector(".synopsis");
+        var verse = body.querySelector(".verse");
+        if (syn && syn.parentNode){ if (syn.nextSibling !== fig) syn.parentNode.insertBefore(fig, syn.nextSibling); }
+        else if (verse && verse.parentNode){ if (verse.previousSibling !== fig) verse.parentNode.insertBefore(fig, verse); }
+        else if (body.firstChild !== fig){ body.insertBefore(fig, body.firstChild); }
+      }
+    } else {
+      if (fig.parentNode === prose) return;
+      var anchor = findDocAnchor(prose);
+      if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(fig, anchor.nextSibling);
+      else prose.insertBefore(fig, prose.firstChild);
+    }
+  }
+
+
   function mountVideo(item){
     injectStyles();
     injectSeo(item);
     var fig = document.querySelector('.kvid-wrap[data-kvid-slug="' + item.slug + '"]') || buildFigure(item);
 
     function place(){
-      var prose = document.querySelector(".prose");
-      if (!prose) return;
-      var isPoem = item.type === "poem" || prose.classList.contains("poem") || !!prose.querySelector(".poem-row, .verse");
-      if (isPoem){
-        // Poem layout with the photo column: the film goes at the top of that column, the photo below it, the poem stays in front.
-        var kin = document.querySelector(".poem-row .kpl-in");
-        var kcol = kin && kin.closest(".kpl-col");
-        if (kin && kcol && getComputedStyle(kcol).display !== "none"){
-          kcol.classList.add("has-kvid");
-          if (fig.parentNode !== kin || kin.firstChild !== fig) kin.insertBefore(fig, kin.firstChild);
-          return;
-        }
-        var col = document.querySelector(".poem-art");
-        var colVis = col && getComputedStyle(col).display !== "none";
-        if (colVis){
-          col.removeAttribute("aria-hidden");
-          col.classList.add("has-kvid");
-          if (fig.parentNode !== col || col.firstChild !== fig) col.insertBefore(fig, col.firstChild);
-        } else {
-          if (col) col.classList.remove("has-kvid");
-          var body = prose.querySelector(".poem-body") || prose;
-          var syn = body.querySelector(".synopsis") || prose.querySelector(".synopsis");
-          var verse = body.querySelector(".verse");
-          if (syn && syn.parentNode){ if (syn.nextSibling !== fig) syn.parentNode.insertBefore(fig, syn.nextSibling); }
-          else if (verse && verse.parentNode){ if (verse.previousSibling !== fig) verse.parentNode.insertBefore(fig, verse); }
-          else if (body.firstChild !== fig){ body.insertBefore(fig, body.firstChild); }
-        }
-      } else {
-        if (fig.parentNode === prose) return;
-        var anchor = findDocAnchor(prose);
-        if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(fig, anchor.nextSibling);
-        else prose.insertBefore(fig, prose.firstChild);
-      }
+      placeNode(fig, item);
+      var hold = document.querySelector(".kvid-hold");
+      if (hold && fig.parentNode && hold.parentNode) hold.parentNode.removeChild(hold);
     }
 
     place();
@@ -1778,16 +1817,22 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     }
   }
 
+  holdPlace();
+  if (KVID_PATHS[path]){
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", holdPlace);
+    setTimeout(holdPlace, 0); setTimeout(holdPlace, 300);
+  }
   function getJSON(u){ return fetch(u, {cache: "default"}).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; }); }
   Promise.all([getJSON(MANIFEST_URL), getJSON(CAPTIONS_URL)])
     .then(function(res){
       var base = (res[0] && res[0].videos && res[0].videos[path]) || null;
       var over = (res[1] && res[1].videos && res[1].videos[path]) || null;
-      if (!base && !(over && over.src)) return;
+      if (!base && !(over && over.src)){ dropHold(); return; }
       var item = {}, k;
       for (k in (base || {})) item[k] = base[k];
       for (k in (over || {})) item[k] = over[k];
       mountVideo(item);
     })
-    .catch(function(){});
+    .catch(dropHold);
+  function dropHold(){ var h = document.querySelector(".kvid-hold"); if (h && h.parentNode) h.parentNode.removeChild(h); }
 })();
