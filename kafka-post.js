@@ -1570,3 +1570,192 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhanceList);
   else enhanceList();
 })();
+
+/* v186: post & poem film player + VideoObject SEO schema + social share captions */
+(function(){
+  var kv = document.getElementById("kview");
+  if (!kv || (kv.getAttribute("data-view") || "") !== "post") return;
+  var MANIFEST_URL = "https://audio.kafka.blog/video-manifest.json";
+  var path = location.pathname;
+
+  function esc(s){
+    return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+  function fmtDur(sec){
+    var s = Math.round(Number(sec) || 0), m = Math.floor(s / 60), r = s % 60;
+    return m + ":" + (r < 10 ? "0" : "") + r;
+  }
+  function injectStyles(){
+    if (document.getElementById("kvid-css")) return;
+    var st = document.createElement("style");
+    st.id = "kvid-css";
+    st.textContent = [
+      ".kvid-wrap{margin:1.35em 0 1.75em;padding:0;background:var(--card,#F6F2EA);border:1px solid rgba(26,26,24,.12);border-radius:10px;overflow:hidden;box-shadow:0 6px 22px rgba(24,22,18,.08)}",
+      ".kvid-stage{position:relative;width:100%;aspect-ratio:16/9;background:#141618;overflow:hidden}",
+      ".kvid-stage video{display:block;width:100%;height:100%;object-fit:cover;background:#141618}",
+      ".kvid-meta{padding:11px 14px 12px;display:flex;flex-direction:column;gap:6px;font-family:var(--sans,system-ui,sans-serif)}",
+      ".kvid-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}",
+      ".kvid-tag{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red,#9E2A2B)}",
+      ".kvid-share{appearance:none;border:1px solid rgba(26,26,24,.2);background:rgba(255,255,255,.72);color:var(--ink,#1a1a18);font:600 12px/1 var(--sans,system-ui,sans-serif);padding:6px 10px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}",
+      ".kvid-share:hover{background:#fff;border-color:rgba(26,26,24,.4)}",
+      ".kvid-desc{margin:0;font-size:13.5px;line-height:1.5;color:#4a4843;text-align:left!important}",
+      ".kvid-capbox{display:none;margin-top:6px;padding:8px 10px;background:#fff;border:1px solid rgba(26,26,24,.14);border-radius:6px;font-size:12.5px;line-height:1.45;color:#2b2a27;user-select:all;white-space:pre-wrap}",
+      ".kvid-capbox.open{display:block}",
+      ".poem-art.has-kvid{width:clamp(300px,33vw,410px)!important;justify-content:flex-start!important;gap:22px!important}",
+      ".poem-art.has-kvid .kvid-wrap{margin:0!important;width:100%!important}",
+      ".poem-art.has-kvid .kvid-meta{padding:9px 11px 10px}",
+      ".poem-art.has-kvid .kvid-desc{font-size:12.5px;line-height:1.45}",
+      "@media (max-width:820px){.kvid-wrap{margin:1.1em 0 1.4em}}"
+    ].join("");
+    document.head.appendChild(st);
+  }
+
+  function injectSeo(item){
+    if (document.getElementById("kvid-schema")) return;
+    var ld = {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": item.title,
+      "description": item.description,
+      "thumbnailUrl": [item.poster],
+      "uploadDate": item.uploadDate + "T00:00:00Z",
+      "duration": item.durationIso,
+      "contentUrl": item.src,
+      "embedUrl": location.href,
+      "inLanguage": item.lang || "en",
+      "keywords": (item.keywords || []).join(", "),
+      "author": {"@type": "Person", "name": "बासभ (Basava)", "alternateName": "@naharchowck"},
+      "publisher": {"@type": "Organization", "name": "Kafkaintherun", "url": "https://www.kafka.blog/"}
+    };
+    var sc = document.createElement("script");
+    sc.id = "kvid-schema";
+    sc.type = "application/ld+json";
+    sc.textContent = JSON.stringify(ld);
+    document.head.appendChild(sc);
+
+    function upsertMeta(attr, name, val){
+      if (!val) return;
+      var el = document.head.querySelector("meta[" + attr + '="' + name + '"]');
+      if (!el){ el = document.createElement("meta"); el.setAttribute(attr, name); document.head.appendChild(el); }
+      el.setAttribute("content", val);
+    }
+    if (item.keywords && item.keywords.length) upsertMeta("name", "keywords", item.keywords.join(", "));
+    upsertMeta("property", "og:video", item.src);
+    upsertMeta("property", "og:video:secure_url", item.src);
+    upsertMeta("property", "og:video:type", "video/mp4");
+    upsertMeta("property", "og:image:alt", item.alt);
+  }
+
+  function buildFigure(item){
+    var fig = document.createElement("figure");
+    fig.className = "kvid-wrap" + (item.type === "poem" ? " kvid-poem" : " kvid-doc");
+    fig.setAttribute("data-kvid-slug", item.slug);
+    var isNe = item.lang === "ne";
+    var badge = item.type === "poem" ? (isNe ? "कविता चलचित्र" : "Poetry Film") : (isNe ? "वृत्तचित्र" : "Documentary Film");
+    var shareLabel = isNe ? "सेयर क्याप्सन" : "Share caption";
+    var capText = (item.social && item.social.short) ? item.social.short : (item.title + " " + location.href);
+
+    fig.innerHTML =
+      '<div class="kvid-stage">' +
+        '<video controls playsinline preload="metadata" poster="' + esc(item.poster) + '" aria-label="' + esc(item.alt) + '" title="' + esc(item.title) + '">' +
+          '<source src="' + esc(item.src) + '" type="video/mp4"/>' +
+        '</video>' +
+      '</div>' +
+      '<figcaption class="kvid-meta">' +
+        '<div class="kvid-bar">' +
+          '<span class="kvid-tag">' + esc(badge) + ' · ' + esc(fmtDur(item.duration)) + '</span>' +
+          '<button type="button" class="kvid-share" aria-label="' + esc(shareLabel) + '">' + esc(shareLabel) + '</button>' +
+        '</div>' +
+        '<p class="kvid-desc">' + esc(item.description) + '</p>' +
+        '<div class="kvid-capbox" tabindex="0">' + esc(capText) + '</div>' +
+      '</figcaption>';
+
+    var vid = fig.querySelector("video");
+    vid.addEventListener("play", function(){
+      Array.prototype.forEach.call(document.querySelectorAll("audio"), function(a){ try { if (!a.paused) a.pause(); } catch(e){} });
+    });
+    document.addEventListener("play", function(ev){
+      if (ev.target && ev.target.tagName === "AUDIO" && !vid.paused){ try { vid.pause(); } catch(e){} }
+    }, true);
+
+    var btn = fig.querySelector(".kvid-share");
+    var capBox = fig.querySelector(".kvid-capbox");
+    btn.addEventListener("click", function(){
+      if (navigator.share){ navigator.share({title: item.title, text: capText, url: location.href}).catch(function(){}); return; }
+      capBox.classList.toggle("open");
+    });
+    return fig;
+  }
+
+  function findDocAnchor(prose){
+    var syn = prose.querySelector(":scope > .synopsis");
+    if (syn) return syn;
+    var kids = Array.prototype.slice.call(prose.children);
+    for (var i = 0; i < Math.min(kids.length, 4); i++){
+      var el = kids[i];
+      if (!el || el.classList.contains("kafka-cover") || el.classList.contains("kafka-excerpt") || el.classList.contains("kafka-subtitle") || el.classList.contains("kvid-wrap")) continue;
+      if (el.tagName === "P"){
+        var sty = (el.getAttribute("style") || "").toLowerCase();
+        var hasDeck = !!(el.querySelector("em b, b em, i b, b i, strong em, em strong")) && (el.textContent || "").trim().length < 280;
+        var hasCredit = sty.indexOf("#f3efe6") > -1 || sty.indexOf("background") > -1;
+        if (hasDeck || hasCredit) return el;
+      }
+      break;
+    }
+    return null;
+  }
+
+  function mountVideo(item){
+    injectStyles();
+    injectSeo(item);
+    var fig = document.querySelector('.kvid-wrap[data-kvid-slug="' + item.slug + '"]') || buildFigure(item);
+
+    function place(){
+      var prose = document.querySelector(".prose");
+      if (!prose) return;
+      var isPoem = item.type === "poem" || prose.classList.contains("poem") || !!prose.querySelector(".poem-row, .verse");
+      if (isPoem){
+        var col = document.querySelector(".poem-art");
+        var colVis = col && getComputedStyle(col).display !== "none";
+        if (colVis){
+          col.removeAttribute("aria-hidden");
+          col.classList.add("has-kvid");
+          if (fig.parentNode !== col || col.firstChild !== fig) col.insertBefore(fig, col.firstChild);
+        } else {
+          if (col) col.classList.remove("has-kvid");
+          var body = prose.querySelector(".poem-body") || prose;
+          var syn = body.querySelector(".synopsis") || prose.querySelector(".synopsis");
+          var verse = body.querySelector(".verse");
+          if (syn && syn.parentNode){ if (syn.nextSibling !== fig) syn.parentNode.insertBefore(fig, syn.nextSibling); }
+          else if (verse && verse.parentNode){ if (verse.previousSibling !== fig) verse.parentNode.insertBefore(fig, verse); }
+          else if (body.firstChild !== fig){ body.insertBefore(fig, body.firstChild); }
+        }
+      } else {
+        if (fig.parentNode === prose) return;
+        var anchor = findDocAnchor(prose);
+        if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(fig, anchor.nextSibling);
+        else prose.insertBefore(fig, prose.firstChild);
+      }
+    }
+
+    place();
+    if (document.readyState !== "complete") window.addEventListener("load", place);
+    setTimeout(place, 500); setTimeout(place, 1600); setTimeout(place, 3500);
+    var rt;
+    window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(place, 220); });
+    if (window.MutationObserver){
+      var target = document.querySelector(".prose") || document.body;
+      new MutationObserver(function(){ place(); }).observe(target, {childList: true});
+    }
+  }
+
+  fetch(MANIFEST_URL, {cache: "default"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(m){
+      if (!m || !m.videos) return;
+      var item = m.videos[path];
+      if (!item) return;
+      mountVideo(item);
+    })
+    .catch(function(){});
+})();
