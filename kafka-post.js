@@ -1397,6 +1397,10 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     if(!prose)return;
     var isPoem=!!document.querySelector('.poem-row, .poem-art, .verse');
     if(!isPoem)return;
+    /* v190: stories and letters keep the story layout even when their text uses a .verse block
+       (the memoir pair booksandauthors/poetry), the same rule kafka-core.js uses */
+    var L=(window.KAFKA_PAGE&&window.KAFKA_PAGE.labels)||[];
+    if(L.some(function(l){return /^(Stories|Story|Letters|Letter)$|\u0915\u0925\u093e|\u091a\u093f\u0920\u0940|\u091a\u093f\u0920\u094d\u0920\u0940|\u092a\u0924\u094d\u0930/i.test(l||'')})&&!L.some(function(l){return /Poetry|Songs|\u0915\u0935\u093f\u0924\u093e/i.test(l||'')}))return;
     if(typeof window.KAFKA_POEM_ART!=='function')return;
 
     var pa=document.querySelector('.poem-art');
