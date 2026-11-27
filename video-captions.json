@@ -1,7 +1,7 @@
 {
  "version": 2,
  "updated": "2026-11-27",
- "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list. Since 2026-11-27 R2's manifest is a flat list (path -> slug, title, l, category, v16, v9) without the 13 earlier films, so those 13 carry their own src and poster here.",
+ "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list. Since 2026-11-27 R2's manifest is a flat list (path -> slug, title, l, category, v16, v9) without the 13 earlier films, so 11 of those carry their own src and poster here. Marginalia and Echoes use the new animated films from R2 (owner's choice, 2026-11-27).",
  "videos": {
   "/2025/05/manusi.html": {
    "heading": "मानुषी: भुपीसँगका थाँती संवाद",
@@ -187,13 +187,6 @@
     "बासभ",
     "Kafkaintherun"
    ],
-   "alt": "Title frame of the poetry film 'marginalia': a dark writing room.",
-   "slug": "marginalia",
-   "src": "https://audio.kafka.blog/videos/marginalia.mp4",
-   "poster": "https://audio.kafka.blog/videos/marginalia.jpg",
-   "duration": 359,
-   "durationIso": "PT5M59S",
-   "uploadDate": "2026-11-26",
    "lang": "en",
    "type": "poem"
   },
@@ -212,13 +205,6 @@
     "बासभ",
     "Kafkaintherun"
    ],
-   "alt": "Title frame of the poetry film 'echoes of faded love.': pale evening light.",
-   "slug": "echoes-of-faded-love",
-   "src": "https://audio.kafka.blog/videos/echoes-of-faded-love.mp4",
-   "poster": "https://audio.kafka.blog/videos/echoes-of-faded-love.jpg",
-   "duration": 256,
-   "durationIso": "PT4M16S",
-   "uploadDate": "2026-11-26",
    "lang": "en",
    "type": "poem"
   },
