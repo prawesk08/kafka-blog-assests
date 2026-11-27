@@ -100,7 +100,7 @@
       var a = audio[p.path];
       if (a){ p.role = a.role; p.f = a.f; p.m = a.m; p.sf = a.sf; p.sm = a.sm; }
       var v = films[p.path];
-      if (v) p.film = v;
+      if (v){ p.film = v; if (!v.img) v.img = p.img; }
       byPath[p.path] = p;
     });
     /* join Nepali and English versions */
@@ -199,7 +199,7 @@
       '<span class="kpl-num">' + npNum(i + 1, state.lang) + '</span>' +
       '<span class="kpl-txt"><b lang="' + p.lang + '">' + esc(p.title) + '</b>' +
       '<span class="kpl-meta">' + (p.sf ? clock(p.sf) : "") + (both ? ' · <span class="kpl-pair">नेपाली + English</span>' : (p.lang === "ne" ? " · नेपाली" : " · English")) + '</span></span>' +
-      '<span class="kpl-acts">' + (film ? '<button type="button" class="kpl-filmbtn" data-film="' + esc(film.path) + '">Film ' + clock(film.duration) + '</button>' : '') +
+      '<span class="kpl-acts">' + (film ? '<button type="button" class="kpl-filmbtn" data-film="' + esc(film.path) + '">Film' + (film.duration ? ' ' + clock(film.duration) : '') + '</button>' : '') +
       '<a class="kpl-read" href="' + esc(p.path) + '">' + (p.lang === "ne" ? "पढ्नुहोस्" : "Read") + '</a></span></li>';
   }
 
@@ -243,7 +243,7 @@
     var v = filmsByPath[path]; if (!v) return;
     var box = root.querySelector(".kpl-film"), vid = box.querySelector("video");
     audioEl.pause();
-    vid.poster = v.poster || ""; vid.src = v.src; box.hidden = false;
+    vid.poster = v.poster || v.img || ""; vid.src = v.src; box.hidden = false;
     box.querySelector("b").textContent = v.title;
     box.scrollIntoView({behavior:"smooth", block:"center"});
     vid.play().catch(function(){});
@@ -294,8 +294,26 @@
 
   var filmsByPath = {};
   root.innerHTML = '<p class="kpl-loading">Loading playlists…</p>';
-  Promise.all([loadFeed(), getJSON(AUDIO + "manifest.json"), getJSON(AUDIO + "video-manifest.json")]).then(function(r){
-    var films = (r[2] && r[2].videos) || {};
+  /* v2 (2026-11-27): R2's video manifest is now flat, {"/path.html": {slug, title, l, category, v16, v9}}.
+     The older shape was {videos: {path: {src, poster, duration, ...}}}. Films that R2 no longer lists keep their
+     src in video-captions.json on assets, so both files are read and merged. */
+  var FILM_SKIP = {"/2025/04/hippies.html": 1};
+  function filmList(man, cap){
+    var out = {}, k;
+    if (man && man.videos){ for (k in man.videos) out[k] = man.videos[k]; }
+    else if (man){ for (k in man){ var e = man[k]; if (k.charAt(0) === "/" && e && e.v16) out[k] = {slug: e.slug, title: e.title, lang: e.l, src: AUDIO + e.v16}; } }
+    var cv = (cap && cap.videos) || {};
+    for (k in cv){
+      if (!out[k] && !cv[k].src) continue;
+      var m = out[k] || {}, c = cv[k], f;
+      for (f in c) m[f] = c[f];
+      out[k] = m;
+    }
+    for (k in FILM_SKIP) delete out[k];
+    return out;
+  }
+  Promise.all([loadFeed(), getJSON(AUDIO + "manifest.json"), getJSON(AUDIO + "video-manifest.json"), getJSON("https://assets.kafka.blog/video-captions.json")]).then(function(r){
+    var films = filmList(r[2], r[3]);
     Object.keys(films).forEach(function(k){ films[k].path = k; filmsByPath[k] = films[k]; });
     build(r[0], r[1] || {}, films);
     /* v2: search engines get the list of films on this page (ItemList pointing at each film's post) */

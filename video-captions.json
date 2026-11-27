@@ -1,7 +1,7 @@
 {
  "version": 2,
  "updated": "2026-11-27",
- "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list.",
+ "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list. Since 2026-11-27 R2's manifest is a flat list (path -> slug, title, l, category, v16, v9) without the 13 earlier films, so those 13 carry their own src and poster here.",
  "videos": {
   "/2025/05/manusi.html": {
    "heading": "मानुषी: भुपीसँगका थाँती संवाद",
@@ -21,7 +21,15 @@
     "Basava",
     "Kafkaintherun"
    ],
-   "alt": "‘मानुषी: भुपीसँगका थाँती संवाद’ कविता चलचित्रको आवरण: सहरको चोक र मानुषीको छायाँ।"
+   "alt": "‘मानुषी: भुपीसँगका थाँती संवाद’ कविता चलचित्रको आवरण: सहरको चोक र मानुषीको छायाँ।",
+   "slug": "manusi",
+   "src": "https://audio.kafka.blog/videos/manusi.mp4",
+   "poster": "https://audio.kafka.blog/videos/manusi.jpg",
+   "duration": 323,
+   "durationIso": "PT5M23S",
+   "uploadDate": "2026-11-26",
+   "lang": "ne",
+   "type": "poem"
   },
   "/2025/06/caste.html": {
    "heading": "परम्पराको कारागार",
@@ -41,7 +49,15 @@
     "Basava",
     "Kafkaintherun"
    ],
-   "alt": "‘परम्पराको कारागार’ कविता चलचित्रको आवरण: मन्दिरको बन्द ढोका।"
+   "alt": "‘परम्पराको कारागार’ कविता चलचित्रको आवरण: मन्दिरको बन्द ढोका।",
+   "slug": "caste",
+   "src": "https://audio.kafka.blog/videos/caste.mp4",
+   "poster": "https://audio.kafka.blog/videos/caste.jpg",
+   "duration": 259,
+   "durationIso": "PT4M19S",
+   "uploadDate": "2026-11-26",
+   "lang": "ne",
+   "type": "poem"
   },
   "/2025/09/chaupadi.html": {
    "heading": "छाउपडीको छायाँ",
@@ -61,7 +77,15 @@
     "Basava",
     "Kafkaintherun"
    ],
-   "alt": "‘छाउपडीको छायाँ’ कविता चलचित्रको आवरण: छाउगोठ।"
+   "alt": "‘छाउपडीको छायाँ’ कविता चलचित्रको आवरण: छाउगोठ।",
+   "slug": "chaupadi",
+   "src": "https://audio.kafka.blog/videos/chaupadi.mp4",
+   "poster": "https://audio.kafka.blog/videos/chaupadi.jpg",
+   "duration": 242,
+   "durationIso": "PT4M2S",
+   "uploadDate": "2026-11-26",
+   "lang": "ne",
+   "type": "poem"
   },
   "/2025/11/coldsilence.html": {
    "heading": "मौनताको चिसो",
@@ -81,7 +105,15 @@
     "Basava",
     "Kafkaintherun"
    ],
-   "alt": "‘मौनताको चिसो’ कविता चलचित्रको आवरण: चिसो साँझ र मौनता।"
+   "alt": "‘मौनताको चिसो’ कविता चलचित्रको आवरण: चिसो साँझ र मौनता।",
+   "slug": "coldsilence",
+   "src": "https://audio.kafka.blog/videos/coldsilence.mp4",
+   "poster": "https://audio.kafka.blog/videos/coldsilence.jpg",
+   "duration": 148,
+   "durationIso": "PT2M28S",
+   "uploadDate": "2026-11-26",
+   "lang": "ne",
+   "type": "poem"
   },
   "/2025/06/nosurnames.html": {
    "heading": "म थर नभएको आत्मा",
@@ -101,7 +133,15 @@
     "Basava",
     "Kafkaintherun"
    ],
-   "alt": "‘म थर नभएको आत्मा’ कविता चलचित्रको आवरण।"
+   "alt": "‘म थर नभएको आत्मा’ कविता चलचित्रको आवरण।",
+   "slug": "nosurnames",
+   "src": "https://audio.kafka.blog/videos/nosurnames.mp4",
+   "poster": "https://audio.kafka.blog/videos/nosurnames.jpg",
+   "duration": 329,
+   "durationIso": "PT5M29S",
+   "uploadDate": "2026-11-26",
+   "lang": "ne",
+   "type": "poem"
   },
   "/2025/07/labkush.html": {
    "heading": "लव-कुशको नागरिकता",
@@ -121,7 +161,15 @@
     "Basava",
     "Kafkaintherun"
    ],
-   "alt": "‘लव-कुशको नागरिकता’ कविता चलचित्रको आवरण: सीता र दुई बालक।"
+   "alt": "‘लव-कुशको नागरिकता’ कविता चलचित्रको आवरण: सीता र दुई बालक।",
+   "slug": "labkush",
+   "src": "https://audio.kafka.blog/videos/labkush.mp4",
+   "poster": "https://audio.kafka.blog/videos/labkush.jpg",
+   "duration": 231,
+   "durationIso": "PT3M51S",
+   "uploadDate": "2026-11-26",
+   "lang": "ne",
+   "type": "poem"
   },
   "/2026/06/marginalia.html": {
    "heading": "marginalia",
@@ -139,7 +187,15 @@
     "बासभ",
     "Kafkaintherun"
    ],
-   "alt": "Title frame of the poetry film 'marginalia': a dark writing room."
+   "alt": "Title frame of the poetry film 'marginalia': a dark writing room.",
+   "slug": "marginalia",
+   "src": "https://audio.kafka.blog/videos/marginalia.mp4",
+   "poster": "https://audio.kafka.blog/videos/marginalia.jpg",
+   "duration": 359,
+   "durationIso": "PT5M59S",
+   "uploadDate": "2026-11-26",
+   "lang": "en",
+   "type": "poem"
   },
   "/2025/05/echoes-of-faded-love.html": {
    "heading": "echoes of faded love.",
@@ -156,7 +212,15 @@
     "बासभ",
     "Kafkaintherun"
    ],
-   "alt": "Title frame of the poetry film 'echoes of faded love.': pale evening light."
+   "alt": "Title frame of the poetry film 'echoes of faded love.': pale evening light.",
+   "slug": "echoes-of-faded-love",
+   "src": "https://audio.kafka.blog/videos/echoes-of-faded-love.mp4",
+   "poster": "https://audio.kafka.blog/videos/echoes-of-faded-love.jpg",
+   "duration": 256,
+   "durationIso": "PT4M16S",
+   "uploadDate": "2026-11-26",
+   "lang": "en",
+   "type": "poem"
   },
   "/2026/11/sharirma-dera-jamaune-virus-cancer-bhag-1.html": {
    "heading": "भाइरस र क्यान्सर, भाग १: मानिसमा भेटिएको पहिलो अन्कोभाइरस",
@@ -181,7 +245,15 @@
     "name": "भाइरस र क्यान्सर",
     "part": 1,
     "of": 2
-   }
+   },
+   "slug": "virus-cancer-1",
+   "src": "https://audio.kafka.blog/videos/virus-cancer-1.mp4",
+   "poster": "https://audio.kafka.blog/videos/virus-cancer-1.jpg",
+   "duration": 300,
+   "durationIso": "PT5M0S",
+   "uploadDate": "2026-11-26",
+   "lang": "ne",
+   "type": "documentary"
   },
   "/2026/11/story-of-roman-britannia-part-1-work-of-giants.html": {
    "heading": "Roman Britannia, Part I: The Work of Giants",
@@ -207,7 +279,15 @@
     "name": "Roman Britannia",
     "part": 1,
     "of": 4
-   }
+   },
+   "slug": "roman-britannia-1",
+   "src": "https://audio.kafka.blog/videos/roman-britannia-1.mp4",
+   "poster": "https://audio.kafka.blog/videos/roman-britannia-1.jpg",
+   "duration": 333,
+   "durationIso": "PT5M33S",
+   "uploadDate": "2026-11-26",
+   "lang": "en",
+   "type": "documentary"
   },
   "/2026/11/the-story-of-roman-britannia-part-ii.html": {
    "heading": "Roman Britannia, Part II: The Birth of Roman Britannia",
@@ -231,7 +311,15 @@
     "name": "Roman Britannia",
     "part": 2,
     "of": 4
-   }
+   },
+   "slug": "roman-britannia-2",
+   "src": "https://audio.kafka.blog/videos/roman-britannia-2.mp4",
+   "poster": "https://audio.kafka.blog/videos/roman-britannia-2.jpg",
+   "duration": 333,
+   "durationIso": "PT5M33S",
+   "uploadDate": "2026-11-26",
+   "lang": "en",
+   "type": "documentary"
   },
   "/2026/11/story-of-roman-britannia-part-3-hadrians-wall-warlords.html": {
    "heading": "Roman Britannia, Part III: The Wall and the Warlords",
@@ -255,7 +343,15 @@
     "name": "Roman Britannia",
     "part": 3,
     "of": 4
-   }
+   },
+   "slug": "roman-britannia-3",
+   "src": "https://audio.kafka.blog/videos/roman-britannia-3.mp4",
+   "poster": "https://audio.kafka.blog/videos/roman-britannia-3.jpg",
+   "duration": 333,
+   "durationIso": "PT5M33S",
+   "uploadDate": "2026-11-26",
+   "lang": "en",
+   "type": "documentary"
   },
   "/2026/11/story-of-roman-britannia-part-4-end-of-roman-britain.html": {
    "heading": "Roman Britannia, Part IV: The Long Goodbye",
@@ -279,7 +375,15 @@
     "name": "Roman Britannia",
     "part": 4,
     "of": 4
-   }
+   },
+   "slug": "roman-britannia-4",
+   "src": "https://audio.kafka.blog/videos/roman-britannia-4.mp4",
+   "poster": "https://audio.kafka.blog/videos/roman-britannia-4.jpg",
+   "duration": 333,
+   "durationIso": "PT5M33S",
+   "uploadDate": "2026-11-26",
+   "lang": "en",
+   "type": "documentary"
   },
   "/2026/11/the-mysterious-life-of-the-eel-guests-of-the-river-children-of-the-sea.html": {
    "slug": "eel",
