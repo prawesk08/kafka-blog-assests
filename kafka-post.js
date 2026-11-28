@@ -1762,7 +1762,9 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
     var lead = item.excerpt || item.caption || "";
     var body =
       (quotes ? '<p class="kvid-h">' + esc(L.lines) + '</p><ul class="kvid-q" lang="' + esc(item.lang || "en") + '">' + quotes + '</ul>' : '') +
-      '<p class="kvid-desc">' + esc(item.about || item.description || "") + '</p>' +
+      /* v201: a written description (no pasted post URL) leads "About the video", then the running-time line */
+      (item.description && !/https?:\/\//.test(item.description) ? '<p class="kvid-desc">' + esc(item.description) + '</p>' : '') +
+      ((item.about || (item.description && /https?:\/\//.test(item.description) ? item.description : "")) ? '<p class="kvid-desc">' + esc(item.about || item.description) + '</p>' : '') +
       '<p class="kvid-links"><a href="#" class="kvid-read">' + esc(L.read) + '</a> · <a target="_blank" rel="noopener" href="' + esc(spUrl) + '">' + esc(L.listen) + '</a></p>' +
       (rel ? '<p class="kvid-h">' + esc(L.more) + '</p><ul class="kvid-rel">' + rel + '</ul>' : '') +
       '<p class="kvid-blog">' + esc(L.blog) + '</p>';
