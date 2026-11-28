@@ -2338,3 +2338,7 @@ html body .kxrow:not(#kj1):not(#kj2):not(#kj3){justify-content:space-between!imp
 html body .kxrow:not(#kj1):not(#kj2):not(#kj3)>*{flex:1 1 0!important;display:flex!important;justify-content:center!important}
 html body .ktagstrip:not(#kj1):not(#kj2):not(#kj3) .ktags{flex:1 1 auto!important;min-width:0!important}
 html body .foot-line:not(#kj1):not(#kj2):not(#kj3){justify-content:center!important}
+
+/* v79 pager buttons fill the row */
+html body .pager:not(#kj1):not(#kj2):not(#kj3){display:flex!important;width:100%!important;gap:10px!important}
+html body .pager:not(#kj1):not(#kj2):not(#kj3)>a{flex:1 1 0!important;justify-content:center!important;text-align:center!important}
