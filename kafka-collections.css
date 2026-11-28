@@ -1202,5 +1202,5 @@ html body .kafka-list:is([data-list="songs"],[data-list="books"],[data-list="mov
 
 /* v15: no padding inside the quote, so the two-line cap hides everything past line two */
 @media (max-width:640px){
-html body .kafka-list:is([data-list="songs"],[data-list="books"],[data-list="movies"],[data-list="series"]):not(#ks1):not(#ks2):not(#ks3):not(#ks4):not(#ks5):not(#ks6):not(#ks7):not(#ks8):not(#ks9):not(#ks10):not(#ks11):not(#ks12):not(#ks13):not(#ks14):not(#ks15):not(#ks16):not(#ks17):not(#ks18):not(#ks19):not(#ks20):not(#ks21) .kshelf-strip>.kafka-item>.kafka-item-quote{padding:0!important;border:0!important;box-sizing:content-box!important;max-height:none!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;margin:4px 0 4px!important}
+html body .kafka-list:is([data-list="songs"],[data-list="books"],[data-list="movies"],[data-list="series"]):not(#ks1):not(#ks2):not(#ks3):not(#ks4):not(#ks5):not(#ks6):not(#ks7):not(#ks8):not(#ks9):not(#ks10):not(#ks11):not(#ks12):not(#ks13):not(#ks14):not(#ks15):not(#ks16):not(#ks17):not(#ks18):not(#ks19):not(#ks20):not(#ks21) .kshelf-strip>.kafka-item>.kafka-item-quote{padding:0!important;border:0!important;box-sizing:content-box!important;min-height:0!important;height:auto!important;max-height:2.6em!important;overflow:hidden!important;margin:4px 0 4px!important}
 }
