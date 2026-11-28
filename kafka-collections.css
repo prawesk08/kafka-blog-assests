@@ -2330,3 +2330,11 @@ html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3),html body>sec
 html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3) .portrait,html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3) .name,html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3) .handle{display:none!important}
 html body>section.wrap .hero .socials:not(#kz1):not(#kz2):not(#kz3){position:absolute!important;top:16px!important;right:16px!important;margin:0!important;display:flex!important;gap:8px!important}
 }
+
+/* v78 tab and icon rows fill their block */
+html body .ktabs3:not(#kj1):not(#kj2):not(#kj3){display:flex!important;width:100%!important;gap:8px!important}
+html body .ktabs3:not(#kj1):not(#kj2):not(#kj3)>*{flex:1 1 0!important;min-width:0!important;text-align:center!important;white-space:nowrap!important;font-size:13px!important;padding-left:4px!important;padding-right:4px!important}
+html body .kxrow:not(#kj1):not(#kj2):not(#kj3){justify-content:space-between!important;width:100%!important}
+html body .kxrow:not(#kj1):not(#kj2):not(#kj3)>*{flex:1 1 0!important;display:flex!important;justify-content:center!important}
+html body .ktagstrip:not(#kj1):not(#kj2):not(#kj3) .ktags{flex:1 1 auto!important;min-width:0!important}
+html body .foot-line:not(#kj1):not(#kj2):not(#kj3){justify-content:center!important}
