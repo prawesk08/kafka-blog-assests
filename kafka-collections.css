@@ -2105,3 +2105,36 @@ html body section.wrap>.hero .kbio p.kq:not(#kx1):not(#kx2):not(#kx3):not(#kx4):
 html body .three .kx-bar:not(#kx1):not(#kx2):not(#kx3):not(#kx4):not(#kx5):not(#kx6):not(#kx7):not(#kx8):not(#kx9):not(#kx10):not(#kx11):not(#kx12):not(#kx13):not(#kx14):not(#kx15):not(#kx16):not(#kx17):not(#kx18):not(#kx19):not(#kx20):not(#kx21):not(#kx22):not(#kx23):not(#kx24):not(#kx25):not(#kx26):not(#kx27):not(#kx28):not(#kx29):not(#kx30):not(#kx31):not(#kx32):not(#kx33):not(#kx34):not(#kx35):not(#kx36):not(#kx37):not(#kx38):not(#kx39):not(#kx40):not(#kx41):not(#kx42):not(#kx43):not(#kx44):not(#kx45):not(#kx46):not(#kx47):not(#kx48):not(#kx49):not(#kx50):not(#kx51):not(#kx52):not(#kx53):not(#kx54):not(#kx55):not(#kx56):not(#kx57):not(#kx58):not(#kx59):not(#kx60):not(#kx61):not(#kx62):not(#kx63):not(#kx64):not(#kx65):not(#kx66):not(#kx67):not(#kx68):not(#kx69):not(#kx70):not(#kx71):not(#kx72):not(#kx73):not(#kx74):not(#kx75):not(#kx76):not(#kx77):not(#kx78):not(#kx79):not(#kx80){flex:0 0 auto!important;height:18px!important;min-height:0!important;margin-top:6px!important}
 html body .three .kxs:not(#kx1):not(#kx2):not(#kx3):not(#kx4):not(#kx5):not(#kx6):not(#kx7):not(#kx8):not(#kx9):not(#kx10):not(#kx11):not(#kx12):not(#kx13):not(#kx14):not(#kx15):not(#kx16):not(#kx17):not(#kx18):not(#kx19):not(#kx20):not(#kx21):not(#kx22):not(#kx23):not(#kx24):not(#kx25):not(#kx26):not(#kx27):not(#kx28):not(#kx29):not(#kx30):not(#kx31):not(#kx32):not(#kx33):not(#kx34):not(#kx35):not(#kx36):not(#kx37):not(#kx38):not(#kx39):not(#kx40):not(#kx41):not(#kx42):not(#kx43):not(#kx44):not(#kx45):not(#kx46):not(#kx47):not(#kx48):not(#kx49):not(#kx50):not(#kx51):not(#kx52):not(#kx53):not(#kx54):not(#kx55):not(#kx56):not(#kx57):not(#kx58):not(#kx59):not(#kx60):not(#kx61):not(#kx62):not(#kx63):not(#kx64):not(#kx65):not(#kx66):not(#kx67):not(#kx68):not(#kx69):not(#kx70):not(#kx71):not(#kx72):not(#kx73):not(#kx74):not(#kx75):not(#kx76):not(#kx77):not(#kx78):not(#kx79):not(#kx80){flex:0 0 auto!important}
 }
+/* v57: curated detail pages (albums, songs, books, movies, series) */
+.kpg{--r:#7B2D26;--g:#b8904a;--ink:#191918;--mut:#6D6A65;color:var(--ink)}
+.kpg *{box-sizing:border-box}
+.kpg .kpg-back{display:inline-block;font-size:13px;color:var(--r);text-decoration:none;margin:2px 0 10px}
+.kpg .kpg-top{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;align-items:center;border:1px solid rgba(25,25,24,.08);border-radius:14px;padding:14px;background:linear-gradient(135deg,#fffdf8 0%,#f6efe3 100%);box-shadow:0 6px 18px rgba(60,40,20,.06)}
+.kpg .kpg-top img{width:132px;height:132px;object-fit:cover;border-radius:8px;box-shadow:0 6px 16px rgba(0,0,0,.22);display:block}
+.kpg .kpg-tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--r);margin:0 0 4px}
+.kpg .kpg-sub{margin:0 0 8px;font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1.2}
+.kpg .kpg-pills{display:flex;flex-wrap:wrap;gap:5px;margin:0;padding:0;list-style:none}
+.kpg .kpg-pills li{font-size:11px;padding:2px 9px;border-radius:999px;background:rgba(123,45,38,.09);color:var(--r)}
+.kpg dl.kpg-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(25,25,24,.08);border:1px solid rgba(25,25,24,.08);border-radius:12px;overflow:hidden;margin:16px 0}
+.kpg dl.kpg-facts>div{background:#fffefb;padding:10px 12px}
+.kpg dl.kpg-facts>div.w{grid-column:1/-1}
+.kpg dt{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:0 0 2px}
+.kpg dd{margin:0;font-size:14px;line-height:1.35}
+.kpg h2{font-family:Fraunces,Georgia,serif;font-size:20px;margin:22px 0 6px;display:flex;align-items:center;gap:8px}
+.kpg h2::before{content:"";width:18px;height:2px;background:var(--g)}
+.kpg p{font-size:15.5px;line-height:1.6;margin:0 0 10px}
+.kpg ul.kpg-bits,.kpg ul.kpg-songs{margin:0;padding:0;list-style:none}
+.kpg ul.kpg-bits li,.kpg ul.kpg-songs li{position:relative;padding:8px 0 8px 22px;border-top:1px dotted rgba(25,25,24,.15);font-size:15px;line-height:1.5}
+.kpg ul.kpg-bits li::before,.kpg ul.kpg-songs li::before{content:"";position:absolute;left:4px;top:15px;width:7px;height:7px;background:var(--r);transform:rotate(45deg)}
+.kpg ul.kpg-songs li b{font-family:Fraunces,Georgia,serif}
+.kpg .kpg-like{margin-top:18px;padding:14px 16px;border-radius:12px;background:#f3ecdf;border:1px solid rgba(184,144,74,.35)}
+.kpg .kpg-like h2{margin-top:0}
+.kpg .kpg-quote{margin:14px 0 0;padding:4px 0 4px 14px;border-left:3px solid var(--g);font-family:Fraunces,Georgia,serif;font-style:italic;font-size:17px;line-height:1.4}
+.kpg .kpg-links{margin:14px 0 0;font-size:14px}
+.kpg .kpg-links a{color:var(--r)}
+.kpg .kpg-next{display:flex;gap:8px;margin-top:18px}
+.kpg .kpg-next a{flex:1;text-align:center;padding:10px 8px;border:1px solid rgba(123,45,38,.3);border-radius:999px;color:var(--r);text-decoration:none;font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:420px){.kpg .kpg-top{grid-template-columns:96px minmax(0,1fr);gap:12px;padding:12px}.kpg .kpg-top img{width:96px;height:96px}.kpg .kpg-sub{font-size:17px}}
+@media(min-width:700px){.kpg dl.kpg-facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.kafka-item .kafka-item-read{margin:8px 0 0;font-size:13px}
+.kafka-item .kafka-item-read a{color:#7B2D26;font-weight:500;text-decoration:none}
