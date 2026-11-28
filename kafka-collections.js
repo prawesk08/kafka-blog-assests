@@ -687,7 +687,7 @@ window.kTiny=window.kTiny||function(u,n){
 })();
 
 /* v34: show-more for phone shelves */
-(function(){function more(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3,.series2.six').forEach(function(s){if(s.classList.contains('kxl')||s.children.length<=6)return;s.classList.add('kxm');if(s.__kxm)return;s.__kxm=1;var b=document.createElement('button');b.type='button';b.className='kx-more';b.textContent='Show more';b.addEventListener('click',function(){var all=s.classList.toggle('kx-all');b.textContent=all?'Show less':'Show more'});s.parentNode.insertBefore(b,s.nextSibling)})}catch(e){}}
+(function(){function more(){return;try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3,.series2.six').forEach(function(s){if(s.classList.contains('kxl')||s.children.length<=6)return;s.classList.add('kxm');if(s.__kxm)return;s.__kxm=1;var b=document.createElement('button');b.type='button';b.className='kx-more';b.textContent='Show more';b.addEventListener('click',function(){var all=s.classList.toggle('kx-all');b.textContent=all?'Show less':'Show more'});s.parentNode.insertBefore(b,s.nextSibling)})}catch(e){}}
 var k=0,t=setInterval(function(){more();if(++k>40)clearInterval(t)},600);document.addEventListener('click',function(){setTimeout(more,200)},true)})();
 
 /* v34b: scroll hint */
@@ -729,9 +729,35 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   document.addEventListener('click',function(){setTimeout(go,600)},true);
 })();
 
-/* v42: post counter under list-page tile grids (5 rows x 2 columns sideways on phone) */
-(function(){function ct(s){if(s.__kct)return;s.__kct=1;var n=s.children.length;var d=document.createElement('div');d.className='kx-ct';s.parentNode.insertBefore(d,s.nextSibling);
-function upd(){var ph=window.matchMedia('(max-width:640px)').matches;if(!ph){d.textContent=n+' posts';return}var c=s.children[0]?s.children[0].getBoundingClientRect().width+8:1;var col=Math.round(s.scrollLeft/c);var a=col*5+1,b=Math.min(n,a+9);d.textContent='Showing '+a+'–'+b+' of '+n+' posts'+(b<n?' · swipe for more ›':'')}
-s.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd()}
-function all(){try{document.querySelectorAll('.kxs3.kxl').forEach(ct)}catch(e){}}
-var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
+/* v42: slim pager line under every tile block - arrows, red accent progress, post counter */
+(function(){
+  var SEL='.three .col ol.klist.kxs,.kstart5,.kxs3';
+  function bar(s){
+    if(s.__kb)return;s.__kb=1;
+    var d=document.createElement('div');d.className='kx-bar';
+    d.innerHTML='<button type="button" class="kb-p" aria-label="Previous">‹</button><span class="kb-t"><i></i></span><span class="kb-n"></span><button type="button" class="kb-x" aria-label="More">›</button>';
+    s.parentNode.insertBefore(d,s.nextSibling);
+    var P=d.querySelector('.kb-p'),X=d.querySelector('.kb-x'),T=d.querySelector('.kb-t i'),N=d.querySelector('.kb-n');
+    function tiles(){return [].filter.call(s.children,function(c){return !c.classList.contains('k5-more')&&getComputedStyle(c).display!=='none'})}
+    function upd(){
+      var ts=tiles(),n=ts.length;if(!n)return;
+      var ph=matchMedia('(max-width:640px)').matches,kxl=s.classList.contains('kxl');
+      var over=s.scrollWidth>s.clientWidth+4;
+      d.classList.toggle('kb-flat',!over);
+      if(!over){N.textContent=n+(n===1?' post':' posts');return}
+      var rows=ph?(kxl?5:3):2,cols=ph?2:3,per=rows*cols;
+      var cw=ts[0].getBoundingClientRect().width+(ph?8:12);
+      var col=Math.round(s.scrollLeft/cw),a=Math.min(n,col*rows+1),b=Math.min(n,a+per-1);
+      N.textContent=a+'–'+b+' of '+n;
+      var m=s.scrollWidth-s.clientWidth,f=Math.max(.12,s.clientWidth/s.scrollWidth),p=m>0?s.scrollLeft/m:0;
+      T.style.width=(f*100)+'%';T.style.marginLeft=(p*(1-f)*100)+'%';
+      P.disabled=s.scrollLeft<4;X.disabled=s.scrollLeft>m-4;
+    }
+    function step(dir){s.scrollBy({left:dir*(s.clientWidth-8),behavior:'smooth'})}
+    P.addEventListener('click',function(){step(-1)});X.addEventListener('click',function(){step(1)});
+    s.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);s.__kbu=upd;upd();
+  }
+  function all(){try{document.querySelectorAll(SEL).forEach(function(s){if(!s.children.length)return;bar(s);s.__kbu&&s.__kbu()})}catch(e){}}
+  var k=0,t=setInterval(function(){all();if(++k>50)clearInterval(t)},700);
+  document.addEventListener('click',function(){setTimeout(all,500)},true);
+})();
