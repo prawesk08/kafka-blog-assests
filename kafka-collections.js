@@ -827,8 +827,9 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
       +'<div class="fp-row"><a class="fp-main" lang="ne" href="'+esc(mh)+'" style="--bg:url(\''+esc(big)+'\')"><span class="fp-mi"></span><span class="fp-mb"><span class="fp-mk">'+esc(series)+'</span><b class="fp-mt">शीतला माजुको कथा</b><i class="fp-q">“'+esc(q)+'”</i></span></a><div class="fp-parts">'+ph+'</div></div>';
     var kh=document.getElementById('kh-feat');var shelf=home.querySelector('.kxs3');
     var anchor=shelf||kh||feat;
-    if(shelf){var n=shelf.nextElementSibling;shelf.classList.add('kx-hid');while(n&&(n.classList.contains('kx-bar')||n.classList.contains('kx-pg'))){n.classList.add('kx-hid');n=n.nextElementSibling}}
-    if(kh)kh.classList.add('kx-hid');
+    function hide(e){e.classList.add('kx-hid');e.style.setProperty('display','none','important')}
+    if(shelf){var n=shelf.nextElementSibling;hide(shelf);while(n&&(n.classList.contains('kx-bar')||n.classList.contains('kx-pg'))){hide(n);n=n.nextElementSibling}}
+    if(kh)hide(kh);
     anchor.parentNode.insertBefore(el,anchor);home.setAttribute('data-kfp','1');return true;
   }
   var tries=0;(function tick(){if(build()||++tries>40)return;setTimeout(tick,300)})();
