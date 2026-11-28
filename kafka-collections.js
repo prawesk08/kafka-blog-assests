@@ -522,7 +522,13 @@ window.kTiny=window.kTiny||function(u,n){
     if(t.scrollHeight>t.clientHeight+1&&lb)lb.style.setProperty('display','none','important');
   })}
   function go(){plate();fit()}
-  document.addEventListener('mouseover',function(e){if(e.target.closest&&e.target.closest('.kafka-item')){clearTimeout(go._h);go._h=setTimeout(fit,30)}});
+  /* a half-visible card at the edge of a shelf slides fully into view when it is hovered or tapped, so its panel is never cut */
+  function reveal(it){var s=it&&it.closest('.kshelf-strip');if(!s)return;var a=it.getBoundingClientRect(),b=s.getBoundingClientRect(),d=0;
+    if(a.right>b.right-4)d=a.right-b.right+12;else if(a.left<b.left+4)d=a.left-b.left-12;
+    if(d)s.scrollBy({left:d,behavior:'smooth'})}
+  var lastIt=null;
+  document.addEventListener('mouseover',function(e){var it=e.target.closest&&e.target.closest('.kafka-item');if(it){clearTimeout(go._h);go._h=setTimeout(fit,30);if(it!==lastIt){lastIt=it;clearTimeout(go._r);go._r=setTimeout(function(){reveal(it)},140)}}else lastIt=null});
+  document.addEventListener('click',function(e){var it=e.target.closest&&e.target.closest('.kshelf-strip>.kafka-item');if(it)setTimeout(function(){reveal(it)},60)});
   document.addEventListener('touchstart',function(){setTimeout(fit,60)},{passive:true});
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go);
   window.addEventListener('resize',function(){clearTimeout(go._t);go._t=setTimeout(fit,150)});
