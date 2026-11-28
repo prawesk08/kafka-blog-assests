@@ -679,7 +679,7 @@ window.kTiny=window.kTiny||function(u,n){
           var ne=/[ऀ-ॿ]/.test(title);
           tiles.push('<article class="kx-tile kx-host"'+(ne?' lang="ne"':'')+'><a class="kx-cv" href="'+esc(l.href)+'" aria-label="'+esc(title)+'">'+(src?'<img alt="" loading="lazy" src="'+esc(src)+'">':'')+'</a>'+(cat?'<span class="kx-cat">'+esc(cat)+'</span>':'')+'<div class="kx-tx"><a class="tt" href="'+esc(l.href)+'">'+esc(title)+'</a>'+(cut?'<p class="kx-sn">'+esc(cut)+'</p>':'')+'<p class="d">'+esc(fmt(m['d:'+u])||'')+'</p></div><div class="kx-pn"><b>What you’ll find</b><p>'+esc(long)+'</p><a class="kx-go" href="'+esc(l.href)+'">Read ›</a></div></article>')});
         if(tiles.length<2)return;
-        var sh=document.createElement('div');sh.className='kxs3';sh.innerHTML=tiles.join('');
+        var sh=document.createElement('div');sh.className='kxs3';sh.innerHTML=tiles.join('');sh.setAttribute('data-n',tiles.length);
         h.setAttribute('data-kx3','1');h.insertAdjacentElement('afterend',sh);if(pin){var h2=h.querySelector('h2 span,h2');if(h2){var tn=[].filter.call(h2.childNodes,function(x){return x.nodeType===3&&x.textContent.trim()})[0];if(h2.querySelector('span')&&h2.querySelector('span').children.length===0)h2.querySelector('span').textContent='Featured & pinned';else if(tn)tn.textContent='Featured & pinned'}var fh=[].filter.call(document.querySelectorAll('.sec-h'),function(x){return /^featured$/i.test((x.textContent||'').trim())})[0];if(fh){fh.classList.add('kx-hid')}if(feat)feat.classList.add('kx-hid')}
         sibs.forEach(function(c){if(c.matches('article.krow,.sq-grid,.wheel-plane,.pin-pair'))c.classList.add('kx-hid')});
       })})}
