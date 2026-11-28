@@ -964,3 +964,16 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
  var c=document.createElement('span');c.className='fp-mc';[].forEach.call(parts,function(p,i){var a=document.createElement('span');a.textContent=(p.querySelector('em')?p.querySelector('em').textContent:'भाग '+(i+1))+' ›';a.setAttribute('data-href',p.href);c.appendChild(a)});mb.appendChild(c);
  c.addEventListener('click',function(e){var t=e.target.closest('[data-href]');if(t){e.preventDefault();e.stopPropagation();location.href=t.getAttribute('data-href')}});}
  [200,1200,3000,6000].forEach(function(t){setTimeout(f,t)});f();})();
+
+/* v98 author logo + name on every post tile */
+(function(){
+ var AV='';
+ function av(){if(AV)return AV;var i=document.querySelector('.hero .portrait img,.portrait img,.kn-about img');if(i&&i.src)AV=i.src;else{var p=document.querySelector('.hero .portrait');if(p){var m=/url\(["']?([^"')]+)/.exec(getComputedStyle(p).backgroundImage||'');if(m)AV=m[1]}}return AV}
+ function run(){var a=av();[].forEach.call(document.querySelectorAll('.kxs3>.kx-tile .kx-tx'),function(tx){
+  if(tx.querySelector('.kx-meta'))return;var d=tx.querySelector('p.d');var m=document.createElement('div');m.className='kx-meta';
+  if(d){tx.insertBefore(m,d);m.appendChild(d)}else tx.appendChild(m);
+  var b=document.createElement('span');b.className='kx-by';b.innerHTML=(a?'<img alt="" src="'+a+'">':'')+'<span>बासभ</span>';m.appendChild(b)})}
+ var t;function sched(){clearTimeout(t);t=setTimeout(run,150)}
+ run();[500,1500,3500,7000].forEach(function(x){setTimeout(run,x)});
+ if(window.MutationObserver)new MutationObserver(sched).observe(document.body,{childList:true,subtree:true});
+})();
