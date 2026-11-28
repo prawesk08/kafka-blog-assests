@@ -1053,3 +1053,17 @@ s();document.addEventListener('DOMContentLoaded',s);window.addEventListener('loa
 /* v107 size hover text to the panel height */
 (function(){function f(){var a=document.querySelectorAll('.kx-pn');for(var i=0;i<a.length;i++){var p=a[i],h=p.clientHeight;if(!h)continue;var fs=h>150?13:h>110?12:h>75?10.5:9.5,ln=Math.max(2,Math.floor((h-30)/(fs*1.35)));p.style.setProperty('--fs',fs+'px');p.style.setProperty('--ln',ln)}}
 f();window.addEventListener('load',function(){setTimeout(f,300)});window.addEventListener('resize',f);var t;try{new MutationObserver(function(){clearTimeout(t);t=setTimeout(f,200)}).observe(document.body,{childList:true,subtree:true})}catch(e){}document.addEventListener('pointerover',f,{passive:true})})();
+
+/* v108 hide language switch when a page has only one language (e.g. the English or Nepali category) */
+(function(){
+ function isNe(el){return el.getAttribute('lang')==='ne'||el.classList.contains('kt-ne')}
+ function one(){var sw=document.querySelectorAll('.klsw');if(!sw.length)return;
+  var it=document.querySelectorAll('.kser-items>li,.kxs3>.kx-tile');if(!it.length)return;
+  var ne=0,en=0;for(var i=0;i<it.length;i++){isNe(it[i])?ne++:en++}
+  var single=!(ne&&en);
+  for(var j=0;j<sw.length;j++){sw[j].style.setProperty('display',single?'none':'','important');var c=sw[j].closest('.kctl');if(c)c.classList.toggle('kctl-one',single)}
+  if(single){for(var k=0;k<it.length;k++)it[k].classList.remove('klsw-off');try{sessionStorage.removeItem('klsw')}catch(e){}}}
+ var t;function s(){clearTimeout(t);t=setTimeout(one,120)}
+ one();[500,1500,3000].forEach(function(x){setTimeout(one,x)});
+ try{new MutationObserver(s).observe(document.body,{childList:true,subtree:true})}catch(e){}
+})();
