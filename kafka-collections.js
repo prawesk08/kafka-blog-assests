@@ -694,3 +694,37 @@ var k=0,t=setInterval(function(){more();if(++k>40)clearInterval(t)},600);documen
 (function(){function setup(s){if(s.__kxh)return;s.__kxh=1;var pg=document.createElement('div');pg.className='kx-pg';pg.innerHTML='<i></i>';s.parentNode.insertBefore(pg,s.nextSibling);var bar=pg.firstChild;function upd(){var w=s.scrollWidth,c=s.clientWidth;if(w<=c+4){s.classList.remove('kx-sc');pg.style.display='none';return}pg.style.display='';s.classList.add('kx-sc');var m=w-c,p=s.scrollLeft/m;s.classList.toggle('kx-start',s.scrollLeft<4);s.classList.toggle('kx-end',s.scrollLeft>m-4);var f=Math.max(.15,c/w);bar.style.width=(f*100)+'%';bar.style.marginLeft=(p*(1-f)*100)+'%'}s.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);s.__kxu=upd;upd()}
 function all(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3').forEach(function(s){setup(s);s.__kxu&&s.__kxu()})}catch(e){}}
 var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
+
+/* v38: label / search / series list pages become the same soft tile grid */
+(function(){
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  function path(h){try{return new URL(h,location.origin).pathname}catch(e){return ''}}
+  function fmt(iso){try{return new Date(iso).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}catch(e){return ''}}
+  var sig='';
+  function go(){
+    if(document.body.classList.contains('k-home')||document.querySelector('.kdoors'))return;
+    var cards=[].filter.call(document.querySelectorAll('article.kcard'),function(a){return !a.closest('.kxs3')&&!a.classList.contains('kx-lh')});
+    if(cards.length<2||!window.__kxFeed)return;
+    var key=cards.map(function(a){return a.getAttribute('data-id')}).join(',');if(key===sig)return;
+    window.__kxFeed().then(function(m){
+      var cs=[].filter.call(document.querySelectorAll('article.kcard'),function(a){return !a.classList.contains('kx-lh')});
+      if(cs.length<2)return;
+      var old=document.querySelector('.kxs3.kxl');if(old)old.remove();
+      var seen={},tiles=[];
+      cs.forEach(function(a){var l=a.querySelector('a.pic[href]')||a.querySelector('a[href$=".html"]');if(!l)return;var u=path(l.href);if(seen[u])return;seen[u]=1;
+        var im=a.querySelector('img'),src=im?(im.currentSrc||im.src||''):'';src=src.replace(/=w\d+-rw/,'=w480-rw');
+        var hd=a.querySelector('h2,h3,.tt');var title=m['t:'+u]||(hd?hd.textContent:'')||l.textContent;title=title.replace(/\s+/g,' ').trim();
+        var sm=(m[u]||'').replace(/\s+/g,' ').trim();var cut=sm.length>96?sm.slice(0,sm.lastIndexOf(' ',96)||96)+'…':sm;
+        var long=sm.length>230?(function(){var c=sm.slice(0,230),i=Math.max(c.lastIndexOf('. '),c.lastIndexOf('। '),c.lastIndexOf('? '));return i>110?c.slice(0,i+1):c.slice(0,c.lastIndexOf(' '))+'…'})():sm;
+        var chip=a.querySelector('.chip');var cat=chip?chip.textContent.trim():(m['cat:'+u]||'');
+        var ne=/[ऀ-ॿ]/.test(title);
+        tiles.push('<article class="kx-tile kx-host"'+(ne?' lang="ne"':'')+'><a class="kx-cv" href="'+esc(l.href)+'" aria-label="'+esc(title)+'">'+(src?'<img alt="" loading="lazy" src="'+esc(src)+'">':'')+'</a>'+(cat?'<span class="kx-cat">'+esc(cat)+'</span>':'')+'<div class="kx-tx"><a class="tt" href="'+esc(l.href)+'">'+esc(title)+'</a>'+(cut?'<p class="kx-sn">'+esc(cut)+'</p>':'')+'<p class="d">'+esc(fmt(m['d:'+u])||'')+'</p></div><div class="kx-pn"><b>What you’ll find</b><p>'+esc(long)+'</p><a class="kx-go" href="'+esc(l.href)+'">Read ›</a></div></article>')});
+      if(tiles.length<2)return;
+      var sh=document.createElement('div');sh.className='kxs3 kxl';sh.innerHTML=tiles.join('');sh.setAttribute('data-n',tiles.length);
+      cs[0].insertAdjacentElement('beforebegin',sh);
+      cs.forEach(function(a){a.classList.add('kx-hid')});
+      sig=key;
+    })}
+  go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);[1200,2500,5000,9000].forEach(function(t){setTimeout(go,t)});
+  document.addEventListener('click',function(){setTimeout(go,600)},true);
+})();
