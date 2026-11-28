@@ -689,3 +689,8 @@ window.kTiny=window.kTiny||function(u,n){
 /* v34: show-more for phone shelves */
 (function(){function more(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3,.series2.six').forEach(function(s){if(s.children.length<=6)return;s.classList.add('kxm');var n=s.nextElementSibling;if(n&&n.classList.contains('kx-more'))return;var b=document.createElement('button');b.type='button';b.className='kx-more';b.textContent='Show more';b.addEventListener('click',function(){var all=s.classList.toggle('kx-all');b.textContent=all?'Show less':'Show more'});s.parentNode.insertBefore(b,s.nextSibling)})}catch(e){}}
 var k=0,t=setInterval(function(){more();if(++k>40)clearInterval(t)},600);document.addEventListener('click',function(){setTimeout(more,200)},true)})();
+
+/* v34b: scroll hint */
+(function(){function setup(s){if(s.__kxh)return;s.__kxh=1;var pg=document.createElement('div');pg.className='kx-pg';pg.innerHTML='<i></i>';s.parentNode.insertBefore(pg,s.nextSibling);var bar=pg.firstChild;function upd(){var w=s.scrollWidth,c=s.clientWidth;if(w<=c+4){s.classList.remove('kx-sc');pg.style.display='none';return}pg.style.display='';s.classList.add('kx-sc');var m=w-c,p=s.scrollLeft/m;s.classList.toggle('kx-start',s.scrollLeft<4);s.classList.toggle('kx-end',s.scrollLeft>m-4);var f=Math.max(.15,c/w);bar.style.width=(f*100)+'%';bar.style.marginLeft=(p*(1-f)*100)+'%'}s.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);s.__kxu=upd;upd()}
+function all(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3').forEach(function(s){setup(s);s.__kxu&&s.__kxu()})}catch(e){}}
+var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
