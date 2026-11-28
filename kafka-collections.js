@@ -1106,3 +1106,20 @@ f();window.addEventListener('load',function(){setTimeout(f,300)});window.addEven
  function all(){try{var a=document.querySelectorAll('ol.kser-items>li');for(var i=0;i<a.length;i++)one(a[i])}catch(e){}}
  all();document.addEventListener('DOMContentLoaded',all);window.addEventListener('load',all);[600,1500,3000,6000].forEach(function(t){setTimeout(all,t)});
 })();
+
+/* v120 every button group is justified: order, language and part switches span the full width with equal buttons (phone and tablet) */
+(function(){
+ function P(e,o){for(var k in o)e.style.setProperty(k,o[k],'important')}
+ function go(){
+  if(!matchMedia('(max-width:1100px)').matches)return;
+  try{
+   var c=document.querySelectorAll('.kctl');for(var i=0;i<c.length;i++)P(c[i],{display:'grid','grid-template-columns':'minmax(0,1fr)',gap:'8px',width:'100%'});
+   var g=document.querySelectorAll('.kord,.klsw');
+   for(var j=0;j<g.length;j++){P(g[j],{display:'flex',width:'100%','box-sizing':'border-box','margin-left':'0','margin-right':'0'});
+    for(var k=0;k<g[j].children.length;k++)P(g[j].children[k],{flex:'1 1 0','min-width':'0','text-align':'center','justify-content':'center','white-space':'nowrap','padding-left':'6px','padding-right':'6px'})}
+  }catch(e){}
+ }
+ go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);[500,1500,3000,6000].forEach(function(t){setTimeout(go,t)});
+ document.addEventListener('click',function(){setTimeout(go,200)},true);
+ try{var t;new MutationObserver(function(){clearTimeout(t);t=setTimeout(go,150)}).observe(document.body,{childList:true,subtree:true})}catch(e){}
+})();
