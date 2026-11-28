@@ -1049,3 +1049,7 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
 /* v106 featured image as hover-panel canvas */
 (function(){function s(){var a=document.querySelectorAll('.kx-tile:not([data-pb])');for(var i=0;i<a.length;i++){var im=a[i].querySelector('a.kx-cv img'),u=im&&im.getAttribute('src');if(u){a[i].setAttribute('data-pb','1');a[i].style.setProperty('--pbg','url("'+u.replace(/"/g,'%22')+'")')}}}
 s();document.addEventListener('DOMContentLoaded',s);window.addEventListener('load',s);var t;try{new MutationObserver(function(){clearTimeout(t);t=setTimeout(s,120)}).observe(document.body,{childList:true,subtree:true})}catch(e){}})();
+
+/* v107 size hover text to the panel height */
+(function(){function f(){var a=document.querySelectorAll('.kx-pn');for(var i=0;i<a.length;i++){var p=a[i],h=p.clientHeight;if(!h)continue;var fs=h>150?13:h>110?12:h>75?10.5:9.5,ln=Math.max(2,Math.floor((h-30)/(fs*1.35)));p.style.setProperty('--fs',fs+'px');p.style.setProperty('--ln',ln)}}
+f();window.addEventListener('load',function(){setTimeout(f,300)});window.addEventListener('resize',f);var t;try{new MutationObserver(function(){clearTimeout(t);t=setTimeout(f,200)}).observe(document.body,{childList:true,subtree:true})}catch(e){}document.addEventListener('pointerover',f,{passive:true})})();
