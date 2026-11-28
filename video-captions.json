@@ -1,7 +1,7 @@
 {
- "version": 3,
- "updated": "2026-11-27",
- "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list. Since 2026-11-27 R2's manifest is a flat list (path -> slug, title, l, category, v16, v9) without the 13 earlier films, so 11 of those carry their own src and poster here. Marginalia and Echoes use the new animated films from R2 (owner's choice, 2026-11-27).",
+ "version": 4,
+ "updated": "2026-11-28",
+ "note": "Caption and search overrides for films listed in https://audio.kafka.blog/video-manifest.json. kafka-post.js merges these over the R2 entries, field by field. An entry with src and poster can also add a film that R2's manifest does not list. Since 2026-11-27 R2's manifest is a flat list (path -> slug, title, l, category, v16, v9) without the 13 earlier films, so 11 of those carry their own src and poster here as a fallback: when R2 lists a 16:9 file (v16) for the same post, that file is shown instead (2026-11-28). Marginalia and Echoes use the new animated films from R2 (owner's choice, 2026-11-27).",
  "videos": {
   "/2025/05/manusi.html": {
    "heading": "मानुषी: भुपीसँगका थाँती संवाद",
@@ -3065,19 +3065,17 @@
    "spotify": "https://open.spotify.com/episode/0m9iu9992qrOTQQ2jrqYFM"
   },
   "/2024/09/palpasa.html": {
-   "heading": "कथा: पल्पसाको चिठ्ठी",
+   "heading": "पल्पसाको चिठ्ठी",
    "title": "कथा: पल्पसाको चिठ्ठी | कथा · बासभ",
-   "caption": "म कतै धुवाँ बनेर उडिसकेको हुनेछु तिमीले यो पत्र पढ्दा।",
-   "description": "धत्, बिदाइ कति गार्हो हुन्छ है? म कतै धुवाँ बनेर उडिसकेको हुनेछु तिमीले यो पत्र पढ्दा। मेरो कमजोरीको समयमा, मेरो लागि पनि उर्जा दिएका थियौ तिमीले, यो पढेर पनि तिमी रुनेछैनौ भन्ने आशा गरेको छु। किन दु:ख मान्नु र, म त… “\"भएको भए के हुन्थ्यो र?\" उ पनि कहाँ कम थिइ त। \"के थाह, मलाई तिमी पनि मन पर्न सक्थ्यो।\" मैले टेस्टेस्टोरन फ्यूल्ड रिप्लाई दिएँ।” “\"प्रवेश, जीवन के हो जस्तो लाग्छ?\" एक दिन एक्कासि प्रश्न गरेकी थिई पल्पसाले, \"तिमिलाई आफूले पाएको यो समय प्रति जस्टिस गरेजस्तो लाग्छ त?” “मोबाइलमा, 'लाइक अ रोलिङ स्टोन' सुन्दै सुतेको थिएँ त्यो रात।” पूरा लेख: https://www.kafka.blog/2024/09/palpasa.html — अरू पढ्नुहोस्: आफ्नै संस्मरण २- कविताका कुरा; अन्तरेको कथा; भुईँ छाडेको गाउँको कथा। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
+   "caption": "धत्, बिदाइ कति गार्हो हुन्छ है?",
+   "description": "२०१० को एक बिहान फेसबुकको साथी सुझावमा भेटिएको नामबाट सुरु हुने कथा, र बिदाइमा छाडिएको चिठ्ठी। ‘म कतै धुवाँ बनेर उडिसकेको हुनेछु तिमीले यो पत्र पढ्दा’ भन्ने पङ्क्तिले खोल्ने बासभको कथा, १३ मिनेट ४७ सेकेन्डको भिडियोमा।",
    "keywords": [
-    "कथा: पल्पसाको चिठ्ठी",
     "पल्पसाको चिठ्ठी",
     "नेपाली कथा",
-    "पल्पसा",
-    "Nepali short story",
-    "farewell letter story",
+    "बिदाइको चिठी",
+    "नेपाली कथा भिडियो",
     "बासभ",
-    "Nepali narrated film",
+    "Nepali story film",
     "Basava",
     "Kafkaintherun"
    ],
@@ -3086,16 +3084,14 @@
    "durationIso": "PT13M47S",
    "uploadDate": "2026-11-27",
    "kind": "story",
-   "excerpt": "धत्, बिदाइ कति गार्हो हुन्छ है? म कतै धुवाँ बनेर उडिसकेको हुनेछु तिमीले यो पत्र पढ्दा। मेरो कमजोरीको समयमा, मेरो लागि पनि उर्जा दिएका थियौ तिमीले, यो पढेर पनि तिमी रुनेछैनौ भन्ने आशा गरेको छु। किन दु:ख मान्नु र, म त…",
    "quotes": [
-    "\"भएको भए के हुन्थ्यो र?\" उ पनि कहाँ कम थिइ त। \"के थाह, मलाई तिमी पनि मन पर्न सक्थ्यो।\" मैले टेस्टेस्टोरन फ्यूल्ड रिप्लाई दिएँ।",
-    "\"प्रवेश, जीवन के हो जस्तो लाग्छ?\" एक दिन एक्कासि प्रश्न गरेकी थिई पल्पसाले, \"तिमिलाई आफूले पाएको यो समय प्रति जस्टिस गरेजस्तो लाग्छ त?",
-    "मोबाइलमा, 'लाइक अ रोलिङ स्टोन' सुन्दै सुतेको थिएँ त्यो रात।"
+    "धत्, बिदाइ कति गार्हो हुन्छ है?",
+    "म कतै धुवाँ बनेर उडिसकेको हुनेछु तिमीले यो पत्र पढ्दा।"
    ],
    "related": [
     {
-     "path": "/2025/03/poetry.html",
-     "title": "आफ्नै संस्मरण २- कविताका कुरा"
+     "path": "/2025/10/lettertoher.html",
+     "title": "प्रिय तिमी, म तिम्रो आश गर्छु।"
     },
     {
      "path": "/2025/11/antarey.html",
@@ -3106,22 +3102,23 @@
      "title": "भुईँ छाडेको गाउँको कथा"
     }
    ],
-   "about": "‘कथा: पल्पसाको चिठ्ठी’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि १३ मिनेट ४७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
+   "about": "‘कथा: पल्पसाको चिठ्ठी’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि १३ मिनेट ४७ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न पाइन्छ।",
+   "heading_alt": "Palpasa's Letter",
+   "alt": "‘पल्पसाको चिठ्ठी’ कथाको भिडियो संस्करणको आवरण।"
   },
   "/2025/03/booksandauthors.html": {
-   "heading": "आफ्नै संस्मरण १ - किताबका कुरा",
-   "title": "आफ्नै संस्मरण १ - किताबका कुरा | कथा · बासभ",
-   "caption": "सानो बेलादेखि नै किताबहरूप्रति मेरो बिछट्टै मोह थियो।",
-   "description": "योगवीर, सकम्बरी, फुलहरू र बुढी पसल्नी लाई पहिले भेटेँ, अन्तरमुखीमा आँफूलाई पाएँ, परिभाषित आँखाहरुले पर्खालबाहिर धुपी सल्ला र लालीगुराँसको फेदीमा पुर्यायो, अनि महत्ताहिनले थाहै नपाइ बैँसालु वर्तमानमा लगेर छाडी राखेको… “बुवा - ‘झ्याउरे भाका भनेको के हो?’, ‘किन अरू सबै किताब जलाइदिनु भनेका?’, ‘क्षत्रीले मात्रै किन हो ढोग्न पर्ने?’,” “‘अनि ७० वर्षको मान्छेले मागेकै भरमा त्यति सानि फुच्चीसँग बिहे गर्न पनि पाइन्छ र’, ‘देवताहरुका राजालाई हतियार चाहियो भन्दैमा एक जना ऋषी मारिन पर्ने’,” “धत्, कता कता हराएछुँ आफूलाई खोज्ने-भेट्टाउने चक्करमा.. काफ्काको साम्सा, अनि बुकोस्कीको चिनास्की झैँ।” पूरा लेख: https://www.kafka.blog/2025/03/booksandauthors.html — अरू पढ्नुहोस्: आफ्नै संस्मरण २- कविताका कुरा; कथा: पल्पसाको चिठ्ठी।; अन्तरेको कथा। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
+   "heading": "आफ्नै संस्मरण १- किताबका कुरा",
+   "title": "आफ्नै संस्मरण १- किताबका कुरा | संस्मरण · बासभ",
+   "caption": "किताबहरू साथी बनेका बाल्यकालको सम्झना।",
+   "description": "सानैदेखि अक्षरको छायाँमा हुर्किएका बासभको पढाइको संस्मरण: बाबाले ल्याइदिने मुना र सुनकेशरी, योगवीर, सकम्बरी, अन्तर्मुखी, धुपी सल्ला र लालीगुराँस। किताबका पात्रहरू कसरी सहयात्री बने भन्ने कुरा १२ मिनेट २३ सेकेन्डमा।",
    "keywords": [
-    "आफ्नै संस्मरण १ - किताबका कुरा",
-    "किताबका कुरा",
     "आफ्नै संस्मरण",
+    "किताबका कुरा",
+    "नेपाली साहित्य",
+    "बाल्यकाल",
     "नेपाली संस्मरण",
-    "reading memoir Nepali",
-    "books and childhood",
     "बासभ",
-    "Nepali narrated film",
+    "Nepali memoir film",
     "Basava",
     "Kafkaintherun"
    ],
@@ -3130,11 +3127,9 @@
    "durationIso": "PT12M23S",
    "uploadDate": "2026-11-27",
    "kind": "story",
-   "excerpt": "योगवीर, सकम्बरी, फुलहरू र बुढी पसल्नी लाई पहिले भेटेँ, अन्तरमुखीमा आँफूलाई पाएँ, परिभाषित आँखाहरुले पर्खालबाहिर धुपी सल्ला र लालीगुराँसको फेदीमा पुर्यायो, अनि महत्ताहिनले थाहै नपाइ बैँसालु वर्तमानमा लगेर छाडी राखेको…",
    "quotes": [
-    "बुवा - ‘झ्याउरे भाका भनेको के हो?’, ‘किन अरू सबै किताब जलाइदिनु भनेका?’, ‘क्षत्रीले मात्रै किन हो ढोग्न पर्ने?’,",
-    "‘अनि ७० वर्षको मान्छेले मागेकै भरमा त्यति सानि फुच्चीसँग बिहे गर्न पनि पाइन्छ र’, ‘देवताहरुका राजालाई हतियार चाहियो भन्दैमा एक जना ऋषी मारिन पर्ने’,",
-    "धत्, कता कता हराएछुँ आफूलाई खोज्ने-भेट्टाउने चक्करमा.. काफ्काको साम्सा, अनि बुकोस्कीको चिनास्की झैँ।"
+    "सानो बेलाबाट नै किताबहरूप्रति मेरो बिछट्टकै मोह थियो।",
+    "मेरा सहयात्रीहरू नै किताबका ति पात्रहरू थिए।"
    ],
    "related": [
     {
@@ -3142,30 +3137,32 @@
      "title": "आफ्नै संस्मरण २- कविताका कुरा"
     },
     {
-     "path": "/2024/09/palpasa.html",
-     "title": "कथा: पल्पसाको चिठ्ठी।"
-    },
-    {
      "path": "/2025/11/antarey.html",
      "title": "अन्तरेको कथा"
+    },
+    {
+     "path": "/2026/11/bhui-chhadeko-gaun-katha.html",
+     "title": "भुईँ छाडेको गाउँको कथा"
     }
    ],
-   "about": "‘आफ्नै संस्मरण १ - किताबका कुरा’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि १२ मिनेट २३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
+   "about": "‘आफ्नै संस्मरण १- किताबका कुरा’ बासभको संस्मरणको भिडियो संस्करण हो। भिडियोको अवधि १२ मिनेट २३ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न पाइन्छ।",
+   "heading_alt": "My Own Memoir I: On Books",
+   "alt": "‘आफ्नै संस्मरण १- किताबका कुरा’ को आवरण: किताबहरू र पढ्ने कुना।"
   },
   "/2025/03/poetry.html": {
-   "heading": "आफ्नै संस्मरण २ - कविताका कुरा",
-   "title": "आफ्नै संस्मरण २ - कविताका कुरा | कथा · बासभ",
-   "caption": "फेरि कलमले बामे सर्न खोज्दैछ, यो कविता लेख्ने हुटहुटी।",
-   "description": "फेरी कलमले बामे सर्न खोज्दैछ, यो कविता लेख्ने हुटहुटी यस्तै, लागेपछि छुट्नै गाह्रो । लेखिएका कुराहरू ट्विटर र ब्लगमा हाल्दै गर्छु। यो मनोवाद, यी कविताहरु मेरा लागि नै हुन, भित्र गुम्सिएका आवाजहरूलाई बाहिर निकाल्न। मलाई… “अब कविताका कुरा- यसका नि खण्डहरू छन्- पख्नु न। कविताको कुरा गर्दा भुपी कसोगरी भुल्ने-” “यो कविता लेख्ने हुटहुटी कस्तो हो कुन्नी, लागेपछि छुट्नै गार्हो, छुटेपछि फेरी जोडिनै गाह्रो।” “यो पनि पढ्नुहोस् आफ्नै संस्मरण १- किताबका कुरा” पूरा लेख: https://www.kafka.blog/2025/03/poetry.html — अरू पढ्नुहोस्: आफ्नै संस्मरण १- किताबका कुरा; कथा: पल्पसाको चिठ्ठी।; भुईँ छाडेको गाउँको कथा। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
+   "heading": "आफ्नै संस्मरण २- कविताका कुरा",
+   "title": "आफ्नै संस्मरण २- कविताका कुरा | संस्मरण · बासभ",
+   "caption": "कविता लेख्ने हुटहुटी, र भुपीलाई कसरी भुल्ने?",
+   "description": "कविता लेख्ने हुटहुटी कसरी लागिरह्यो भन्ने संस्मरण: अङ्ग्रेजी कविहरूमा किट्स र डाइलन थोमस, बब डाइलनसँगको भ्रम, र भुपीलाई कसरी भुल्ने भन्ने प्रश्न। लय र विद्रोह एकै ठाउँ भेटिने कविताका कुरा, ९ मिनेट ४९ सेकेन्डमा।",
    "keywords": [
-    "आफ्नै संस्मरण २ - कविताका कुरा",
-    "कविताका कुरा",
     "आफ्नै संस्मरण",
-    "कविता लेख्ने यात्रा",
-    "poetry memoir Nepali",
-    "how I started writing poems",
+    "कविताका कुरा",
+    "भुपी शेरचन",
+    "डाइलन थोमस",
+    "बब डाइलन",
+    "नेपाली संस्मरण",
     "बासभ",
-    "Nepali narrated film",
+    "Nepali memoir film",
     "Basava",
     "Kafkaintherun"
    ],
@@ -3174,11 +3171,9 @@
    "durationIso": "PT9M49S",
    "uploadDate": "2026-11-27",
    "kind": "story",
-   "excerpt": "फेरी कलमले बामे सर्न खोज्दैछ, यो कविता लेख्ने हुटहुटी यस्तै, लागेपछि छुट्नै गाह्रो । लेखिएका कुराहरू ट्विटर र ब्लगमा हाल्दै गर्छु। यो मनोवाद, यी कविताहरु मेरा लागि नै हुन, भित्र गुम्सिएका आवाजहरूलाई बाहिर निकाल्न। मलाई…",
    "quotes": [
-    "अब कविताका कुरा- यसका नि खण्डहरू छन्- पख्नु न। कविताको कुरा गर्दा भुपी कसोगरी भुल्ने-",
-    "यो कविता लेख्ने हुटहुटी कस्तो हो कुन्नी, लागेपछि छुट्नै गार्हो, छुटेपछि फेरी जोडिनै गाह्रो।",
-    "यो पनि पढ्नुहोस् आफ्नै संस्मरण १- किताबका कुरा"
+    "मधुर शब्दहरू बीचका विद्रोही सुरहरू!",
+    "यो मनोवाद, यी कविताहरु मेरा लागि नै हुन, भित्र गुम्सिएका आवाजहरूलाई बाहिर निकाल्न।"
    ],
    "related": [
     {
@@ -3186,29 +3181,31 @@
      "title": "आफ्नै संस्मरण १- किताबका कुरा"
     },
     {
-     "path": "/2024/09/palpasa.html",
-     "title": "कथा: पल्पसाको चिठ्ठी।"
+     "path": "/2025/05/manusi.html",
+     "title": "मानुषी: भुपीसँगका थाँती संवाद"
     },
     {
-     "path": "/2026/11/bhui-chhadeko-gaun-katha.html",
-     "title": "भुईँ छाडेको गाउँको कथा"
+     "path": "/2025/05/meyouus.html",
+     "title": "म, तिमी, हामी"
     }
    ],
-   "about": "‘आफ्नै संस्मरण २ - कविताका कुरा’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि ९ मिनेट ४९ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।"
+   "about": "‘आफ्नै संस्मरण २- कविताका कुरा’ बासभको संस्मरणको भिडियो संस्करण हो। भिडियोको अवधि ९ मिनेट ४९ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न पाइन्छ।",
+   "heading_alt": "My Own Memoir II: On Poetry",
+   "alt": "‘आफ्नै संस्मरण २- कविताका कुरा’ को आवरण: कविता लेख्दै गरेको कलम र कापी।"
   },
   "/2025/10/lettertoher.html": {
    "heading": "प्रिय तिमी, म तिम्रो आश गर्छु",
    "title": "प्रिय तिमी, म तिम्रो आश गर्छु | चिठी · बासभ",
    "caption": "बिहानको ३:१३ बज्यो। मैले यो लेख्नै नहुने।",
-   "description": "(translated by Google gemini, as it is.) प्रिय तिमी, बिहानको ३:१३ बज्यो। मेरो कोठाको भित्ताबाट पानी र डढेको कफीको मिश्रित गन्ध आउँछ। अब पानी, पानीजस्तो लाग्दैन र भित्ताहरू तिम्रो नाम कानेखुसी गर्छन्। भुइँमा मेरो छायाँ घरीघरी बदलिन्छ। “म डराएको छु; सम्पूर्ण सत्य यही हो। म डराएको छु, मदेखि, तिमीदेखि, तिम्रो लागि।” “काफ्का यहाँ छ। म कुनै टाढाको, साहित्यिक अर्थमा भनिरहेको छैन।” “सायद केही होइन। सायद सबथोक। सायद बिहानसम्म आफूलाई नखाई सास फेरिरहनु।” पूरा लेख: https://www.kafka.blog/2025/10/lettertoher.html — अरू पढ्नुहोस्: प्रिय म, (ऐनाभित्रको पत्र); अघोषित माया; कोठाभित्रको मानचित्र। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
+   "description": "बिहानको ३:१३ मा कहिल्यै नपठाइने चिठीको भुमरीमा बेरिएको एक मनको स्वीकारोक्ति: डर, माया, र रातले दयामाया नगर्ने समय। कोठामा काफ्का बसेको, भित्ताहरूले नाम कानेखुसी गरेको यो चिठी अङ्ग्रेजी चिठी ‘Dear you, I hope you.’ को नेपाली संस्करण हो। १३ मिनेट १९ सेकेन्डको भिडियोमा।",
    "keywords": [
     "प्रिय तिमी, म तिम्रो आश गर्छु",
-    "प्रिय तिमी म तिम्रो आश गर्छु",
     "प्रेम पत्र",
+    "नेपाली चिठी",
     "नेपाली पत्र",
-    "love letter Nepali",
-    "late night letter",
+    "काफ्का",
     "बासभ",
+    "Nepali love letter",
     "Nepali narrated film",
     "Basava",
     "Kafkaintherun"
@@ -3218,7 +3215,6 @@
    "durationIso": "PT13M19S",
    "uploadDate": "2026-11-27",
    "kind": "letter",
-   "excerpt": "(translated by Google gemini, as it is.) प्रिय तिमी, बिहानको ३:१३ बज्यो। मेरो कोठाको भित्ताबाट पानी र डढेको कफीको मिश्रित गन्ध आउँछ। अब पानी, पानीजस्तो लाग्दैन र भित्ताहरू तिम्रो नाम कानेखुसी गर्छन्। भुइँमा मेरो छायाँ घरीघरी बदलिन्छ।",
    "quotes": [
     "म डराएको छु; सम्पूर्ण सत्य यही हो। म डराएको छु, मदेखि, तिमीदेखि, तिम्रो लागि।",
     "काफ्का यहाँ छ। म कुनै टाढाको, साहित्यिक अर्थमा भनिरहेको छैन।",
@@ -3239,22 +3235,22 @@
     }
    ],
    "about": "‘प्रिय तिमी, म तिम्रो आश गर्छु’ बासभको चिठीको भिडियो संस्करण हो। भिडियोको अवधि १३ मिनेट १९ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
-   "spotify": "https://open.spotify.com/episode/4ZTzKcm1absuZDd1ytHi61"
+   "spotify": "https://open.spotify.com/episode/4ZTzKcm1absuZDd1ytHi61",
+   "heading_alt": "Dear you, I hope you (Nepali)",
+   "alt": "‘प्रिय तिमी, म तिम्रो आश गर्छु’ चिठीको भिडियो आवरण: रातको कोठा र टेबुलमा चिठी।"
   },
   "/2026/02/happy-birthday.html": {
    "heading": "Happy Birthday",
    "title": "Happy Birthday | Letter · Basava",
    "caption": "It's late. Or early. The hours no longer obey logic when my mind settles on your name.",
-   "description": "I found you a year ago on this day, and I promised to wish you not virtually the next time around. I failed the geography of that promise, but not the truth of it. This is not just pixels on a screen. It is a heartbeat… “Happy Birthday. It’s late. Or early. The hours no longer obey logic when my mind settles on your name.” “I’m glad I know you. I’m glad I once learned the shape of your thoughts.” “I’m glad the world contains you, not as an idea, not as a memory, but as a living, breathing fact.” Read the full article: https://www.kafka.blog/2026/02/happy-birthday.html — More on Kafkaintherun: Dear you, I hope you.; The Long Way Back; marginalia. Kafkaintherun is the bilingual blog of Basava (बासभ).",
+   "description": "A birthday letter written across a distance: a promise made a year ago to wish you in person, kept in truth if not in geography. Kafka watches the calendar from his chair, and time moves on even when we try to freeze it in letters. A 4-minute-49-second narrated film.",
    "keywords": [
-    "Happy Birthday",
-    "happy birthday letter",
-    "letter to you",
+    "Happy Birthday letter",
     "birthday letter",
-    "love letter",
+    "long distance letter",
+    "Kafka",
+    "Basava letters",
     "narrated letter film",
-    "बासभ",
-    "Basava",
     "Kafkaintherun"
    ],
    "lang": "en",
@@ -3262,11 +3258,9 @@
    "durationIso": "PT4M49S",
    "uploadDate": "2026-11-27",
    "kind": "letter",
-   "excerpt": "I found you a year ago on this day, and I promised to wish you not virtually the next time around. I failed the geography of that promise, but not the truth of it. This is not just pixels on a screen. It is a heartbeat…",
    "quotes": [
-    "Happy Birthday. It’s late. Or early. The hours no longer obey logic when my mind settles on your name.",
-    "I’m glad I know you. I’m glad I once learned the shape of your thoughts.",
-    "I’m glad the world contains you, not as an idea, not as a memory, but as a living, breathing fact."
+    "It's late. Or early. The hours no longer obey logic when my mind settles on your name.",
+    "This is not just pixels on a screen. It is a heartbeat."
    ],
    "related": [
     {
@@ -3274,16 +3268,14 @@
      "title": "Dear you, I hope you."
     },
     {
-     "path": "/2026/06/the-long-way-back.html",
-     "title": "The Long Way Back"
-    },
-    {
-     "path": "/2026/06/marginalia.html",
-     "title": "marginalia"
+     "path": "/2025/10/lettertoher.html",
+     "title": "प्रिय तिमी, म तिम्रो आश गर्छु।"
     }
    ],
-   "about": "A video version of “Happy Birthday”, a letter by Basava (बासभ). Running time: 4 min 49 sec. The full text is on the blog, and the audio is on Spotify.",
-   "spotify": "https://open.spotify.com/episode/0DHEC65lHStG8aWIZNMw3n"
+   "about": "'Happy Birthday' is the film version of Basava's letter. Runtime 4 minutes 49 seconds. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/0DHEC65lHStG8aWIZNMw3n",
+   "heading_alt": "जन्मदिनको शुभकामना",
+   "alt": "Cover of the film 'Happy Birthday': a late-night desk, a calendar and a letter."
   },
   "/2025/04/hippies.html": {
    "heading": "Hippies: Music, Marijuana, Magic Bus and Kathmandu",
@@ -3332,17 +3324,16 @@
   "/2025/10/dear-you-i-hope-you.html": {
    "heading": "Dear you, I hope you.",
    "title": "Dear you, I hope you. | Letter · Basava",
-   "caption": "A letter written at 3:13 AM, to someone it may never reach.",
-   "description": "Dear you, It’s 3:13 AM. I shouldn’t be writing this. But it is late, and the night has no mercy. The wall of my apartment smells like rain and burnt coffee. The rain no longer feels like a rain and the walls whispers your name. “By morning, I wake with a fist full of ash- another day, longing, again, again, night, repeat. Again.” “I close my fist around it and feel your absence inside it.” “This isn’t a letter anymore, it’s a spill, it’s a mess, it’s my head split open on paper.” Read the full article: https://www.kafka.blog/2025/10/dear-you-i-hope-you.html — More on Kafkaintherun: Happy Birthday; The Long Way Back; The Name I once wore. Kafkaintherun is the bilingual blog of Basava (बासभ).",
+   "caption": "It's 3:13 AM. I shouldn't be writing this.",
+   "description": "A letter written at 3:13 AM that may never be sent: fear, hope, and a word the writer hates but cannot replace. The walls smell of rain and burnt coffee, Kafka sits in the room, and the night has no mercy. A 16-minute narrated film of Basava's letter.",
    "keywords": [
     "Dear you, I hope you",
-    "letter to a lover",
-    "unsent love letter",
-    "narrated letter",
-    "love and loneliness",
-    "English letter film",
-    "Basava",
-    "बासभ",
+    "love letter",
+    "unsent letter",
+    "late night letter",
+    "Kafka",
+    "Basava letters",
+    "narrated letter film",
     "Kafkaintherun"
    ],
    "lang": "en",
@@ -3350,39 +3341,40 @@
    "durationIso": "PT16M6S",
    "uploadDate": "2026-11-27",
    "kind": "letter",
-   "excerpt": "Dear you, It’s 3:13 AM. I shouldn’t be writing this. But it is late, and the night has no mercy. The wall of my apartment smells like rain and burnt coffee. The rain no longer feels like a rain and the walls whispers your name.",
    "quotes": [
-    "By morning, I wake with a fist full of ash- another day, longing, again, again, night, repeat. Again.",
-    "I close my fist around it and feel your absence inside it.",
-    "This isn’t a letter anymore, it’s a spill, it’s a mess, it’s my head split open on paper."
+    "I like you. I adore you. I love you. I hate the word, but it is the only one left.",
+    "The wall of my apartment smells like rain and burnt coffee.",
+    "It's 3:13 AM. I shouldn't be writing this."
    ],
    "related": [
     {
+     "path": "/2025/10/lettertoher.html",
+     "title": "प्रिय तिमी, म तिम्रो आश गर्छु।"
+    },
+    {
      "path": "/2026/02/happy-birthday.html",
      "title": "Happy Birthday"
-    },
-    {
-     "path": "/2026/06/the-long-way-back.html",
-     "title": "The Long Way Back"
-    },
-    {
-     "path": "/2026/04/the-name-i-once-wore.html",
-     "title": "The Name I once wore"
     }
    ],
-   "about": "A video version of “Dear you, I hope you”, a letter by Basava (बासभ). Running time: 16 min 6 sec. The full text is on the blog, and the audio is on Spotify.",
-   "spotify": "https://open.spotify.com/episode/4HMGZEYr6E4b58MT62oMO5"
+   "about": "'Dear you, I hope you.' is the film version of Basava's letter. Runtime 16 minutes 6 seconds. The full text is on the blog, and the audio is on Spotify.",
+   "spotify": "https://open.spotify.com/episode/4HMGZEYr6E4b58MT62oMO5",
+   "heading_alt": "प्रिय तिमी, म तिम्रो आश गर्छु",
+   "alt": "Cover of the film 'Dear you, I hope you.': a night room and a letter on a desk."
   },
   "/2025/11/antarey.html": {
    "heading": "अन्तरेको कथा",
    "title": "अन्तरेको कथा | कथा · बासभ",
-   "caption": "",
-   "description": "माओवादी कसरी बन्नुपर्‍यो, कसरी माओवादीले बिर्सियो? ‘पूर्वछाने बढाउले दोस्रो विश्वयुद्धको गोली बोके, अन्तरेले आफ्नै देशको अन्याय सह्यो। अन्तरेकी छोरीले बाबाले बनाउन नपाएको स्कुलमै पढेर, न्याय जिती। तीन पुस्ताको कथा हो यो- राज्य, अन्याय, विद्रोह र सम्झनाहरूको। “माओवादी कसरी बन्नुपर्‍यो, कसरी माओवादीले बिर्सियो?” “‘पूर्वछाने बढाउले दोस्रो विश्वयुद्धको गोली बोके, अन्तरेले आफ्नै देशको अन्याय सह्यो अन्तरेकी छोरीले बाबाले बनाउन नपाएको स्कुलमै पढेर,न्याय जिती।” “तीन पुस्ताको कथा हो यो- राज्य, अन्याय, विद्रोह र सम्झनाहरूको। भर्खरै अस्तित्व हराएको पार्टीले अस्तित्व हराउनुको प्रमाण।’” पूरा लेख: https://www.kafka.blog/2025/11/antarey.html — अरू पढ्नुहोस्: आफ्नै संस्मरण २- कविताका कुरा; आफ्नै संस्मरण १- किताबका कुरा; भुईँ छाडेको गाउँको कथा। Kafkaintherun बासभको द्विभाषिक ब्लग हो।",
+   "caption": "तीन पुस्ताको कथा: राज्य, अन्याय, विद्रोह र सम्झना।",
+   "description": "गाउँको स्कुलको भवन बनाउने ज्यामी अन्तरे काकाको कथाबाट सुरु भएर तीन पुस्ताको यात्रा: पूर्वछाने बढाउले बोकेको दोस्रो विश्वयुद्धको गोली, अन्तरेले सहेको अन्याय, र अन्तरेकी छोरीले बाबाले बनाउन नपाएको स्कुलमै पढेर जितेको न्याय। राज्य, विद्रोह र बिर्सिँदै गएको पार्टीबारे बासभको कथा, १७ मिनेटको भिडियोमा।",
    "keywords": [
     "अन्तरेको कथा",
     "नेपाली कथा",
     "माओवादी",
+    "तीन पुस्ताको कथा",
+    "नेपाली कथा भिडियो",
     "बासभ",
+    "Nepali story film",
+    "Basava",
     "Kafkaintherun"
    ],
    "lang": "ne",
@@ -3390,28 +3382,110 @@
    "durationIso": "PT17M",
    "uploadDate": "2026-11-27",
    "kind": "story",
-   "excerpt": "माओवादी कसरी बन्नुपर्‍यो, कसरी माओवादीले बिर्सियो? ‘पूर्वछाने बढाउले दोस्रो विश्वयुद्धको गोली बोके, अन्तरेले आफ्नै देशको अन्याय सह्यो। अन्तरेकी छोरीले बाबाले बनाउन नपाएको स्कुलमै पढेर, न्याय जिती। तीन पुस्ताको कथा हो यो- राज्य, अन्याय, विद्रोह र सम्झनाहरूको।",
    "quotes": [
-    "माओवादी कसरी बन्नुपर्‍यो, कसरी माओवादीले बिर्सियो?",
-    "‘पूर्वछाने बढाउले दोस्रो विश्वयुद्धको गोली बोके, अन्तरेले आफ्नै देशको अन्याय सह्यो अन्तरेकी छोरीले बाबाले बनाउन नपाएको स्कुलमै पढेर,न्याय जिती।",
-    "तीन पुस्ताको कथा हो यो- राज्य, अन्याय, विद्रोह र सम्झनाहरूको। भर्खरै अस्तित्व हराएको पार्टीले अस्तित्व हराउनुको प्रमाण।’"
+    "माओवादी कसरी बन्नुपर्‍यो, कसरी माओवादीले बिर्सियो?",
+    "तीन पुस्ताको कथा हो यो- राज्य, अन्याय, विद्रोह र सम्झनाहरूको।"
    ],
    "related": [
     {
-     "path": "/2025/03/poetry.html",
-     "title": "आफ्नै संस्मरण २- कविताका कुरा"
+     "path": "/2026/11/bhui-chhadeko-gaun-katha.html",
+     "title": "भुईँ छाडेको गाउँको कथा"
+    },
+    {
+     "path": "/2024/09/palpasa.html",
+     "title": "कथा: पल्पसाको चिठ्ठी।"
     },
     {
      "path": "/2025/03/booksandauthors.html",
      "title": "आफ्नै संस्मरण १- किताबका कुरा"
-    },
-    {
-     "path": "/2026/11/bhui-chhadeko-gaun-katha.html",
-     "title": "भुईँ छाडेको गाउँको कथा"
     }
    ],
    "about": "‘अन्तरेको कथा’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि १७ मिनेट। पूरा पाठ ब्लगमा पढ्न र अडियो Spotify मा सुन्न पाइन्छ।",
-   "spotify": "https://open.spotify.com/episode/2SujQrsZA5aih26LDgpyBk"
+   "spotify": "https://open.spotify.com/episode/2SujQrsZA5aih26LDgpyBk",
+   "heading_alt": "The Story of Antare",
+   "alt": "‘अन्तरेको कथा’ कथाको भिडियो संस्करणको आवरण।"
+  },
+  "/2026/11/bhui-chhadeko-gaun-katha.html": {
+   "kind": "story",
+   "lang": "ne",
+   "duration": 1322,
+   "durationIso": "PT22M2S",
+   "heading": "भुईँ छाडेको गाउँको कथा",
+   "heading_alt": "The Village That Left the Ground",
+   "title": "भुईँ छाडेको गाउँको कथा | कथा · बासभ",
+   "caption": "सडक आएपछि आफूलाई सानो ठानेको गाउँले डाँडामा टावर ठड्यायो।",
+   "description": "सडक आएपछि आफूलाई सानो ठानेको बन्चरे गाउँले डाँडामा टावर ठड्यायो। बर-पिपलमुनिको चौतारामा भक्तबहादुर काका, हर्क मिस्त्री र रमेश मास्टरका कुराकानीमार्फत उचाइ, पहिचान र एक्लोपनको कथा। यो कथा पहिलो पटक सन् २०२६ अप्रिलमा नेपालीपोस्टमा प्रकाशित भएको थियो। २२ मिनेटको भिडियोमा।",
+   "keywords": [
+    "भुईँ छाडेको गाउँको कथा",
+    "नेपाली कथा",
+    "पहाडी गाउँ",
+    "चौतारा",
+    "नेपाली कथा भिडियो",
+    "बासभ",
+    "Nepali story film",
+    "Basava",
+    "Kafkaintherun"
+   ],
+   "alt": "‘भुईँ छाडेको गाउँको कथा’ को आवरण: डाँडामा ठडिएको टावर र तल बर-पिपलको चौतारा।",
+   "quotes": [
+    "हामीले उचाइ त नाप्यौं काका, तर गहिराइ बिर्सियौं।",
+    "सडक आएपछि आफूलाई सानो ठानेको एउटा पहाडी गाउँ, र डाँडामा ठडिएको टावरको कथा ।"
+   ],
+   "related": [
+    {
+     "path": "/2025/11/antarey.html",
+     "title": "अन्तरेको कथा"
+    },
+    {
+     "path": "/2024/09/palpasa.html",
+     "title": "कथा: पल्पसाको चिठ्ठी।"
+    },
+    {
+     "path": "/2025/03/poetry.html",
+     "title": "आफ्नै संस्मरण २- कविताका कुरा"
+    }
+   ],
+   "about": "‘भुईँ छाडेको गाउँको कथा’ बासभको कथाको भिडियो संस्करण हो। भिडियोको अवधि २२ मिनेट २ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न पाइन्छ।",
+   "uploadDate": "2026-11-27"
+  },
+  "/2024/12/prashna-sodhyo-bhanera.html": {
+   "kind": "essay",
+   "lang": "ne",
+   "duration": 1191,
+   "durationIso": "PT19M51S",
+   "heading": "प्रस्न सोध्यो भनेर पछि लाग्नेहरूलाई जवाफ",
+   "heading_alt": "A Reply to Those Who Chase You for Asking Questions",
+   "title": "प्रस्न सोध्यो भनेर पछि लाग्नेहरूलाई जवाफ | आलेख · बासभ",
+   "caption": "को/कस्तो राजा ल्याउने? कसरी ल्याउने? ल्याएर के हुन्छ त?",
+   "description": "‘को/कस्तो राजा ल्याउने? राजा कसरी ल्याउने? राजा आएर के हुन्छ त?’ भन्ने तीन प्रश्न सोधेपछि भिराइएका बिल्ला र जिस्काइप्रति बासभको लामो जवाफ: ट्विटर स्पेसका साझा चिया पसल, त्यहाँका आवाज, र प्रश्न सोध्ने अधिकारबारे। १९ मिनेट ५१ सेकेन्डको भिडियोमा।",
+   "keywords": [
+    "प्रश्न सोध्ने अधिकार",
+    "राजा ल्याउने प्रश्न",
+    "ट्विटर स्पेस",
+    "नेपाली आलेख",
+    "नेपाली राजनीति",
+    "बासभ",
+    "Nepali essay film",
+    "Basava",
+    "Kafkaintherun"
+   ],
+   "alt": "‘प्रस्न सोध्यो भनेर पछि लाग्नेहरूलाई जवाफ’ को आवरण।",
+   "quotes": [
+    "को/कस्तो राजा ल्याउने? राजा कसरि ल्याउने? राजा आएर/ल्याएर के हुन्छ त?",
+    "आजलाई अस्तु।"
+   ],
+   "related": [
+    {
+     "path": "/2025/11/nepal-2.html",
+     "title": "घोषणापत्र, भविष्य गुमाएको देशमा राष्ट्रि…"
+    },
+    {
+     "path": "/2025/06/nepal.html",
+     "title": "देश हराएको सपना"
+    }
+   ],
+   "about": "‘प्रस्न सोध्यो भनेर पछि लाग्नेहरूलाई जवाफ’ बासभको आलेखको भिडियो संस्करण हो। भिडियोको अवधि १९ मिनेट ५१ सेकेन्ड। पूरा पाठ ब्लगमा पढ्न पाइन्छ।",
+   "uploadDate": "2026-11-27"
   }
  }
 }
