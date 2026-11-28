@@ -391,3 +391,17 @@ window.kTiny=window.kTiny||function(u,n){
   });
   mark();setTimeout(mark,800);setTimeout(mark,2500);window.addEventListener('load',mark);
 })();
+
+/* v15: Read / Listen links are icon-only; the words stay as the accessible name and tooltip */
+(function(){
+  function icons(){
+    document.querySelectorAll('.kafka-item-free a').forEach(function(a){
+      if(a.dataset.ico) return;
+      var txt=a.textContent.replace(/\s+/g,' ').trim(); if(!txt) return;
+      var m=txt.match(/^(\S+)\s+(.+)$/); if(!m) return;
+      a.dataset.ico='1'; a.setAttribute('aria-label',m[2]+' (free)'); a.title=m[2]+' — free copy';
+      a.textContent=m[1];
+    });
+  }
+  icons(); document.addEventListener('DOMContentLoaded',icons); window.addEventListener('load',icons); setTimeout(icons,1200);
+})();
