@@ -768,9 +768,8 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
     '/p/science.html':[
       {k:'cancer',t:'Cancer & viruses',n:'क्यान्सर र भाइरस',b:'How viruses, genes and the immune system meet cancer, and what the lab results really mean.',c:'#a8665b',g:'✴',re:/virus|cancer|sharirma-dera|musama|hatti|elephant|pancreatic/},
       {k:'medicine',t:'Medicine & the body',n:'औषधि र शरीर',b:'Long COVID, transplants and the health stories written into families.',c:'#4f6a7a',g:'✚',re:/covid|kidney|mirgaula|cousin|mamachela/},
-      {k:'dna',t:'DNA & genes',n:'डीएनए र जिन',b:'How the code copies itself, and who got the credit for finding it.',c:'#6e5a7e',g:'✵',re:/dna|darkantigens|rosalind/},
-      {k:'animals',t:'Strange lives of animals',n:'जीवजन्तुका अचम्म',b:'Lobsters that do not age, eels from the Sargasso, salamanders that regrow legs.',c:'#5b7f6e',g:'✿',re:/lobster|eel|bam-machha|salamand|thakthake|lovers-of-solitude|phatyangra/},
-      {k:'people',t:'Science & its people',n:'विज्ञान र वैज्ञानिक',b:'Who does the work, and who gets the medal.',c:'#9a7a2e',g:'★',re:/nobel/}
+      {k:'dna',t:'DNA, genes & credit',n:'डीएनए र जिन',b:'How the code copies itself, and who got the credit for finding it.',c:'#6e5a7e',g:'✵',re:/dna|darkantigens|rosalind|nobel/},
+      {k:'animals',t:'Strange lives of animals',n:'जीवजन्तुका अचम्म',b:'Lobsters that do not age, eels from the Sargasso, salamanders that regrow legs.',c:'#5b7f6e',g:'✿',re:/lobster|eel|bam-machha|salamand|thakthake|lovers-of-solitude|phatyangra/}
     ],
     '/p/history.html':[
       {k:'sumer',t:'Sumer & Mesopotamia',n:'सुमेर र मेसोपोटामिया',b:'From the first flood-fed fields to the first writing, empires and laments.',c:'#a8665b',g:'✴',re:/sumer|akkad|uruk|lagash|eridu|mesopotamia|dui-nadi|badhidekhi|flood|sansar-dubaeko|kushim|between-two-rivers|sargon|the-city-of/},
