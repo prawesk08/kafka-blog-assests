@@ -994,3 +994,9 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
  window.addEventListener('resize',function(){[].forEach.call(document.querySelectorAll('.kxs3>.kx-tile'),function(t){t.__fw=0});sched()});
  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){[].forEach.call(document.querySelectorAll('.kxs3>.kx-tile'),function(t){t.__fw=0});run()});
 })();
+
+/* v101 short dates on shelf rows */
+(function(){var MO={January:'Jan',February:'Feb',March:'Mar',April:'Apr',May:'May',June:'Jun',July:'Jul',August:'Aug',September:'Sep',October:'Oct',November:'Nov',December:'Dec'};
+ function run(){[].forEach.call(document.querySelectorAll('.kser-date>span:first-child'),function(el){var t=el.textContent.trim();var m=/^(?:(\d{1,2})\s+)?([A-Z][a-z]+)\s+(\d{4})$/.exec(t);if(!m||!MO[m[2]])return;el.setAttribute('title',t);el.textContent=(m[1]?m[1]+' ':'')+MO[m[2]]+' \u2019'+m[3].slice(2)})}
+ var tm;function sc(){clearTimeout(tm);tm=setTimeout(run,150)}run();[500,1500,4000].forEach(function(x){setTimeout(run,x)});
+ if(window.MutationObserver)new MutationObserver(sc).observe(document.body,{childList:true,subtree:true});})();
