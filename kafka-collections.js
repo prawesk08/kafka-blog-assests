@@ -500,14 +500,15 @@ window.kTiny=window.kTiny||function(u,n){
   })}
   /* fit: cover width from the panel height; drop note lines (then rule, then author) until nothing overflows */
   function fit(){[].forEach.call(document.querySelectorAll('[data-kn]'),function(n){
-    var f=n.querySelector('.kn-fig'),t=n.querySelector('.kn-text'),b=n.querySelector('.kn-body'),r=n.querySelector('.kn-rule'),a=n.querySelector('.kn-by');
+    var f=n.querySelector('.kn-fig'),t=n.querySelector('.kn-text'),b=n.querySelector('.kn-body'),r=n.querySelector('.kn-rule'),a=n.querySelector('.kn-by'),lb=n.querySelector('.kn-label');
     var h=n.clientHeight;if(!h)return;
     if(f)f.style.width=Math.round((h-16)*2/3)+'px';
-    [r,a].forEach(function(x){if(x)x.style.display=''});
+    [r,a,lb].forEach(function(x){if(x)x.style.removeProperty('display')});
     var lines=3;b.style.webkitLineClamp=lines;
     while(t.scrollHeight>t.clientHeight+1&&lines>1){lines--;b.style.webkitLineClamp=lines}
     if(t.scrollHeight>t.clientHeight+1&&r)r.style.setProperty('display','none','important');
     if(t.scrollHeight>t.clientHeight+1&&a)a.style.setProperty('display','none','important');
+    if(t.scrollHeight>t.clientHeight+1&&lb)lb.style.setProperty('display','none','important');
   })}
   function go(){plate();fit()}
   window.addEventListener('resize',function(){clearTimeout(go._t);go._t=setTimeout(fit,150)});
