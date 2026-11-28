@@ -2160,3 +2160,16 @@ html body .kpg dd{font-size:13.5px!important}
 html body section.wrap>.hero:not(#kx1):not(#kx2):not(#kx3):not(#kx4):not(#kx5):not(#kx6):not(#kx7):not(#kx8):not(#kx9):not(#kx10):not(#kx11):not(#kx12):not(#kx13):not(#kx14):not(#kx15):not(#kx16):not(#kx17):not(#kx18):not(#kx19):not(#kx20):not(#kx21):not(#kx22):not(#kx23):not(#kx24):not(#kx25):not(#kx26):not(#kx27):not(#kx28):not(#kx29):not(#kx30):not(#kx31):not(#kx32):not(#kx33):not(#kx34):not(#kx35):not(#kx36):not(#kx37):not(#kx38):not(#kx39):not(#kx40):not(#kx41):not(#kx42):not(#kx43):not(#kx44):not(#kx45):not(#kx46):not(#kx47):not(#kx48):not(#kx49):not(#kx50):not(#kx51):not(#kx52):not(#kx53):not(#kx54):not(#kx55):not(#kx56):not(#kx57):not(#kx58):not(#kx59):not(#kx60):not(#kx61):not(#kx62):not(#kx63):not(#kx64):not(#kx65):not(#kx66):not(#kx67):not(#kx68):not(#kx69):not(#kx70):not(#kx71):not(#kx72):not(#kx73):not(#kx74):not(#kx75):not(#kx76):not(#kx77):not(#kx78):not(#kx79):not(#kx80){height:auto!important;aspect-ratio:auto!important;min-height:0!important;display:block!important}
 html body section.wrap>.hero .who:not(#kx1):not(#kx2):not(#kx3):not(#kx4):not(#kx5):not(#kx6):not(#kx7):not(#kx8):not(#kx9):not(#kx10):not(#kx11):not(#kx12):not(#kx13):not(#kx14):not(#kx15):not(#kx16):not(#kx17):not(#kx18):not(#kx19):not(#kx20):not(#kx21):not(#kx22):not(#kx23):not(#kx24):not(#kx25):not(#kx26):not(#kx27):not(#kx28):not(#kx29):not(#kx30):not(#kx31):not(#kx32):not(#kx33):not(#kx34):not(#kx35):not(#kx36):not(#kx37):not(#kx38):not(#kx39):not(#kx40):not(#kx41):not(#kx42):not(#kx43):not(#kx44):not(#kx45):not(#kx46):not(#kx47):not(#kx48):not(#kx49):not(#kx50):not(#kx51):not(#kx52):not(#kx53):not(#kx54):not(#kx55):not(#kx56):not(#kx57):not(#kx58):not(#kx59):not(#kx60):not(#kx61):not(#kx62):not(#kx63):not(#kx64):not(#kx65):not(#kx66):not(#kx67):not(#kx68):not(#kx69):not(#kx70):not(#kx71):not(#kx72):not(#kx73):not(#kx74):not(#kx75):not(#kx76):not(#kx77):not(#kx78):not(#kx79):not(#kx80){position:relative!important;transform:none!important;zoom:.72!important;width:86%!important;padding:10px 12px 8px!important}
 }
+
+/* v61: album tracklists */
+.kpg .kpg-meta{margin:-4px 0 8px;font-size:13px;opacity:.7}
+.kpg ol.kpg-tracks{list-style:none;margin:0 0 18px;padding:0;counter-reset:none}
+.kpg ol.kpg-tracks li{display:grid;grid-template-columns:28px 1fr auto auto;gap:8px;align-items:center;padding:7px 2px;border-bottom:1px solid rgba(128,128,128,.22);font-size:15px;line-height:1.3}
+.kpg ol.kpg-tracks li::marker{content:""}
+.kpg ol.kpg-tracks .n{opacity:.55;font-size:13px;text-align:right}
+.kpg ol.kpg-tracks .d{opacity:.6;font-size:13px;font-variant-numeric:tabular-nums}
+.kpg ol.kpg-tracks .l{display:flex;gap:6px}
+.kpg a.sp,.kpg a.ap{display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.kpg ol.kpg-tracks a svg{width:20px;height:20px;display:block}
+.kpg .kpg-links a svg{width:18px;height:18px;vertical-align:-4px}
+.kpg .kpg-links a{margin-right:12px;white-space:nowrap}
