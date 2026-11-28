@@ -494,7 +494,10 @@ window.kTiny=window.kTiny||function(u,n){
     if(src){var f=el('div','kn-fig'),c=el('img','kn-cover');c.alt='';c.src=src;f.appendChild(c);n.appendChild(f)}
     var t=el('div','kn-text');
     t.appendChild(el('span','kn-title',h.textContent.replace(/\s+/g,' ').trim()));
-    var bt=b?b.textContent.replace(/\s+/g,' ').trim():'';if(bt)t.appendChild(el('span','kn-by',bt));
+    var bt=b?b.textContent.replace(/\s+/g,' ').trim():'';
+    if(bt){var bs=el('span','kn-by'),ym=bt.match(/^(.*?)[,\u00b7]\s*((?:1[0-9]|20)\d\d(?:[^,]*)?)$/);
+      if(ym){bs.appendChild(el('span','kn-name',ym[1]));bs.appendChild(el('b','kn-year',ym[2]))}else bs.appendChild(el('span','kn-name',bt));
+      t.appendChild(bs)}
     t.appendChild(el('span','kn-rule'));t.appendChild(el('span','kn-label','Why I keep it'));t.appendChild(el('span','kn-body',body));
     n.appendChild(t);
   })}
@@ -502,6 +505,7 @@ window.kTiny=window.kTiny||function(u,n){
   function fit(){[].forEach.call(document.querySelectorAll('[data-kn]'),function(n){
     var f=n.querySelector('.kn-fig'),t=n.querySelector('.kn-text'),b=n.querySelector('.kn-body'),r=n.querySelector('.kn-rule'),a=n.querySelector('.kn-by'),lb=n.querySelector('.kn-label');
     var h=n.clientHeight;if(!h)return;
+    n.setAttribute('data-kns',h>=110?'l':(h>=80?'m':'s'));
     if(f)f.style.width=Math.round((h-16)*2/3)+'px';
     [r,a,lb].forEach(function(x){if(x)x.style.removeProperty('display')});
     var lines=3;b.style.webkitLineClamp=lines;
