@@ -480,6 +480,53 @@ window.kTiny=window.kTiny||function(u,n){
   line();document.addEventListener('DOMContentLoaded',line);window.addEventListener('load',line);setTimeout(line,1200);
 })();
 
+/* v25: original generated cover art for every tile that has no real cover (abstract poster with the title on it; nothing copied from any real artwork) */
+(function(){
+  var ALL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item';
+  function H(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+  function wrap(t,n){var w=t.split(/\s+/),l=[],c='';w.forEach(function(x){if((c+' '+x).trim().length>n&&c){l.push(c);c=x}else c=(c+' '+x).trim()});if(c)l.push(c);
+    while(l.length>4){var a=l.pop();l[l.length-1]+=' '+a}return l}
+  function motif(k,W,Hh,c2,c3,r){var o='',cx=W*.5,cy=Hh*.36;
+    switch(k%6){
+      case 0:for(var i=0;i<7;i++)o+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(W*.07+i*W*.055)+'" fill="none" stroke="'+(i%2?c3:c2)+'" stroke-width="'+(2+r(i)%3)+'" opacity="'+(.9-i*.09)+'"/>';o+='<circle cx="'+cx+'" cy="'+cy+'" r="'+W*.05+'" fill="'+c3+'"/>';break;
+      case 1:o+='<circle cx="'+cx+'" cy="'+cy+'" r="'+W*.2+'" fill="'+c3+'"/>';for(var j=0;j<6;j++)o+='<rect x="0" y="'+(cy+W*.02+j*W*.045)+'" width="'+W+'" height="'+(W*.02+j*1.2)+'" fill="'+c2+'" opacity="'+(.85-j*.1)+'"/>';break;
+      case 2:for(var d=0;d<6;d++)o+='<polygon points="'+(-W*.2+d*W*.24)+','+Hh*.62+' '+(d*W*.24)+','+Hh*.08+' '+(d*W*.24+W*.1)+','+Hh*.08+' '+(-W*.1+d*W*.24)+','+Hh*.62+'" fill="'+(d%2?c2:c3)+'" opacity="'+(.55+(d%3)*.12)+'"/>';break;
+      case 3:for(var y=0;y<4;y++)for(var x=0;x<5;x++){var s=W*.09;o+='<polygon points="'+(W*.1+x*W*.19)+','+(Hh*.1+y*W*.19)+' '+(W*.1+x*W*.19+s)+','+(Hh*.1+y*W*.19+s)+' '+(W*.1+x*W*.19)+','+(Hh*.1+y*W*.19+2*s)+' '+(W*.1+x*W*.19-s)+','+(Hh*.1+y*W*.19+s)+'" fill="'+((x+y)%2?c2:c3)+'" opacity="'+(.5+((x*y)%4)*.12)+'"/>'}break;
+      case 4:for(var a=0;a<6;a++){var rr=W*(.46-a*.06);o+='<path d="M'+(cx-rr)+','+(Hh*.55)+' A'+rr+','+rr+' 0 0 1 '+(cx+rr)+','+(Hh*.55)+'" fill="none" stroke="'+(a%2?c3:c2)+'" stroke-width="'+W*.035+'" opacity="'+(.95-a*.1)+'"/>'}break;
+      default:for(var w=0;w<7;w++){var yy=Hh*.12+w*Hh*.07;o+='<path d="M0,'+yy+' Q'+W*.25+','+(yy-W*.09)+' '+W*.5+','+yy+' T'+W+','+yy+'" fill="none" stroke="'+(w%2?c3:c2)+'" stroke-width="'+(W*.02+w*.6)+'" opacity="'+(.9-w*.09)+'"/>'}}
+    return o}
+  function svg(title,sub,square){
+    var h=H(title+'|'+sub),hue=h%360,W=300,Hh=square?300:450;
+    var c1='hsl('+hue+',46%,20%)',c1b='hsl('+((hue+28)%360)+',50%,34%)',c2='hsl('+((hue+36)%360)+',62%,56%)',c3='hsl('+((hue+185)%360)+',70%,82%)';
+    var r=function(i){return (h>>(i%24))&7};
+    var lines=wrap(title,square?15:14),longest=Math.max.apply(null,lines.map(function(x){return x.length})),fs=Math.max(square?20:22,Math.min(square?34:40,Math.floor(W*.84/(longest*.52))));
+    var ty=Hh*(square?.68:.66),t='';
+    lines.forEach(function(l,i){t+='<text x="'+W/2+'" y="'+(ty+i*fs*1.08)+'" text-anchor="middle" font-family="Georgia,\'IM Fell English\',serif" font-weight="700" font-size="'+fs+'" fill="#fff8ea" stroke="rgba(0,0,0,.35)" stroke-width="3" paint-order="stroke" letter-spacing=".3">'+esc(l)+'</text>'});
+    var s=sub?'<text x="'+W/2+'" y="'+(Hh-(square?20:30))+'" text-anchor="middle" font-family="\'Courier New\',monospace" font-size="'+(square?13:14)+'" letter-spacing="2.5" fill="'+c3+'">'+esc(sub.toUpperCase().slice(0,30))+'</text>':'';
+    var out='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+Hh+'"><defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c1b+'"/><stop offset="1" stop-color="'+c1+'"/></linearGradient><linearGradient id="v" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".62"/></linearGradient><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="'+(h%90)+'"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .09 0"/></filter></defs>'
+      +'<rect width="'+W+'" height="'+Hh+'" fill="url(#a)"/>'+motif(h>>3,W,Hh,c2,c3,r)+'<rect width="'+W+'" height="'+Hh+'" fill="url(#v)"/><rect width="'+W+'" height="'+Hh+'" filter="url(#g)"/>'
+      +'<rect x="9" y="9" width="'+(W-18)+'" height="'+(Hh-18)+'" fill="none" stroke="'+c3+'" stroke-opacity=".55" stroke-width="1.4"/>'+t+s+'</svg>';
+    return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(out)}
+  function bad(im){return !im||(im.complete&&im.naturalWidth===0)||im.dataset.dead==='1'}
+  function art(){[].forEach.call(document.querySelectorAll(ALL),function(it){
+    var a=it.querySelector('.kt-art'),im=a&&a.querySelector('img:not([data-gen])');
+    if(a&&im&&!bad(im)){return}
+    if(!a){a=document.createElement('div');a.className='kt-art';a.setAttribute('aria-hidden','true');it.insertBefore(a,it.firstChild)}
+    if(a.querySelector('img[data-gen]'))return;
+    var h3=it.querySelector('h3'),by=it.querySelector('.kafka-item-by'),list=it.closest('.kafka-list'),sq=list&&list.getAttribute('data-list')==='songs';
+    var title=(h3?h3.textContent:'').replace(/\s+/g,' ').replace(/\s*\(.*?\)\s*$/,'').trim();
+    var bt=by?[].map.call(by.childNodes,function(n){return n.nodeType===3?n.textContent:(n.classList&&n.classList.contains('kafka-item-line')?'':'')}).join(' ').replace(/\s+/g,' ').trim():'';
+    var src=svg(title||'Untitled',bt,sq);
+    if(im)im.remove();
+    [].forEach.call(a.querySelectorAll('.kt-tile'),function(x){x.remove()});
+    var g=document.createElement('img');g.setAttribute('data-gen','1');g.alt='';g.decoding='async';g.src=src;a.appendChild(g);a.classList.add('kt-has-img');it.classList.add('kt-on');
+    it.style.setProperty('--kbg','url("'+src.replace(/"/g,'%22')+'")');
+  })}
+  window.__kArt=art;
+  art();document.addEventListener('DOMContentLoaded',art);window.addEventListener('load',art);setTimeout(art,1500);setTimeout(art,4000);setTimeout(art,8000);
+})();
+
 /* v22: build the bookplate inside each "why I keep it" panel */
 (function(){
   var ALL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item';
