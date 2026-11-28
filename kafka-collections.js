@@ -581,3 +581,40 @@ window.kTiny=window.kTiny||function(u,n){
   window.addEventListener('resize',function(){clearTimeout(go._t);go._t=setTimeout(fit,150)});
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1200);setTimeout(go,3000);
 })();
+
+/* v26: one row of five social pills (X, Instagram, TikTok, Substack, Email) on tablet/phone; tag strip carries the footer links; footer = Home | banner | Back to top */
+(function(){
+  var SUB='https://naharchowck.substack.com/',MAIL='mailto:naharchowck@gmail.com';
+  var SVG={
+    sub:'<svg aria-hidden="true" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="#ff6719"/><path d="M6 7h12M6 10.2h12" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><path d="M6 13.4h12v6.1l-6-3.4-6 3.4z" fill="#fff"/></svg>',
+    mail:'<svg aria-hidden="true" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#7b2d26"/><rect x="5" y="7.2" width="14" height="9.8" rx="1.8" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M5.7 8.4 12 13.1l6.3-4.7" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>'};
+  function pills(){
+    var side=document.querySelector('aside.side');if(!side||side.querySelector('.kxrow'))return;
+    var fb=[].slice.call(side.querySelectorAll(':scope>.box.feedbox'));if(!fb.length)return;
+    var row=document.createElement('div');row.className='kxrow';row.setAttribute('role','group');row.setAttribute('aria-label','Follow and contact');
+    var names={x:'X',instagram:'Instagram',tiktok:'TikTok'};
+    fb.forEach(function(b){var a=b.querySelector('a.follow.social');if(!a)return;var k=b.getAttribute('data-feed');
+      var c=document.createElement('a');c.href=a.href;c.rel='me noopener';c.target='_blank';c.setAttribute('aria-label',(names[k]||k)+': @naharchowck');
+      var s=a.querySelector('svg');if(s)c.appendChild(s.cloneNode(true));var t=document.createElement('span');t.textContent=names[k]||k;c.appendChild(t);row.appendChild(c)});
+    [['Substack',SUB,SVG.sub,'Substack: naharchowck'],['Email',MAIL,SVG.mail,'Email naharchowck@gmail.com']].forEach(function(d){
+      var c=document.createElement('a');c.href=d[1];if(d[1].indexOf('http')===0){c.target='_blank';c.rel='me noopener'}c.title=d[3];c.setAttribute('aria-label',d[3]);c.innerHTML=d[2]+'<span>'+d[0]+'</span>';row.appendChild(c)});
+    var cs=getComputedStyle(fb[0]);
+    side.insertBefore(row,fb[0]);side.classList.add('kx-on');
+    if(cs.gridRowStart&&cs.gridRowStart!=='auto')row.style.gridRow=cs.gridRowStart+(cs.gridRowEnd&&cs.gridRowEnd!=='auto'?' / '+cs.gridRowEnd:'');
+  }
+  function foot(){
+    var f=document.querySelector('footer.footer'),strip=document.querySelector('.ktagstrip');if(!f)return;
+    var fl=f.querySelector('.foot-line')||(strip&&strip.querySelector('.foot-line'));
+    if(fl&&!fl.querySelector('.kx-sub')){var sp=fl.querySelector(':scope>span:last-child');
+      if(sp){var rss=sp.querySelector('a.rss-link'),s=document.createElement('a');s.className='kx-sub';s.href=SUB;s.target='_blank';s.rel='me noopener';s.textContent='Substack';
+        var m=document.createElement('a');m.className='kx-mail';m.href=MAIL;m.textContent='Email';m.title='naharchowck@gmail.com';
+        sp.insertBefore(s,rss||null);sp.insertBefore(m,rss||null)}}
+    if(strip&&fl&&!strip.contains(fl))strip.appendChild(fl);
+    var nav=f.querySelector('.kendnav');
+    if(nav&&!nav.querySelector('.kbanner')){var b=document.createElement('a');b.className='kbanner';b.href='/';b.setAttribute('aria-label','Kafkaintherun home — a directory of random things, designed with Claude');
+      b.innerHTML='<b>Kafkaintherun</b><i></i><span>a directory of random things, designed with Claude</span>';
+      var top=nav.querySelector('.kend-top');nav.insertBefore(b,top||null)}
+  }
+  function go(){try{pills();foot()}catch(e){}}
+  go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1200);setTimeout(go,3500);
+})();
