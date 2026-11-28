@@ -474,8 +474,7 @@ window.kTiny=window.kTiny||function(u,n){
     var m=(it.textContent.match(/(\d+)\s+songs?\s+here/i)||[])[1];
     var parts=[];if(t)parts.push(t);if(m)parts.push(m+' tracks');
     if(!parts.length)return;
-    var p=document.createElement('p');p.className='kafka-item-line';p.textContent=parts.join(' \u00b7 ');
-    if(by&&by.parentNode)by.parentNode.insertBefore(p,by.nextSibling);else it.appendChild(p);
+    if(!by)return;var p=document.createElement('span');p.className='kafka-item-line';p.textContent=parts.join(' \u00b7 ');by.appendChild(p);
   })}
   line();document.addEventListener('DOMContentLoaded',line);window.addEventListener('load',line);setTimeout(line,1200);
 })();
