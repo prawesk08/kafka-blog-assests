@@ -2322,3 +2322,11 @@ html body .kpg p.kpg-links:not(#kj1):not(#kj2):not(#kj3){display:flex!important;
 html body .kpg p.kpg-links:not(#kj1):not(#kj2):not(#kj3)>a{flex:1 1 auto!important;text-align:center!important;justify-content:center!important}
 html body .kpg .kpg-free:not(#kj1):not(#kj2):not(#kj3){display:flex!important;flex-wrap:wrap!important;gap:8px!important}
 html body .kpg .kpg-free:not(#kj1):not(#kj2):not(#kj3)>a{flex:1 1 auto!important;text-align:center!important}
+
+/* v77 phone: social icons sit on the title row, not a separate block */
+@media (max-width:700px){
+html body>section.wrap .hero:not(#kz1):not(#kz2):not(#kz3){position:relative!important}
+html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3),html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3)>div{display:contents!important}
+html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3) .portrait,html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3) .name,html body>section.wrap .hero .author:not(#kz1):not(#kz2):not(#kz3) .handle{display:none!important}
+html body>section.wrap .hero .socials:not(#kz1):not(#kz2):not(#kz3){position:absolute!important;top:16px!important;right:16px!important;margin:0!important;display:flex!important;gap:8px!important}
+}
