@@ -463,3 +463,19 @@ window.kTiny=window.kTiny||function(u,n){
   function run(){tint();songs();series();books()}
   run();document.addEventListener('DOMContentLoaded',run);window.addEventListener('load',run);setTimeout(run,1200);setTimeout(run,3000);
 })();
+
+/* v21b: every tile carries a line under its title; where the owner has not written a quote yet it is drawn from the item's own data (tags, track count) */
+(function(){
+  var ALL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item';
+  function line(){[].forEach.call(document.querySelectorAll(ALL),function(it){
+    if(it.querySelector('.kafka-item-quote,.kafka-item-line'))return;
+    var tag=it.querySelector('.kafka-item-tag'),by=it.querySelector('.kafka-item-by');
+    var t=(tag?tag.textContent:'').replace(/\s+/g,' ').trim();
+    var m=(it.textContent.match(/(\d+)\s+songs?\s+here/i)||[])[1];
+    var parts=[];if(t)parts.push(t);if(m)parts.push(m+' tracks');
+    if(!parts.length)return;
+    var p=document.createElement('p');p.className='kafka-item-line';p.textContent=parts.join(' \u00b7 ');
+    if(by&&by.parentNode)by.parentNode.insertBefore(p,by.nextSibling);else it.appendChild(p);
+  })}
+  line();document.addEventListener('DOMContentLoaded',line);window.addEventListener('load',line);setTimeout(line,1200);
+})();
