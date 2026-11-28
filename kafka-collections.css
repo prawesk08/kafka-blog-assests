@@ -1276,3 +1276,8 @@ html body .kafka-list:is([data-list="songs"],[data-list="books"],[data-list="mov
 
 .kafka-item-by .kafka-item-line{display:block;flex:1 1 0;min-width:0;margin-left:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-style:italic;opacity:.8;text-transform:capitalize}
 .kafka-item-by .kafka-item-line::before{content:"\00b7";margin-right:6px}
+
+/* v21c: on narrow-to-medium widths a 4-book shelf keeps the same 2-row sideways strip as the others (no four squeezed columns) */
+@media (min-width:641px) and (max-width:1000px){
+html body .kafka-list:is([data-list="songs"],[data-list="books"],[data-list="movies"],[data-list="series"]):not(#ks1):not(#ks2):not(#ks3):not(#ks4):not(#ks5):not(#ks6):not(#ks7):not(#ks8):not(#ks9):not(#ks10):not(#ks11):not(#ks12):not(#ks13):not(#ks14):not(#ks15):not(#ks16):not(#ks17):not(#ks18):not(#ks19):not(#ks20):not(#ks21):not(#ks22):not(#ks23):not(#ks24):not(#ks25):not(#ks26):not(#ks27):not(#ks28):not(#ks29):not(#ks30):not(#ks31):not(#ks32):not(#ks33):not(#ks34):not(#ks35):not(#ks36):not(#ks37):not(#ks38):not(#ks39):not(#ks40):not(#ks41):not(#ks42):not(#ks43):not(#ks44):not(#ks45):not(#ks46):not(#ks47):not(#ks48):not(#ks49):not(#ks50):not(#ks51):not(#ks52):not(#ks53):not(#ks54):not(#ks55):not(#ks56):not(#ks57):not(#ks58):not(#ks59):not(#ks60) .kshelf-strip:has(>.kafka-item:nth-child(4)):not(:has(>.kafka-item:nth-child(5))){grid-auto-flow:column!important;grid-template-columns:none!important;grid-template-rows:repeat(2,132px)!important;grid-auto-rows:132px!important;grid-auto-columns:clamp(300px,45%,360px)!important}
+}
