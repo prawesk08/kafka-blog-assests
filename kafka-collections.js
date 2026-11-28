@@ -687,7 +687,7 @@ window.kTiny=window.kTiny||function(u,n){
 })();
 
 /* v34: show-more for phone shelves */
-(function(){function more(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3,.series2.six').forEach(function(s){if(s.children.length<=6)return;s.classList.add('kxm');if(s.__kxm)return;s.__kxm=1;var b=document.createElement('button');b.type='button';b.className='kx-more';b.textContent='Show more';b.addEventListener('click',function(){var all=s.classList.toggle('kx-all');b.textContent=all?'Show less':'Show more'});s.parentNode.insertBefore(b,s.nextSibling)})}catch(e){}}
+(function(){function more(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3,.series2.six').forEach(function(s){if(s.classList.contains('kxl')||s.children.length<=6)return;s.classList.add('kxm');if(s.__kxm)return;s.__kxm=1;var b=document.createElement('button');b.type='button';b.className='kx-more';b.textContent='Show more';b.addEventListener('click',function(){var all=s.classList.toggle('kx-all');b.textContent=all?'Show less':'Show more'});s.parentNode.insertBefore(b,s.nextSibling)})}catch(e){}}
 var k=0,t=setInterval(function(){more();if(++k>40)clearInterval(t)},600);document.addEventListener('click',function(){setTimeout(more,200)},true)})();
 
 /* v34b: scroll hint */
@@ -728,3 +728,10 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);[1200,2500,5000,9000].forEach(function(t){setTimeout(go,t)});
   document.addEventListener('click',function(){setTimeout(go,600)},true);
 })();
+
+/* v42: post counter under list-page tile grids (5 rows x 2 columns sideways on phone) */
+(function(){function ct(s){if(s.__kct)return;s.__kct=1;var n=s.children.length;var d=document.createElement('div');d.className='kx-ct';s.parentNode.insertBefore(d,s.nextSibling);
+function upd(){var ph=window.matchMedia('(max-width:640px)').matches;if(!ph){d.textContent=n+' posts';return}var c=s.children[0]?s.children[0].getBoundingClientRect().width+8:1;var col=Math.round(s.scrollLeft/c);var a=col*5+1,b=Math.min(n,a+9);d.textContent='Showing '+a+'–'+b+' of '+n+' posts'+(b<n?' · swipe for more ›':'')}
+s.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd()}
+function all(){try{document.querySelectorAll('.kxs3.kxl').forEach(ct)}catch(e){}}
+var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
