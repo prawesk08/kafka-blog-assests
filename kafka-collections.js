@@ -252,7 +252,7 @@ window.kTiny=window.kTiny||function(u,n){
     var root=art||document.querySelector('.widget.Blog'), bar=root.querySelector('.kord');
     if(!bar&&host){
       bar=document.createElement('div'); bar.className='kord'; bar.setAttribute('role','group'); bar.setAttribute('aria-label','Order');
-      var L=series?[['base','Part 1 first'],['rev','Latest part first']]:[['base','Newest first'],['rev','Oldest first']];
+      var L=series?[['rev','Latest part first'],['base','Part 1 first']]:[['base','Newest first'],['rev','Oldest first']];
       L.forEach(function(x){var b=document.createElement('button');b.type='button';b.setAttribute('data-dir',x[0]);b.textContent=x[1];b.addEventListener('click',function(){try{localStorage.setItem(key,x[0])}catch(e){}order()});bar.appendChild(b)});
       if(host.classList.contains('kser-tabs')||host.tagName==='OL')host.parentNode.insertBefore(bar,host); else host.insertAdjacentElement('afterend',bar);
     }
