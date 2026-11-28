@@ -1065,3 +1065,12 @@ f();window.addEventListener('load',function(){setTimeout(f,300)});window.addEven
  one();[500,1500,3000].forEach(function(x){setTimeout(one,x)});
  try{new MutationObserver(s).observe(document.body,{childList:true,subtree:true})}catch(e){}
 })();
+
+/* v111 make language filter hide tiles regardless of other display rules */
+(function(){
+ function sync(el){var off=el.classList.contains('klsw-off');if(off){el.style.setProperty('display','none','important');el.setAttribute('data-kh','1')}else if(el.getAttribute('data-kh')){el.style.removeProperty('display');el.removeAttribute('data-kh')}}
+ function all(){var a=document.querySelectorAll('.kser-items>li,.kxs3>.kx-tile');for(var i=0;i<a.length;i++)sync(a[i])}
+ all();
+ try{new MutationObserver(function(m){for(var i=0;i<m.length;i++){var t=m[i].target;if(t.nodeType===1&&(t.matches('.kser-items>li,.kxs3>.kx-tile')))sync(t)}}).observe(document.body,{attributes:true,attributeFilter:['class'],subtree:true})}catch(e){}
+ document.addEventListener('click',function(){setTimeout(all,30);setTimeout(all,300)},true);
+})();
