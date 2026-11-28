@@ -849,16 +849,17 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
     var big=mainImg.src.replace(/=w\d+(-rw)?$/,'=w480-rw');
     var ph='';[].forEach.call(parts,function(li){var a=li.querySelector('a.tt'),im=li.querySelector('img');if(!a)return;
       ph+='<a class="fp-part" href="'+esc(a.href)+'"><span class="fp-pi">'+(im?'<img alt="" loading="lazy" src="'+esc(im.src)+'">':'')+'</span><span class="fp-pb"><em>'+esc(tx(li.querySelector('.kps-no')))+'</em><b>'+esc(tx(a))+'</b><small>'+esc(tx(li.querySelector('.kps-d')))+'</small></span></a>'});
-    var meta=[fd,fr].filter(Boolean).join(' · ');
+    var meta=fd;
     var el=document.createElement('section');el.className='kx-fp';
     el.innerHTML='<a class="fp-hero" href="'+esc(fh)+'"><span class="fp-hi"><img alt="" loading="lazy" src="'+esc(fi.src)+'"></span><span class="fp-hb"><span class="fp-k">Featured <i>·</i> '+esc(chip)+'</span><b class="fp-t">'+esc(ft)+'</b><span class="fp-s">'+esc(fsub)+'</span><span class="fp-m">'+esc(meta)+'</span></span></a>'
       +'<div class="fp-row"><a class="fp-main" lang="ne" href="'+esc(mh)+'" style="--bg:url(\''+esc(big)+'\')"><span class="fp-mi"></span><span class="fp-mb"><span class="fp-mk">'+esc(series)+'</span><b class="fp-mt">शीतला माजुको कथा</b><i class="fp-q">“'+esc(q)+'”</i></span></a><div class="fp-parts">'+ph+'</div></div>';
     var kh=document.getElementById('kh-feat');var shelf=home.querySelector('.kxs3');
-    var anchor=shelf||kh||feat;
+    if(!shelf)return false;
+    var anchor=shelf;
     function hide(e){e.classList.add('kx-hid');e.style.setProperty('display','none','important')}
     if(shelf){var n=shelf.nextElementSibling;hide(shelf);while(n&&(n.classList.contains('kx-bar')||n.classList.contains('kx-pg'))){hide(n);n=n.nextElementSibling}}
     if(kh)hide(kh);
     anchor.parentNode.insertBefore(el,anchor);home.setAttribute('data-kfp','1');return true;
   }
-  var tries=0;(function tick(){if(build()||++tries>40)return;setTimeout(tick,300)})();
+  var tries=0;(function tick(){if(build()||++tries>60)return;setTimeout(tick,300)})();
 })();
