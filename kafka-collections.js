@@ -376,7 +376,7 @@ window.kTiny=window.kTiny||function(u,n){
 
 /* v12: tap an item on a phone to show why it is on the shelf; tap again (or another item) to close */
 (function(){
-  var SEL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item', cur=null;
+  var SEL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item', cur=null;
   function why(it){return it.querySelector('.kafka-item-note,.kafka-item-quote,.kafka-item-more')}
   function mark(){[].forEach.call(document.querySelectorAll(SEL),function(it){if(why(it)&&!it.hasAttribute('tabindex'))it.setAttribute('tabindex','0')})}
   document.addEventListener('click',function(e){
