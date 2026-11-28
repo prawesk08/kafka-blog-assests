@@ -1077,12 +1077,32 @@ f();window.addEventListener('load',function(){setTimeout(f,300)});window.addEven
 
 /* v112 one tap / one click opens the page on every tile (books, songs, series, movies, post tiles). On touch screens the first tap used to be swallowed by hover logic. */
 (function(){
- var SEL='.kx-tile,.kafka-item',SKIP='a,button,input,select,textarea,audio,summary,label,.kord,.klsw,.kchips,.kx-tnav';
- function href(el){var a=el.querySelector('a.tt[href],.kafka-item-read a[href],.kafka-item-more a[href],a.kx-go[href]');return a&&a.href}
+ var SEL='.kx-tile,.kafka-item,.kser-items>li.kx-host',SKIP='a,button,input,select,textarea,audio,summary,label,.kord,.klsw,.kchips,.kx-tnav';
+ function href(el){var a=el.querySelector('a.tt[href],:scope>h2 a[href],.kafka-item-read a[href],.kafka-item-more a[href],a.kx-go[href]');return a&&a.href}
  var sx=0,sy=0,st=0;
  document.addEventListener('touchstart',function(e){var t=e.touches[0];if(!t)return;sx=t.clientX;sy=t.clientY;st=Date.now()},{passive:true,capture:true});
  document.addEventListener('touchend',function(e){var t=e.changedTouches[0];if(!t||Math.abs(t.clientX-sx)>10||Math.abs(t.clientY-sy)>10||Date.now()-st>600)return;
   var el=e.target.closest&&e.target.closest(SEL);if(!el||e.target.closest(SKIP))return;var h=href(el);if(!h)return;e.preventDefault();location.href=h},{passive:false,capture:true});
  document.addEventListener('click',function(e){if(e.defaultPrevented||e.button>0)return;var el=e.target.closest&&e.target.closest('.kx-tile');if(!el||e.target.closest(SKIP))return;var h=href(el);if(!h)return;
   e.preventDefault();if(e.ctrlKey||e.metaKey||e.shiftKey)window.open(h,'_blank');else location.href=h},true);
+})();
+
+
+/* v117 series and long lists: every row gets the same hover panel (what you will find, featured image behind it) and opens on one tap */
+(function(){
+ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+ function one(li){
+  if(li.classList.contains('kx-host')||li.querySelector(':scope>.kx-pn')||li.closest('.kx-topics'))return;
+  var a=li.querySelector(':scope>h2 a[href]');if(!a)return;
+  var sub=li.querySelector(':scope>p.kt-sub,:scope>p.kt-dek,:scope>p');var s=sub?(sub.cloneNode(true)):null;
+  if(s){var x=s.querySelectorAll('.kser-ne,.kx-ne,a,span');for(var i=0;i<x.length;i++)x[i].remove()}
+  var txt=(s?s.textContent:'').replace(/\s+/g,' ').trim();if(txt.length>230){var c=txt.slice(0,230),k=Math.max(c.lastIndexOf('. '),c.lastIndexOf('\u0964 '),c.lastIndexOf('? '));txt=k>110?c.slice(0,k+1):c.slice(0,c.lastIndexOf(' '))+'\u2026'}
+  var im=li.querySelector('img');var u=im&&(im.getAttribute('src')||'');
+  if(u)li.style.setProperty('--pbg','url("'+u.replace(/"/g,'%22')+'")');
+  var p=document.createElement('div');p.className='kx-pn';
+  p.innerHTML='<b>What you\u2019ll find</b>'+(txt?'<p>'+esc(txt)+'</p>':'<p></p>')+'<a class="kx-go" href="'+a.href+'">'+(document.documentElement.lang==='ne'||li.getAttribute('lang')==='ne'?'\u092a\u0922\u094d\u0928\u0941\u0939\u094b\u0938\u094d \u203a':'Read \u203a')+'</a>';
+  li.appendChild(p);li.classList.add('kx-host');
+ }
+ function all(){try{var a=document.querySelectorAll('ol.kser-items>li');for(var i=0;i<a.length;i++)one(a[i])}catch(e){}}
+ all();document.addEventListener('DOMContentLoaded',all);window.addEventListener('load',all);[600,1500,3000,6000].forEach(function(t){setTimeout(all,t)});
 })();
