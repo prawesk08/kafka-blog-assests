@@ -491,7 +491,7 @@ window.kTiny=window.kTiny||function(u,n){
     var im=it.querySelector('.kt-art img'),src=im&&(im.currentSrc||im.src);
     var b=by?by.cloneNode(true):null;if(b){[].forEach.call(b.querySelectorAll('.kafka-item-line,img'),function(x){x.remove()})}
     n.textContent='';n.setAttribute('data-kn','1');
-    if(src){var c=el('img','kn-cover');c.alt='';c.src=src;n.appendChild(c)}
+    if(src){var f=el('div','kn-fig'),c=el('img','kn-cover');c.alt='';c.src=src;f.appendChild(c);n.appendChild(f)}
     var t=el('div','kn-text');
     t.appendChild(el('span','kn-title',h.textContent.replace(/\s+/g,' ').trim()));
     var bt=b?b.textContent.replace(/\s+/g,' ').trim():'';if(bt)t.appendChild(el('span','kn-by',bt));
