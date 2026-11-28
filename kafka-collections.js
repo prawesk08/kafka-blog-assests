@@ -761,3 +761,43 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   var k=0,t=setInterval(function(){all();if(++k>50)clearInterval(t)},700);
   document.addEventListener('click',function(){setTimeout(all,500)},true);
 })();
+
+/* v46: Science / History pages are organised by topic - a decorated header per topic and the same soft tile blocks */
+(function(){
+  var CFG={
+    '/p/science.html':[
+      {k:'cancer',t:'Cancer & viruses',n:'क्यान्सर र भाइरस',b:'How viruses, genes and the immune system meet cancer, and what the lab results really mean.',c:'#a8665b',g:'✴',re:/virus|cancer|sharirma-dera|musama|hatti|elephant|pancreatic/},
+      {k:'medicine',t:'Medicine & the body',n:'औषधि र शरीर',b:'Long COVID, transplants and the health stories written into families.',c:'#4f6a7a',g:'✚',re:/covid|kidney|mirgaula|cousin|mamachela/},
+      {k:'dna',t:'DNA, genes & credit',n:'डीएनए र जिन',b:'How the code copies itself, and who got the credit for finding it.',c:'#6e5a7e',g:'✵',re:/dna|darkantigens|rosalind|nobel/},
+      {k:'animals',t:'Strange lives of animals',n:'जीवजन्तुका अचम्म',b:'Lobsters that do not age, eels from the Sargasso, salamanders that regrow legs.',c:'#5b7f6e',g:'✿',re:/lobster|eel|bam-machha|salamand|thakthake|lovers-of-solitude|phatyangra/}
+    ],
+    '/p/history.html':[
+      {k:'sumer',t:'Sumer & Mesopotamia',n:'सुमेर र मेसोपोटामिया',b:'From the first flood-fed fields to the first writing, empires and laments.',c:'#a8665b',g:'✴',re:/sumer|akkad|uruk|lagash|eridu|mesopotamia|dui-nadi|badhidekhi|flood|sansar-dubaeko|kushim|between-two-rivers|sargon|the-city-of/},
+      {k:'roman',t:'Roman Britannia',n:'रोमन ब्रिटानिया',b:'Giants, walls, warlords and the long goodbye.',c:'#4f6a7a',g:'♕',re:/britannia/},
+      {k:'smallpox',t:'Smallpox in Nepal',n:'नेपालमा बिफर',b:'Rana Bahadur, Shitala Maju and the vaccine that took 159 years.',c:'#7b2d26',g:'✵',re:/smallpox|bifar/},
+      {k:'faith',t:'Faith before farming',n:'भोकभन्दा पहिले आस्था',b:'When temples gave birth to villages.',c:'#9a7a2e',g:'✦',re:/faith-before|gobekli/},
+      {k:'more',t:'Lives, music & memory',n:'जीवन, सङ्गीत र स्मृति',b:'Kathmandu’s hippies, a silent Buddha, Dylan and the people history forgot.',c:'#5b7f6e',g:'♫',re:/./}
+    ]
+  };
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  function go(){
+    var key=location.pathname.replace(/\/+$/,'');var cfg=CFG[key];if(!cfg)return;
+    var ol=document.querySelector('ol.kser-items');if(!ol||ol.getAttribute('data-kxt'))return;
+    var lis=[].filter.call(ol.children,function(l){return l.tagName==='LI'&&l.querySelector('h2 a')});if(lis.length<6)return;
+    if(!lis.some(function(l){return l.querySelector('img')}))return;
+    var buckets={};cfg.forEach(function(t){buckets[t.k]=[]});
+    lis.forEach(function(l){var a=l.querySelector('h2 a');var h=a.getAttribute('href');var u=h.replace(/^https?:\/\/[^/]+/,'');for(var i=0;i<cfg.length;i++){if(cfg[i].re.test(u)){buckets[cfg[i].k].push(l);break}}});
+    var html='',nav='';
+    cfg.forEach(function(t){var b=buckets[t.k];if(!b.length)return;
+      var tiles=b.map(function(l){var a=l.querySelector('h2 a');var href=a.href;var title=a.textContent.replace(/\s+/g,' ').trim();var im=l.querySelector('img');var src=im?(im.currentSrc||im.src||''):'';src=src.replace(/=w\d+(-rw)?$/,'=w480-rw');
+        var sub=l.querySelector('.kt-sub,.kt-dek,p:not(.kser-date)');var sm=(sub?sub.textContent:'').replace(/\s+/g,' ').trim();var cut=sm.length>96?sm.slice(0,sm.lastIndexOf(' ',96)||96)+'…':sm;
+        var dt=l.querySelector('.kser-date span');var dd=(dt?dt.textContent:'').replace(/\s+/g,' ').trim();dd=dd.split('\u00b7')[0].replace(/^\d+\s+/,'').replace(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*/,'$1').trim();var ne=l.getAttribute('lang')==='ne'||/[ऀ-ॿ]/.test(title);
+        var long=sm.length>230?sm.slice(0,sm.lastIndexOf(' ',230))+'…':sm;
+        return '<article class="kx-tile kx-host"'+(ne?' lang="ne"':'')+'><a class="kx-cv" href="'+esc(href)+'" aria-label="'+esc(title)+'">'+(src?'<img alt="" loading="lazy" src="'+esc(src)+'">':'')+'</a><span class="kx-cat">'+(ne?'नेपाली':'English')+'</span><div class="kx-tx"><a class="tt" href="'+esc(href)+'">'+esc(title)+'</a>'+(cut?'<p class="kx-sn">'+esc(cut)+'</p>':'')+'<p class="d">'+esc(dd)+'</p></div><div class="kx-pn"><b>What you’ll find</b><p>'+esc(long)+'</p><a class="kx-go" href="'+esc(href)+'">Read ›</a></div></article>'}).join('');
+      html+='<section class="kx-topic" id="kxt-'+t.k+'" style="--tc:'+t.c+'"><header class="kx-th"><span class="kx-tg">'+t.g+'</span><div class="kx-tt"><h2>'+esc(t.t)+' <em lang="ne">'+esc(t.n)+'</em></h2><p>'+esc(t.b)+'</p></div><span class="kx-tc">'+b.length+'</span></header><div class="kxs3 kxt" data-n="'+b.length+'">'+tiles+'</div></section>';
+      nav+='<a href="#kxt-'+t.k+'" style="--tc:'+t.c+'"><i>'+t.g+'</i>'+esc(t.t)+' <b>'+b.length+'</b></a>'});
+    var wrap=document.createElement('div');wrap.className='kx-topics';wrap.innerHTML='<nav class="kx-tnav" aria-label="Topics">'+nav+'</nav>'+html;
+    ol.setAttribute('data-kxt','1');ol.classList.add('kx-hid');ol.parentNode.insertBefore(wrap,ol);
+  }
+  go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);[1200,2500,5000,9000].forEach(function(t){setTimeout(go,t)});
+})();
