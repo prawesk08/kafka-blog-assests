@@ -635,13 +635,18 @@ window.kTiny=window.kTiny||function(u,n){
       [].forEach.call(ol.children,function(li){if(li.tagName!=='LI'||li.querySelector('.kx-pn'))return;var a=li.querySelector('a.tt');if(!a)return;
         var img=li.querySelector('a.pic img');if(img&&/=w\d+-rw/.test(img.src))img.src=img.src.replace(/=w\d+-rw/,'=w480-rw');
         var s=snip(m[path(a.href)]);if(!s)s='';var dv=li.querySelector(':scope>div');var cat=m['cat:'+path(a.href)];if(dv&&!dv.querySelector('.kx-sn')){if(s){var sn=document.createElement('p');sn.className='kx-sn';sn.textContent=s.length>96?s.slice(0,s.lastIndexOf(' ',96)||96)+'\u2026':s;a.insertAdjacentElement('afterend',sn)}}if(cat&&!li.querySelector('.kx-cat')){var cc=document.createElement('span');cc.className='kx-cat';cc.textContent=cat;li.appendChild(cc)}panel(li,s?'<p>'+esc(s)+'</p>':'<p></p>',a.href)})});
+    [].forEach.call(document.querySelectorAll('.kstart5>a.k5'),function(a){if(a.querySelector(':scope>.kx-pn'))return;var u=path(a.href),sm=snip(m[u]),b=a.querySelector('.k5-b'),t=a.querySelector('.k5-t'),im=a.querySelector('.k5-img');
+      if(im&&im.style.backgroundImage)im.style.backgroundImage=im.style.backgroundImage.replace(/=w\d+-rw/,'=w480-rw');
+      if(sm&&t&&b&&!b.querySelector('.kx-sn')){var sn=document.createElement('span');sn.className='kx-sn';sn.textContent=sm.length>96?sm.slice(0,sm.lastIndexOf(' ',96)||96)+'\u2026':sm;t.insertAdjacentElement('afterend',sn)}
+      var cat=m['cat:'+u];if(cat&&!a.querySelector(':scope>.kx-cat')){var cc=document.createElement('span');cc.className='kx-cat';cc.textContent=cat;a.appendChild(cc)}
+      var pn=document.createElement('div');pn.className='kx-pn';pn.innerHTML='<b>What you\u2019ll find</b><p>'+esc(sm)+'</p><span class="kx-go">'+(document.documentElement.lang==='ne'?'पढ्नुहोस् ›':'Read ›')+'</span>';a.appendChild(pn);a.classList.add('kx-host')});
     [].forEach.call(document.querySelectorAll('article.kcard,article.sq'),function(ar){var a=ar.querySelector('a[href$=".html"]');if(!a)return;var s=snip(m[path(a.href)]);if(s)panel(ar,'<p>'+esc(s)+'</p>',a.href)});
     [].forEach.call(document.querySelectorAll('.series2.six>.scol'),function(sc){if(sc.querySelector(':scope>.kx-pn'))return;var ls=[].slice.call(sc.querySelectorAll('details.run ol.slist li a.tt')).slice(0,4);var h3=sc.querySelector('h3 a.ser-link');var cnt=sc.querySelector('.runcount');
       if(!ls.length||!h3)return;panel(sc,'<ol>'+ls.map(function(x){return '<li>'+esc(x.textContent.trim())+'</li>'}).join('')+'</ol>',h3.getAttribute('href'),'In this series'+(cnt?' · '+cnt.textContent+' pieces':''));var g=sc.querySelector('.kx-go');if(g)g.textContent=(document.documentElement.lang==='ne'?'सबै हेर्नुहोस् ›':'See the series ›')})
   })}
   document.addEventListener('click',function(e){if(!matchMedia('(hover:none)').matches)return;var h=e.target.closest&&e.target.closest('.kx-host');
     [].forEach.call(document.querySelectorAll('.kx-host.kx-open'),function(x){if(x!==h)x.classList.remove('kx-open')});
-    if(!h||e.target.closest('.kx-go'))return;if(!h.matches('.three .col ol.klist>li,.series2.six>.scol'))return;if(!h.classList.contains('kx-open')){e.preventDefault();h.classList.add('kx-open')}},true);
+    if(!h||e.target.closest('.kx-go'))return;if(!h.matches('.three .col ol.klist>li,.series2.six>.scol,.kstart5>a.k5'))return;if(!h.classList.contains('kx-open')){e.preventDefault();h.classList.add('kx-open')}},true);
   run();document.addEventListener('DOMContentLoaded',run);window.addEventListener('load',run);setTimeout(run,1500);setTimeout(run,4000);
-  var mo=new MutationObserver(function(){clearTimeout(mo.t);mo.t=setTimeout(run,250)});document.addEventListener('DOMContentLoaded',function(){mo.observe(document.body,{childList:true,subtree:true})});setTimeout(function(){mo.disconnect()},20000);
+  var mo=new MutationObserver(function(){clearTimeout(mo.t);mo.t=setTimeout(run,250)});document.addEventListener('DOMContentLoaded',function(){mo.observe(document.body,{childList:true,subtree:true})});setTimeout(function(){mo.disconnect();window.addEventListener('click',function(){setTimeout(run,400)},true)},20000);
 })();
