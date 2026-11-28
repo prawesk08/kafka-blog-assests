@@ -522,6 +522,9 @@ window.kTiny=window.kTiny||function(u,n){
     if(t.scrollHeight>t.clientHeight+1&&lb)lb.style.setProperty('display','none','important');
   })}
   function go(){plate();fit()}
+  document.addEventListener('mouseover',function(e){if(e.target.closest&&e.target.closest('.kafka-item')){clearTimeout(go._h);go._h=setTimeout(fit,30)}});
+  document.addEventListener('touchstart',function(){setTimeout(fit,60)},{passive:true});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go);
   window.addEventListener('resize',function(){clearTimeout(go._t);go._t=setTimeout(fit,150)});
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1200);setTimeout(go,3000);
 })();
