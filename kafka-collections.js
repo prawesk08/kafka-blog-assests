@@ -484,6 +484,12 @@ window.kTiny=window.kTiny||function(u,n){
 (function(){
   var ALL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item';
   function el(t,c,s){var e=document.createElement(t);e.className=c;if(s!=null)e.textContent=s;return e}
+  /* thumbnail for the panel: the real cover when there is one, else a copy of the item's typographic tile */
+  function fig(it){
+    var im=it.querySelector('.kt-art img'),src=im&&(im.currentSrc||im.src),f=el('div','kn-fig');
+    if(src){var c=el('img','kn-cover');c.alt='';c.src=src;f.appendChild(c);return f}
+    var a=it.querySelector('.kt-art');if(a&&a.children.length){var k=a.cloneNode(true);k.classList.add('kn-art');k.removeAttribute('style');k.setAttribute('aria-hidden','true');f.appendChild(k);return f}
+    return null}
   function plate(){[].forEach.call(document.querySelectorAll(ALL),function(it){
     var n=it.querySelector(':scope>.kafka-item-note');if(!n||n.hasAttribute('data-kn'))return;
     var h=it.querySelector('h3'),by=it.querySelector('.kafka-item-by');if(!h)return;
@@ -491,7 +497,7 @@ window.kTiny=window.kTiny||function(u,n){
     var im=it.querySelector('.kt-art img'),src=im&&(im.currentSrc||im.src);
     var b=by?by.cloneNode(true):null;if(b){[].forEach.call(b.querySelectorAll('.kafka-item-line,img'),function(x){x.remove()})}
     n.textContent='';n.setAttribute('data-kn','1');
-    if(src){var f=el('div','kn-fig'),c=el('img','kn-cover');c.alt='';c.src=src;f.appendChild(c);n.appendChild(f)}
+    var f0=fig(it);if(f0)n.appendChild(f0);
     var t=el('div','kn-text');
     t.appendChild(el('span','kn-title',h.textContent.replace(/\s+/g,' ').trim()));
     var bt=b?b.textContent.replace(/\s+/g,' ').trim():'';
@@ -506,6 +512,7 @@ window.kTiny=window.kTiny||function(u,n){
     var f=n.querySelector('.kn-fig'),t=n.querySelector('.kn-text'),b=n.querySelector('.kn-body'),r=n.querySelector('.kn-rule'),a=n.querySelector('.kn-by'),lb=n.querySelector('.kn-label');
     var h=n.clientHeight;if(!h)return;
     n.setAttribute('data-kns',h>=110?'l':(h>=80?'m':'s'));
+    if(!f){var f2=fig(n.closest('.kafka-item'));if(f2){n.insertBefore(f2,n.firstChild);f=f2}}
     if(f)f.style.width=Math.round((h-16)*2/3)+'px';
     [r,a,lb].forEach(function(x){if(x)x.style.removeProperty('display')});
     var lines=3;b.style.webkitLineClamp=lines;
