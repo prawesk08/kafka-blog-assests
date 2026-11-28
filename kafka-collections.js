@@ -687,7 +687,7 @@ window.kTiny=window.kTiny||function(u,n){
 })();
 
 /* v34: show-more for phone shelves */
-(function(){function more(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3,.series2.six').forEach(function(s){if(s.children.length<=6)return;s.classList.add('kxm');var n=s.nextElementSibling;if(n&&n.classList.contains('kx-more'))return;var b=document.createElement('button');b.type='button';b.className='kx-more';b.textContent='Show more';b.addEventListener('click',function(){var all=s.classList.toggle('kx-all');b.textContent=all?'Show less':'Show more'});s.parentNode.insertBefore(b,s.nextSibling)})}catch(e){}}
+(function(){function more(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3,.series2.six').forEach(function(s){if(s.children.length<=6)return;s.classList.add('kxm');if(s.__kxm)return;s.__kxm=1;var b=document.createElement('button');b.type='button';b.className='kx-more';b.textContent='Show more';b.addEventListener('click',function(){var all=s.classList.toggle('kx-all');b.textContent=all?'Show less':'Show more'});s.parentNode.insertBefore(b,s.nextSibling)})}catch(e){}}
 var k=0,t=setInterval(function(){more();if(++k>40)clearInterval(t)},600);document.addEventListener('click',function(){setTimeout(more,200)},true)})();
 
 /* v34b: scroll hint */
@@ -709,7 +709,7 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
     window.__kxFeed().then(function(m){
       var cs=[].filter.call(document.querySelectorAll('article.kcard'),function(a){return !a.classList.contains('kx-lh')});
       if(cs.length<2)return;
-      var old=document.querySelector('.kxs3.kxl');if(old)old.remove();
+      var old=document.querySelector('.kxs3.kxl');if(old){var nx=old.nextElementSibling;while(nx&&(nx.classList.contains('kx-more')||nx.classList.contains('kx-pg'))){var r=nx;nx=nx.nextElementSibling;r.remove()}old.remove()}
       var seen={},tiles=[];
       cs.forEach(function(a){var l=a.querySelector('a.pic[href]')||a.querySelector('a[href$=".html"]');if(!l)return;var u=path(l.href);if(seen[u])return;seen[u]=1;
         var im=a.querySelector('img'),src=im?(im.currentSrc||im.src||''):'';src=src.replace(/=w\d+-rw/,'=w480-rw');
