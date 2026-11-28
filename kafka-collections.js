@@ -925,3 +925,22 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   function go(){mark();if(window.MutationObserver)new MutationObserver(function(){clearTimeout(go._t);go._t=setTimeout(mark,120)}).observe(document.body,{childList:true,subtree:true});setTimeout(mark,1500)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
 })();
+
+/* v89 photo captions */
+(function(){
+ var HOME=["Times Square towers through a dark frame","Times Square at night, steam and crowds","A Midtown avenue looking up toward the towers","Billboards leaning into the dark","A tour bus below the screens","\u201cKeep moving\u201d: a man with a sign, in black and white","A courier cycling beneath the billboards, in black and white","A scooter rider against green and teal light","A crowd on the street, in black and white"];
+ function add(host,txt){ if(!host||!txt||host.querySelector('.kcap'))return; var s=document.createElement('span'); s.className='kcap'; s.textContent=txt; host.appendChild(s); var im=host.querySelector('img'); if(im&&(!im.alt||/^Photograph by/i.test(im.alt)))im.alt=txt; host.setAttribute('title',txt); var b=host.querySelector('button'); if(b)b.setAttribute('aria-label','Open photo: '+txt); }
+ function run(){
+  var g=document.getElementById('kafka-gallery');
+  if(g){ [].forEach.call(g.querySelectorAll('li'),function(li,i){ add(li,HOME[i]); }); }
+  [].forEach.call(document.querySelectorAll('.kphotos .kgrid a'),function(a){ var im=a.querySelector('img'); add(a,im&&im.alt); });
+ }
+ var tries=0; (function wait(){ run(); if(++tries<20)setTimeout(wait,500); })();
+ document.addEventListener('touchstart',function(e){ var t=e.target.closest&&e.target.closest('#kafka-gallery li,.kphotos .kgrid a'); if(!t)return; t.classList.add('kcap-on'); clearTimeout(t._kc); t._kc=setTimeout(function(){t.classList.remove('kcap-on')},2600); },{passive:true});
+ /* caption inside the full-size viewer */
+ var dlg=document.getElementById('kafka-viewer');
+ if(dlg){ var im=dlg.querySelector('img'); var cap=document.createElement('p'); cap.className='kv-cap'; dlg.appendChild(cap);
+  var upd=function(){ var n=dlg.querySelector('.v-n'); var k=n?parseInt(n.textContent,10)-1:-1; cap.textContent=HOME[k]||''; };
+  if(window.MutationObserver&&im)new MutationObserver(upd).observe(im,{attributes:true,attributeFilter:['src']});
+ }
+})();
