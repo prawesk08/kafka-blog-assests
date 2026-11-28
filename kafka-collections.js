@@ -863,3 +863,49 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   }
   var tries=0;(function tick(){if(build()||++tries>60)return;setTimeout(tick,300)})();
 })();
+
+/* v70: accessibility helpers (skip link, unique link names, labels, Nepali UI labels) */
+(function(){
+  var NE={'Nepali':'नेपाली','Science':'विज्ञान','History':'इतिहास','Literature':'साहित्य','Poetry':'कविता','Photos':'तस्बिर','Sumer':'सुमेर','Britain':'बेलायत','Organisms':'जीवजन्तु','Cancer':'क्यान्सर','Books':'किताब','Movies':'चलचित्र','Songs':'गीत','Series':'शृङ्खला','Archive':'अभिलेख'};
+  var isNe=function(){return (document.documentElement.getAttribute('lang')||'').indexOf('ne')===0};
+  function txt(e){return (e.textContent||'').replace(/\s+/g,' ').trim()}
+  function skip(){
+    if(document.querySelector('.kskip'))return;
+    var m=document.querySelector('main,[role=main],.post-head,article,#kview');if(!m)return;
+    if(!m.id)m.id='kmain';m.setAttribute('tabindex','-1');
+    var a=document.createElement('a');a.className='kskip';a.href='#'+m.id;a.textContent=isNe()?'मुख्य सामग्रीमा जानुहोस्':'Skip to main content';
+    a.addEventListener('click',function(){try{m.focus()}catch(e){}});
+    document.body.insertBefore(a,document.body.firstChild);
+  }
+  function names(){
+    document.querySelectorAll('.kafka-item').forEach(function(it){
+      var h=it.querySelector('h3');var t=h?txt(h):'';if(!t)return;
+      it.querySelectorAll('a').forEach(function(a){
+        if(a.getAttribute('aria-label')||a.getAttribute('aria-hidden')==='true')return;
+        var s=txt(a)||a.getAttribute('title')||'';if(!s)return;
+        a.setAttribute('aria-label',s.replace(/\s*›\s*$/,'')+': '+t);
+      });
+    });
+    document.querySelectorAll('button[aria-label="Previous"],button[aria-label="More"],button[aria-label="Next"]').forEach(function(b){
+      var sec=b.closest('section,.kshelf,.kafka-list,[data-list]');var h=sec&&sec.querySelector('h2,h3');
+      if(h&&!b.getAttribute('data-ka')){b.setAttribute('aria-label',b.getAttribute('aria-label')+' – '+txt(h));b.setAttribute('data-ka','1')}
+    });
+    document.querySelectorAll('a.kmore-link,a.kser-card,a.kn-card').forEach(function(a){
+      if(txt(a)||a.getAttribute('aria-label'))return;
+      var t=a.getAttribute('title')||(a.querySelector('img')&&a.querySelector('img').alt)||a.getAttribute('href');a.setAttribute('aria-label',t);
+    });
+    document.querySelectorAll('audio:not([aria-label])').forEach(function(a){
+      var h=a.closest('.kpg-play');var t=h&&h.querySelector('.kf-t');a.setAttribute('aria-label','Audio player'+(t?': '+txt(t):''));
+    });
+  }
+  function nepali(){
+    if(!isNe())return;
+    document.querySelectorAll('.tabs-items a,.knav-sticky a').forEach(function(a){
+      var s=txt(a);if(NE[s]&&!a.getAttribute('data-ne')){a.textContent=NE[s];a.setAttribute('data-ne','1')}
+    });
+    document.querySelectorAll('input[type=search],input[name=q]').forEach(function(i){if(/search/i.test(i.placeholder||'')&&!i.getAttribute('data-ne')){i.placeholder='खोज्नुहोस्…';i.setAttribute('data-ne','1')}});
+  }
+  var t=0;function all(){try{skip();names();nepali()}catch(e){}}
+  function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},150)}).observe(document.body,{childList:true,subtree:true})}setTimeout(all,1500)}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
+})();
