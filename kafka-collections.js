@@ -1045,3 +1045,7 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
  extra();[500,1500,3000,6000].forEach(function(x){setTimeout(extra,x)});
  if(window.MutationObserver)new MutationObserver(sc).observe(document.body,{childList:true,subtree:true});
 })();
+
+/* v106 featured image as hover-panel canvas */
+(function(){function s(){var a=document.querySelectorAll('.kx-tile:not([data-pb])');for(var i=0;i<a.length;i++){var im=a[i].querySelector('a.kx-cv img'),u=im&&im.getAttribute('src');if(u){a[i].setAttribute('data-pb','1');a[i].style.setProperty('--pbg','url("'+u.replace(/"/g,'%22')+'")')}}}
+s();document.addEventListener('DOMContentLoaded',s);window.addEventListener('load',s);var t;try{new MutationObserver(function(){clearTimeout(t);t=setTimeout(s,120)}).observe(document.body,{childList:true,subtree:true})}catch(e){}})();
