@@ -620,3 +620,28 @@ window.kTiny=window.kTiny||function(u,n){
   function go(){try{pills();foot()}catch(e){}}
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1200);setTimeout(go,3500);
 })();
+
+/* v31: "what you will find" panels on article cards; recent / most-read lists become sideways shelves; series cards become compact tiles */
+(function(){
+  var MAP=null;
+  function path(h){try{return new URL(h,location.origin).pathname}catch(e){return ''}}
+  function feed(){if(MAP)return MAP;MAP=fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.json()}).then(function(j){var m={};((j.feed||{}).entry||[]).forEach(function(e){var l=(e.link||[]).filter(function(x){return x.rel==='alternate'})[0];if(l)m[path(l.href)]=((e.summary||{}).$t||'').replace(/\s+/g,' ').trim()});return m}).catch(function(){return {}});return MAP}
+  function snip(t){if(!t)return '';t=t.replace(/\s+/g,' ');if(t.length<=230)return t;var c=t.slice(0,230),i=Math.max(c.lastIndexOf('. '),c.lastIndexOf('। '),c.lastIndexOf('? '));if(i>110)return c.slice(0,i+1);i=c.lastIndexOf(' ');return c.slice(0,i>0?i:230)+'…'}
+  function panel(host,html,href,label){if(host.querySelector(':scope>.kx-pn'))return;var p=document.createElement('div');p.className='kx-pn';p.innerHTML='<b>'+(label||'What you’ll find')+'</b>'+html+'<a class="kx-go" href="'+href+'">'+(document.documentElement.lang==='ne'?'पढ्नुहोस् ›':'Read ›')+'</a>';host.appendChild(p);host.classList.add('kx-host')}
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  function run(){feed().then(function(m){
+    [].forEach.call(document.querySelectorAll('.three .col ol.klist'),function(ol){
+      ol.classList.add('kxs');
+      [].forEach.call(ol.children,function(li){if(li.tagName!=='LI'||li.querySelector('.kx-pn'))return;var a=li.querySelector('a.tt');if(!a)return;
+        var img=li.querySelector('a.pic img');if(img&&/=w\d+-rw/.test(img.src))img.src=img.src.replace(/=w\d+-rw/,'=w480-rw');
+        var s=snip(m[path(a.href)]);if(!s)s='';panel(li,s?'<p>'+esc(s)+'</p>':'<p></p>',a.href)})});
+    [].forEach.call(document.querySelectorAll('article.kcard,article.sq'),function(ar){var a=ar.querySelector('a[href$=".html"]');if(!a)return;var s=snip(m[path(a.href)]);if(s)panel(ar,'<p>'+esc(s)+'</p>',a.href)});
+    [].forEach.call(document.querySelectorAll('.series2.six>.scol'),function(sc){if(sc.querySelector(':scope>.kx-pn'))return;var ls=[].slice.call(sc.querySelectorAll('details.run ol.slist li a.tt')).slice(0,4);var h3=sc.querySelector('h3 a.ser-link');var cnt=sc.querySelector('.runcount');
+      if(!ls.length||!h3)return;panel(sc,'<ol>'+ls.map(function(x){return '<li>'+esc(x.textContent.trim())+'</li>'}).join('')+'</ol>',h3.getAttribute('href'),'In this series'+(cnt?' · '+cnt.textContent+' pieces':''));var g=sc.querySelector('.kx-go');if(g)g.textContent=(document.documentElement.lang==='ne'?'सबै हेर्नुहोस् ›':'See the series ›')})
+  })}
+  document.addEventListener('click',function(e){if(!matchMedia('(hover:none)').matches)return;var h=e.target.closest&&e.target.closest('.kx-host');
+    [].forEach.call(document.querySelectorAll('.kx-host.kx-open'),function(x){if(x!==h)x.classList.remove('kx-open')});
+    if(!h||e.target.closest('.kx-go'))return;if(!h.matches('.three .col ol.klist>li,.series2.six>.scol'))return;if(!h.classList.contains('kx-open')){e.preventDefault();h.classList.add('kx-open')}},true);
+  run();document.addEventListener('DOMContentLoaded',run);window.addEventListener('load',run);setTimeout(run,1500);setTimeout(run,4000);
+  var mo=new MutationObserver(function(){clearTimeout(mo.t);mo.t=setTimeout(run,250)});document.addEventListener('DOMContentLoaded',function(){mo.observe(document.body,{childList:true,subtree:true})});setTimeout(function(){mo.disconnect()},20000);
+})();
