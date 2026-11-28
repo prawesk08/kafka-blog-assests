@@ -472,6 +472,7 @@ window.kTiny=window.kTiny||function(u,n){
     var tag=it.querySelector('.kafka-item-tag'),by=it.querySelector('.kafka-item-by');
     var t=(tag?tag.textContent:'').replace(/\s+/g,' ').trim();
     var m=(it.textContent.match(/(\d+)\s+songs?\s+here/i)||[])[1];
+    if(!t){var sh=it.closest('.kshelf'),hd=sh&&sh.querySelector('h2,.kafka-list-shelf');if(!hd){var e=it;while(e&&!hd){e=e.previousElementSibling||(e.parentNode&&e.parentNode.previousElementSibling);if(e&&/^H2$/.test(e.tagName))hd=e;if(e&&e.querySelector&&!hd)hd=e.querySelector('h2')}}t=hd?hd.textContent.replace(/\s+/g,' ').replace(/^.*?:\s*/,'').trim():''}
     var parts=[];if(t)parts.push(t);if(m)parts.push(m+' tracks');
     if(!parts.length)return;
     if(!by)return;var p=document.createElement('span');p.className='kafka-item-line';p.textContent=parts.join(' \u00b7 ');by.appendChild(p);
