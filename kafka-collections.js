@@ -605,7 +605,7 @@ window.kTiny=window.kTiny||function(u,n){
   function foot(){
     var f=document.querySelector('footer.footer'),strip=document.querySelector('.ktagstrip');if(!f)return;
     var fl=f.querySelector('.foot-line')||(strip&&strip.querySelector('.foot-line'));
-    if(fl&&!fl.querySelector('.kx-sub')){var sp=fl.querySelector('span:last-child');
+    if(fl&&!fl.querySelector('.kx-sub')){var sp=fl.querySelector(':scope>span:last-child');
       if(sp){var rss=sp.querySelector('a.rss-link'),s=document.createElement('a');s.className='kx-sub';s.href=SUB;s.target='_blank';s.rel='me noopener';s.textContent='Substack';
         var m=document.createElement('a');m.className='kx-mail';m.href=MAIL;m.textContent='Email';m.title='naharchowck@gmail.com';
         sp.insertBefore(s,rss||null);sp.insertBefore(m,rss||null)}}
