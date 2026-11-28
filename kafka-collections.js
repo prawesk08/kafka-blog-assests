@@ -956,3 +956,11 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   if(s&&s.classList.contains('kxs3')&&!s.hasAttribute('data-lead')){s.setAttribute('data-lead','1');s.__kxu&&s.__kxu()}})}
  [300,1200,2500,5000,9000].forEach(function(t){setTimeout(mark,t)});mark();
 })();
+
+/* v96 series card extra text + part chips */
+(function(){function f(){var m=document.querySelector('.kx-fp .fp-main');if(!m||m.__x)return;var parts=document.querySelectorAll('.kx-fp .fp-part');if(!parts.length)return;m.__x=1;var mb=m.querySelector('.fp-mb');if(!mb)return;
+ var sm=[].map.call(parts,function(p){var s=p.querySelector('small');return s?s.textContent.trim():''}).filter(Boolean).join(' ');
+ var d=document.createElement('span');d.className='fp-ms';d.textContent=sm;mb.appendChild(d);
+ var c=document.createElement('span');c.className='fp-mc';[].forEach.call(parts,function(p,i){var a=document.createElement('span');a.textContent=(p.querySelector('em')?p.querySelector('em').textContent:'भाग '+(i+1))+' ›';a.setAttribute('data-href',p.href);c.appendChild(a)});mb.appendChild(c);
+ c.addEventListener('click',function(e){var t=e.target.closest('[data-href]');if(t){e.preventDefault();e.stopPropagation();location.href=t.getAttribute('data-href')}});}
+ [200,1200,3000,6000].forEach(function(t){setTimeout(f,t)});f();})();
