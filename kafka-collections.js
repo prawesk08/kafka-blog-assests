@@ -903,9 +903,7 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   }
   function nepali(){
     if(!isNe())return;
-    document.querySelectorAll('.tabs-items a,.knav-sticky a').forEach(function(a){
-      var s=txt(a);if(NE[s]&&!a.getAttribute('data-ne')){a.textContent=NE[s];a.setAttribute('data-ne','1')}
-    });
+    /* v109: menu labels stay English on every page */
     document.querySelectorAll('input[type=search],input[name=q]').forEach(function(i){if(/search/i.test(i.placeholder||'')&&!i.getAttribute('data-ne')){i.placeholder='खोज्नुहोस्…';i.setAttribute('data-ne','1')}});
   }
   var t=0;function all(){try{skip();names();nepali()}catch(e){}}
