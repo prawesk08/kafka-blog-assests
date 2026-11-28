@@ -1123,3 +1123,24 @@ f();window.addEventListener('load',function(){setTimeout(f,300)});window.addEven
  document.addEventListener('click',function(){setTimeout(go,200)},true);
  try{var t;new MutationObserver(function(){clearTimeout(t);t=setTimeout(go,150)}).observe(document.body,{childList:true,subtree:true})}catch(e){}
 })();
+
+/* v121 hover panels everywhere: the featured image is the canvas (darkened for reading), text centred and sized to the panel, no pale yellow wash */
+(function(){
+ function P(e,o){for(var k in o)e.style.setProperty(k,o[k],'important')}
+ function bgOf(h){
+  var v=getComputedStyle(h).getPropertyValue('--pbg').trim();if(v)return v;
+  var im=h.querySelector('a.kx-cv img,a.pic img,.kser-pic img,img');var u=im&&(im.currentSrc||im.getAttribute('src')||'');
+  if(!u){var k=h.querySelector('.k5-img');var m=k&&/url\(["']?([^"')]+)/.exec(k.style.backgroundImage||'');u=m&&m[1]}
+  if(u){v='url("'+u.replace(/"/g,'%22')+'")';h.style.setProperty('--pbg',v);return v}return ''}
+ function one(p){
+  var h=p.parentElement;if(!h||!h.classList.contains('kx-host'))return;
+  var bg=bgOf(h);
+  P(p,{background:'linear-gradient(rgba(26,18,14,.5),rgba(26,18,14,.64))'+(bg?','+bg+' center/cover no-repeat':'')+',#3a2f28','justify-content':'center','align-items':'center','text-align':'center',padding:'10px 14px','-webkit-backdrop-filter':'none','backdrop-filter':'none','box-shadow':'none',color:'#fff'});
+  var b=p.querySelector('b');if(b)P(b,{color:'#ffd9a0','text-align':'center'});
+  var t=p.querySelectorAll('p');for(var i=0;i<t.length;i++)P(t[i],{color:'#fff','text-align':'center','font-size':'var(--fs,13px)','line-height':'1.45','-webkit-line-clamp':'var(--ln,4)'});
+  var g=p.querySelector('.kx-go');if(g){if(h.closest('.kxt,.kser-items'))P(g,{display:'none'});else P(g,{position:'static','align-self':'center','margin-top':'6px',color:'#fff','border-color':'#fff'})}
+ }
+ function all(){try{var a=document.querySelectorAll('.kx-host>.kx-pn');for(var i=0;i<a.length;i++)one(a[i])}catch(e){}}
+ all();window.addEventListener('load',all);[500,1500,3000,6000].forEach(function(t){setTimeout(all,t)});
+ try{var t;new MutationObserver(function(){clearTimeout(t);t=setTimeout(all,200)}).observe(document.body,{childList:true,subtree:true})}catch(e){}
+})();
