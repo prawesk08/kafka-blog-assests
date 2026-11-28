@@ -757,7 +757,7 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
     P.addEventListener('click',function(){step(-1)});X.addEventListener('click',function(){step(1)});
     s.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);s.__kbu=upd;upd();
   }
-  function all(){try{document.querySelectorAll(SEL).forEach(function(s){if(!s.children.length)return;bar(s);s.__kbu&&s.__kbu()})}catch(e){}}
+  function all(){try{document.querySelectorAll(SEL).forEach(function(s){if(!s.children.length||!s.offsetHeight)return;bar(s);s.__kbu&&s.__kbu()})}catch(e){}}
   var k=0,t=setInterval(function(){all();if(++k>50)clearInterval(t)},700);
   document.addEventListener('click',function(){setTimeout(all,500)},true);
 })();
