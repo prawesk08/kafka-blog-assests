@@ -1743,8 +1743,9 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
   }
   function enterFs(stage, vid){
     var d = document;
-    if (d.fullscreenElement || d.webkitFullscreenElement){ (d.exitFullscreen || d.webkitExitFullscreen).call(d); return; }
-    if (stage.requestFullscreen) stage.requestFullscreen().catch(function(){ if (vid.webkitEnterFullscreen) vid.webkitEnterFullscreen(); });
+    if (d.fullscreenElement || d.webkitFullscreenElement){ try { if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock(); } catch(e){} (d.exitFullscreen || d.webkitExitFullscreen).call(d); return; }
+    /* v71: full screen opens in landscape where the browser allows it (the tap is the user's own request) */
+    if (stage.requestFullscreen) stage.requestFullscreen().then(function(){ try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape").catch(function(){}); } catch(e){} }).catch(function(){ if (vid.webkitEnterFullscreen) vid.webkitEnterFullscreen(); });
     else if (stage.webkitRequestFullscreen) stage.webkitRequestFullscreen();
     else if (vid.webkitEnterFullscreen) vid.webkitEnterFullscreen();
   }
@@ -1827,6 +1828,51 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
 
     var stage = fig.querySelector(".kvid-stage");
     fig.querySelector(".kvid-fs").addEventListener("click", function(){ enterFs(stage, vid); });
+    /* v71: background play, only after the viewer agrees */
+    (function(){
+      var KEY = "kvid-bg-ok", ok = false;
+      try { ok = localStorage.getItem(KEY) === "1"; } catch(e){}
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.className = "kvid-bg";
+      var lbl = isNe ? "पृष्ठभूमिमा चलाउनुहोस्" : "Keep playing in the background";
+      btn.setAttribute("aria-label", lbl); btn.setAttribute("title", lbl); btn.setAttribute("aria-pressed", "false");
+      btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><rect x="12" y="10" width="7" height="5" rx="1"/><path d="M8 21h8"/></svg>';
+      stage.appendChild(btn);
+      var on = false;
+      function setMedia(){
+        if (!("mediaSession" in navigator)) return;
+        try {
+          navigator.mediaSession.metadata = new MediaMetadata({ title: item.title || document.title, artist: "Kafkaintherun", artwork: item.poster ? [{ src: item.poster }] : [] });
+          navigator.mediaSession.setActionHandler("play", function(){ vid.play(); });
+          navigator.mediaSession.setActionHandler("pause", function(){ vid.pause(); });
+          try { navigator.mediaSession.setActionHandler("enterpictureinpicture", function(){ if (vid.requestPictureInPicture) vid.requestPictureInPicture().catch(function(){}); }); } catch(e){}
+        } catch(e){}
+      }
+      function enable(){
+        on = true; btn.classList.add("on"); btn.setAttribute("aria-pressed", "true"); setMedia();
+        if (vid.requestPictureInPicture && !vid.paused && document.pictureInPictureEnabled) vid.requestPictureInPicture().catch(function(){});
+        var t = fig.querySelector(".kvid-toast"); if (t){ t.textContent = isNe ? "पृष्ठभूमि प्ले खुला छ" : "Background play is on"; t.classList.add("show"); setTimeout(function(){ t.classList.remove("show"); }, 2200); }
+      }
+      function disable(){ on = false; btn.classList.remove("on"); btn.setAttribute("aria-pressed", "false"); }
+      btn.addEventListener("click", function(){
+        if (on){ disable(); return; }
+        if (ok){ enable(); return; }
+        var q = isNe ? "यो भिडियो ट्याब छोडे वा स्क्रिन बन्द गरे पनि चलिरहन दिने?" : "Allow this video to keep playing when you leave this tab or lock your screen?";
+        if (window.confirm(q)){ ok = true; try { localStorage.setItem(KEY, "1"); } catch(e){} enable(); }
+      });
+      document.addEventListener("visibilitychange", function(){
+        if (!on) return;
+        if (document.hidden && !vid.paused){
+          if (vid.requestPictureInPicture && document.pictureInPictureEnabled && !document.pictureInPictureElement) vid.requestPictureInPicture().catch(function(){});
+        }
+      });
+      vid.addEventListener("pause", function(){
+        if (on && document.hidden && !vid.ended){ setTimeout(function(){ if (document.hidden && vid.paused) vid.play().catch(function(){}); }, 150); }
+      });
+      var st = document.createElement("style");
+      st.textContent = ".kvid-bg{position:absolute;top:8px;right:50px;z-index:3;appearance:none;border:0;background:rgba(0,0,0,.55);color:#fff;width:34px;height:34px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:.85;padding:0}.kvid-bg:hover,.kvid-bg:focus-visible{opacity:1;background:rgba(0,0,0,.75)}.kvid-bg.on{background:#9a5047;opacity:1}.kvid-bg svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}";
+      if (!document.getElementById("kvid-bg-css")){ st.id = "kvid-bg-css"; document.head.appendChild(st); }
+    })();
     var toast = fig.querySelector(".kvid-toast");
     var nat = fig.querySelector(".kvid-native");
     if (nat) nat.addEventListener("click", function(){

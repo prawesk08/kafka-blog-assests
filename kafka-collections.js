@@ -909,3 +909,19 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   function go(){all();if(window.MutationObserver){new MutationObserver(function(){if(t)return;t=setTimeout(function(){t=0;all()},150)}).observe(document.body,{childList:true,subtree:true})}setTimeout(all,1500)}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
 })();
+
+/* v71: one click opens the item page. Hover still shows the note; a tap or click anywhere on the card goes to its page. */
+(function(){
+  function link(it){return it.querySelector('.kafka-item-read a[href],.kafka-item-more a[href]')}
+  document.addEventListener('click',function(e){
+    var it=e.target.closest&&e.target.closest('.kafka-item');if(!it)return;
+    if(e.target.closest('a,button,input,select,textarea,audio,summary'))return;
+    if(e.defaultPrevented||e.button>0)return;
+    var a=link(it);if(!a)return;
+    e.preventDefault();e.stopPropagation();
+    if(e.ctrlKey||e.metaKey||e.shiftKey)window.open(a.href,'_blank');else window.location.href=a.href;
+  },true);
+  function mark(){document.querySelectorAll('.kafka-item').forEach(function(it){if(link(it)&&!it.getAttribute('data-k1')){it.setAttribute('data-k1','1');it.style.cursor='pointer';if(it.getAttribute('tabindex')==='0')it.setAttribute('tabindex','-1')}})}
+  function go(){mark();if(window.MutationObserver)new MutationObserver(function(){clearTimeout(go._t);go._t=setTimeout(mark,120)}).observe(document.body,{childList:true,subtree:true});setTimeout(mark,1500)}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
+})();
