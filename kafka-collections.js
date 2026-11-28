@@ -745,7 +745,7 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
       var over=s.scrollWidth>s.clientWidth+4;
       d.classList.toggle('kb-flat',!over);
       if(!over){N.textContent=n+(n===1?' post':' posts');return}
-      var rows=ph?(kxl?5:3):2,cols=ph?2:3,per=rows*cols;
+      var rows=ph?(kxl?8:3):2,cols=ph?2:3,per=rows*cols;
       var cw=ts[0].getBoundingClientRect().width+(ph?8:12);
       var col=Math.round(s.scrollLeft/cw),a=Math.min(n,col*rows+1),b=Math.min(n,a+per-1);
       N.textContent=a+'–'+b+' of '+n;
@@ -800,4 +800,36 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
     ol.setAttribute('data-kxt','1');ol.classList.add('kx-hid');ol.parentNode.insertBefore(wrap,ol);
   }
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);[1200,2500,5000,9000].forEach(function(t){setTimeout(go,t)});
+})();
+
+/* v47: home Featured + pinned -> slim featured row and a Shitala Maju block (50% story, 50% two part cards) */
+(function(){
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+  function tx(e){return e?e.textContent.replace(/\s+/g,' ').trim():''}
+  function build(){
+    var home=document.getElementById('kafka-home');if(!home||home.getAttribute('data-kfp'))return true;
+    var feat=home.querySelector('article.kfeat'),pp=home.querySelector('.pin-pair');
+    if(!feat||!pp)return false;
+    var parts=pp.querySelectorAll('.kps-parts>li');var mainImg=pp.querySelector('.kps-pic img');
+    if(!parts.length||!mainImg)return false;
+    var fa=feat.querySelector('a.pic'),fi=feat.querySelector('.pic img');if(!fa||!fi)return false;
+    var fh=fa.href;var ft='';[].forEach.call(feat.querySelectorAll('.txt a'),function(a){if(!ft&&a.href===fh&&!a.classList.contains('read-btn')&&a.className.indexOf('kact')<0&&a.textContent.trim().length>12)ft=tx(a)});
+    var fsub=tx(feat.querySelector('.sub'));var fd='',fr='';[].forEach.call(feat.querySelectorAll('.txt span'),function(s){var t=tx(s);if(!fd&&/\d{4}/.test(t))fd=t;if(!fr&&/min read/.test(t))fr=t});
+    var chip=tx(feat.querySelector('.chip'))||'History';
+    var main=pp.querySelector('.kps-pic'),mh=main.href,series=tx(pp.querySelector('.kps-n'))||'2-part series',sname=tx(pp.querySelector('.kps-t'));
+    var q=tx(pp.querySelector('.kb-tr')).replace(/^[“"]|[”"]$/g,'');
+    var big=mainImg.src.replace(/=w\d+(-rw)?$/,'=w480-rw');
+    var ph='';[].forEach.call(parts,function(li){var a=li.querySelector('a.tt'),im=li.querySelector('img');if(!a)return;
+      ph+='<a class="fp-part" href="'+esc(a.href)+'"><span class="fp-pi">'+(im?'<img alt="" loading="lazy" src="'+esc(im.src)+'">':'')+'</span><span class="fp-pb"><em>'+esc(tx(li.querySelector('.kps-no')))+'</em><b>'+esc(tx(a))+'</b><small>'+esc(tx(li.querySelector('.kps-d')))+'</small></span></a>'});
+    var meta=[fd,fr].filter(Boolean).join(' · ');
+    var el=document.createElement('section');el.className='kx-fp';
+    el.innerHTML='<a class="fp-hero" href="'+esc(fh)+'"><span class="fp-hi"><img alt="" loading="lazy" src="'+esc(fi.src)+'"></span><span class="fp-hb"><span class="fp-k">Featured <i>·</i> '+esc(chip)+'</span><b class="fp-t">'+esc(ft)+'</b><span class="fp-s">'+esc(fsub)+'</span><span class="fp-m">'+esc(meta)+'</span></span></a>'
+      +'<div class="fp-row"><a class="fp-main" lang="ne" href="'+esc(mh)+'" style="--bg:url(\''+esc(big)+'\')"><span class="fp-mi"></span><span class="fp-mb"><span class="fp-mk">'+esc(series)+'</span><b class="fp-mt">शीतला माजुको कथा</b><i class="fp-q">“'+esc(q)+'”</i></span></a><div class="fp-parts">'+ph+'</div></div>';
+    var kh=document.getElementById('kh-feat');var shelf=home.querySelector('.kxs3');
+    var anchor=shelf||kh||feat;
+    if(shelf){var n=shelf.nextElementSibling;shelf.classList.add('kx-hid');while(n&&(n.classList.contains('kx-bar')||n.classList.contains('kx-pg'))){n.classList.add('kx-hid');n=n.nextElementSibling}}
+    if(kh)kh.classList.add('kx-hid');
+    anchor.parentNode.insertBefore(el,anchor);home.setAttribute('data-kfp','1');return true;
+  }
+  var tries=0;(function tick(){if(build()||++tries>40)return;setTimeout(tick,300)})();
 })();
