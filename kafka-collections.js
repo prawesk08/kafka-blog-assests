@@ -740,7 +740,7 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
     var P=d.querySelector('.kb-p'),X=d.querySelector('.kb-x'),T=d.querySelector('.kb-t i'),N=d.querySelector('.kb-n');
     function tiles(){return [].filter.call(s.children,function(c){return !c.classList.contains('k5-more')&&getComputedStyle(c).display!=='none'})}
     function upd(){
-      var ts=tiles(),n=ts.length;if(!n)return;
+      var ts=tiles(),n=ts.length;if(!n)return;if(s.getAttribute('data-n')!==String(n))s.setAttribute('data-n',n);[].forEach.call(s.querySelectorAll('.kx-last'),function(e){e.classList.remove('kx-last')});ts[n-1].classList.add('kx-last');
       var ph=matchMedia('(max-width:640px)').matches,kxl=s.classList.contains('kxl');
       var over=s.scrollWidth>s.clientWidth+4;
       d.classList.toggle('kb-flat',!over);
