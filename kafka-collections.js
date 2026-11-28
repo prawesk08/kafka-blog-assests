@@ -685,3 +685,7 @@ window.kTiny=window.kTiny||function(u,n){
       })})}
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1800);setTimeout(go,4500);setTimeout(go,9000);
 })();
+
+/* v34: show-more for phone shelves */
+(function(){function more(){try{document.querySelectorAll('.three .col ol.klist.kxs,.kstart5,.kxs3,.series2.six').forEach(function(s){if(s.children.length<=6)return;s.classList.add('kxm');var n=s.nextElementSibling;if(n&&n.classList.contains('kx-more'))return;var b=document.createElement('button');b.type='button';b.className='kx-more';b.textContent='Show more';b.addEventListener('click',function(){var all=s.classList.toggle('kx-all');b.textContent=all?'Show less':'Show more'});s.parentNode.insertBefore(b,s.nextSibling)})}catch(e){}}
+var k=0,t=setInterval(function(){more();if(++k>40)clearInterval(t)},600);document.addEventListener('click',function(){setTimeout(more,200)},true)})();
