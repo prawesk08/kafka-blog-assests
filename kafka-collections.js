@@ -659,26 +659,26 @@ window.kTiny=window.kTiny||function(u,n){
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
   function fmt(iso){try{return new Date(iso).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}catch(e){return ''}}
   function go(){
-    var secs=[].filter.call(document.querySelectorAll('.sec-h'),function(h){return /^(most recent|most read)$/i.test((h.textContent||'').replace(/\s+/g,' ').trim())});
+    var secs=[].filter.call(document.querySelectorAll('.sec-h'),function(h){return /^(most recent|most read|pinned)$/i.test((h.textContent||'').replace(/\s+/g,' ').trim())});
     if(!secs.length)return;
     window.__kxFeed&&window.__kxFeed().then(function(m){
       secs.forEach(function(h){
         var box=h.parentElement;if(!box||box.classList.contains(DONE))return;
-        var arts=[].slice.call(box.querySelectorAll('article.krow,.sq-grid article.sq,.wheel article.mini,.track article.mini'));
+        var pin=/^pinned$/i.test((h.textContent||'').trim()),feat=pin?document.querySelector('article.kfeat'):null;var arts=[].slice.call(box.querySelectorAll('article.krow,.sq-grid article.sq,.wheel article.mini,.track article.mini,.pin-pair article.kps'));if(feat)arts.unshift(feat);
         if(arts.length<2)return;
         var seen={},tiles=[];
         arts.forEach(function(a){var l=a.querySelector('a[href$=".html"]');if(!l)return;var u=path(l.href);if(seen[u])return;seen[u]=1;
           var im=a.querySelector('img'),src=im?(im.currentSrc||im.src||''):'';src=src.replace(/=w\d+-rw/,'=w480-rw');
-          var title=m['t:'+u]||(a.querySelector('h3 a,h4 a,a.tt')||l).textContent.trim();
-          var sm=(m[u]||'').replace(/\s+/g,' ');var cut=sm.length>96?sm.slice(0,sm.lastIndexOf(' ',96)||96)+'…':sm;
+          var hd=a.querySelector('h1,h2,h3,h4,.tt,.k-title');var title=m['t:'+u]||(hd?hd.textContent:'')||l.getAttribute('aria-label')||l.textContent;title=title.replace(/\s+/g,' ').trim();
+          var ex=a.querySelector('.exc,p:not(.by):not(.k-label):not(.d)');var sm=(m[u]||(ex?ex.textContent:'')).replace(/\s+/g,' ').trim();var cut=sm.length>96?sm.slice(0,sm.lastIndexOf(' ',96)||96)+'…':sm;
           var long=sm.length>230?(function(){var c=sm.slice(0,230),i=Math.max(c.lastIndexOf('. '),c.lastIndexOf('। '),c.lastIndexOf('? '));return i>110?c.slice(0,i+1):c.slice(0,c.lastIndexOf(' '))+'…'})():sm;
           var cat=m['cat:'+u]||'';var chip=a.querySelector('.chip');if(!cat&&chip)cat=chip.textContent.trim();
           var ne=/[ऀ-ॿ]/.test(title);
           tiles.push('<article class="kx-tile kx-host"'+(ne?' lang="ne"':'')+'><a class="kx-cv" href="'+esc(l.href)+'" aria-label="'+esc(title)+'">'+(src?'<img alt="" loading="lazy" src="'+esc(src)+'">':'')+'</a>'+(cat?'<span class="kx-cat">'+esc(cat)+'</span>':'')+'<div class="kx-tx"><a class="tt" href="'+esc(l.href)+'">'+esc(title)+'</a>'+(cut?'<p class="kx-sn">'+esc(cut)+'</p>':'')+'<p class="d">'+esc(fmt(m['d:'+u])||'')+'</p></div><div class="kx-pn"><b>What you’ll find</b><p>'+esc(long)+'</p><a class="kx-go" href="'+esc(l.href)+'">Read ›</a></div></article>')});
         if(tiles.length<2)return;
         var sh=document.createElement('div');sh.className='kxs3';sh.innerHTML=tiles.join('');
-        box.classList.add(DONE);h.insertAdjacentElement('afterend',sh);
-        [].forEach.call(box.children,function(c){if(c.matches('article.krow,.sq-grid,.wheel-plane'))c.classList.add('kx-hid')});
+        box.classList.add(DONE);h.insertAdjacentElement('afterend',sh);if(pin){h.textContent='Featured & pinned';var fh=[].filter.call(document.querySelectorAll('.sec-h'),function(x){return /^featured$/i.test((x.textContent||'').trim())})[0];if(fh){fh.classList.add('kx-hid')}if(feat)feat.classList.add('kx-hid')}
+        [].forEach.call(box.children,function(c){if(c.matches('article.krow,.sq-grid,.wheel-plane,.pin-pair'))c.classList.add('kx-hid')});
       })})}
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1800);setTimeout(go,4500);setTimeout(go,9000);
 })();
