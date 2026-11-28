@@ -479,3 +479,24 @@ window.kTiny=window.kTiny||function(u,n){
   })}
   line();document.addEventListener('DOMContentLoaded',line);window.addEventListener('load',line);setTimeout(line,1200);
 })();
+
+/* v22: build the bookplate inside each "why I keep it" panel */
+(function(){
+  var ALL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item';
+  function el(t,c,s){var e=document.createElement(t);e.className=c;if(s!=null)e.textContent=s;return e}
+  function plate(){[].forEach.call(document.querySelectorAll(ALL),function(it){
+    var n=it.querySelector(':scope>.kafka-item-note');if(!n||n.hasAttribute('data-kn'))return;
+    var h=it.querySelector('h3'),by=it.querySelector('.kafka-item-by');if(!h)return;
+    var body=n.textContent.replace(/\s+/g,' ').trim();if(!body)return;
+    var im=it.querySelector('.kt-art img'),src=im&&(im.currentSrc||im.src);
+    var b=by?by.cloneNode(true):null;if(b){[].forEach.call(b.querySelectorAll('.kafka-item-line,img'),function(x){x.remove()})}
+    n.textContent='';n.setAttribute('data-kn','1');
+    if(src){var c=el('img','kn-cover');c.alt='';c.src=src;n.appendChild(c)}
+    var t=el('div','kn-text');
+    t.appendChild(el('span','kn-title',h.textContent.replace(/\s+/g,' ').trim()));
+    var bt=b?b.textContent.replace(/\s+/g,' ').trim():'';if(bt)t.appendChild(el('span','kn-by',bt));
+    t.appendChild(el('span','kn-rule'));t.appendChild(el('span','kn-label','Why I keep it'));t.appendChild(el('span','kn-body',body));
+    n.appendChild(t);
+  })}
+  plate();document.addEventListener('DOMContentLoaded',plate);window.addEventListener('load',plate);setTimeout(plate,1200);setTimeout(plate,3000);
+})();
