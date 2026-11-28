@@ -2309,3 +2309,16 @@ html body>section.wrap .hero:not(#kz1):not(#kz2):not(#kz3):not(#kz4){
  background-repeat:no-repeat!important}
 html body>section.wrap .hero:not(#kz1):not(#kz2):not(#kz3):not(#kz4) .who{max-width:58%!important}
 }
+
+/* v76 button rows fill their block evenly (no left-squeeze) */
+html body .kd-top:not(#kj1):not(#kj2):not(#kj3){flex-wrap:wrap!important;row-gap:12px!important}
+html body .kd-top:not(#kj1):not(#kj2):not(#kj3) .kd-lang:not(#kj4){flex:1 1 100%!important;width:100%!important;max-width:none!important;display:flex!important}
+html body .kd-lang:not(#kj1):not(#kj2):not(#kj3)>*{flex:1 1 0!important;min-width:0!important;text-align:center!important;justify-content:center!important}
+html body .ktags:not(#kj1):not(#kj2):not(#kj3){display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px!important}
+html body .ktags:not(#kj1):not(#kj2):not(#kj3)>*{flex:1 1 auto!important;text-align:center!important}
+html body .kafka-item-free:not(#kj1):not(#kj2):not(#kj3){display:flex!important;width:100%!important;gap:8px!important}
+html body .kafka-item-free:not(#kj1):not(#kj2):not(#kj3)>*{flex:1 1 0!important;text-align:center!important;justify-content:center!important}
+html body .kpg p.kpg-links:not(#kj1):not(#kj2):not(#kj3){display:flex!important;width:100%!important}
+html body .kpg p.kpg-links:not(#kj1):not(#kj2):not(#kj3)>a{flex:1 1 auto!important;text-align:center!important;justify-content:center!important}
+html body .kpg .kpg-free:not(#kj1):not(#kj2):not(#kj3){display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+html body .kpg .kpg-free:not(#kj1):not(#kj2):not(#kj3)>a{flex:1 1 auto!important;text-align:center!important}
