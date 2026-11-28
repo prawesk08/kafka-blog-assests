@@ -524,7 +524,7 @@ window.kTiny=window.kTiny||function(u,n){
   function go(){plate();fit()}
   /* a half-visible card at the edge of a shelf slides fully into view when it is hovered or tapped, so its panel is never cut */
   function reveal(it){var s=it&&it.closest('.kshelf-strip');if(!s)return;var a=it.getBoundingClientRect(),b=s.getBoundingClientRect(),d=0;
-    if(a.right>b.right-4)d=a.right-b.right+12;else if(a.left<b.left+4)d=a.left-b.left-12;
+    if(a.right>b.right-4||a.left<b.left+4)d=a.left-b.left; /* align to the strip's snap start */
     if(d)s.scrollBy({left:d,behavior:'smooth'})}
   var lastIt=null;
   document.addEventListener('mouseover',function(e){var it=e.target.closest&&e.target.closest('.kafka-item');if(it){clearTimeout(go._h);go._h=setTimeout(fit,30);if(it!==lastIt){lastIt=it;clearTimeout(go._r);go._r=setTimeout(function(){reveal(it)},140)}}else lastIt=null});
