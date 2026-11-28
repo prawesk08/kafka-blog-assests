@@ -484,6 +484,12 @@ window.kTiny=window.kTiny||function(u,n){
 (function(){
   var ALL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item';
   function el(t,c,s){var e=document.createElement(t);e.className=c;if(s!=null)e.textContent=s;return e}
+  /* thumbnail for the panel: the real cover when there is one, else a copy of the item's typographic tile */
+  function fig(it){
+    var im=it.querySelector('.kt-art img'),src=im&&(im.currentSrc||im.src),f=el('div','kn-fig');
+    if(src){var c=el('img','kn-cover');c.alt='';c.src=src;f.appendChild(c);return f}
+    var a=it.querySelector('.kt-art');if(a&&a.children.length){var k=a.cloneNode(true);k.classList.add('kn-art');k.removeAttribute('style');k.setAttribute('aria-hidden','true');f.appendChild(k);return f}
+    return null}
   function plate(){[].forEach.call(document.querySelectorAll(ALL),function(it){
     var n=it.querySelector(':scope>.kafka-item-note');if(!n||n.hasAttribute('data-kn'))return;
     var h=it.querySelector('h3'),by=it.querySelector('.kafka-item-by');if(!h)return;
@@ -491,10 +497,13 @@ window.kTiny=window.kTiny||function(u,n){
     var im=it.querySelector('.kt-art img'),src=im&&(im.currentSrc||im.src);
     var b=by?by.cloneNode(true):null;if(b){[].forEach.call(b.querySelectorAll('.kafka-item-line,img'),function(x){x.remove()})}
     n.textContent='';n.setAttribute('data-kn','1');
-    if(src){var f=el('div','kn-fig'),c=el('img','kn-cover');c.alt='';c.src=src;f.appendChild(c);n.appendChild(f)}
+    var f0=fig(it);if(f0)n.appendChild(f0);
     var t=el('div','kn-text');
     t.appendChild(el('span','kn-title',h.textContent.replace(/\s+/g,' ').trim()));
-    var bt=b?b.textContent.replace(/\s+/g,' ').trim():'';if(bt)t.appendChild(el('span','kn-by',bt));
+    var bt=b?b.textContent.replace(/\s+/g,' ').trim():'';
+    if(bt){var bs=el('span','kn-by'),ym=bt.match(/^(.*?)[,\u00b7]\s*((?:1[0-9]|20)\d\d(?:[^,]*)?)$/);
+      if(ym){bs.appendChild(el('span','kn-name',ym[1]));bs.appendChild(el('b','kn-year',ym[2]))}else bs.appendChild(el('span','kn-name',bt));
+      t.appendChild(bs)}
     t.appendChild(el('span','kn-rule'));t.appendChild(el('span','kn-label','Why I keep it'));t.appendChild(el('span','kn-body',body));
     n.appendChild(t);
   })}
@@ -502,6 +511,8 @@ window.kTiny=window.kTiny||function(u,n){
   function fit(){[].forEach.call(document.querySelectorAll('[data-kn]'),function(n){
     var f=n.querySelector('.kn-fig'),t=n.querySelector('.kn-text'),b=n.querySelector('.kn-body'),r=n.querySelector('.kn-rule'),a=n.querySelector('.kn-by'),lb=n.querySelector('.kn-label');
     var h=n.clientHeight;if(!h)return;
+    n.setAttribute('data-kns',h>=110?'l':(h>=80?'m':'s'));
+    if(!f){var f2=fig(n.closest('.kafka-item'));if(f2){n.insertBefore(f2,n.firstChild);f=f2}}
     if(f)f.style.width=Math.round((h-16)*2/3)+'px';
     [r,a,lb].forEach(function(x){if(x)x.style.removeProperty('display')});
     var lines=3;b.style.webkitLineClamp=lines;
@@ -511,6 +522,15 @@ window.kTiny=window.kTiny||function(u,n){
     if(t.scrollHeight>t.clientHeight+1&&lb)lb.style.setProperty('display','none','important');
   })}
   function go(){plate();fit()}
+  /* a half-visible card at the edge of a shelf slides fully into view when it is hovered or tapped, so its panel is never cut */
+  function reveal(it){var s=it&&it.closest('.kshelf-strip');if(!s)return;var a=it.getBoundingClientRect(),b=s.getBoundingClientRect(),d=0;
+    if(a.right>b.right-4||a.left<b.left+4)d=a.left-b.left; /* align to the strip's snap start */
+    if(d)s.scrollBy({left:d,behavior:'smooth'})}
+  var lastIt=null;
+  document.addEventListener('mouseover',function(e){var it=e.target.closest&&e.target.closest('.kafka-item');if(it){clearTimeout(go._h);go._h=setTimeout(fit,30);if(it!==lastIt){lastIt=it;clearTimeout(go._r);go._r=setTimeout(function(){reveal(it)},140)}}else lastIt=null});
+  document.addEventListener('click',function(e){var it=e.target.closest&&e.target.closest('.kshelf-strip>.kafka-item');if(it)setTimeout(function(){reveal(it)},60)});
+  document.addEventListener('touchstart',function(){setTimeout(fit,60)},{passive:true});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(go);
   window.addEventListener('resize',function(){clearTimeout(go._t);go._t=setTimeout(fit,150)});
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1200);setTimeout(go,3000);
 })();
