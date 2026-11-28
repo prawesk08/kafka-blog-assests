@@ -612,7 +612,9 @@ window.kTiny=window.kTiny||function(u,n){
     if(strip&&fl&&!strip.contains(fl))strip.appendChild(fl);
     var nav=f.querySelector('.kendnav');
     if(nav&&!nav.querySelector('.kbanner')){var b=document.createElement('a');b.className='kbanner';b.href='/';b.setAttribute('aria-label','Kafkaintherun home — a directory of random things, designed with Claude');
-      b.innerHTML='<b>Kafkaintherun</b><i></i><span>a directory of random things, designed with Claude</span>';
+      var hl=document.querySelector('.site-header .logo img'),hb=document.querySelector('.site-header .hdr-badge img');
+      var L=(hl&&hl.src)||'https://img.kafka.blog/googleusercontent.com/d/1GaxqgL5vx421lm9RcZkEAiNA_fY50s34=w160-rw',R=(hb&&hb.src)||'https://img.kafka.blog/googleusercontent.com/d/1NzJOfwl-j-KOxVIzm5x7FCLc11q3zGwz=w160-rw';
+      b.innerHTML='<img class="kb-l" alt="" src="'+L+'"><span class="kb-c"><span class="kb-n">Kafkaintherun</span><span class="kb-s">a directory of <em>random</em> things &middot; designed with Claude</span></span><img class="kb-r" alt="" src="'+R+'">';
       var top=nav.querySelector('.kend-top');nav.insertBefore(b,top||null)}
   }
   function go(){try{pills();foot()}catch(e){}}
