@@ -665,7 +665,7 @@ window.kTiny=window.kTiny||function(u,n){
       secs.forEach(function(h){
         if(h.getAttribute('data-kx3'))return;
         var sibs=[];for(var n=h.nextElementSibling;n&&!n.matches('.sec-h')&&!n.querySelector('.sec-h');n=n.nextElementSibling)sibs.push(n);
-        var sel='article.krow,.sq-grid article.sq,.wheel article.mini,.track article.mini,.pin-pair article.kps';
+        var sel='article.krow,.sq-grid article.sq,.wheel article.mini,.track article.mini,.pin-pair article.kps,.pin-pair .kps-parts li';
         var arts=[];sibs.forEach(function(sb){if(sb.matches('article.krow'))arts.push(sb);[].forEach.call(sb.querySelectorAll(sel),function(x){arts.push(x)})});
         var pin=/^pinned$/i.test((h.textContent||'').trim()),feat=pin?document.querySelector('article.kfeat'):null;if(feat)arts.unshift(feat);
         if(arts.length<2)return;
