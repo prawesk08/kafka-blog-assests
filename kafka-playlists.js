@@ -340,7 +340,10 @@
     for (k in cv){
       if (!out[k] && !cv[k].src) continue;
       var m = out[k] || {}, c = cv[k], f;
+      var wide = !(man && man.videos) && out[k] && out[k].src;
       for (f in c) m[f] = c[f];
+      /* v5 (2026-11-28): R2's 16:9 file wins over an older src kept in the captions file, and that cut's poster goes with it */
+      if (wide && m.src !== wide){ m.src = wide; delete m.poster; }
       out[k] = m;
     }
     for (k in FILM_SKIP) delete out[k];

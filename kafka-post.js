@@ -2024,6 +2024,12 @@ window.KAFKA_DESC = {"/2023/02/sattako-mahabharat-hami-dhritarashtraharu.html":"
       var item = {}, k;
       for (k in (base || {})) item[k] = base[k];
       for (k in (over || {})) item[k] = over[k];
+      /* v199 (2026-11-28): when R2 has a 16:9 file for this post, show it. A src kept in the captions file is only a
+         fallback for films R2 does not list; its poster belongs to that older cut, so it goes too. */
+      if (base && base.src && res[0] && !res[0].videos){
+        if (item.src !== base.src && over && over.src) delete item.poster;
+        item.src = base.src;
+      }
       /* entries from the flat manifest carry only a title: borrow the post's own picture and summary */
       if (!item.poster) item.poster = metaContent('meta[property="og:image"]');
       if (!item.description) item.description = metaContent('meta[name="description"]') || metaContent('meta[property="og:description"]');
