@@ -625,7 +625,7 @@ window.kTiny=window.kTiny||function(u,n){
 (function(){
   var MAP=null;
   function path(h){try{return new URL(h,location.origin).pathname}catch(e){return ''}}
-  function feed(){if(MAP)return MAP;MAP=fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.json()}).then(function(j){var m={};((j.feed||{}).entry||[]).forEach(function(e){var l=(e.link||[]).filter(function(x){return x.rel==='alternate'})[0];if(l){m[path(l.href)]=((e.summary||{}).$t||'').replace(/\s+/g,' ').trim();m['t:'+path(l.href)]=((e.title||{}).$t||'').trim();m['d:'+path(l.href)]=(e.published||{}).$t||'';m['cat:'+path(l.href)]=(e.category||[]).map(function(c){return c.term}).filter(function(t){return t&&!/^(nepali|english)$/i.test(t)}).slice(0,1).join('')}});return m}).catch(function(){return {}});return MAP}
+  function feed(){if(MAP)return MAP;MAP=fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.json()}).then(function(j){var m={};((j.feed||{}).entry||[]).forEach(function(e){var l=(e.link||[]).filter(function(x){return x.rel==='alternate'})[0];if(l){m[path(l.href)]=((e.summary||{}).$t||'').replace(/\s+/g,' ').trim();m['t:'+path(l.href)]=((e.title||{}).$t||'').trim();m['d:'+path(l.href)]=(e.published||{}).$t||'';m['cat:'+path(l.href)]=(e.category||[]).map(function(c){return c.term}).filter(function(t){return t&&!/^(nepali|english|articles|published articles|ramblings|lang-.*|pair-.*|series-.*)$/i.test(t)}).slice(0,1).join('')}});return m}).catch(function(){return {}});return MAP}
   function snip(t){if(!t)return '';t=t.replace(/\s+/g,' ');if(t.length<=230)return t;var c=t.slice(0,230),i=Math.max(c.lastIndexOf('. '),c.lastIndexOf('। '),c.lastIndexOf('? '));if(i>110)return c.slice(0,i+1);i=c.lastIndexOf(' ');return c.slice(0,i>0?i:230)+'…'}
   function panel(host,html,href,label){if(host.querySelector(':scope>.kx-pn'))return;var p=document.createElement('div');p.className='kx-pn';p.innerHTML='<b>'+(label||'What you’ll find')+'</b>'+html+'<a class="kx-go" href="'+href+'">'+(document.documentElement.lang==='ne'?'पढ्नुहोस् ›':'Read ›')+'</a>';host.appendChild(p);host.classList.add('kx-host')}
   function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
@@ -663,8 +663,11 @@ window.kTiny=window.kTiny||function(u,n){
     if(!secs.length)return;
     window.__kxFeed&&window.__kxFeed().then(function(m){
       secs.forEach(function(h){
-        var box=h.parentElement;if(!box||box.classList.contains(DONE))return;
-        var pin=/^pinned$/i.test((h.textContent||'').trim()),feat=pin?document.querySelector('article.kfeat'):null;var arts=[].slice.call(box.querySelectorAll('article.krow,.sq-grid article.sq,.wheel article.mini,.track article.mini,.pin-pair article.kps'));if(feat)arts.unshift(feat);
+        if(h.getAttribute('data-kx3'))return;
+        var sibs=[];for(var n=h.nextElementSibling;n&&!n.matches('.sec-h')&&!n.querySelector('.sec-h');n=n.nextElementSibling)sibs.push(n);
+        var sel='article.krow,.sq-grid article.sq,.wheel article.mini,.track article.mini,.pin-pair article.kps';
+        var arts=[];sibs.forEach(function(sb){if(sb.matches('article.krow'))arts.push(sb);[].forEach.call(sb.querySelectorAll(sel),function(x){arts.push(x)})});
+        var pin=/^pinned$/i.test((h.textContent||'').trim()),feat=pin?document.querySelector('article.kfeat'):null;if(feat)arts.unshift(feat);
         if(arts.length<2)return;
         var seen={},tiles=[];
         arts.forEach(function(a){var l=a.querySelector('a[href$=".html"]');if(!l)return;var u=path(l.href);if(seen[u])return;seen[u]=1;
@@ -677,8 +680,8 @@ window.kTiny=window.kTiny||function(u,n){
           tiles.push('<article class="kx-tile kx-host"'+(ne?' lang="ne"':'')+'><a class="kx-cv" href="'+esc(l.href)+'" aria-label="'+esc(title)+'">'+(src?'<img alt="" loading="lazy" src="'+esc(src)+'">':'')+'</a>'+(cat?'<span class="kx-cat">'+esc(cat)+'</span>':'')+'<div class="kx-tx"><a class="tt" href="'+esc(l.href)+'">'+esc(title)+'</a>'+(cut?'<p class="kx-sn">'+esc(cut)+'</p>':'')+'<p class="d">'+esc(fmt(m['d:'+u])||'')+'</p></div><div class="kx-pn"><b>What you’ll find</b><p>'+esc(long)+'</p><a class="kx-go" href="'+esc(l.href)+'">Read ›</a></div></article>')});
         if(tiles.length<2)return;
         var sh=document.createElement('div');sh.className='kxs3';sh.innerHTML=tiles.join('');
-        box.classList.add(DONE);h.insertAdjacentElement('afterend',sh);if(pin){h.textContent='Featured & pinned';var fh=[].filter.call(document.querySelectorAll('.sec-h'),function(x){return /^featured$/i.test((x.textContent||'').trim())})[0];if(fh){fh.classList.add('kx-hid')}if(feat)feat.classList.add('kx-hid')}
-        [].forEach.call(box.children,function(c){if(c.matches('article.krow,.sq-grid,.wheel-plane,.pin-pair'))c.classList.add('kx-hid')});
+        h.setAttribute('data-kx3','1');h.insertAdjacentElement('afterend',sh);if(pin){var h2=h.querySelector('h2 span,h2');if(h2){var tn=[].filter.call(h2.childNodes,function(x){return x.nodeType===3&&x.textContent.trim()})[0];if(h2.querySelector('span')&&h2.querySelector('span').children.length===0)h2.querySelector('span').textContent='Featured & pinned';else if(tn)tn.textContent='Featured & pinned'}var fh=[].filter.call(document.querySelectorAll('.sec-h'),function(x){return /^featured$/i.test((x.textContent||'').trim())})[0];if(fh){fh.classList.add('kx-hid')}if(feat)feat.classList.add('kx-hid')}
+        sibs.forEach(function(c){if(c.matches('article.krow,.sq-grid,.wheel-plane,.pin-pair'))c.classList.add('kx-hid')});
       })})}
   go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1800);setTimeout(go,4500);setTimeout(go,9000);
 })();
