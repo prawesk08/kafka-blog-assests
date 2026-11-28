@@ -1074,3 +1074,15 @@ f();window.addEventListener('load',function(){setTimeout(f,300)});window.addEven
  try{new MutationObserver(function(m){for(var i=0;i<m.length;i++){var t=m[i].target;if(t.nodeType===1&&(t.matches('.kser-items>li,.kxs3>.kx-tile')))sync(t)}}).observe(document.body,{attributes:true,attributeFilter:['class'],subtree:true})}catch(e){}
  document.addEventListener('click',function(){setTimeout(all,30);setTimeout(all,300)},true);
 })();
+
+/* v112 one tap / one click opens the page on every tile (books, songs, series, movies, post tiles). On touch screens the first tap used to be swallowed by hover logic. */
+(function(){
+ var SEL='.kx-tile,.kafka-item',SKIP='a,button,input,select,textarea,audio,summary,label,.kord,.klsw,.kchips,.kx-tnav';
+ function href(el){var a=el.querySelector('a.tt[href],.kafka-item-read a[href],.kafka-item-more a[href],a.kx-go[href]');return a&&a.href}
+ var sx=0,sy=0,st=0;
+ document.addEventListener('touchstart',function(e){var t=e.touches[0];if(!t)return;sx=t.clientX;sy=t.clientY;st=Date.now()},{passive:true,capture:true});
+ document.addEventListener('touchend',function(e){var t=e.changedTouches[0];if(!t||Math.abs(t.clientX-sx)>10||Math.abs(t.clientY-sy)>10||Date.now()-st>600)return;
+  var el=e.target.closest&&e.target.closest(SEL);if(!el||e.target.closest(SKIP))return;var h=href(el);if(!h)return;e.preventDefault();location.href=h},{passive:false,capture:true});
+ document.addEventListener('click',function(e){if(e.defaultPrevented||e.button>0)return;var el=e.target.closest&&e.target.closest('.kx-tile');if(!el||e.target.closest(SKIP))return;var h=href(el);if(!h)return;
+  e.preventDefault();if(e.ctrlKey||e.metaKey||e.shiftKey)window.open(h,'_blank');else location.href=h},true);
+})();
