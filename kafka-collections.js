@@ -498,5 +498,18 @@ window.kTiny=window.kTiny||function(u,n){
     t.appendChild(el('span','kn-rule'));t.appendChild(el('span','kn-label','Why I keep it'));t.appendChild(el('span','kn-body',body));
     n.appendChild(t);
   })}
-  plate();document.addEventListener('DOMContentLoaded',plate);window.addEventListener('load',plate);setTimeout(plate,1200);setTimeout(plate,3000);
+  /* fit: cover width from the panel height; drop note lines (then rule, then author) until nothing overflows */
+  function fit(){[].forEach.call(document.querySelectorAll('[data-kn]'),function(n){
+    var f=n.querySelector('.kn-fig'),t=n.querySelector('.kn-text'),b=n.querySelector('.kn-body'),r=n.querySelector('.kn-rule'),a=n.querySelector('.kn-by');
+    var h=n.clientHeight;if(!h)return;
+    if(f)f.style.width=Math.round((h-16)*2/3)+'px';
+    [r,a].forEach(function(x){if(x)x.style.display=''});
+    var lines=3;b.style.webkitLineClamp=lines;
+    while(t.scrollHeight>t.clientHeight+1&&lines>1){lines--;b.style.webkitLineClamp=lines}
+    if(t.scrollHeight>t.clientHeight+1&&r)r.style.setProperty('display','none','important');
+    if(t.scrollHeight>t.clientHeight+1&&a)a.style.setProperty('display','none','important');
+  })}
+  function go(){plate();fit()}
+  window.addEventListener('resize',function(){clearTimeout(go._t);go._t=setTimeout(fit,150)});
+  go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',go);setTimeout(go,1200);setTimeout(go,3000);
 })();
