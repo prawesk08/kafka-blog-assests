@@ -754,6 +754,9 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
     function gcd(a,b){return b?gcd(b,a%b):a}
     /* last column fills the whole height: its tiles stretch evenly so no empty cells are left */
     function fit(s,ts){
+      var ld=s.hasAttribute('data-lead')&&ts.length>4?ts[0]:null;if(ld){ts=ts.slice(1);ld.style.removeProperty('grid-row')}
+      var rr=fit0(s,ts);if(ld){var rows=getComputedStyle(s).gridTemplateRows.split(' ').length;ld.style.setProperty('grid-row','span '+rows,'important')}return rr}
+    function fit0(s,ts){
       var n=ts.length;
       s.style.removeProperty('grid-template-rows');ts.forEach(function(t){t.style.removeProperty('grid-row')});
       var cs=getComputedStyle(s);if(cs.gridAutoFlow.indexOf('column')<0)return 0;
@@ -943,4 +946,13 @@ var k=0,t=setInterval(function(){all();if(++k>40)clearInterval(t)},700)})();
   var upd=function(){ var n=dlg.querySelector('.v-n'); var k=n?parseInt(n.textContent,10)-1:-1; cap.textContent=HOME[k]||''; };
   if(window.MutationObserver&&im)new MutationObserver(upd).observe(im,{attributes:true,attributeFilter:['src']});
  }
+})();
+
+/* v93 lead tile for Most read / Most recent */
+(function(){
+ function mark(){[].forEach.call(document.querySelectorAll('.sec-h'),function(h){
+  if(!/most read|most recent/i.test(h.textContent||''))return;
+  var s=h.nextElementSibling;while(s&&!s.classList.contains('kxs3')&&s!==h.parentElement.lastElementChild)s=s.nextElementSibling;
+  if(s&&s.classList.contains('kxs3')&&!s.hasAttribute('data-lead')){s.setAttribute('data-lead','1');s.__kxu&&s.__kxu()}})}
+ [300,1200,2500,5000,9000].forEach(function(t){setTimeout(mark,t)});mark();
 })();
