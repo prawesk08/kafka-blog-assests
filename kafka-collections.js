@@ -405,3 +405,77 @@ window.kTiny=window.kTiny||function(u,n){
   }
   icons(); document.addEventListener('DOMContentLoaded',icons); window.addEventListener('load',icons); setTimeout(icons,1200);
 })();
+
+/* v21: panel colour fallback + icon links (Spotify, where-to-watch, library finder) on the Songs / Books / Series lists */
+(function(){
+  var ALL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item';
+  function txt(el){return el?el.textContent.replace(/\s+/g,' ').trim():''}
+  function hue(s){var h=0;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%360;return h}
+  /* 1. every card has something to paint behind "why I keep it": its cover, else a colour taken from its title */
+  function tint(){[].forEach.call(document.querySelectorAll(ALL),function(it){
+    if(it.style.getPropertyValue('--kbg'))return;
+    var im=it.querySelector('.kt-art img'),u=im&&(im.currentSrc||im.src);
+    if(u){it.style.setProperty('--kbg','url("'+u.replace(/"/g,'%22')+'")');return}
+    var h=hue(txt(it.querySelector('h3')));
+    it.style.setProperty('--kbg','linear-gradient(135deg,hsl('+h+',55%,70%),hsl('+((h+55)%360)+',50%,84%))');
+  })}
+  /* 2. icon links */
+  var G={
+    spotify:'<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1db954"/><path d="M6.2 9.2c3.9-1.1 8.1-.8 11.6 1M6.8 12.5c3.3-.9 6.7-.6 9.6.9M7.4 15.6c2.6-.6 5.2-.4 7.5.7" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>',
+    youtube:'<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="4" fill="#e62117"/><path d="M10 9.3v5.4l4.6-2.7z" fill="#fff"/></svg>',
+    netflix:'<span style="font:700 12px/1 Georgia,serif;color:#e50914">N</span>',
+    prime:'<span style="font:700 9px/1 Inter,system-ui,sans-serif;color:#00a8e1">prime</span>',
+    hulu:'<span style="font:700 9px/1 Inter,system-ui,sans-serif;color:#1ce783;background:#0b0c0f;padding:2px 3px;border-radius:2px">hulu</span>',
+    where:'<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="#7b2d26" stroke-width="2"/><path d="m15.2 15.2 5 5" stroke="#7b2d26" stroke-width="2.2" stroke-linecap="round"/></svg>',
+    library:'<svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18" fill="none" stroke="#7b2d26" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    read:'<span>📖</span>',listen:'<span>🎧</span>'
+  };
+  function add(it,list){
+    var box=it.querySelector(':scope>.kafka-item-free');
+    if(!box){box=document.createElement('p');box.className='kafka-item-free';it.appendChild(box)}
+    list.forEach(function(x){
+      if(box.querySelector('a[data-k="'+x.k+'"]'))return;
+      var a=document.createElement('a');a.href=x.u;a.target='_blank';a.rel='noopener';a.dataset.ico='1';a.dataset.k=x.k;
+      a.title=x.t;a.setAttribute('aria-label',x.t);a.innerHTML=G[x.k]||x.k;box.appendChild(a);
+    });
+  }
+  function q(s){return encodeURIComponent(s)}
+  function who(it){return txt(it.querySelector('.kafka-item-by')).replace(/,?\s*\d{4}.*$/,'').replace(/^Directed by\s*/i,'').split(' · ')[0].trim()}
+  function songs(){[].forEach.call(document.querySelectorAll('.kafka-list[data-list="songs"] .kafka-item:not(.kafka-album)'),function(it){
+    var t=txt(it.querySelector('h3')),a=who(it);if(!t)return;
+    add(it,[{k:'spotify',t:'Listen on Spotify',u:'https://open.spotify.com/search/'+q(t+' '+a)}]);
+  })}
+  function series(){[].forEach.call(document.querySelectorAll('.kafka-list[data-list="series"] .kafka-item'),function(it){
+    var t=txt(it.querySelector('h3'));if(!t)return;
+    add(it,[
+      {k:'youtube',t:'Search on YouTube',u:'https://www.youtube.com/results?search_query='+q(t+' tv series')},
+      {k:'netflix',t:'Search on Netflix',u:'https://www.netflix.com/search?q='+q(t)},
+      {k:'prime',t:'Search on Prime Video',u:'https://www.amazon.com/s?i=instant-video&k='+q(t)},
+      {k:'hulu',t:'Search on Hulu',u:'https://www.hulu.com/search?q='+q(t)},
+      {k:'where',t:'Where to watch (JustWatch)',u:'https://www.justwatch.com/us/search?q='+q(t)}
+    ]);
+  })}
+  function books(){[].forEach.call(document.querySelectorAll('.kafka-list[data-list="books"] .kafka-item'),function(it){
+    if(it.querySelector(':scope>.kafka-item-free a:not([data-k="library"])'))return;     /* a free copy exists: no library link needed */
+    var t=txt(it.querySelector('h3')).replace(/\s*\(.*?\)\s*/g,' ').trim(),a=who(it);if(!t)return;
+    add(it,[{k:'library',t:'Find it in a library near you (WorldCat)',u:'https://search.worldcat.org/search?q='+q(t+' '+a)}]);
+  })}
+  function run(){tint();songs();series();books()}
+  run();document.addEventListener('DOMContentLoaded',run);window.addEventListener('load',run);setTimeout(run,1200);setTimeout(run,3000);
+})();
+
+/* v21b: every tile carries a line under its title; where the owner has not written a quote yet it is drawn from the item's own data (tags, track count) */
+(function(){
+  var ALL='.kafka-list[data-list="songs"] .kafka-item,.kafka-list[data-list="books"] .kafka-item,.kafka-list[data-list="movies"] .kafka-item,.kafka-list[data-list="series"] .kafka-item';
+  function line(){[].forEach.call(document.querySelectorAll(ALL),function(it){
+    if(it.querySelector('.kafka-item-quote,.kafka-item-line'))return;
+    var tag=it.querySelector('.kafka-item-tag'),by=it.querySelector('.kafka-item-by');
+    var t=(tag?tag.textContent:'').replace(/\s+/g,' ').trim();
+    var m=(it.textContent.match(/(\d+)\s+songs?\s+here/i)||[])[1];
+    if(!t){var sh=it.closest('.kshelf'),hd=sh&&sh.querySelector('h2,.kafka-list-shelf');if(!hd){var e=it;while(e&&!hd){e=e.previousElementSibling||(e.parentNode&&e.parentNode.previousElementSibling);if(e&&/^H2$/.test(e.tagName))hd=e;if(e&&e.querySelector&&!hd)hd=e.querySelector('h2')}}t=hd?[].filter.call(hd.childNodes,function(n){return n.nodeType===3}).map(function(n){return n.textContent}).join(' ').replace(/\s+/g,' ').replace(/^.*?:\s*/,'').trim():''}
+    var parts=[];if(t)parts.push(t);if(m)parts.push(m+' tracks');
+    if(!parts.length)return;
+    if(!by)return;var p=document.createElement('span');p.className='kafka-item-line';p.textContent=parts.join(' \u00b7 ');by.appendChild(p);
+  })}
+  line();document.addEventListener('DOMContentLoaded',line);window.addEventListener('load',line);setTimeout(line,1200);
+})();
