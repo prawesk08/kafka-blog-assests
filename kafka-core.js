@@ -829,8 +829,12 @@ window.KAFKA_RECPLAYER = function (rec) {
     var dk = document.querySelector('.kdock'); if (!dk) return;
     if (!started) { dk.style.removeProperty('--ky'); return; }
     /* v199: the player steps down the right edge five times over the piece (every 20%), then stays put until the next step */
-    var idx = Math.min(4, Math.floor((lastF || 0) * 5)), vh = window.innerHeight;
-    var y = Math.max(165, Math.min(vh - 110, vh * (0.3 + idx * 0.1)));
+    var vh = window.innerHeight, y;
+    /* v116: the pill sits beside the part being read - the share of audio played mapped onto the article body, kept inside the screen */
+    var bd = document.querySelector('.prose, .post-body, .poem-body, article.post .entry-content');
+    if (bd && bd.offsetHeight > vh) { var rc = bd.getBoundingClientRect(); y = rc.top + (lastF || 0) * rc.height; }
+    else { var idx = Math.min(4, Math.floor((lastF || 0) * 5)); y = vh * (0.3 + idx * 0.1); }
+    y = Math.max(165, Math.min(vh - 110, y));
     dk.style.setProperty('--ky', Math.round(y) + 'px');
   }
   function followContent(f) { placeDock(f); }
